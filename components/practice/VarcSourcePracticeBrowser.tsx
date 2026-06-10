@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import type { PracticeLevel } from "@/types/practice";
 import type { VarcSourceQuestion, VarcType } from "@/types/varc-practice";
 import { OutlinePill } from "@/components/ui/Badge";
+import { DifficultyBadge, EmptyState } from "@/components/ui/premium";
 
 const PAGE_SIZE = 16;
 
@@ -43,7 +44,7 @@ export function VarcSourcePracticeBrowser({
   const filtered = useMemo(
     () =>
       questions.filter((q) => {
-        const haystack = `${q.question_text_markdown} ${q.varc_type} ${q.subtopic} ${q.source_file}`.toLowerCase();
+        const haystack = `${q.question_text_markdown} ${q.varc_type} ${q.subtopic}`.toLowerCase();
         return (
           (!filters.query || haystack.includes(filters.query.toLowerCase())) &&
           (filters.varcType === "All" || q.varc_type === filters.varcType) &&
@@ -64,36 +65,43 @@ export function VarcSourcePracticeBrowser({
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-3 rounded-2xl border border-white/8 bg-white/[0.025] p-4 md:grid-cols-4">
-        <input
-          value={filters.query}
-          onChange={(e) => update({ query: e.target.value })}
-          placeholder="Search VARC bank…"
-          className="rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-cyan-400/40 md:col-span-2"
-        />
+      <div className="grid gap-3 rounded-2xl border border-white/8 bg-white/[0.025] p-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative sm:col-span-2">
+          <Search size={15} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-600" />
+          <input
+            value={filters.query}
+            onChange={(e) => update({ query: e.target.value })}
+            placeholder="Search questions"
+            className="w-full rounded-xl border border-white/10 bg-ink-950/80 py-2 pl-9 pr-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-cyan-400/40"
+          />
+        </div>
         <Select value={filters.varcType} onChange={(v) => update({ varcType: v })} options={options.varcTypes} label="Type" />
         {level === "Mixed" && (
           <Select value={filters.level} onChange={(v) => update({ level: v })} options={options.levels} label="Level" />
         )}
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-slate-500">
-          {filtered.length} question{filtered.length === 1 ? "" : "s"} match.
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-slate-400">
+          <span className="font-semibold text-white">{filtered.length}</span> question{filtered.length === 1 ? "" : "s"}
+          {level !== "Mixed" ? ` in ${level}` : ""}
         </p>
-        <p className="text-xs text-slate-600">Source-direct from PDF — text preserved as written.</p>
+        <p className="text-xs text-slate-600">Preserved exactly from source</p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         {pageSlice.map((q) => (
           <VarcQuestionCard key={q.question_id} question={q} />
         ))}
-        {!pageSlice.length && (
-          <div className="rounded-xl border border-white/8 bg-white/[0.025] p-8 text-center text-sm text-slate-500">
-            No questions match the current filters.
-          </div>
-        )}
       </div>
+
+      {!pageSlice.length && (
+        <EmptyState
+          icon={Search}
+          title="No questions match"
+          description="Try clearing a filter or searching for a different question type."
+        />
+      )}
 
       {totalPages > 1 && (
         <Pagination page={safePage} totalPages={totalPages} total={filtered.length} pageSize={PAGE_SIZE} onChange={setPage} />
@@ -108,37 +116,35 @@ function VarcQuestionCard({ question }: { question: VarcSourceQuestion }) {
   const questionPreview = question.question_text_markdown.trim().slice(0, 160).replace(/\n+/g, " ").trim();
 
   return (
-    <article className="rounded-xl border border-white/8 bg-white/[0.025] p-5 transition-all hover:border-cyan-400/25 hover:bg-white/[0.045]">
+    <Link
+      href={`/exams/cat/varc/source/practice/${question.question_id}`}
+      className="group flex flex-col rounded-2xl border border-white/8 bg-white/[0.025] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/25 hover:bg-white/[0.045]"
+    >
       <div className="flex flex-wrap items-center gap-2">
         <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-semibold ${typeColor}`}>
           {question.varc_type === "RC" && <BookOpen size={10} />}
           {question.varc_type}
         </span>
         <OutlinePill>{question.practice_level}</OutlinePill>
-        {question.difficulty && <OutlinePill>{question.difficulty}</OutlinePill>}
+        {question.difficulty && <DifficultyBadge level={question.difficulty} />}
       </div>
 
       {question.varc_type === "RC" && passagePreview && (
         <p className="mt-3 text-xs italic leading-relaxed text-slate-500 line-clamp-2">
-          {passagePreview}{passagePreview.length === 180 ? "…" : ""}
+          {passagePreview}
+          {passagePreview.length === 180 ? "…" : ""}
         </p>
       )}
 
-      <p className="mt-2 text-sm leading-relaxed text-slate-300 line-clamp-2">
+      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-300">
         {questionPreview || "Open the question to view the full text."}
         {questionPreview.length === 160 ? "…" : ""}
       </p>
 
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
-        <p className="text-[11px] text-slate-600">{question.source_file} · Q{question.source_question_number}</p>
-        <Link
-          href={`/exams/cat/varc/source/practice/${question.question_id}`}
-          className="inline-flex items-center gap-1 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1.5 text-xs font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/[0.1]"
-        >
-          Practice <ArrowRight size={12} />
-        </Link>
-      </div>
-    </article>
+      <span className="mt-4 inline-flex items-center gap-1 border-t border-white/8 pt-4 text-xs font-semibold text-cyan-300">
+        Open question <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+      </span>
+    </Link>
   );
 }
 
@@ -148,7 +154,7 @@ function Select({ value, onChange, options, label }: { value: string; onChange: 
       value={value}
       onChange={(e) => onChange(e.target.value)}
       aria-label={label}
-      className="rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-cyan-400/40"
+      className="w-full rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-cyan-400/40"
     >
       <option value="All">All {label}</option>
       {options.map((o) => (
@@ -170,7 +176,7 @@ function Pagination({ page, totalPages, total, pageSize, onChange }: { page: num
           disabled={page === 0}
           className="inline-flex items-center gap-1 rounded-lg border border-white/8 bg-white/[0.025] px-3 py-1.5 text-sm text-slate-300 transition-all hover:border-cyan-400/25 hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-40"
         >
-          <ChevronLeft size={14} /> Previous
+          <ChevronLeft size={14} /> <span className="hidden sm:inline">Previous</span>
         </button>
         <span className="text-sm text-slate-500">Page {page + 1} / {totalPages}</span>
         <button
@@ -178,7 +184,7 @@ function Pagination({ page, totalPages, total, pageSize, onChange }: { page: num
           disabled={page >= totalPages - 1}
           className="inline-flex items-center gap-1 rounded-lg border border-white/8 bg-white/[0.025] px-3 py-1.5 text-sm text-slate-300 transition-all hover:border-cyan-400/25 hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Next <ChevronRight size={14} />
+          <span className="hidden sm:inline">Next</span> <ChevronRight size={14} />
         </button>
       </div>
     </div>

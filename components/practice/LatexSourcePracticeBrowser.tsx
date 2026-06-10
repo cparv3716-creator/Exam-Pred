@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, FileText } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import type { PracticeLevel } from "@/types/practice";
 import type { LatexSourcePracticeQuestion } from "@/types/latex-practice";
 import { OutlinePill } from "@/components/ui/Badge";
+import { DifficultyBadge, EmptyState } from "@/components/ui/premium";
 import { RichMathRenderer } from "@/components/practice/RichMathRenderer";
 
 const PAGE_SIZE = 18;
@@ -34,7 +35,7 @@ export function LatexSourcePracticeBrowser({
     sourceFiles: unique(questions.map((question) => question.source_tex_file)),
   }), [questions]);
   const filtered = useMemo(() => questions.filter((question) => {
-    const haystack = `${question.plain_preview} ${question.topic} ${question.subtopic} ${question.source_tex_file}`.toLowerCase();
+    const haystack = `${question.plain_preview} ${question.topic} ${question.subtopic}`.toLowerCase();
     return (
       (!filters.query || haystack.includes(filters.query.toLowerCase())) &&
       (filters.topic === "All" || question.topic === filters.topic) &&
@@ -54,26 +55,40 @@ export function LatexSourcePracticeBrowser({
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-3 rounded-2xl border border-white/8 bg-white/[0.025] p-4 md:grid-cols-5">
-        <input
-          value={filters.query}
-          onChange={(event) => update({ query: event.target.value })}
-          placeholder="Search LaTeX bank"
-          className="rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-cyan-400/40 md:col-span-2"
-        />
+      <div className="grid gap-3 rounded-2xl border border-white/8 bg-white/[0.025] p-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="relative sm:col-span-2">
+          <Search size={15} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-600" />
+          <input
+            value={filters.query}
+            onChange={(event) => update({ query: event.target.value })}
+            placeholder="Search questions"
+            className="w-full rounded-xl border border-white/10 bg-ink-950/80 py-2 pl-9 pr-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-cyan-400/40"
+          />
+        </div>
         <Select value={filters.topic} onChange={(value) => update({ topic: value })} options={options.topics} label="Topic" />
         <Select value={filters.difficulty} onChange={(value) => update({ difficulty: value })} options={options.difficulties} label="Difficulty" />
         <Select value={filters.questionType} onChange={(value) => update({ questionType: value })} options={options.questionTypes} label="Type" />
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-slate-500">{filtered.length} LaTeX-source question{filtered.length === 1 ? "" : "s"} match.</p>
-        <p className="text-xs text-slate-600">Direct LaTeX source bank; old PDF-extracted rows are not mixed here.</p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-slate-400">
+          <span className="font-semibold text-white">{filtered.length}</span> question{filtered.length === 1 ? "" : "s"}
+          {level !== "Mixed" ? ` in ${level}` : ""}
+        </p>
+        <p className="text-xs text-slate-600">Source-grounded · solutions included</p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         {pageSlice.map((question) => <LatexSourceQuestionCard key={question.question_id} question={question} />)}
       </div>
+
+      {!pageSlice.length && (
+        <EmptyState
+          icon={Search}
+          title="No questions match"
+          description="Try clearing a filter or searching for a different topic."
+        />
+      )}
 
       {totalPages > 1 && <Pagination page={safePage} totalPages={totalPages} total={filtered.length} pageSize={PAGE_SIZE} onChange={setPage} />}
     </div>
@@ -82,28 +97,29 @@ export function LatexSourcePracticeBrowser({
 
 function LatexSourceQuestionCard({ question }: { question: LatexSourcePracticeQuestion }) {
   return (
-    <article className="rounded-xl border border-white/8 bg-white/[0.025] p-5 transition-all hover:border-cyan-400/25 hover:bg-white/[0.045]">
+    <Link
+      href={`/exams/cat/quant/latex-source/practice/${question.question_id}`}
+      className="group flex flex-col rounded-2xl border border-white/8 bg-white/[0.025] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/25 hover:bg-white/[0.045]"
+    >
       <div className="flex flex-wrap items-center gap-2">
         <OutlinePill>{question.practice_level}</OutlinePill>
-        <OutlinePill>{question.difficulty}</OutlinePill>
+        <DifficultyBadge level={question.difficulty} />
         <OutlinePill>{question.question_type}</OutlinePill>
-        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-2.5 py-1 text-[11px] font-semibold text-emerald-200">
-          <FileText size={11} /> Source: LaTeX
-        </span>
       </div>
-      <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+      <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
         <span className="font-medium text-slate-400">{question.topic}</span>
-        <span>/</span>
+        <span className="text-slate-700">/</span>
         <span>{question.subtopic}</span>
       </div>
-      <RichMathRenderer content={question.plain_preview || "Open the question to view the full LaTeX source."} compact className="mt-3 text-sm leading-relaxed text-slate-300" />
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
-        <p className="text-[11px] text-slate-600">{question.source_tex_file.split("/").pop()} · Q{question.source_question_number}</p>
-        <Link href={`/exams/cat/quant/latex-source/practice/${question.question_id}`} className="inline-flex items-center gap-1 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-3 py-1.5 text-xs font-semibold text-cyan-300 transition-colors hover:bg-cyan-400/[0.1]">
-          Open <ArrowRight size={12} />
-        </Link>
-      </div>
-    </article>
+      <RichMathRenderer
+        content={question.plain_preview || "Open the question to view the full problem."}
+        compact
+        className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-300"
+      />
+      <span className="mt-4 inline-flex items-center gap-1 border-t border-white/8 pt-4 text-xs font-semibold text-cyan-300">
+        Open question <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+      </span>
+    </Link>
   );
 }
 
@@ -113,7 +129,7 @@ function Select({ value, onChange, options, label }: { value: string; onChange: 
       value={value}
       onChange={(event) => onChange(event.target.value)}
       aria-label={label}
-      className="rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-cyan-400/40"
+      className="w-full rounded-xl border border-white/10 bg-ink-950/80 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-cyan-400/40"
     >
       <option value="All">All {label}</option>
       {options.map((option) => <option key={option} value={option}>{option}</option>)}
@@ -126,14 +142,14 @@ function Pagination({ page, totalPages, total, pageSize, onChange }: { page: num
   const end = Math.min((page + 1) * pageSize, total);
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-white/8 bg-white/[0.025] px-5 py-3">
-      <p className="text-sm text-slate-500">Showing {start}-{end} of {total}</p>
+      <p className="text-sm text-slate-500">Showing {start}–{end} of {total}</p>
       <div className="flex items-center gap-2">
         <button onClick={() => onChange(page - 1)} disabled={page === 0} className="inline-flex items-center gap-1 rounded-lg border border-white/8 bg-white/[0.025] px-3 py-1.5 text-sm text-slate-300 transition-all hover:border-cyan-400/25 hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-40">
-          <ChevronLeft size={14} /> Previous
+          <ChevronLeft size={14} /> <span className="hidden sm:inline">Previous</span>
         </button>
         <span className="text-sm text-slate-500">Page {page + 1} / {totalPages}</span>
         <button onClick={() => onChange(page + 1)} disabled={page >= totalPages - 1} className="inline-flex items-center gap-1 rounded-lg border border-white/8 bg-white/[0.025] px-3 py-1.5 text-sm text-slate-300 transition-all hover:border-cyan-400/25 hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-40">
-          Next <ChevronRight size={14} />
+          <span className="hidden sm:inline">Next</span> <ChevronRight size={14} />
         </button>
       </div>
     </div>
