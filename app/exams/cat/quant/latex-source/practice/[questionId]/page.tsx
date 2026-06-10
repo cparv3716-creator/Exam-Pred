@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowLeft, FileText } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { LatexSourceQuestionViewer } from "@/components/practice/LatexSourceQuestionViewer";
+import { QuestionAttemptControls } from "@/components/backend/QuestionAttemptControls";
+import { resolveQuantAttemptMeta } from "@/lib/backend/attempt-mapping";
 import { OutlinePill } from "@/components/ui/Badge";
 import { getCatQuantLatexSourceById, getCatQuantLatexSourceQuestions } from "@/lib/content/practice/cat-quant-latex-source";
 
@@ -50,7 +52,11 @@ export default async function CatQuantLatexSourceQuestionPage({ params }: { para
           <span>{question.subtopic}</span>
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
+        <div className="mt-8">
+          <QuestionAttemptControls meta={resolveQuantAttemptMeta(question)} />
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
           <LatexSourceQuestionViewer question={question} />
         </div>
 

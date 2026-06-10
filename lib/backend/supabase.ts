@@ -20,9 +20,13 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
-/** True when the public Supabase env vars are present. */
+/** True when the public Supabase env vars are present and use a supported public key format. */
 export function isSupabaseConfigured(): boolean {
-  return Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
+  return Boolean(SUPABASE_URL && SUPABASE_ANON_KEY && isSupportedPublicSupabaseKey(SUPABASE_ANON_KEY));
+}
+
+export function isSupportedPublicSupabaseKey(key: string): boolean {
+  return key.startsWith("eyJ") || key.startsWith("sb_publishable_");
 }
 
 let cachedAnonClient: SupabaseClient | null = null;

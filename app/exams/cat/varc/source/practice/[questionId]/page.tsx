@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { VarcSourceQuestionViewer } from "@/components/practice/VarcSourceQuestionViewer";
+import { QuestionAttemptControls } from "@/components/backend/QuestionAttemptControls";
+import { resolveVarcAttemptMeta } from "@/lib/backend/attempt-mapping";
 import { OutlinePill } from "@/components/ui/Badge";
 import { getCatVarcSourceById, getCatVarcSourceQuestions } from "@/lib/content/practice/cat-varc-source";
 
@@ -57,7 +59,11 @@ export default async function CatVarcSourcePracticePage({ params }: { params: Pr
           <span>Set {question.source_set_number} · Q{question.source_question_number}</span>
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
+        <div className="mt-8">
+          <QuestionAttemptControls meta={resolveVarcAttemptMeta(question)} />
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
           <VarcSourceQuestionViewer question={question} />
         </div>
 

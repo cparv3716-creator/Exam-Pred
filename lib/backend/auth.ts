@@ -11,6 +11,25 @@ export type AuthResult = { ok: boolean; error?: string; needsConfirmation?: bool
 
 const NOT_CONFIGURED =
   "Sign-in is not available yet — Supabase is not configured for this environment.";
+const LOCAL_SITE_URL = "http://localhost:3000";
+
+export function getAuthRedirectUrl(path = "/dashboard"): string {
+  const configuredSiteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+  const browserOrigin = typeof window !== "undefined" ? normalizeSiteUrl(window.location.origin) : null;
+  const baseUrl = configuredSiteUrl ?? browserOrigin ?? LOCAL_SITE_URL;
+  return new URL(path, baseUrl).toString();
+}
+
+function normalizeSiteUrl(value?: string | null): string | null {
+  const trimmed = value?.trim();
+  if (!trimmed) return null;
+  try {
+    const url = new URL(trimmed);
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
 
 export async function signInWithEmail(email: string, password: string): Promise<AuthResult> {
   const client = getSupabaseClient();
@@ -30,7 +49,10 @@ export async function signUpWithEmail(
   const { data, error } = await client.auth.signUp({
     email,
     password,
-    options: fullName ? { data: { full_name: fullName } } : undefined,
+    options: {
+      emailRedirectTo: getAuthRedirectUrl("/dashboard"),
+      ...(fullName ? { data: { full_name: fullName } } : {}),
+    },
   });
   if (error) return { ok: false, error: error.message };
   // When email confirmation is on, there is a user but no active session yet.
