@@ -77,3 +77,20 @@ export async function getBookmarkedQuestionIds(userId: string): Promise<Set<stri
   const bookmarks = await getUserBookmarks(userId);
   return new Set(bookmarks.map((b) => b.question_id));
 }
+
+/** Whether a single question is bookmarked by the user. */
+export async function isBookmarked(userId: string, questionId: string): Promise<boolean> {
+  const client = getSupabaseClient();
+  if (!client || !userId || !questionId) return false;
+  const { data, error } = await client
+    .from(TABLE)
+    .select("id")
+    .eq("user_id", userId)
+    .eq("question_id", questionId)
+    .maybeSingle();
+  if (error) {
+    console.error("[backend] isBookmarked failed:", error.message);
+    return false;
+  }
+  return Boolean(data);
+}
