@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-06-09T18:37:26.093Z",
+  "total_questions": 304,
+  "hidden_before": 19,
+  "hidden_after": 0,
+  "unhidden_after_repair": 19,
+  "unhidden_question_ids": [
+    "GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q03",
+    "GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q05"
+  ],
+  "report": "reports/local_imports/CAT_QUANT_MATH_NORMALIZATION_REPORT.md",
+  "csv": "content/cat/practice/reports/cat_quant_math_review_needed.csv"
+}

@@ -1,0 +1,88 @@
+question_id,status,score,issues
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q04,needs_review,175,"detailed_solution: ambiguous slash or fraction structure; unsafe katex expression: a = 2: b ∈{3,; unsafe katex expression: a = 3: {4,; unsafe katex expression: a = 4: {5,; unsafe katex expression: a = 5: {6,; unsafe katex expression: a = 6: {7,; unsafe katex expression: a = 7: {8,"
+GEN_CAT_HARDENED_QUANT_15Q_Q02,needs_review,75,detailed_solution: ambiguous slash or fraction structure; detailed_solution: very long unformatted solution paragraph; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_PAPER_Q03,needs_review,75,detailed_solution: ambiguous slash or fraction structure; detailed_solution: very long unformatted solution paragraph; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q01,needs_review,75,detailed_solution: ambiguous slash or fraction structure; detailed_solution: very long unformatted solution paragraph; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q06,needs_review,65,detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting; question_text: plain exponent token; question_text: plain log base token; question_text: plain math token remains after formatting
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q15,needs_review,60,detailed_solution: control character; detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting; unsafe katex expression: √ 2: y = 12 1 -4 √ 2 6 √ 2 ! = 12 \cdot  \frac{
+GEN_CAT_QUANT_BATCH02_Q06,needs_review,55,detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting; question_text: plain math token remains after formatting
+GEN_CAT_QUANT_TOUGH_END_PRACTICE_BATCH_Q06,needs_review,55,option_a: suspicious adjacent numeric tokens; option_a: suspicious adjacent numeric tokens remain after formatting; question_text: control character
+GEN_CAT_QUANT_TOUGH_BATCH03_Q03,needs_review,55,detailed_solution: control character; detailed_solution: suspicious adjacent numeric tokens; detailed_solution: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q04,needs_review,55,detailed_solution: control character; option_d: suspicious adjacent numeric tokens; option_d: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_TOUGH_END_VERIFIED_PRACTICE_BATCH_Q01,needs_review,55,detailed_solution: control character; detailed_solution: suspicious adjacent numeric tokens; detailed_solution: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q11,needs_review,55,detailed_solution: control character; option_d: suspicious adjacent numeric tokens; option_d: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q12,needs_review,55,detailed_solution: control character; option_c: suspicious adjacent numeric tokens; option_c: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q12,needs_review,55,detailed_solution: control character; option_a: suspicious adjacent numeric tokens; option_a: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q02,needs_review,55,detailed_solution: control character; detailed_solution: suspicious adjacent numeric tokens; detailed_solution: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q12,needs_review,55,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q01,needs_review,50,detailed_solution: very long unformatted solution paragraph; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_Q12,needs_review,50,detailed_solution: suspicious adjacent numeric tokens; detailed_solution: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_Q10,needs_review,50,correct_answer: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_02_TOUGH_Q02,needs_review,50,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_1_Q11,needs_review,50,option_b: suspicious adjacent numeric tokens; option_b: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q03,needs_review,50,detailed_solution: ambiguous slash or fraction structure; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q04,needs_review,50,detailed_solution: suspicious adjacent numeric tokens; detailed_solution: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q16,needs_review,50,option_b: suspicious adjacent numeric tokens; option_b: suspicious adjacent numeric tokens remain after formatting
+GEN_CAT_HARDENED_QA_SIMULATION_Q12,needs_review,50,detailed_solution: very long unformatted solution paragraph; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q07,needs_review,35,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph; question_text: control character
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q06,needs_review,35,detailed_solution: control character; detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting
+GEN_CAT_HARDENED_QUANT_15Q_Q01,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_Q03,needs_review,30,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character
+GEN_CAT_HARDENED_QUANT_PAPER_Q13,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_BATCH01_Q06,needs_review,30,detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting
+GEN_CAT_QUANT_BATCH01_Q04,needs_review,30,detailed_solution: control character; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_Q13,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_TOUGH_END_PRACTICE_BATCH_Q11,needs_review,30,detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q04,needs_review,30,detailed_solution: control character; question_text: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q18,needs_review,30,detailed_solution: control character; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q14,needs_review,30,detailed_solution: control character; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q06,needs_review,30,detailed_solution: plain exponent token; detailed_solution: plain math token remains after formatting
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q09,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_Q15,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q13,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QA_SIMULATION_Q02,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q01,needs_review,30,detailed_solution: control character; detailed_solution: very long unformatted solution paragraph
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q20,needs_review,30,detailed_solution: control character; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_PAPER_Q08,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_Q09,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_Q11,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q02,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q04,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_TOUGH_BATCH03_Q04,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q01,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_Q02,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_02_TOUGH_Q15,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_Q13,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q10,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_PAPER_Q04,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_PAPER_Q06,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_TOUGH_BATCH_Q02,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_TOUGH_END_PRACTICE_BATCH_Q01,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_TOUGH_END_PRACTICE_BATCH_Q02,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q15,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q13,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q15,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q16,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q20,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q10,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_BATCH01_Q07,needs_review,25,detailed_solution: plain math token remains after formatting
+GEN_CAT_HARDENED_QA_SIMULATION_Q08,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q11,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q14,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_SIMULATION_BATCH_02_Q14,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q04,needs_review,25,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q11,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QA_SIMULATION_Q15,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q02,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q11,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q12,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_PAPER_Q09,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_PAPER_Q15,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_Q10,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_Q12,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q05,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q08,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q15,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_QUANT_MODERN_MATH_PRACTICE_BANK_Q18,needs_review,25,question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q10,needs_review,25,detailed_solution: very long unformatted solution paragraph
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q10,needs_review,25,detailed_solution: very long unformatted solution paragraph

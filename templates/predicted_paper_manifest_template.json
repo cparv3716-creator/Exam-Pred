@@ -1,0 +1,15 @@
+{
+  "exam_slug": "cat",
+  "paper_id": "cat-predicted-paper-local-001",
+  "title": "Local CAT Predicted Practice Paper",
+  "variant_type": "balanced",
+  "source_markdown_path": "content/cat/predicted-papers/example_predicted_paper.md",
+  "pdf_download_path": "public/downloads/cat/example_predicted_paper.pdf",
+  "expected_overlap": 0.0,
+  "risk_score": 0.0,
+  "diversity_score": 0.0,
+  "access_tier": "premium",
+  "status": "draft",
+  "content_rights": "owned_or_licensed",
+  "disclaimer": "Pattern-based practice material only. Not leaked, official, exact, or guaranteed."
+}

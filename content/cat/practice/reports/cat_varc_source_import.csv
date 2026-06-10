@@ -1,0 +1,242 @@
+question_id,source_file,source_set_number,source_question_number,varc_type,passage_id,difficulty,practice_level,topic,subtopic,parse_status,student_visible,has_passage,has_options,has_answer,parse_warnings
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q001,CAT-plus_VARC_Simulation.pdf,1,1,RC,VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S1_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q002,CAT-plus_VARC_Simulation.pdf,1,2,RC,VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S1_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q003,CAT-plus_VARC_Simulation.pdf,1,3,RC,VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S1_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q004,CAT-plus_VARC_Simulation.pdf,1,4,RC,VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S1_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q017,CAT-plus_VARC_Simulation.pdf,1,17,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q017_DUP2,CAT-plus_VARC_Simulation.pdf,1,17,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q018,CAT-plus_VARC_Simulation.pdf,1,18,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q018_DUP2,CAT-plus_VARC_Simulation.pdf,1,18,Critical Reasoning,,,Intermediate,VARC,Critical Reasoning,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q019,CAT-plus_VARC_Simulation.pdf,1,19,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q019_DUP2,CAT-plus_VARC_Simulation.pdf,1,19,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q020,CAT-plus_VARC_Simulation.pdf,1,20,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q020_DUP2,CAT-plus_VARC_Simulation.pdf,1,20,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q021,CAT-plus_VARC_Simulation.pdf,1,21,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q021_DUP2,CAT-plus_VARC_Simulation.pdf,1,21,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q022,CAT-plus_VARC_Simulation.pdf,1,22,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q022_DUP2,CAT-plus_VARC_Simulation.pdf,1,22,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q023,CAT-plus_VARC_Simulation.pdf,1,23,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q023_DUP2,CAT-plus_VARC_Simulation.pdf,1,23,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q024,CAT-plus_VARC_Simulation.pdf,1,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_PLUS_VARC_SIMULATION_S01_Q024_DUP2,CAT-plus_VARC_Simulation.pdf,1,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_1_S02_Q001,CAT_VARC_1.pdf,2,1,RC,VARC_SOURCE_CAT_VARC_1_S2_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q002,CAT_VARC_1.pdf,2,2,RC,VARC_SOURCE_CAT_VARC_1_S2_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q003,CAT_VARC_1.pdf,2,3,RC,VARC_SOURCE_CAT_VARC_1_S2_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q004,CAT_VARC_1.pdf,2,4,RC,VARC_SOURCE_CAT_VARC_1_S2_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q005,CAT_VARC_1.pdf,2,5,RC,VARC_SOURCE_CAT_VARC_1_S2_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q006,CAT_VARC_1.pdf,2,6,RC,VARC_SOURCE_CAT_VARC_1_S2_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q007,CAT_VARC_1.pdf,2,7,RC,VARC_SOURCE_CAT_VARC_1_S2_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q008,CAT_VARC_1.pdf,2,8,RC,VARC_SOURCE_CAT_VARC_1_S2_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q009,CAT_VARC_1.pdf,2,9,RC,VARC_SOURCE_CAT_VARC_1_S2_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q010,CAT_VARC_1.pdf,2,10,RC,VARC_SOURCE_CAT_VARC_1_S2_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q011,CAT_VARC_1.pdf,2,11,RC,VARC_SOURCE_CAT_VARC_1_S2_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q012,CAT_VARC_1.pdf,2,12,RC,VARC_SOURCE_CAT_VARC_1_S2_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q013,CAT_VARC_1.pdf,2,13,RC,VARC_SOURCE_CAT_VARC_1_S2_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q014,CAT_VARC_1.pdf,2,14,RC,VARC_SOURCE_CAT_VARC_1_S2_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q015,CAT_VARC_1.pdf,2,15,RC,VARC_SOURCE_CAT_VARC_1_S2_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q016,CAT_VARC_1.pdf,2,16,RC,VARC_SOURCE_CAT_VARC_1_S2_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q017,CAT_VARC_1.pdf,2,17,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q018,CAT_VARC_1.pdf,2,18,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q019,CAT_VARC_1.pdf,2,19,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q020,CAT_VARC_1.pdf,2,20,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q021,CAT_VARC_1.pdf,2,21,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q022,CAT_VARC_1.pdf,2,22,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q023,CAT_VARC_1.pdf,2,23,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_1_S02_Q024,CAT_VARC_1.pdf,2,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,complete_va_question,true,false,false,true,
+VARC_SOURCE_CAT_VARC_15_S03_Q003,CAT_VARC_15.pdf,3,3,RC,VARC_SOURCE_CAT_VARC_15_S3_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q004,CAT_VARC_15.pdf,3,4,RC,VARC_SOURCE_CAT_VARC_15_S3_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q005,CAT_VARC_15.pdf,3,5,RC,VARC_SOURCE_CAT_VARC_15_S3_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q006,CAT_VARC_15.pdf,3,6,RC,VARC_SOURCE_CAT_VARC_15_S3_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q007,CAT_VARC_15.pdf,3,7,RC,VARC_SOURCE_CAT_VARC_15_S3_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q008,CAT_VARC_15.pdf,3,8,RC,VARC_SOURCE_CAT_VARC_15_S3_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q009,CAT_VARC_15.pdf,3,9,RC,VARC_SOURCE_CAT_VARC_15_S3_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q010,CAT_VARC_15.pdf,3,10,RC,VARC_SOURCE_CAT_VARC_15_S3_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q011,CAT_VARC_15.pdf,3,11,RC,VARC_SOURCE_CAT_VARC_15_S3_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q012,CAT_VARC_15.pdf,3,12,RC,VARC_SOURCE_CAT_VARC_15_S3_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q013,CAT_VARC_15.pdf,3,13,RC,VARC_SOURCE_CAT_VARC_15_S3_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q014,CAT_VARC_15.pdf,3,14,RC,VARC_SOURCE_CAT_VARC_15_S3_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q017,CAT_VARC_15.pdf,3,17,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q018,CAT_VARC_15.pdf,3,18,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q019,CAT_VARC_15.pdf,3,19,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q020,CAT_VARC_15.pdf,3,20,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q022,CAT_VARC_15.pdf,3,22,RC,VARC_SOURCE_CAT_VARC_15_S3_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q023,CAT_VARC_15.pdf,3,23,RC,VARC_SOURCE_CAT_VARC_15_S3_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_15_S03_Q024,CAT_VARC_15.pdf,3,24,RC,VARC_SOURCE_CAT_VARC_15_S3_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_2_S04_Q001,CAT_VARC_2.pdf,4,1,RC,VARC_SOURCE_CAT_VARC_2_S4_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q002,CAT_VARC_2.pdf,4,2,RC,VARC_SOURCE_CAT_VARC_2_S4_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q003,CAT_VARC_2.pdf,4,3,RC,VARC_SOURCE_CAT_VARC_2_S4_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q004,CAT_VARC_2.pdf,4,4,RC,VARC_SOURCE_CAT_VARC_2_S4_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q017,CAT_VARC_2.pdf,4,17,Other,,,Intermediate,VARC,Other,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q018,CAT_VARC_2.pdf,4,18,Other,,,Intermediate,VARC,Other,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q019,CAT_VARC_2.pdf,4,19,Other,,,Intermediate,VARC,Other,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q020,CAT_VARC_2.pdf,4,20,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q021,CAT_VARC_2.pdf,4,21,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_2_S04_Q022,CAT_VARC_2.pdf,4,22,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_2_S04_Q023,CAT_VARC_2.pdf,4,23,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_2_S04_Q024,CAT_VARC_2.pdf,4,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q001,CAT_VARC_3.pdf,5,1,RC,VARC_SOURCE_CAT_VARC_3_S5_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q002,CAT_VARC_3.pdf,5,2,RC,VARC_SOURCE_CAT_VARC_3_S5_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q003,CAT_VARC_3.pdf,5,3,RC,VARC_SOURCE_CAT_VARC_3_S5_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q004,CAT_VARC_3.pdf,5,4,RC,VARC_SOURCE_CAT_VARC_3_S5_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q005,CAT_VARC_3.pdf,5,5,RC,VARC_SOURCE_CAT_VARC_3_S5_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q006,CAT_VARC_3.pdf,5,6,RC,VARC_SOURCE_CAT_VARC_3_S5_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q007,CAT_VARC_3.pdf,5,7,RC,VARC_SOURCE_CAT_VARC_3_S5_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q008,CAT_VARC_3.pdf,5,8,RC,VARC_SOURCE_CAT_VARC_3_S5_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q009,CAT_VARC_3.pdf,5,9,RC,VARC_SOURCE_CAT_VARC_3_S5_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q010,CAT_VARC_3.pdf,5,10,RC,VARC_SOURCE_CAT_VARC_3_S5_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q011,CAT_VARC_3.pdf,5,11,RC,VARC_SOURCE_CAT_VARC_3_S5_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q012,CAT_VARC_3.pdf,5,12,RC,VARC_SOURCE_CAT_VARC_3_S5_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q013,CAT_VARC_3.pdf,5,13,RC,VARC_SOURCE_CAT_VARC_3_S5_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q014,CAT_VARC_3.pdf,5,14,RC,VARC_SOURCE_CAT_VARC_3_S5_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q015,CAT_VARC_3.pdf,5,15,RC,VARC_SOURCE_CAT_VARC_3_S5_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q016,CAT_VARC_3.pdf,5,16,RC,VARC_SOURCE_CAT_VARC_3_S5_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_3_S05_Q017,CAT_VARC_3.pdf,5,17,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q018,CAT_VARC_3.pdf,5,18,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q019,CAT_VARC_3.pdf,5,19,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q020,CAT_VARC_3.pdf,5,20,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q021,CAT_VARC_3.pdf,5,21,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q022,CAT_VARC_3.pdf,5,22,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q023,CAT_VARC_3.pdf,5,23,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_3_S05_Q024,CAT_VARC_3.pdf,5,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_4_S06_Q001,CAT_VARC_4_.pdf,6,1,RC,VARC_SOURCE_CAT_VARC_4_S6_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q002,CAT_VARC_4_.pdf,6,2,RC,VARC_SOURCE_CAT_VARC_4_S6_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q003,CAT_VARC_4_.pdf,6,3,RC,VARC_SOURCE_CAT_VARC_4_S6_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q004,CAT_VARC_4_.pdf,6,4,RC,VARC_SOURCE_CAT_VARC_4_S6_P1,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q005,CAT_VARC_4_.pdf,6,5,RC,VARC_SOURCE_CAT_VARC_4_S6_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q006,CAT_VARC_4_.pdf,6,6,RC,VARC_SOURCE_CAT_VARC_4_S6_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q007,CAT_VARC_4_.pdf,6,7,RC,VARC_SOURCE_CAT_VARC_4_S6_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q008,CAT_VARC_4_.pdf,6,8,RC,VARC_SOURCE_CAT_VARC_4_S6_P2,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q009,CAT_VARC_4_.pdf,6,9,RC,VARC_SOURCE_CAT_VARC_4_S6_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q010,CAT_VARC_4_.pdf,6,10,RC,VARC_SOURCE_CAT_VARC_4_S6_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q011,CAT_VARC_4_.pdf,6,11,RC,VARC_SOURCE_CAT_VARC_4_S6_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q012,CAT_VARC_4_.pdf,6,12,RC,VARC_SOURCE_CAT_VARC_4_S6_P3,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q013,CAT_VARC_4_.pdf,6,13,RC,VARC_SOURCE_CAT_VARC_4_S6_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q014,CAT_VARC_4_.pdf,6,14,RC,VARC_SOURCE_CAT_VARC_4_S6_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q015,CAT_VARC_4_.pdf,6,15,RC,VARC_SOURCE_CAT_VARC_4_S6_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q016,CAT_VARC_4_.pdf,6,16,RC,VARC_SOURCE_CAT_VARC_4_S6_P4,,Intermediate,VARC,Reading Comprehension,complete_rc_set,true,true,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q017,CAT_VARC_4_.pdf,6,17,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q018,CAT_VARC_4_.pdf,6,18,Other,,,Intermediate,VARC,Other,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q019,CAT_VARC_4_.pdf,6,19,Other,,,Intermediate,VARC,Other,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q020,CAT_VARC_4_.pdf,6,20,Sentence Placement,,,Intermediate,VARC,Sentence Placement,complete_va_question,true,false,false,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q021,CAT_VARC_4_.pdf,6,21,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q022,CAT_VARC_4_.pdf,6,22,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q023,CAT_VARC_4_.pdf,6,23,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_4_S06_Q024,CAT_VARC_4_.pdf,6,24,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_CAT_VARC_5_S07_Q003,CAT_VARC_5.pdf,7,3,RC,VARC_SOURCE_CAT_VARC_5_S7_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q004,CAT_VARC_5.pdf,7,4,RC,VARC_SOURCE_CAT_VARC_5_S7_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q005,CAT_VARC_5.pdf,7,5,RC,VARC_SOURCE_CAT_VARC_5_S7_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q006,CAT_VARC_5.pdf,7,6,RC,VARC_SOURCE_CAT_VARC_5_S7_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q007,CAT_VARC_5.pdf,7,7,RC,VARC_SOURCE_CAT_VARC_5_S7_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q008,CAT_VARC_5.pdf,7,8,RC,VARC_SOURCE_CAT_VARC_5_S7_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q009,CAT_VARC_5.pdf,7,9,RC,VARC_SOURCE_CAT_VARC_5_S7_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q010,CAT_VARC_5.pdf,7,10,RC,VARC_SOURCE_CAT_VARC_5_S7_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q011,CAT_VARC_5.pdf,7,11,RC,VARC_SOURCE_CAT_VARC_5_S7_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q012,CAT_VARC_5.pdf,7,12,RC,VARC_SOURCE_CAT_VARC_5_S7_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q013,CAT_VARC_5.pdf,7,13,RC,VARC_SOURCE_CAT_VARC_5_S7_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q014,CAT_VARC_5.pdf,7,14,RC,VARC_SOURCE_CAT_VARC_5_S7_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q017,CAT_VARC_5.pdf,7,17,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q018,CAT_VARC_5.pdf,7,18,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q019,CAT_VARC_5.pdf,7,19,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q020,CAT_VARC_5.pdf,7,20,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q022,CAT_VARC_5.pdf,7,22,RC,VARC_SOURCE_CAT_VARC_5_S7_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q023,CAT_VARC_5.pdf,7,23,RC,VARC_SOURCE_CAT_VARC_5_S7_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_5_S07_Q024,CAT_VARC_5.pdf,7,24,RC,VARC_SOURCE_CAT_VARC_5_S7_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP2,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP3,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP4,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP5,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP6,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP7,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP8,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP9,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q001_DUP10,CAT_VARC_Hardened_Practice.pdf,8,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP2,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP3,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP4,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP5,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP6,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP7,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP8,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q002_DUP9,CAT_VARC_Hardened_Practice.pdf,8,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP2,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP3,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP4,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP5,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP6,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP7,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP8,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP9,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q003_DUP10,CAT_VARC_Hardened_Practice.pdf,8,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP2,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP3,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP4,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP5,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P1,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP6,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP7,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP8,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP9,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S08_Q004_DUP10,CAT_VARC_Hardened_Practice.pdf,8,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_S8_P2,,Intermediate,VARC,Reading Comprehension,missing_options,true,true,false,true,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_1_S09_Q001,CAT_VARC_Hardened_Practice_Set (1).pdf,9,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_1_S9_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_1_S09_Q002,CAT_VARC_Hardened_Practice_Set (1).pdf,9,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_1_S9_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_1_S09_Q011,CAT_VARC_Hardened_Practice_Set (1).pdf,9,11,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q001,CAT_VARC_Hardened_Practice_Set.pdf,10,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q001_DUP2,CAT_VARC_Hardened_Practice_Set.pdf,10,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q001_DUP3,CAT_VARC_Hardened_Practice_Set.pdf,10,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q001_DUP4,CAT_VARC_Hardened_Practice_Set.pdf,10,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q001_DUP5,CAT_VARC_Hardened_Practice_Set.pdf,10,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q002,CAT_VARC_Hardened_Practice_Set.pdf,10,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q002_DUP2,CAT_VARC_Hardened_Practice_Set.pdf,10,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q002_DUP3,CAT_VARC_Hardened_Practice_Set.pdf,10,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q002_DUP4,CAT_VARC_Hardened_Practice_Set.pdf,10,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q002_DUP5,CAT_VARC_Hardened_Practice_Set.pdf,10,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q003,CAT_VARC_Hardened_Practice_Set.pdf,10,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q003_DUP2,CAT_VARC_Hardened_Practice_Set.pdf,10,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q003_DUP3,CAT_VARC_Hardened_Practice_Set.pdf,10,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q003_DUP4,CAT_VARC_Hardened_Practice_Set.pdf,10,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q003_DUP5,CAT_VARC_Hardened_Practice_Set.pdf,10,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q004,CAT_VARC_Hardened_Practice_Set.pdf,10,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q004_DUP2,CAT_VARC_Hardened_Practice_Set.pdf,10,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q004_DUP3,CAT_VARC_Hardened_Practice_Set.pdf,10,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q004_DUP4,CAT_VARC_Hardened_Practice_Set.pdf,10,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q005,CAT_VARC_Hardened_Practice_Set.pdf,10,5,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P1,,Intermediate,VARC,Reading Comprehension,missing_options,false,true,false,false,MCQ options not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q006,CAT_VARC_Hardened_Practice_Set.pdf,10,6,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q007,CAT_VARC_Hardened_Practice_Set.pdf,10,7,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q008,CAT_VARC_Hardened_Practice_Set.pdf,10,8,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q009,CAT_VARC_Hardened_Practice_Set.pdf,10,9,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q010,CAT_VARC_Hardened_Practice_Set.pdf,10,10,RC,VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_PRACTICE_SET_S10_Q011,CAT_VARC_Hardened_Practice_Set.pdf,10,11,Other,,,Intermediate,VARC,Other,missing_answer,false,false,false,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q003,CATplus_VARC_Simulation.pdf,13,3,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q004,CATplus_VARC_Simulation.pdf,13,4,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q005,CATplus_VARC_Simulation.pdf,13,5,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q006,CATplus_VARC_Simulation.pdf,13,6,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q007,CATplus_VARC_Simulation.pdf,13,7,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q008,CATplus_VARC_Simulation.pdf,13,8,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q009,CATplus_VARC_Simulation.pdf,13,9,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q010,CATplus_VARC_Simulation.pdf,13,10,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P2,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q011,CATplus_VARC_Simulation.pdf,13,11,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q012,CATplus_VARC_Simulation.pdf,13,12,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q013,CATplus_VARC_Simulation.pdf,13,13,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q014,CATplus_VARC_Simulation.pdf,13,14,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P3,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q017,CATplus_VARC_Simulation.pdf,13,17,Para Jumble,,,Intermediate,VARC,Para Jumble,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q018,CATplus_VARC_Simulation.pdf,13,18,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q019,CATplus_VARC_Simulation.pdf,13,19,Sentence Placement,,,Intermediate,VARC,Sentence Placement,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q020,CATplus_VARC_Simulation.pdf,13,20,Para Summary,,,Intermediate,VARC,Para Summary,missing_answer,false,false,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q022,CATplus_VARC_Simulation.pdf,13,22,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q023,CATplus_VARC_Simulation.pdf,13,23,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_Q024,CATplus_VARC_Simulation.pdf,13,24,RC,VARC_SOURCE_CATPLUS_VARC_SIMULATION_S13_P4,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_S14_Q001,cat_varc_hardened.pdf,14,1,RC,VARC_SOURCE_CAT_VARC_HARDENED_S14_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_S14_Q002,cat_varc_hardened.pdf,14,2,RC,VARC_SOURCE_CAT_VARC_HARDENED_S14_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_S14_Q003,cat_varc_hardened.pdf,14,3,RC,VARC_SOURCE_CAT_VARC_HARDENED_S14_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_CAT_VARC_HARDENED_S14_Q004,cat_varc_hardened.pdf,14,4,RC,VARC_SOURCE_CAT_VARC_HARDENED_S14_P1,,Intermediate,VARC,Reading Comprehension,missing_answer,false,true,true,false,answer not found
+VARC_SOURCE_HEHE_OUTPUT_S15_Q017,hehe_output.pdf,15,17,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q018,hehe_output.pdf,15,18,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q019,hehe_output.pdf,15,19,Para Summary,,,Intermediate,VARC,Para Summary,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q020,hehe_output.pdf,15,20,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q021,hehe_output.pdf,15,21,Odd Sentence Out,,,Intermediate,VARC,Odd Sentence Out,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q022,hehe_output.pdf,15,22,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,false,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q023,hehe_output.pdf,15,23,Para Jumble,,,Intermediate,VARC,Para Jumble,complete_va_question,true,false,true,true,
+VARC_SOURCE_HEHE_OUTPUT_S15_Q024,hehe_output.pdf,15,24,Sentence Placement,,,Intermediate,VARC,Sentence Placement,complete_va_question,true,false,false,true,

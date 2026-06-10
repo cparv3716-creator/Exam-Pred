@@ -1,0 +1,100 @@
+candidate_id,spec_id,subtopic,parse_status,prediction_score,cat_likeness_score,difficulty_match_score,reasoning_depth_score,trap_quality_score,option_quality_score,solution_clarity_score,evidence_alignment_score,coverage_gain_score,redundancy_penalty,final_question_value_score,paper_eligible,coverage_recovery_eligible,rejection_reason
+CAT_QA_SPEC_07_CLAUDE_01,CAT_QA_SPEC_07,Triangles,OK,0.648,0.92,0.45,1.0,1.0,0.75,1.0,0.686,1.0,0.0,0.865,YES,NO,
+CAT_QA_SPEC_07_CLAUDE_02,CAT_QA_SPEC_07,Triangles,OK,0.648,0.79,0.45,0.8,0.75,0.75,1.0,0.686,0.55,0.2,0.69,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_07_CLAUDE_03,CAT_QA_SPEC_07,Triangles,OK,0.648,0.87,0.45,0.8,1.0,0.75,1.0,0.686,0.55,0.2,0.74,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_07_CLAUDE_04,CAT_QA_SPEC_07,Triangles,OK,0.648,0.66,0.45,0.8,0.75,0.75,1.0,0.686,0.55,0.2,0.657,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_07_CLAUDE_05,CAT_QA_SPEC_07,Triangles,OK,0.648,0.82,0.45,0.8,1.0,0.75,1.0,0.686,0.55,0.2,0.727,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_07_CLAUDE_06,CAT_QA_SPEC_07,Triangles,OK,0.648,0.79,1.0,1.0,0.75,0.75,1.0,0.686,0.55,0.0,0.835,NO,NO,cat_likeness_below_0_82
+CAT_QA_SPEC_07_CLAUDE_07,CAT_QA_SPEC_07,Triangles,OK,0.648,0.35,0.45,0.8,0.75,0.75,1.0,0.686,0.55,0.2,0.58,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_07_CLAUDE_08,CAT_QA_SPEC_07,Triangles,OK,0.648,0.87,1.0,1.0,1.0,0.75,1.0,0.686,0.55,0.2,0.835,YES,NO,
+CAT_QA_SPEC_08_CLAUDE_01,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,0.45,0.8,1.0,0.75,1.0,0.549,1.0,0.0,0.66,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_02,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,0.45,0.8,1.0,0.75,1.0,0.549,0.55,0.0,0.638,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_03,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,0.45,0.8,1.0,0.75,1.0,0.549,0.55,0.0,0.638,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_04,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,1.0,1.0,0.75,0.75,1.0,0.549,0.55,0.2,0.653,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_05,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,0.45,0.8,1.0,0.75,1.0,0.549,0.55,0.2,0.588,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_06,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,0.45,0.8,1.0,0.75,1.0,0.549,0.55,0.2,0.588,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_08_CLAUDE_07,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.84,1.0,1.0,1.0,0.75,1.0,0.549,0.55,0.0,0.855,YES,NO,
+CAT_QA_SPEC_08_CLAUDE_08,CAT_QA_SPEC_08,Inequalities,OK,0.54,0.35,1.0,1.0,0.75,0.75,1.0,0.549,0.55,0.2,0.653,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_01,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,0.45,0.8,1.0,0.75,1.0,0.353,1.0,0.0,0.767,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_02,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,0.45,0.8,1.0,0.75,1.0,0.353,0.55,0.0,0.745,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_03,CAT_QA_SPEC_13,Functions,OK,0.414,0.35,1.0,1.0,0.75,0.75,1.0,0.353,0.55,0.0,0.675,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_04,CAT_QA_SPEC_13,Functions,OK,0.414,0.94,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.0,0.852,YES,NO,
+CAT_QA_SPEC_13_CLAUDE_05,CAT_QA_SPEC_13,Functions,OK,0.414,0.35,0.45,0.8,1.0,0.75,1.0,0.353,0.55,0.2,0.56,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_06,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,0.45,0.8,1.0,0.75,1.0,0.353,0.55,0.2,0.695,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_07,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.2,0.79,NO,YES,final_score_below_0_80
+CAT_QA_SPEC_13_CLAUDE_08,CAT_QA_SPEC_13,Functions,OK,0.414,0.35,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.2,0.655,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_06_CLAUDE_01,CAT_QA_SPEC_06,Percentages,OK,0.67,0.92,0.45,0.8,1.0,1.0,1.0,0.784,1.0,0.0,0.835,YES,NO,
+CAT_QA_SPEC_06_CLAUDE_02,CAT_QA_SPEC_06,Percentages,OK,0.67,0.35,0.45,0.8,1.0,1.0,1.0,0.784,0.55,0.0,0.67,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_06_CLAUDE_03,CAT_QA_SPEC_06,Percentages,OK,0.67,0.9,0.45,0.8,1.0,1.0,1.0,0.784,0.55,0.0,0.807,YES,NO,
+CAT_QA_SPEC_06_CLAUDE_04,CAT_QA_SPEC_06,Percentages,OK,0.67,0.35,0.45,0.8,0.75,1.0,1.0,0.784,0.55,0.0,0.64,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_06_CLAUDE_05,CAT_QA_SPEC_06,Percentages,OK,0.67,0.35,1.0,1.0,1.0,1.0,1.0,0.784,0.55,0.0,0.765,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_06_CLAUDE_06,CAT_QA_SPEC_06,Percentages,OK,0.67,1.0,0.45,1.0,1.0,1.0,1.0,0.784,0.55,0.0,0.872,YES,NO,
+CAT_QA_SPEC_06_CLAUDE_07,CAT_QA_SPEC_06,Percentages,OK,0.67,0.71,0.45,0.8,0.75,1.0,0.75,0.784,0.55,0.0,0.705,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_06_CLAUDE_08,CAT_QA_SPEC_06,Percentages,OK,0.67,0.71,1.0,1.0,0.75,1.0,1.0,0.784,0.55,0.0,0.825,NO,NO,cat_likeness_below_0_82
+CAT_QA_SPEC_09_CLAUDE_01,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,0.45,0.8,1.0,1.0,1.0,0.392,1.0,0.0,0.643,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_02,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.66,0.45,0.8,0.75,1.0,0.75,0.392,0.55,0.0,0.643,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_03,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.94,0.45,0.8,0.75,1.0,0.75,0.392,0.55,0.0,0.713,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_04,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,0.45,0.8,0.75,1.0,1.0,0.392,0.55,0.0,0.591,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_05,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,1.0,1.0,1.0,1.0,1.0,0.392,0.55,0.0,0.716,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_06,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.71,0.45,0.8,0.75,1.0,0.75,0.392,0.55,0.0,0.656,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_07,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,1.0,1.0,0.75,1.0,1.0,0.392,0.55,0.0,0.686,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CLAUDE_08,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,0.45,0.8,0.75,1.0,0.75,0.392,0.55,0.2,0.516,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_01,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.79,0.45,0.8,1.0,0.75,1.0,0.725,1.0,0.0,0.78,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_02,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.66,0.45,0.8,0.75,0.75,0.75,0.725,0.55,0.0,0.67,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_03,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.35,0.45,0.8,1.0,0.75,1.0,0.725,0.55,0.0,0.647,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_04,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.74,0.45,0.8,1.0,0.75,1.0,0.725,0.55,0.0,0.745,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_05,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.35,0.45,1.0,1.0,0.75,1.0,0.725,0.55,0.0,0.687,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_06,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.72,0.45,0.8,0.75,0.75,1.0,0.725,0.55,0.0,0.71,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_07,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.35,1.0,1.0,0.75,0.75,0.75,0.725,0.55,0.0,0.687,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CLAUDE_08,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.74,0.45,1.0,0.75,0.75,0.75,0.725,0.55,0.0,0.73,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CORRECTED_01,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.82,1.0,1.0,1.0,1.0,1.0,0.392,0.55,0.2,0.783,NO,YES,final_score_below_0_80
+CAT_QA_SPEC_09_CORRECTED_02,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,1.0,1.0,0.75,1.0,1.0,0.392,0.55,0.0,0.686,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CORRECTED_03,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,1.0,1.0,1.0,1.0,0.75,0.392,0.55,0.2,0.641,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_09_CORRECTED_04,CAT_QA_SPEC_09,Simple Interest Compound Interest,OK,0.495,0.35,1.0,1.0,0.75,1.0,1.0,0.392,0.55,0.2,0.636,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_10_CORRECTED_01,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.79,1.0,1.0,1.0,0.75,1.0,0.725,0.55,0.2,0.802,NO,NO,cat_likeness_below_0_82
+CAT_QA_SPEC_10_CORRECTED_02,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.79,1.0,1.0,1.0,0.75,1.0,0.725,0.55,0.2,0.802,NO,NO,cat_likeness_below_0_82
+CAT_QA_SPEC_10_CORRECTED_03,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,0.79,1.0,1.0,1.0,0.75,1.0,0.725,0.55,0.2,0.802,NO,NO,cat_likeness_below_0_82
+CAT_QA_SPEC_10_CORRECTED_04,CAT_QA_SPEC_10,Mixtures and Alligation,OK,0.494,1.0,1.0,1.0,1.0,0.75,1.0,0.725,0.55,0.0,0.905,YES,NO,
+CAT_QA_SPEC_11_CORRECTED_01,CAT_QA_SPEC_11,Progressions,OK,0.447,0.87,1.0,1.0,0.75,0.75,0.75,0.588,1.0,0.0,0.824,YES,NO,
+CAT_QA_SPEC_11_CORRECTED_02,CAT_QA_SPEC_11,Progressions,OK,0.447,0.35,1.0,1.0,0.75,0.75,0.75,0.588,0.55,0.0,0.672,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_11_CORRECTED_03,CAT_QA_SPEC_11,Progressions,OK,0.447,0.35,1.0,1.0,0.75,0.75,1.0,0.588,0.55,0.0,0.697,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_CORRECTED_01,CAT_QA_SPEC_14,Circles,OK,0.378,0.76,1.0,1.0,0.75,0.75,1.0,0.314,1.0,0.0,0.793,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_CORRECTED_02,CAT_QA_SPEC_14,Circles,OK,0.378,0.79,1.0,1.0,0.75,0.75,0.75,0.314,0.55,0.2,0.703,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_CORRECTED_03,CAT_QA_SPEC_14,Circles,OK,0.378,0.89,1.0,1.0,0.75,0.75,0.75,0.314,0.55,0.2,0.728,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_12_GENSPARK_FINAL_01,CAT_QA_SPEC_12,Linear Equations,OK,0.418,0.85,1.0,1.0,1.0,1.0,1.0,0.373,1.0,0.0,0.854,YES,NO,
+CAT_QA_SPEC_12_GENSPARK_FINAL_02,CAT_QA_SPEC_12,Linear Equations,OK,0.418,1.0,1.0,1.0,0.75,1.0,1.0,0.373,0.55,0.0,0.839,YES,NO,
+CAT_QA_SPEC_12_GENSPARK_FINAL_03,CAT_QA_SPEC_12,Linear Equations,OK,0.418,0.84,1.0,1.0,1.0,1.0,1.0,0.373,0.55,0.0,0.829,YES,NO,
+CAT_QA_SPEC_16_GENSPARK_FINAL_01,CAT_QA_SPEC_16,Logarithms,OK,0.308,0.89,1.0,1.0,1.0,0.75,1.0,0.235,1.0,0.0,0.842,YES,NO,
+CAT_QA_SPEC_16_GENSPARK_FINAL_02,CAT_QA_SPEC_16,Logarithms,OK,0.308,0.94,1.0,1.0,1.0,0.75,1.0,0.235,0.55,0.0,0.832,YES,NO,
+CAT_QA_SPEC_16_GENSPARK_FINAL_03,CAT_QA_SPEC_16,Logarithms,OK,0.308,0.89,1.0,1.0,1.0,0.75,1.0,0.235,0.55,0.0,0.82,YES,NO,
+CAT_QA_SPEC_13_GPT55Thinking_FUNCIRC_01,CAT_QA_SPEC_13,Functions,OK,0.414,0.94,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.0,0.852,YES,NO,
+CAT_QA_SPEC_13_GPT55Thinking_FUNCIRC_02,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.0,0.84,YES,NO,
+CAT_QA_SPEC_13_GPT55Thinking_FUNCIRC_03,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.0,0.84,YES,NO,
+CAT_QA_SPEC_13_GPT55Thinking_FUNCIRC_04,CAT_QA_SPEC_13,Functions,OK,0.414,0.89,1.0,1.0,1.0,0.75,1.0,0.353,0.55,0.0,0.84,YES,NO,
+CAT_QA_SPEC_14_GPT55Thinking_FUNCIRC_05,CAT_QA_SPEC_14,Circles,OK,0.378,0.66,1.0,1.0,0.75,0.75,0.75,0.314,0.55,0.2,0.67,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_GPT55Thinking_FUNCIRC_06,CAT_QA_SPEC_14,Circles,OK,0.378,0.35,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.0,0.668,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_GPT55Thinking_FUNCIRC_07,CAT_QA_SPEC_14,Circles,OK,0.378,0.35,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.0,0.668,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_14_GPT55Thinking_FUNCIRC_08,CAT_QA_SPEC_14,Circles,OK,0.378,0.35,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.2,0.618,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_COORDMENS_01,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.35,1.0,1.0,1.0,1.0,1.0,0.549,1.0,0.0,0.726,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_COORDMENS_02,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.35,1.0,1.0,1.0,1.0,1.0,0.549,0.55,0.0,0.704,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_COORDMENS_03,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.35,1.0,1.0,1.0,1.0,1.0,0.549,0.55,0.0,0.704,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_COORDMENS_04,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.89,1.0,1.0,1.0,1.0,1.0,0.549,0.55,0.0,0.839,YES,NO,
+CAT_QA_SPEC_19_GPT55Thinking_COORDMENS_05,CAT_QA_SPEC_19,Mensuration,OK,0.172,0.85,1.0,1.0,1.0,0.75,1.0,0.137,1.0,0.0,0.811,YES,NO,
+CAT_QA_SPEC_19_GPT55Thinking_COORDMENS_06,CAT_QA_SPEC_19,Mensuration,OK,0.172,0.64,1.0,1.0,1.0,0.75,1.0,0.137,0.55,0.0,0.736,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_19_GPT55Thinking_COORDMENS_07,CAT_QA_SPEC_19,Mensuration,OK,0.172,0.66,1.0,1.0,0.75,0.75,1.0,0.137,0.55,0.0,0.711,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_19_GPT55Thinking_COORDMENS_08,CAT_QA_SPEC_19,Mensuration,OK,0.172,0.87,1.0,1.0,1.0,0.75,1.0,0.137,0.55,0.0,0.793,NO,YES,final_score_below_0_80
+CAT_QA_SPEC_15_GPT55Thinking_AVGDIV_01,CAT_QA_SPEC_15,Averages,OK,0.352,0.92,1.0,1.0,1.0,1.0,1.0,0.294,1.0,0.0,0.859,YES,NO,
+CAT_QA_SPEC_15_GPT55Thinking_AVGDIV_02,CAT_QA_SPEC_15,Averages,OK,0.352,0.89,1.0,1.0,1.0,1.0,1.0,0.294,0.55,0.0,0.829,YES,NO,
+CAT_QA_SPEC_15_GPT55Thinking_AVGDIV_03,CAT_QA_SPEC_15,Averages,OK,0.352,0.89,1.0,1.0,1.0,1.0,1.0,0.294,0.55,0.0,0.829,YES,NO,
+CAT_QA_SPEC_15_GPT55Thinking_AVGDIV_04,CAT_QA_SPEC_15,Averages,OK,0.352,0.89,1.0,1.0,1.0,1.0,1.0,0.294,0.55,0.0,0.829,YES,NO,
+CAT_QA_SPEC_20_GPT55Thinking_AVGDIV_05,CAT_QA_SPEC_20,Divisibility,OK,0.161,0.81,1.0,1.0,1.0,0.75,1.0,0.118,1.0,0.0,0.798,NO,YES,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_20_GPT55Thinking_AVGDIV_06,CAT_QA_SPEC_20,Divisibility,OK,0.161,0.89,1.0,1.0,1.0,0.75,1.0,0.118,0.55,0.2,0.746,NO,NO,final_score_below_0_80
+CAT_QA_SPEC_20_GPT55Thinking_AVGDIV_07,CAT_QA_SPEC_20,Divisibility,OK,0.161,0.89,1.0,1.0,1.0,0.75,1.0,0.118,0.55,0.0,0.796,NO,YES,final_score_below_0_80
+CAT_QA_SPEC_20_GPT55Thinking_AVGDIV_08,CAT_QA_SPEC_20,Divisibility,OK,0.161,0.94,1.0,1.0,1.0,0.75,1.0,0.118,0.55,0.0,0.808,YES,NO,
+CAT_QA_SPEC_14_GPT55Thinking_FINALWEAK_01,CAT_QA_SPEC_14,Circles,OK,0.378,0.35,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.35,0.58,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80;redundancy_penalty_above_0_20;duplicate_or_near_duplicate
+CAT_QA_SPEC_14_GPT55Thinking_FINALWEAK_02,CAT_QA_SPEC_14,Circles,OK,0.378,0.35,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.35,0.58,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80;redundancy_penalty_above_0_20;duplicate_or_near_duplicate
+CAT_QA_SPEC_14_GPT55Thinking_FINALWEAK_03,CAT_QA_SPEC_14,Circles,OK,0.378,0.69,1.0,1.0,0.75,0.75,1.0,0.314,0.55,0.0,0.753,NO,NO,cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_FINALWEAK_04,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.35,1.0,1.0,1.0,1.0,1.0,0.549,0.55,0.2,0.654,NO,NO,direct_formula_feel;cat_likeness_below_0_82;final_score_below_0_80
+CAT_QA_SPEC_18_GPT55Thinking_FINALWEAK_05,CAT_QA_SPEC_18,Coordinate Geometry,OK,0.247,0.89,1.0,1.0,1.0,1.0,1.0,0.549,0.55,0.2,0.789,NO,YES,final_score_below_0_80
+CAT_QA_SPEC_11_GPT55Thinking_FINALWEAK_06,CAT_QA_SPEC_11,Progressions,OK,0.447,0.94,1.0,1.0,1.0,0.75,1.0,0.588,0.55,0.2,0.824,YES,NO,
+CAT_QA_SPEC_11_GPT55Thinking_FINALWEAK_07,CAT_QA_SPEC_11,Progressions,OK,0.447,0.76,1.0,1.0,0.75,0.75,1.0,0.588,0.55,0.2,0.749,NO,NO,cat_likeness_below_0_82;final_score_below_0_80

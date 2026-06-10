@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Exam-style math typography ─────────────────────────────────────────── */
+
+/* Question / solution prose: airy, exam-paper line height. */
+.rich-math {
+  line-height: 1.75;
+  font-size: 1rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Block equations: centered, boxed, with breathing room; scroll instead of
+   overflowing on narrow screens. */
+.rich-math .katex-display {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  background: rgba(34, 211, 238, 0.045);
+  padding: 1rem 1.25rem;
+  text-align: center;
+}
+
+.rich-math .katex-display > .katex {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Inline math: align with surrounding text, never clipped. */
+.rich-math .katex {
+  color: rgb(226 232 240);
+  font-size: 1.05em;
+}
+
+.rich-math :not(.katex-display) > .katex {
+  white-space: normal;
+}
+
+/* Clear separation between solution steps. */
+.rich-math h3 + p,
+.rich-math p + p {
+  margin-top: 0.85rem;
+}
+
+/* Compact variant for option chips / preview cards. */
+.rich-math-compact {
+  line-height: 1.5;
+}
+
+.rich-math-compact .katex-display {
+  margin: 0.5rem 0;
+  padding: 0.55rem 0.75rem;
+}
+
+.rich-math-compact .katex {
+  font-size: 1em;
+}
+
+:root {
+  --bg-base: #05070f;
+  --border-ghost: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(34, 211, 238, 0.11), transparent 28rem),
+    radial-gradient(circle at 82% 18%, rgba(168, 85, 247, 0.1), transparent 26rem),
+    radial-gradient(circle at 48% 78%, rgba(16, 185, 129, 0.06), transparent 28rem),
+    #05070f;
+  color: #e2e8f0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c2438;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3550;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(13, 19, 36, 0.55);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-strong {
+    background: rgba(13, 19, 36, 0.82);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7, #10b981, #22d3ee);
+    background-size: 320% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(34, 211, 238, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.055) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+  }
+
+  .noise-bg::after {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 3px 3px;
+    content: "";
+    inset: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #0b1020 25%, #141c33 50%, #0b1020 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.6s infinite linear;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

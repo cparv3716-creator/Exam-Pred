@@ -1,0 +1,2 @@
+exam_slug,section,year,slot,paper_code,question_id,question_text,question_type,option_a,option_b,option_c,option_d,correct_answer,detailed_solution,topic,subtopic,archetype,difficulty,source_reference,frequency_weight,probability_score,trend_score,is_free,is_premium,tags
+cat,QA,2024,Slot 1,CAT24-S1,LOCAL-CAT-QA-001,"[USER PROVIDED] Add legally permitted question text here.",MCQ,Option A,Option B,Option C,Option D,A,"Add detailed solution here.",Arithmetic,Percentages,Successive percentage change,Medium,owned_or_licensed_source,80,72,65,true,false,"percentages;arithmetic"

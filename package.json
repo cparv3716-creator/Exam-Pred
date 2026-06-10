@@ -1,0 +1,63 @@
+{
+  "name": "examiq-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "import:pyq": "tsx scripts/import-pyq-csv-to-local-content.ts",
+    "import:generated-practice": "tsx scripts/import-generated-practice-csv-to-local-content.ts",
+    "import:cat-quant-latex": "tsx scripts/import-cat-quant-latex-sources.ts",
+    "relevel:cat-quant-practice": "tsx scripts/relevel-cat-quant-practice.ts",
+    "normalize:cat-quant-math": "tsx scripts/normalize-cat-quant-math-display.ts",
+    "debug:cat-quant-render-row": "tsx scripts/debug-cat-quant-render-row.ts",
+    "audit:cat-quant-math": "tsx scripts/audit-cat-quant-math-display.ts",
+    "audit:cat-quant-integrity": "tsx scripts/audit-cat-quant-question-integrity.ts",
+    "audit:cat-quant-rendering": "tsx scripts/audit-cat-quant-rendering-quality.ts",
+    "audit:cat-quant-exam-rendering": "tsx scripts/audit-cat-quant-exam-rendering.ts",
+    "gate:cat-quant-visibility": "tsx scripts/gate-cat-quant-visibility.ts",
+    "audit:cat-quant-completeness": "tsx scripts/audit-cat-quant-completeness.ts",
+    "debug:cat-quant-completeness-row": "tsx scripts/debug-cat-quant-completeness-row.ts",
+    "start": "next start",
+    "lint": "next lint",
+    "build:cat-quant-latex-direct-bank": "tsx scripts/build-cat-quant-latex-direct-bank.ts",
+    "audit:cat-quant-latex-map": "tsx scripts/audit-cat-quant-latex-to-json-map.ts",
+    "apply:cat-quant-latex-high-confidence": "tsx scripts/apply-cat-quant-latex-high-confidence-matches.ts",
+    "build:cat-varc-source-bank": "tsx scripts/build-cat-varc-source-bank.ts",
+    "debug:cat-varc-source-row": "tsx scripts/debug-cat-varc-source-row.ts",
+    "recover:cat-varc-answers": "tsx scripts/recover-cat-varc-answers.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.12.1",
+    "katex": "^0.17.0",
+    "lucide-react": "^0.511.0",
+    "next": "16.2.7",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-katex": "^3.1.0",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.8.1",
+    "rehype-katex": "^7.0.1",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "tailwind-merge": "^3.3.0",
+    "zustand": "^5.0.5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.10"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3"
+  }
+}

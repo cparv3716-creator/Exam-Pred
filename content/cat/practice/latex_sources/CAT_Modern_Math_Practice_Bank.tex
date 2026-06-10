@@ -1,0 +1,997 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    pdftitle={CAT Quant Modern Math Practice Bank: P\&C and Probability}
+}
+
+\titleformat{\section}{\Large\bfseries\color{blue!50!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{black}}{\thesubsection}{1em}{}
+
+\tcbset{
+    qbox/.style={
+        colback=blue!4,
+        colframe=blue!50!black,
+        boxrule=0.6pt,
+        arc=2pt,
+        left=8pt, right=8pt, top=6pt, bottom=6pt,
+        before skip=6pt, after skip=6pt
+    }
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{\textbf{CAT Quant Modern Math Practice Bank: \\ P\&C and Probability}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Instructions}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item This is an original CAT-level Modern Math practice bank focused on Permutation, Combination, Counting, Arrangement, Selection, and Probability.
+    \item It is not an official, leaked, or guaranteed CAT paper.
+    \item Suggested time: 80 to 95 minutes for the full 20-question bank.
+    \item Calculators are not assumed; mental arithmetic and structured casework are expected.
+    \item Attempt the entire bank under timed conditions before checking solutions.
+    \item For MCQ questions, exactly one option is correct.
+    \item For TITA questions, the answer is an exact integer or an explicitly defined integer derived from a fraction.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Distribution at a glance:} 10 P\&C / Counting questions + 10 Probability questions; 12 MCQ + 8 TITA; 4 Medium-Hard + 12 Hard + 4 Very Hard.
+
+\newpage
+
+\section*{Question Paper}
+
+%==========================  Q1  ==========================
+\subsection*{Question 1}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Arrangements with repeated letters and adjacency restriction \\
+\textbf{Difficulty:} Medium-Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 3 min
+\begin{tcolorbox}[qbox]
+In how many distinct arrangements of the letters of the word \textbf{PARALLEL} do no two L's stand next to each other?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 1200
+\item 1500
+\item 2400
+\item 720
+\end{enumerate}
+
+%==========================  Q2  ==========================
+\subsection*{Question 2}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Distribution of identical objects with mixed bounds \\
+\textbf{Difficulty:} Medium-Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 3 min
+\begin{tcolorbox}[qbox]
+Find the number of ways to distribute 18 identical balls into four distinct boxes \(A\), \(B\), \(C\), \(D\) such that \(A\) gets at least 2 balls, \(B\) gets at least 3 balls, \(C\) gets at most 6 balls, and \(D\) can get any number from 0 onwards.
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q3  ==========================
+\subsection*{Question 3}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Integer solutions under linked constraints \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+How many ordered triples \((x, y, z)\) of positive integers satisfy all of the following:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(x + y + z = 30\),
+    \item \(x \leq y \leq z\), and
+    \item \(x\), \(y\), \(z\) are the side lengths of a (non-degenerate) triangle?
+\end{itemize}
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 19
+\item 21
+\item 17
+\item 12
+\end{enumerate}
+
+%==========================  Q4  ==========================
+\subsection*{Question 4}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Committee formation with multiple representation constraints \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+A 6-member committee is to be formed from a group of 5 men, 4 women, and 3 children. The committee must satisfy all of the following:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item At least one member from each of the three categories must be included.
+    \item The number of men in the committee must be strictly greater than the number of women.
+    \item The number of children in the committee cannot exceed the number of women.
+\end{itemize}
+In how many ways can such a committee be formed?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 240
+\item 180
+\item 300
+\item 360
+\end{enumerate}
+
+%==========================  Q5  ==========================
+\subsection*{Question 5}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Digit counting with position-style restriction \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+How many 5-digit positive integers are there in which all five digits are distinct, no digit is 0, and the digits, read left to right, do not form a strictly increasing or strictly decreasing sequence?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 14868
+\item 15120
+\item 14994
+\item 14616
+\end{enumerate}
+
+%==========================  Q6  ==========================
+\subsection*{Question 6}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Position-based arrangement with order constraints \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+The 9 letters of the word \textbf{EDUCATION} are arranged in a row. In how many of these arrangements do the five vowels appear in their natural alphabetical order \(A, E, I, O, U\) (left to right), and the four consonants also appear in their natural alphabetical order \(C, D, N, T\) (left to right)?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q7  ==========================
+\subsection*{Question 7}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Digit counting after removing invalid cases \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 5 min
+\begin{tcolorbox}[qbox]
+How many 4-digit positive integers between 1000 and 9999 (both inclusive) have digit sum equal to 20 and contain at least one digit equal to 0?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q8  ==========================
+\subsection*{Question 8}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Circular arrangement with position-distance constraint \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+Eight distinct persons, including two specific persons \(P\) and \(Q\), are to be seated around a round table. Two seating arrangements that differ only by a rotation are considered the same. In how many such distinct arrangements is the number of persons sitting between \(P\) and \(Q\) along the shorter arc of the table exactly equal to 2?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 1440
+\item 720
+\item 2880
+\item 360
+\end{enumerate}
+
+%==========================  Q9  ==========================
+\subsection*{Question 9}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Bounded partitions with structural constraint \\
+\textbf{Difficulty:} Very Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 6 min
+\begin{tcolorbox}[qbox]
+Find the number of sequences of positive integers \((a_1, a_2, a_3, a_4, a_5)\) such that:
+\[
+a_1 \leq a_2 \leq a_3 \leq a_4 \leq a_5, \quad a_1 + a_2 + a_3 + a_4 + a_5 = 25, \quad a_5 \leq 2\, a_1.
+\]
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q10  ==========================
+\subsection*{Question 10}
+\textbf{Topic:} P\&C / Counting \quad
+\textbf{Subtopic:} Arrangement with adjacency, order, and end-position restrictions \\
+\textbf{Difficulty:} Very Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 6 min
+\begin{tcolorbox}[qbox]
+Six distinct books are arranged in a row on a shelf: three Mathematics books \(M_1, M_2, M_3\) and three Physics books \(P_1, P_2, P_3\). In how many of these arrangements are all of the following true simultaneously:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item No two Mathematics books are next to each other.
+    \item \(M_1\) is placed somewhere to the left of \(M_2\).
+    \item \(P_1\) is neither at the extreme left end nor at the extreme right end of the shelf.
+\end{itemize}
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item 60
+\item 72
+\item 48
+\item 120
+\end{enumerate}
+
+%==========================  Q11  ==========================
+\subsection*{Question 11}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Conditional probability with two-set overlap \\
+\textbf{Difficulty:} Medium-Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 3 min
+\begin{tcolorbox}[qbox]
+In a particular school, \(60\%\) of the students play cricket, \(40\%\) play football, and \(25\%\) play both sports. A student is selected uniformly at random from the school. Given that the selected student plays at least one of the two sports, what is the probability that the student plays exactly one of the two sports?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{2}{3}\)
+\item \(\dfrac{1}{2}\)
+\item \(\dfrac{5}{9}\)
+\item \(\dfrac{7}{9}\)
+\end{enumerate}
+
+%==========================  Q12  ==========================
+\subsection*{Question 12}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Conditional probability with changed sample space \\
+\textbf{Difficulty:} Medium-Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 3 min
+\begin{tcolorbox}[qbox]
+An urn contains 4 red and 5 blue balls. Two balls are drawn one after the other, without replacement. Given that at least one of the two balls drawn is red, the probability that both drawn balls are red equals \(\dfrac{p}{q}\) in lowest terms, where \(p\) and \(q\) are positive integers with \(\gcd(p,q)=1\). What is the value of \(p + q\)?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q13  ==========================
+\subsection*{Question 13}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Geometric/turn-based probability with dependent events \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+Three players \(A\), \(B\), and \(C\) take turns rolling a fair six-sided die in the cyclic order \(A, B, C, A, B, C, \ldots\). The first player to roll a 6 wins the game and play stops. What is the probability that \(A\) wins the game?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{36}{91}\)
+\item \(\dfrac{25}{91}\)
+\item \(\dfrac{30}{91}\)
+\item \(\dfrac{1}{3}\)
+\end{enumerate}
+
+%==========================  Q14  ==========================
+\subsection*{Question 14}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Arrangement-based probability with complement counting \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+All 11 letters of the word \textbf{MISSISSIPPI} are arranged in a row in a uniformly random order (where all distinguishable arrangements are equally likely). What is the probability that the four I's do not all appear together as a single block?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{161}{165}\)
+\item \(\dfrac{4}{165}\)
+\item \(\dfrac{156}{165}\)
+\item \(\dfrac{159}{165}\)
+\end{enumerate}
+
+%==========================  Q15  ==========================
+\subsection*{Question 15}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Conditional probability with binomial structure \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+A fair coin is tossed 6 times in sequence. Given that the total number of heads obtained is strictly greater than the total number of tails obtained, the probability that the very first toss was a head equals \(\dfrac{p}{q}\) in lowest terms, where \(p\) and \(q\) are positive integers with \(\gcd(p,q)=1\). What is the value of \(p + q\)?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q16  ==========================
+\subsection*{Question 16}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Probability after careful parity counting \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+Three distinct integers are chosen at random (with all subsets equally likely) from the set \(\{1, 2, 3, \ldots, 15\}\). The probability that the sum of the three chosen numbers is even equals \(\dfrac{p}{q}\) in lowest terms, where \(p\) and \(q\) are positive integers with \(\gcd(p,q)=1\). What is the value of \(p + q\)?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+%==========================  Q17  ==========================
+\subsection*{Question 17}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Probability from random ordering with mixed restrictions \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 3 min
+\begin{tcolorbox}[qbox]
+Five guests \(A\), \(B\), \(C\), \(D\), and \(E\) line up in a uniformly random order (all \(5!\) orderings equally likely) to enter a hall. What is the probability that, in the resulting order, \(A\) enters \emph{immediately} before \(B\) and \(C\) enters \emph{somewhere} after \(D\) (not necessarily immediately)?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{1}{10}\)
+\item \(\dfrac{1}{5}\)
+\item \(\dfrac{1}{8}\)
+\item \(\dfrac{3}{20}\)
+\end{enumerate}
+
+%==========================  Q18  ==========================
+\subsection*{Question 18}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Conditional card probability with overlapping categories \\
+\textbf{Difficulty:} Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 4 min
+\begin{tcolorbox}[qbox]
+Two cards are drawn at random, without replacement, from a standard 52-card deck. In this problem, the \emph{face cards} are the Jacks, Queens, and Kings only (12 cards in total); Aces are \emph{not} considered face cards. Given that at least one of the two drawn cards is a face card, what is the probability that exactly one of the two drawn cards is an Ace?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{8}{91}\)
+\item \(\dfrac{16}{91}\)
+\item \(\dfrac{4}{91}\)
+\item \(\dfrac{24}{91}\)
+\end{enumerate}
+
+%==========================  Q19  ==========================
+\subsection*{Question 19}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Probability with modular-structure insight \\
+\textbf{Difficulty:} Very Hard \quad
+\textbf{Type:} MCQ \quad
+\textbf{Estimated Time:} 5 min
+\begin{tcolorbox}[qbox]
+Two distinct integers \(a\) and \(b\) are chosen at random from the set \(\{1, 2, 3, \ldots, 10\}\), with all \(\binom{10}{2}\) unordered pairs equally likely. What is the probability that \(a^2 + b^2\) is divisible by 5?
+\end{tcolorbox}
+\begin{enumerate}[label=(\Alph*)]
+\item \(\dfrac{17}{45}\)
+\item \(\dfrac{1}{3}\)
+\item \(\dfrac{19}{45}\)
+\item \(\dfrac{4}{15}\)
+\end{enumerate}
+
+%==========================  Q20  ==========================
+\subsection*{Question 20}
+\textbf{Topic:} Probability \quad
+\textbf{Subtopic:} Probability with inclusion-exclusion in a circular setting \\
+\textbf{Difficulty:} Very Hard \quad
+\textbf{Type:} TITA \quad
+\textbf{Estimated Time:} 7 min
+\begin{tcolorbox}[qbox]
+Four married couples (8 people in total) are seated uniformly at random around a circular table with 8 chairs. The probability that no married couple ends up sitting in two adjacent chairs equals \(\dfrac{p}{q}\) in lowest terms, where \(p\) and \(q\) are positive integers with \(\gcd(p,q)=1\). What is the value of \(p + q\)?
+\end{tcolorbox}
+\textbf{Type:} TITA
+
+\newpage
+
+\section*{Answer Key}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{|c|l|l|c|c|c|}
+\hline
+\textbf{Q\#} & \textbf{Topic} & \textbf{Subtopic} & \textbf{Type} & \textbf{Answer} & \textbf{Difficulty} \\
+\hline
+1  & P\&C        & Repeated letters, non-adjacency        & MCQ  & (A) 1200        & Medium-Hard \\
+2  & P\&C        & Distribution with mixed bounds          & TITA & 476             & Medium-Hard \\
+3  & P\&C        & Triangle-side integer triples           & MCQ  & (A) 19          & Hard \\
+4  & P\&C        & Committee with linked constraints       & MCQ  & (A) 240         & Hard \\
+5  & P\&C        & Distinct-digit non-monotonic numbers    & MCQ  & (A) 14868       & Hard \\
+6  & P\&C        & Order-constrained arrangement           & TITA & 126             & Hard \\
+7  & P\&C        & 4-digit digit sum with a zero           & TITA & 108             & Hard \\
+8  & P\&C        & Circular arrangement, shorter-arc gap   & MCQ  & (A) 1440        & Hard \\
+9  & P\&C        & Bounded partitions, ratio constraint    & TITA & 8               & Very Hard \\
+10 & P\&C        & Multi-constraint shelf arrangement      & MCQ  & (A) 60          & Very Hard \\
+11 & Probability & Conditional, two-set overlap            & MCQ  & (A) \(2/3\)     & Medium-Hard \\
+12 & Probability & Conditional urn, changed sample space   & TITA & 16              & Medium-Hard \\
+13 & Probability & Turn-based die race                     & MCQ  & (A) \(36/91\)   & Hard \\
+14 & Probability & MISSISSIPPI, complement of block        & MCQ  & (A) \(161/165\) & Hard \\
+15 & Probability & Conditional on H \(>\) T in 6 tosses    & TITA & 19              & Hard \\
+16 & Probability & Sum-parity selection from 1--15         & TITA & 98              & Hard \\
+17 & Probability & Random ordering, two-rule constraint    & MCQ  & (A) \(1/10\)    & Hard \\
+18 & Probability & Two-card draw, face/ace conditional     & MCQ  & (A) \(8/91\)    & Hard \\
+19 & Probability & \(a^2 + b^2 \equiv 0 \pmod 5\)          & MCQ  & (A) \(17/45\)   & Very Hard \\
+20 & Probability & 4 couples, no couple adjacent           & TITA & 136             & Very Hard \\
+\hline
+\end{longtable}
+\end{center}
+
+\newpage
+
+\section*{Detailed Solutions}
+
+%==========================  S1  ==========================
+\subsection*{Solution 1}
+\textbf{Answer:} (A) 1200
+
+\textbf{Detailed Solution:}
+
+Step 1: PARALLEL has 8 letters: P (1), A (2), R (1), L (3), E (1). Two A's and three L's are the only repeats.
+
+Step 2: First arrange the 5 non-L letters P, A, R, A, E. The number of distinguishable arrangements is \(\dfrac{5!}{2!} = 60\) (the two A's are identical).
+
+Step 3: These 5 letters create \(5 + 1 = 6\) gaps (including the two ends). To ensure no two L's are adjacent, place the three identical L's in 3 distinct gaps: \(\binom{6}{3} = 20\) ways.
+
+Step 4: Total arrangements = \(60 \times 20 = 1200\).
+
+\textbf{Why this is CAT-level:} The repeated A's are easy to forget while the repeated L's get all the attention; the slot/gap method must be combined with division by \(2!\), not by \(2! \cdot 3!\).
+
+\textbf{Common Wrong Approach:} Computing \(\dfrac{8!}{3! 2!}\) and subtracting ``L's together'' arrangements, or using gap method without dividing by \(2!\) for the A's, both lead to inflated numbers like 1500 or 2400.
+
+%==========================  S2  ==========================
+\subsection*{Solution 2}
+\textbf{Answer:} 476
+
+\textbf{Detailed Solution:}
+
+Step 1: Let \(A, B, C, D \geq 0\) denote the balls received, with \(A + B + C + D = 18\), \(A \geq 2\), \(B \geq 3\), \(C \leq 6\).
+
+Step 2: Substitute \(a = A - 2\), \(b = B - 3\), so \(a, b \geq 0\) and \(a + b + C + D = 13\) with \(C \leq 6\), \(C, D \geq 0\).
+
+Step 3: Without the \(C \leq 6\) restriction, by stars and bars the count is \(\binom{13 + 3}{3} = \binom{16}{3} = 560\).
+
+Step 4: Subtract the violating cases where \(C \geq 7\). Let \(C' = C - 7 \geq 0\); then \(a + b + C' + D = 6\), giving \(\binom{9}{3} = 84\) solutions.
+
+Step 5: Final count = \(560 - 84 = 476\).
+
+\textbf{Why this is CAT-level:} Three different bound types (lower, lower, upper) are tied together. A direct stars-and-bars formula without addressing the upper bound on \(C\) silently overcounts.
+
+\textbf{Common Wrong Approach:} Reporting 560 (forgetting \(C \leq 6\)) or applying inclusion-exclusion on all variables when only \(C\) has an upper bound.
+
+%==========================  S3  ==========================
+\subsection*{Solution 3}
+\textbf{Answer:} (A) 19
+
+\textbf{Detailed Solution:}
+
+Step 1: With \(x \leq y \leq z\) and \(x + y + z = 30\), the triangle inequality reduces to \(x + y > z\), i.e., \(30 - z > z\), so \(z \leq 14\). Also \(z \geq 30/3 = 10\) since \(z\) is the largest. So \(z \in \{10, 11, 12, 13, 14\}\).
+
+Step 2: For each \(z\), count integer pairs \((x, y)\) with \(x \leq y \leq z\), \(x + y = 30 - z\), \(x \geq 1\). Note \(y \geq \lceil (30-z)/2 \rceil\) and \(y \leq z\).
+
+Step 3: Case-by-case:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(z = 10\): \(x + y = 20\), \(y \in [10,10]\). 1 triple: \((10,10,10)\).
+    \item \(z = 11\): \(x + y = 19\), \(y \in [10,11]\). 2 triples.
+    \item \(z = 12\): \(x + y = 18\), \(y \in [9,12]\). 4 triples.
+    \item \(z = 13\): \(x + y = 17\), \(y \in [9,13]\). 5 triples.
+    \item \(z = 14\): \(x + y = 16\), \(y \in [8,14]\). 7 triples.
+\end{itemize}
+
+Step 4: Total \(= 1 + 2 + 4 + 5 + 7 = 19\).
+
+\textbf{Why this is CAT-level:} The student must recognise that the triangle inequality collapses to the single condition \(z < 15\); then carefully bound \(y\) from both sides for each \(z\) instead of using a generic stars-and-bars count.
+
+\textbf{Common Wrong Approach:} Using stars and bars on \(x + y + z = 30\) and ignoring the ordering \(x \leq y \leq z\), or forgetting the lower bound \(z \geq 10\).
+
+%==========================  S4  ==========================
+\subsection*{Solution 4}
+\textbf{Answer:} (A) 240
+
+\textbf{Detailed Solution:}
+
+Step 1: Let \((M, W, C)\) be the number of men, women, and children in the committee. Then \(M + W + C = 6\), all \(\geq 1\), \(M > W\), \(C \leq W\), \(M \leq 5\), \(W \leq 4\), \(C \leq 3\).
+
+Step 2: Enumerate by \(W\):
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(W = 1\): \(C \leq 1\) and \(C \geq 1\) force \(C = 1\); then \(M = 4\) and \(M > W\) holds. Selections: \(\binom{5}{4}\binom{4}{1}\binom{3}{1} = 5 \cdot 4 \cdot 3 = 60\).
+    \item \(W = 2\): \(M > 2\) and \(C \in \{1, 2\}\) with \(M + C = 4\). The pair \((M, C) = (3, 1)\) works; \((2, 2)\) fails since \(M\) must strictly exceed \(W\). Selections: \(\binom{5}{3}\binom{4}{2}\binom{3}{1} = 10 \cdot 6 \cdot 3 = 180\).
+    \item \(W \geq 3\): Then \(M \geq 4\) and \(C \geq 1\) force \(M + C \geq 5\), but \(M + C = 6 - W \leq 3\). No solutions.
+\end{itemize}
+
+Step 3: Total \(= 60 + 180 = 240\).
+
+\textbf{Why this is CAT-level:} Three linked inequalities (at least one in each category, \(M > W\), \(C \leq W\)) interact in a way that rules out most \(W\) values; the student must split on \(W\) rather than on \(M\) or \(C\).
+
+\textbf{Common Wrong Approach:} Using complementary counting on ``\(M > W\)'' against total committees, which produces double counting with the ``at least one of each'' constraint.
+
+%==========================  S5  ==========================
+\subsection*{Solution 5}
+\textbf{Answer:} (A) 14868
+
+\textbf{Detailed Solution:}
+
+Step 1: Digits are 5 distinct values from \(\{1, 2, \ldots, 9\}\). Number of ways to choose them: \(\binom{9}{5} = 126\). Each chosen set can be arranged in \(5! = 120\) ways. Total such 5-digit numbers: \(126 \cdot 120 = 15120\).
+
+Step 2: For any chosen 5-element subset of \(\{1, \ldots, 9\}\), exactly one arrangement is strictly increasing and exactly one is strictly decreasing.
+
+Step 3: Number of strictly monotonic 5-digit numbers: \(126 \cdot 2 = 252\).
+
+Step 4: Numbers that are \emph{not} strictly monotonic: \(15120 - 252 = 14868\).
+
+\textbf{Why this is CAT-level:} The complement is the elegant route: counting non-monotonic arrangements directly is messy. The student must also note that ``no digit is 0'' makes both the increasing and decreasing counts symmetric in \(\binom{9}{5}\).
+
+\textbf{Common Wrong Approach:} Trying to count non-monotonic arrangements directly via cases on adjacent differences, or forgetting that each 5-subset produces exactly 2 monotonic arrangements, not 1.
+
+%==========================  S6  ==========================
+\subsection*{Solution 6}
+\textbf{Answer:} 126
+
+\textbf{Detailed Solution:}
+
+Step 1: EDUCATION has 5 vowels \(\{A, E, I, O, U\}\) and 4 consonants \(\{C, D, N, T\}\). All 9 letters are distinct.
+
+Step 2: For a fixed choice of which 5 positions (out of 9) house the vowels, the order of the vowels within those positions is forced (alphabetical), and the order of the consonants in the remaining 4 positions is also forced (alphabetical).
+
+Step 3: Hence the number of valid arrangements equals the number of ways to choose 5 positions out of 9: \(\binom{9}{5} = 126\).
+
+\textbf{Why this is CAT-level:} Forcing the order within each group collapses the apparent \(9!\) freedom to a single binomial coefficient; the trap is to multiply by \(5!\) or \(4!\).
+
+\textbf{Common Wrong Approach:} Computing \(\dfrac{9!}{5! \, 4!}\) ``with permutations of the vowels and consonants thrown in'' --- the correct answer is exactly \(\binom{9}{5}\), no factorial multiplication.
+
+%==========================  S7  ==========================
+\subsection*{Solution 7}
+\textbf{Answer:} 108
+
+\textbf{Detailed Solution:}
+
+Step 1: Let \(N\) = \(\{\)4-digit numbers with digit sum 20\(\}\), \(N_0\) = \(\{\)those that contain at least one 0\(\}\), and \(N_*\) = \(\{\)those with all digits in \(\{1, \ldots, 9\}\}\). Then \(|N_0| = |N| - |N_*|\).
+
+Step 2: Count \(|N|\). Write \(d_1 + d_2 + d_3 + d_4 = 20\) with \(1 \leq d_1 \leq 9\), \(0 \leq d_i \leq 9\) for \(i = 2, 3, 4\). Using inclusion-exclusion on the upper bounds (after shifting \(d_1' = d_1 - 1\)):
+\[
+|N| = \binom{22}{3} - \binom{13}{3} - 3\binom{12}{3} + 3 \cdot 1 = 1540 - 286 - 660 + 3 = 597.
+\]
+
+Step 3: Count \(|N_*|\). Now \(1 \leq d_i \leq 9\) for all \(i\). Setting \(e_i = d_i - 1\):
+\[
+|N_*| = \binom{19}{3} - 4 \binom{10}{3} = 969 - 480 = 489.
+\]
+
+Step 4: Required count \(|N_0| = 597 - 489 = 108\).
+
+\textbf{Why this is CAT-level:} ``At least one 0'' is most cleanly handled by complement \emph{within} the constrained set (digit sum 20), not over all 4-digit numbers. Both counts require careful inclusion-exclusion on the upper bound of 9.
+
+\textbf{Common Wrong Approach:} Trying to place a 0 in one of the 3 valid digit positions and count the rest directly, which double-counts numbers containing two or more zeros.
+
+%==========================  S8  ==========================
+\subsection*{Solution 8}
+\textbf{Answer:} (A) 1440
+
+\textbf{Detailed Solution:}
+
+Step 1: With 8 seats around a circular table and rotations identified, there are \(7! = 5040\) distinct arrangements. Fix \(P\) at one seat to remove rotational equivalence.
+
+Step 2: After fixing \(P\), the remaining 7 seats can be labelled by their ``clockwise gap'' from \(P\): \(1, 2, 3, 4, 5, 6, 7\). The number of people between \(P\) and \(Q\) along the shorter arc equals \(\min(g - 1, 7 - g)\), where \(g\) is the clockwise gap.
+
+Step 3: We require \(\min(g - 1, 7 - g) = 2\), i.e., \(g - 1 = 2\) (so \(g = 3\)) or \(7 - g = 2\) (so \(g = 5\)). Both choices put 2 persons on the shorter arc and 4 on the longer arc.
+
+Step 4: So \(Q\) has 2 valid positions. The remaining 6 distinct persons fill the other 6 seats in \(6! = 720\) ways.
+
+Step 5: Required number of arrangements \(= 2 \times 720 = 1440\).
+
+\textbf{Why this is CAT-level:} The student must recognise that ``shorter arc'' picks out two symmetric gap values, not one; and must lock down the rotational convention before counting.
+
+\textbf{Common Wrong Approach:} Treating only \(g = 3\) as valid (forgetting the mirror gap \(g = 5\)), which gives 720, or multiplying by 8 for ``rotations'' that have already been quotiented out.
+
+%==========================  S9  ==========================
+\subsection*{Solution 9}
+\textbf{Answer:} 8
+
+\textbf{Detailed Solution:}
+
+Step 1: Let \(a_1 = k\). Then \(k \leq a_5 \leq 2k\) and \(5k \leq 25 \leq 9k\), giving \(k \in \{3, 4, 5\}\).
+
+Step 2: \(k = 3\): need \((a_2, a_3, a_4, a_5)\) non-decreasing in \([3, 6]\), summing to 22.
+
+Listing by \(a_2\):
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(a_2 = 4\): need \((a_3, a_4, a_5)\) non-decreasing in \([4, 6]\) summing to 18; only \((6, 6, 6)\). \(\to (3, 4, 6, 6, 6)\).
+    \item \(a_2 = 5\): need \((a_3, a_4, a_5)\) non-decreasing in \([5, 6]\) summing to 17; only \((5, 6, 6)\). \(\to (3, 5, 5, 6, 6)\).
+\end{itemize}
+Contribution from \(k = 3\): \textbf{2}.
+
+Step 3: \(k = 4\): need \((a_2, a_3, a_4, a_5)\) non-decreasing in \([4, 8]\), summing to 21.
+
+Enumeration:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(a_2 = 4, a_3 = 4\): \((a_4, a_5) \in \{(5, 8), (6, 7)\}\). 2 sequences.
+    \item \(a_2 = 4, a_3 = 5\): \((a_4, a_5) \in \{(5, 7), (6, 6)\}\). 2 sequences.
+    \item \(a_2 = 5, a_3 = 5\): \((a_4, a_5) = (5, 6)\). 1 sequence.
+    \item All other \((a_2, a_3)\) options either violate the upper bound \(\leq 8\) or yield no non-decreasing fit.
+\end{itemize}
+Contribution: \textbf{5}.
+
+Step 4: \(k = 5\): all five entries lie in \([5, 10]\) and sum to 25. The lower bound 5 on each forces every entry to equal 5, giving \((5, 5, 5, 5, 5)\). Contribution: \textbf{1}.
+
+Step 5: Grand total \(= 2 + 5 + 1 = 8\).
+
+\textbf{Why this is CAT-level:} Both the sum-equality and the ratio constraint \(a_5 \leq 2 a_1\) need to interact; the student must transform the constraint into bounds on \(a_1\) before any casework, and avoid brute force on partitions of 25.
+
+\textbf{Common Wrong Approach:} Counting all partitions of 25 into 5 parts (a classical count) and then trying to ``subtract violating ones'' --- the violation depends on both the smallest and largest part jointly, so the complement is not cleaner.
+
+%==========================  S10  ==========================
+\subsection*{Solution 10}
+\textbf{Answer:} (A) 60
+
+\textbf{Detailed Solution:}
+
+Step 1: ``No two Math books adjacent'' forces a unique pattern in 6 positions: the three Math books must occupy positions \(\{1, 3, 5\}\) or \(\{1, 3, 6\}\) or \(\{1, 4, 6\}\) or \(\{2, 4, 6\}\). The number of ways to choose 3 non-adjacent positions among 6 is \(\binom{4}{3} = 4\).
+
+Step 2: For each pattern, the 3 Math books can be arranged in \(3!\) ways and the 3 Physics books in \(3!\) ways. Without further constraint, total = \(4 \cdot 3! \cdot 3! = 144\).
+
+Step 3: Impose \(M_1\) left of \(M_2\): by symmetry, exactly half of the 144 arrangements satisfy this, giving \(72\).
+
+Step 4: Within these 72, count those with \(P_1\) at an end (position 1 or 6) and subtract.
+
+If \(P_1\) is at position 1, then position 1 is a Physics book, so the only Math-pattern compatible with this is the one in which Math books occupy \(\{2, 4, 6\}\) (the only pattern that leaves position 1 free for Physics among the four patterns above, given position 1 is Physics --- specifically, Math at \(\{2,4,6\}\)). The Math books arrange in \(3!\) ways, the remaining two Physics books \(P_2, P_3\) arrange in positions 3 and 5 in \(2!\) ways: \(6 \cdot 2 = 12\). Halving for \(M_1\) left of \(M_2\): \(6\).
+
+Step 5: By the same argument, \(P_1\) at position 6 gives another \(6\) arrangements. These two events are disjoint, so \(P_1\)-at-end has \(6 + 6 = 12\) arrangements.
+
+Step 6: Required total \(= 72 - 12 = 60\).
+
+\textbf{Why this is CAT-level:} Three different constraint types (adjacency, internal order, end-exclusion) must be handled in a deliberate sequence; multiplying ``probabilities'' of each restriction (i.e., naive independence) gives a wrong answer.
+
+\textbf{Common Wrong Approach:} Computing \(144 \cdot \dfrac{1}{2} \cdot \dfrac{4}{6} = 48\), treating the three constraints as if they applied independently to a base count.
+
+%==========================  S11  ==========================
+\subsection*{Solution 11}
+\textbf{Answer:} (A) \(2/3\)
+
+\textbf{Detailed Solution:}
+
+Step 1: Let \(C\) = plays cricket, \(F\) = plays football. \(P(C) = 0.60\), \(P(F) = 0.40\), \(P(C \cap F) = 0.25\).
+
+Step 2: \(P(C \cup F) = 0.60 + 0.40 - 0.25 = 0.75\).
+
+Step 3: \(P(\text{exactly one}) = P(C) + P(F) - 2 P(C \cap F) = 0.60 + 0.40 - 0.50 = 0.50\).
+
+Step 4: \(P(\text{exactly one} \mid C \cup F) = \dfrac{0.50}{0.75} = \dfrac{2}{3}\).
+
+\textbf{Why this is CAT-level:} The student must distinguish ``exactly one'' from ``at least one'' carefully; the formula \(P(A) + P(B) - 2 P(A \cap B)\) is the right counter to over-subtraction.
+
+\textbf{Common Wrong Approach:} Computing \(\dfrac{0.75 - 0.25}{0.75} = \dfrac{2}{3}\) by accident gives the right number but for the wrong reason; alternatively \(\dfrac{0.50}{1.00} = 0.50\) ignores the conditioning.
+
+%==========================  S12  ==========================
+\subsection*{Solution 12}
+\textbf{Answer:} 16
+
+\textbf{Detailed Solution:}
+
+Step 1: Total ways to pick 2 balls from 9: \(\binom{9}{2} = 36\).
+
+Step 2: \(P(\text{both red}) = \dfrac{\binom{4}{2}}{36} = \dfrac{6}{36} = \dfrac{1}{6}\).
+
+Step 3: \(P(\text{both blue}) = \dfrac{\binom{5}{2}}{36} = \dfrac{10}{36}\), so \(P(\text{at least one red}) = 1 - \dfrac{10}{36} = \dfrac{26}{36} = \dfrac{13}{18}\).
+
+Step 4: \(P(\text{both red} \mid \text{at least one red}) = \dfrac{1/6}{13/18} = \dfrac{1}{6} \cdot \dfrac{18}{13} = \dfrac{3}{13}\).
+
+Step 5: With \(p = 3\), \(q = 13\), \(\gcd(p, q) = 1\), so \(p + q = 16\).
+
+\textbf{Why this is CAT-level:} The sample space must be restricted to the conditioning event before computing the favourable ratio; the slick trick is to use complement for ``at least one red''.
+
+\textbf{Common Wrong Approach:} Reporting \(P(\text{both red}) = 1/6\) as the answer, ignoring the conditioning altogether.
+
+%==========================  S13  ==========================
+\subsection*{Solution 13}
+\textbf{Answer:} (A) \(36/91\)
+
+\textbf{Detailed Solution:}
+
+Step 1: \(A\) wins on his \((k+1)\)-th turn (\(k = 0, 1, 2, \ldots\)) iff the first \(3k\) rolls (by \(A, B, C\) in cycles) all miss 6 and \(A\)'s next roll is a 6.
+
+Step 2: \(P(A \text{ wins on } (k+1)\text{th turn}) = (5/6)^{3k} \cdot (1/6)\).
+
+Step 3: 
+\[
+P(A) = \frac{1}{6} \sum_{k=0}^{\infty} \left(\frac{5}{6}\right)^{3k} = \frac{1/6}{1 - 125/216} = \frac{1/6}{91/216} = \frac{216}{6 \cdot 91} = \frac{36}{91}.
+\]
+
+\textbf{Why this is CAT-level:} The student must set up a geometric series with common ratio \((5/6)^3\) (not \(5/6\)), then evaluate cleanly. The slick alternative is recognising that \(P(A) : P(B) : P(C) = 36 : 30 : 25\), summing to 91.
+
+\textbf{Common Wrong Approach:} Splitting \(1\) into three equal parts ``\(1/3\) by symmetry'', ignoring the fact that \(A\) has the first-mover advantage.
+
+%==========================  S14  ==========================
+\subsection*{Solution 14}
+\textbf{Answer:} (A) \(161/165\)
+
+\textbf{Detailed Solution:}
+
+Step 1: MISSISSIPPI has 11 letters: M (1), I (4), S (4), P (2). Total distinguishable arrangements:
+\[
+\frac{11!}{4! \cdot 4! \cdot 2!} = \frac{39916800}{1152} = 34650.
+\]
+
+Step 2: Treat the four I's as a single block IIII. The resulting 8 objects are M, S, S, S, S, [IIII], P, P. The number of arrangements:
+\[
+\frac{8!}{4! \cdot 2!} = \frac{40320}{48} = 840.
+\]
+
+Step 3: \(P(\text{all I's together}) = \dfrac{840}{34650} = \dfrac{4}{165}\).
+
+Step 4: \(P(\text{not all I's together}) = 1 - \dfrac{4}{165} = \dfrac{161}{165}\).
+
+\textbf{Why this is CAT-level:} The block-counting trick gives the complement quickly; computing ``not all together'' directly via cases on how many I's are clumped is significantly harder.
+
+\textbf{Common Wrong Approach:} Forgetting to keep the 4 identical S's also identical inside the block calculation, which inflates the block count.
+
+%==========================  S15  ==========================
+\subsection*{Solution 15}
+\textbf{Answer:} 19
+
+\textbf{Detailed Solution:}
+
+Step 1: Total outcomes in 6 fair tosses: \(2^6 = 64\). ``Heads strictly more than tails'' means \# heads \(\geq 4\):
+\[
+\binom{6}{4} + \binom{6}{5} + \binom{6}{6} = 15 + 6 + 1 = 22 \text{ outcomes}.
+\]
+
+Step 2: Outcomes with first toss = H and total heads \(\geq 4\) iff among the remaining 5 tosses, heads \(\geq 3\):
+\[
+\binom{5}{3} + \binom{5}{4} + \binom{5}{5} = 10 + 5 + 1 = 16 \text{ outcomes (in the remaining 5 tosses)}.
+\]
+Total outcomes with first = H and total H \(\geq 4\): \(16\) (out of \(64\) all-equally-likely sequences).
+
+Step 3: \(P(\text{first H} \mid H > T) = \dfrac{16/64}{22/64} = \dfrac{16}{22} = \dfrac{8}{11}\).
+
+Step 4: With \(p = 8\), \(q = 11\), \(\gcd(p, q) = 1\). So \(p + q = 19\).
+
+\textbf{Why this is CAT-level:} The conditioning event ``\(H > T\)'' is asymmetric, so the answer is \emph{not} simply \(1/2\). The student must recompute the marginal in the conditioned sub-space.
+
+\textbf{Common Wrong Approach:} Asserting by symmetry that \(P(\text{first H} \mid H > T) = 1/2\), since the first toss is ``independent of total'' --- this is wrong because conditioning on \(H > T\) breaks the independence.
+
+%==========================  S16  ==========================
+\subsection*{Solution 16}
+\textbf{Answer:} 98
+
+\textbf{Detailed Solution:}
+
+Step 1: In \(\{1, 2, \ldots, 15\}\) there are 8 odd numbers and 7 even numbers.
+
+Step 2: Total subsets of size 3: \(\binom{15}{3} = 455\).
+
+Step 3: Sum of three integers is even iff an even number of them are odd, i.e., 0 odd or 2 odd:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item 0 odd, 3 even: \(\binom{7}{3} = 35\).
+    \item 2 odd, 1 even: \(\binom{8}{2} \cdot \binom{7}{1} = 28 \cdot 7 = 196\).
+\end{itemize}
+Favourable \(= 35 + 196 = 231\).
+
+Step 4: \(P = \dfrac{231}{455}\). Since \(\gcd(231, 455) = 7\), reduced form is \(\dfrac{33}{65}\).
+
+Step 5: With \(p = 33\), \(q = 65\), \(\gcd(p,q) = 1\), so \(p + q = 98\).
+
+\textbf{Why this is CAT-level:} The student must reduce the problem to parity counts; doing it via residue classes mod 2 is elegant, while attempting to sum-categorise by actual values is hopeless under time pressure.
+
+\textbf{Common Wrong Approach:} Computing only one of the two cases (e.g., only ``all even'') and reporting \(35/455\).
+
+%==========================  S17  ==========================
+\subsection*{Solution 17}
+\textbf{Answer:} (A) \(1/10\)
+
+\textbf{Detailed Solution:}
+
+Step 1: Total orderings: \(5! = 120\).
+
+Step 2: ``\(A\) immediately before \(B\)'' treats \(AB\) as a single block. The number of such orderings is \(4! = 24\) (placing the block and three other letters).
+
+Step 3: Within these 24 orderings, the relative order of \(C\) and \(D\) is uniformly random (the block placement is independent of the order between \(C\) and \(D\)), so by symmetry exactly half satisfy ``\(C\) after \(D\)'': \(24 / 2 = 12\).
+
+Step 4: \(P = 12/120 = 1/10\).
+
+\textbf{Why this is CAT-level:} Two constraints --- one rigid (immediate adjacency in order) and one loose (just relative order) --- must be combined without double counting the symmetry between \(C\) and \(D\).
+
+\textbf{Common Wrong Approach:} Multiplying \(\dfrac{1}{5}\) (chance of any particular ordered pair being adjacent at any specific position) by \(\dfrac{1}{2}\) without correctly accounting for the block constraint, giving \(1/8\) or similar.
+
+%==========================  S18  ==========================
+\subsection*{Solution 18}
+\textbf{Answer:} (A) \(8/91\)
+
+\textbf{Detailed Solution:}
+
+Step 1: Categorise the 52 cards: 12 face cards (J/Q/K), 4 Aces, 36 other cards. Total 2-card draws: \(\binom{52}{2} = 1326\).
+
+Step 2: \(P(\text{no face card}) = \dfrac{\binom{40}{2}}{1326} = \dfrac{780}{1326}\). So \(P(\text{at least one face}) = \dfrac{546}{1326}\).
+
+Step 3: Count pairs that contain exactly one Ace \emph{and} at least one face card:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item One Ace and one face card: \(4 \cdot 12 = 48\) pairs --- the face card ensures the condition.
+    \item One Ace and one non-face, non-ace card: \(4 \cdot 36 = 144\) pairs --- but these contain no face card, so they fail the conditioning event.
+\end{itemize}
+Favourable pairs in both numerator and denominator: \(48\).
+
+Step 4: \(P(\text{exactly one Ace} \mid \text{at least one face}) = \dfrac{48/1326}{546/1326} = \dfrac{48}{546} = \dfrac{8}{91}\).
+
+\textbf{Why this is CAT-level:} The student must spot that an Ace is not a face card (a routine slip), and must intersect ``exactly one Ace'' with ``at least one face'' carefully --- the two events are not independent in any obvious way.
+
+\textbf{Common Wrong Approach:} Treating Aces as face cards, or computing \(P(\text{exactly one Ace})\) unconditionally and ignoring the conditioning.
+
+%==========================  S19  ==========================
+\subsection*{Solution 19}
+\textbf{Answer:} (A) \(17/45\)
+
+\textbf{Detailed Solution:}
+
+Step 1: Total unordered pairs: \(\binom{10}{2} = 45\).
+
+Step 2: Compute \(n^2 \bmod 5\) for \(n = 1, 2, \ldots, 10\):
+
+\[
+\begin{array}{c|cccccccccc}
+n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+n^2 \bmod 5 & 1 & 4 & 4 & 1 & 0 & 1 & 4 & 4 & 1 & 0
+\end{array}
+\]
+
+Classes: residue 0 \(= \{5, 10\}\) (2 elements), residue 1 \(= \{1, 4, 6, 9\}\) (4 elements), residue 4 \(= \{2, 3, 7, 8\}\) (4 elements).
+
+Step 3: \(a^2 + b^2 \equiv 0 \pmod 5\) requires the residues to be \((0, 0)\) or \((1, 4)\) (since \(1 + 4 = 5\) and other sums are 1, 2, 3, or 8 \(\equiv 3\) mod 5).
+
+Step 4: Count favourable pairs:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item Residues \((0, 0)\): \(\binom{2}{2} = 1\).
+    \item Residues \((1, 4)\): \(4 \cdot 4 = 16\) unordered pairs.
+\end{itemize}
+Favourable \(= 17\).
+
+Step 5: \(P = \dfrac{17}{45}\).
+
+\textbf{Why this is CAT-level:} The student must spot the modular trick (squares mod 5 land in \(\{0, 1, 4\}\)); brute-force checking 45 pairs is too slow.
+
+\textbf{Common Wrong Approach:} Listing pairs by \(a + b\) divisible by 5 (a related but different problem) or attempting brute force and miscounting boundary cases.
+
+%==========================  S20  ==========================
+\subsection*{Solution 20}
+\textbf{Answer:} 136
+
+\textbf{Detailed Solution:}
+
+Step 1: Number of distinct circular seatings of 8 distinct people (rotations identified): \((8-1)! = 5040\). Let \(A_i\) be the event that couple \(i\) sits in adjacent seats, \(i = 1, 2, 3, 4\).
+
+Step 2: For any \(k\) couples (\(1 \leq k \leq 4\)), glue each into a block (with 2 internal orderings), leaving \(8 - k\) ``objects'' in a circle. Number of arrangements:
+\[
+|A_{i_1} \cap \cdots \cap A_{i_k}| = (8 - k - 1)! \cdot 2^k.
+\]
+
+Step 3: Probability via inclusion-exclusion:
+\[
+P\!\left(\bigcup_{i=1}^{4} A_i\right) = \sum_{k=1}^{4} (-1)^{k-1} \binom{4}{k} \cdot \frac{(7-k)! \cdot 2^k}{7!}.
+\]
+
+Compute term-by-term:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+    \item \(k = 1\): \(\binom{4}{1} \cdot \dfrac{6! \cdot 2}{7!} = 4 \cdot \dfrac{2}{7} = \dfrac{8}{7}\).
+    \item \(k = 2\): \(\binom{4}{2} \cdot \dfrac{5! \cdot 4}{7!} = 6 \cdot \dfrac{4}{42} = \dfrac{4}{7}\).
+    \item \(k = 3\): \(\binom{4}{3} \cdot \dfrac{4! \cdot 8}{7!} = 4 \cdot \dfrac{8}{210} = \dfrac{16}{105}\).
+    \item \(k = 4\): \(\binom{4}{4} \cdot \dfrac{3! \cdot 16}{7!} = \dfrac{16}{840} = \dfrac{2}{105}\).
+\end{itemize}
+
+Step 4: \(P(\bigcup A_i) = \dfrac{8}{7} - \dfrac{4}{7} + \dfrac{16}{105} - \dfrac{2}{105} = \dfrac{4}{7} + \dfrac{14}{105} = \dfrac{60}{105} + \dfrac{14}{105} = \dfrac{74}{105}\).
+
+Step 5: \(P(\text{no couple adjacent}) = 1 - \dfrac{74}{105} = \dfrac{31}{105}\). Since \(\gcd(31, 105) = 1\), \(p = 31\), \(q = 105\), giving \(p + q = 136\).
+
+\textbf{Why this is CAT-level:} Inclusion-exclusion with circular block-counting, plus the standard ``glue and shrink'' transformation, is required. Brute force on \(8!\) (\(=40320\)) is infeasible, and ignoring rotational symmetry mistakes the denominator.
+
+\textbf{Common Wrong Approach:} Computing \(\left(1 - \dfrac{2}{7}\right)^4\) by ``treating couples as independent'' --- they are not, especially in a small circle.
+
+\newpage
+
+\section*{Topic-Wise Distribution}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Topic} & \textbf{Number of Questions} & \textbf{Question Numbers} \\
+\hline
+P\&C / Counting & 10 & 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
+Probability     & 10 & 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 \\
+\hline
+\textbf{Total}  & \textbf{20} & --- \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Subtopic Distribution}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Subtopic} & \textbf{Number of Questions} & \textbf{Question Numbers} \\
+\hline
+Arrangements with repeated objects / order        & 3 & 1, 6, 10 \\
+Distribution / integer-solution counting          & 3 & 2, 3, 7 \\
+Selection with multiple constraints (committee)   & 1 & 4 \\
+Digit / string counting with restrictions         & 1 & 5 \\
+Circular arrangement with position constraint     & 1 & 8 \\
+Bounded partitions with structural insight        & 1 & 9 \\
+Conditional probability                           & 4 & 11, 12, 15, 18 \\
+Probability via complement / overcount counting   & 2 & 14, 20 \\
+Sequential / dependent-event probability          & 1 & 13 \\
+Random-ordering probability with restrictions     & 1 & 17 \\
+Selection-based probability after parity counting & 1 & 16 \\
+Probability with modular insight                  & 1 & 19 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Difficulty Distribution}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Difficulty} & \textbf{Number of Questions} & \textbf{Question Numbers} \\
+\hline
+Medium-Hard & 4  & 1, 2, 11, 12 \\
+Hard        & 12 & 3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18 \\
+Very Hard   & 4  & 9, 10, 19, 20 \\
+\hline
+\textbf{Total} & \textbf{20} & --- \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Type Distribution}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Type} & \textbf{Number of Questions} & \textbf{Question Numbers} \\
+\hline
+MCQ  & 12 & 1, 3, 4, 5, 8, 10, 11, 13, 14, 17, 18, 19 \\
+TITA & 8  & 2, 6, 7, 9, 12, 15, 16, 20 \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Quality Verification Summary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.18}
+\footnotesize
+\begin{longtable}{|c|c|c|l|c|c|c|}
+\hline
+\textbf{Q\#} & \textbf{Answer Verified} & \textbf{MCQ Options Verified} & \textbf{Ambiguity Check} & \textbf{Brute Force Resistance} & \textbf{Method Selection Needed} & \textbf{Status} \\
+\hline
+1  & Yes & Yes & Clear wording & Moderate & Yes & Ready \\
+2  & Yes & Not Applicable & Clear wording & Moderate & Yes & Ready \\
+3  & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+4  & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+5  & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+6  & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+7  & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+8  & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+9  & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+10 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+11 & Yes & Yes & Clear wording & Moderate & Yes & Ready \\
+12 & Yes & Not Applicable & Clear wording & Moderate & Yes & Ready \\
+13 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+14 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+15 & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+16 & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+17 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+18 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+19 & Yes & Yes & Clear wording & Yes & Yes & Ready \\
+20 & Yes & Not Applicable & Clear wording & Yes & Yes & Ready \\
+\hline
+\end{longtable}
+\end{center}
+
+\vspace{6pt}
+
+\textit{All twenty questions are independently solved, the answer keys are cross-verified, and each question has at least one non-trivial method-selection or sample-space decision. The bank is ready for timed practice.}
+
+\end{document}

@@ -1,0 +1,20 @@
+{
+  "exam_slug": "cat",
+  "section": "QA",
+  "content_type": "generated_practice",
+  "source_file": "content/cat/practice/imports/generated_question_pool_combined_recalibrated_for_website.csv",
+  "output_file": "content/cat/practice/generated/cat_quant_generated_practice.json",
+  "imported_at": "2026-06-09T09:33:18.640Z",
+  "total_questions": 304,
+  "beginner_count": 4,
+  "intermediate_count": 204,
+  "advanced_count": 96,
+  "free_access_count": 4,
+  "free_limited_count": 204,
+  "premium_only_count": 96,
+  "pnc_probability_count": 149,
+  "rows_needing_cleanup": 304,
+  "hard_very_hard_in_beginner": 0,
+  "easy_medium_in_advanced": 0,
+  "cleanup_warning_count": 566
+}

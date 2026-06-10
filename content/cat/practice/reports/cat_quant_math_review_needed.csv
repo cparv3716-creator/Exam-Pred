@@ -1,0 +1,62 @@
+question_id,review_score,content_status,math_review_status,fields_cleaned,notes
+GEN_CAT_QUANT_TOUGH_END_VERIFIED_PRACTICE_BATCH_Q06,30,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired; question_text: control character found
+GEN_CAT_QUANT_BATCH01_Q04,30,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; question_text: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q12,30,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; options: fraction pattern repaired
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q14,30,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; options: fraction pattern repaired
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q13,30,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; options: fraction pattern repaired
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q07,30,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_BATCH_02_Q04,30,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found; solution markdown residue: adjacent-number fraction (10 3 / 99 16)
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q20,30,needs_solution_review,needs_review,detailed_solution,detailed_solution: control character found; question_text: ambiguous slash or fraction structure; solution markdown residue: adjacent-number fraction (10 3 / 99 16)
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q01,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_TOUGH_BATCH_Q07,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; solution markdown residue: adjacent-number fraction (10 3 / 99 16)
+GEN_CAT_QUANT_TOUGH_BATCH03_Q08,20,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_HARDENED_QUANT_15Q_Q03,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_QUANT_TOUGH_BATCH_Q03,20,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure; solution markdown residue: adjacent-number fraction (10 3 / 99 16)
+GEN_CAT_QUANT_TOUGH_BATCH03_Q04,20,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q01,20,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q12,20,needs_math_review,needs_review,detailed_solution,options: missing square-root symbol restored; question/option markdown residue: leaked LaTeX command outside math
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_02_TOUGH_Q02,20,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_02_TOUGH_Q15,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q10,20,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure; solution markdown residue: leaked LaTeX command outside math
+GEN_CAT_HARDENED_QUANT_15Q_Q02,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q07,20,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; options: trailing answer-key digit removed
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q13,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q18,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: control character found; question_text: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q13,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q15,20,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q16,20,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q01,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; question_text: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_Q15,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_QUANT_HARDENED_SIMULATION_BATCH_02_Q13,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q01,20,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q19,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; options: fraction pattern repaired
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q06,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q20,20,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure; detailed_solution: control character found
+GEN_CAT_HARDENED_QUANT_15Q_Q08,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_Q07,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PREMIUM_TOUGH_PRACTICE_15Q_Q04,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q14,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_02_TOUGH_Q12,10,needs_solution_review,needs_review,,solution markdown residue: adjacent-number fraction (10 3 / 99 16)
+GEN_CAT_QUANT_TOUGH_BATCH_Q02,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_VERIFIED_PRACTICE_BATCH_01_2_Q15,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PNC_PROBABILITY_PRACTICE_BANK_Q15,10,needs_solution_review,needs_review,detailed_solution,question_text: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q17,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q18,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q19,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q10,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q17,10,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q18,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q06,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q03,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q05,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q03,10,needs_solution_review,needs_review,question_text; option_d; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q04,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q11,10,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q02,10,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QUANT_15Q_SIMULATION_Q03,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_15Q_Q15,10,needs_solution_review,needs_review,question_text,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_HARDENED_SIMULATION_BATCH_02_Q02,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_TOUGH_END_VERIFIED_PRACTICE_BATCH_Q13,10,needs_solution_review,needs_review,question_text; detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_MODERN_MATH_PRACTICE_BANK_Q20,10,needs_solution_review,needs_review,detailed_solution,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_QUANT_PNC_PROBABILITY_PRACTICE_BANK_Q19,10,needs_solution_review,needs_review,,detailed_solution: ambiguous slash or fraction structure
+GEN_CAT_HARDENED_QA_SIMULATION_Q12,10,needs_solution_review,needs_review,question_text; detailed_solution,question_text: ambiguous slash or fraction structure

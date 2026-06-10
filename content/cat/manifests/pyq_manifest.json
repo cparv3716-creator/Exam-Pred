@@ -1,0 +1,12 @@
+{
+  "exam_slug": "cat",
+  "updated_at": "2026-06-08T11:54:06.204Z",
+  "total_validated_rows": 178,
+  "files": [
+    {
+      "file": "content/cat/pyqs/validated/cat_qa_website_ready_complete_rows_cleaned_1780919646206.json",
+      "row_count": 178,
+      "imported_at": "2026-06-08T11:54:06.204Z"
+    }
+  ]
+}

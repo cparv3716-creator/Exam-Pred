@@ -1,0 +1,10 @@
+{
+  "historical_frequency": 0.18,
+  "recent_trend": 0.18,
+  "gap_score": 0.08,
+  "archetype_recurrence": 0.16,
+  "evidence_strength": 0.14,
+  "cat_likeness": 0.14,
+  "coverage_diversity": 0.08,
+  "wildcard_volatility": 0.04
+}

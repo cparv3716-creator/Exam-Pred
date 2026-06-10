@@ -1,0 +1,25 @@
+node_modules/
+
+.next/
+.next*/
+.next-build/
+.next-dev/
+.next-dev2/
+.next-prod/
+
+out/
+.vercel/
+.tmp/
+
+.env
+.env.local
+.env.*.local
+
+*.log
+*.zip
+*.tsbuildinfo
+
+# generated backup snapshots
+content/cat/practice/generated/backups/
+content/cat/practice/generated/*.backup.*.json
+content/cat/practice/generated/*.pre-recovery.*.json

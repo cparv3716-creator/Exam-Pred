@@ -1,0 +1,29 @@
+[
+  {
+    "exam_slug": "cat",
+    "section": "QA",
+    "year": "2024",
+    "slot": "Slot 1",
+    "paper_code": "CAT24-S1",
+    "question_id": "LOCAL-CAT-QA-001",
+    "question_text": "[USER PROVIDED] Add legally permitted question text here.",
+    "question_type": "MCQ",
+    "option_a": "Option A",
+    "option_b": "Option B",
+    "option_c": "Option C",
+    "option_d": "Option D",
+    "correct_answer": "A",
+    "detailed_solution": "Add detailed solution here.",
+    "topic": "Arithmetic",
+    "subtopic": "Percentages",
+    "archetype": "Successive percentage change",
+    "difficulty": "Medium",
+    "source_reference": "owned_or_licensed_source",
+    "frequency_weight": "80",
+    "probability_score": "72",
+    "trend_score": "65",
+    "is_free": "true",
+    "is_premium": "false",
+    "tags": "percentages;arithmetic"
+  }
+]
