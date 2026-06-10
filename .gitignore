@@ -23,3 +23,7 @@ out/
 content/cat/practice/generated/backups/
 content/cat/practice/generated/*.backup.*.json
 content/cat/practice/generated/*.pre-recovery.*.json
+# Local CAT PYQ source PDFs - do not commit raw papers
+sources/cat_pyqs/*.pdf
+!sources/cat_pyqs/.gitkeep
+
