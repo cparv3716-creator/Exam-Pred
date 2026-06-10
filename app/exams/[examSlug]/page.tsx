@@ -16,7 +16,9 @@ import { getCatDashboardStats, getCatFinalRecommendation } from "@/lib/content/c
 type Params = Promise<{ examSlug: string }>;
 
 export function generateStaticParams() {
-  return exams.map((exam) => ({ examSlug: exam.slug }));
+  // CAT has a dedicated premium dashboard at /exams/cat (static segment),
+  // so it is excluded here to avoid a duplicate-route conflict at build time.
+  return exams.filter((exam) => exam.slug !== "cat").map((exam) => ({ examSlug: exam.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {

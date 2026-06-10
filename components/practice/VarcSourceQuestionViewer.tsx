@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { BookOpen, ChevronDown, ChevronUp, CircleCheckBig, Sparkles } from "lucide-react";
 import type { VarcSourceQuestion } from "@/types/varc-practice";
 import { RichMathRenderer } from "@/components/practice/RichMathRenderer";
 
@@ -22,15 +22,20 @@ export function VarcSourceQuestionViewer({ question }: { question: VarcSourceQue
   const hasOptions = options.some((o) => o.trim());
 
   const answerLabel = buildAnswerLabel(question.correct_answer, options, isTita, question.varc_type);
+  const hasSolution = Boolean(question.detailed_solution_markdown?.trim());
 
   return (
     <div className="space-y-8">
-      {/* RC Passage */}
+      {/* RC Passage — premium reading interface */}
       {isRc && question.passage_text_markdown && (
         <section>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">Passage</p>
-          <div className="mt-4 rounded-xl border border-white/6 bg-white/[0.02] p-5 sm:p-6">
-            <RichMathRenderer content={question.passage_text_markdown} />
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">
+            <BookOpen size={14} /> Passage
+          </p>
+          <div className="mt-4 rounded-2xl border border-white/8 bg-ink-900/40 p-6 sm:p-8">
+            <div className="mx-auto max-w-[68ch]">
+              <RichMathRenderer content={question.passage_text_markdown} reading />
+            </div>
           </div>
         </section>
       )}
@@ -38,55 +43,68 @@ export function VarcSourceQuestionViewer({ question }: { question: VarcSourceQue
       {/* Question */}
       <section>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">Question</p>
-        <RichMathRenderer content={question.question_text_markdown || question.source_raw_block} className="mt-4" />
+        <RichMathRenderer
+          content={question.question_text_markdown || question.source_raw_block}
+          className="mt-4 text-[15px] sm:text-base"
+        />
       </section>
 
       {/* Options */}
       {hasOptions && (
-        <section className="grid gap-3">
+        <section className="space-y-3">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
             {isTita ? "Sentences" : "Options"}
           </p>
-          {options.map((opt, i) =>
-            opt.trim() ? (
-              <div key={OPTION_LABELS[i]} className="rounded-xl border border-white/8 bg-white/[0.025] p-4">
-                <div className="flex gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] text-xs font-bold text-cyan-200">
+          <div className="grid gap-3">
+            {options.map((opt, i) =>
+              opt.trim() ? (
+                <div
+                  key={OPTION_LABELS[i]}
+                  className="group flex gap-3 rounded-xl border border-white/8 bg-white/[0.025] p-4 transition-colors hover:border-white/15"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/[0.08] text-xs font-bold text-cyan-200">
                     {isTita ? i + 1 : OPTION_LABELS[i]}
                   </span>
                   <RichMathRenderer content={opt} compact className="min-w-0 flex-1" />
                 </div>
-              </div>
-            ) : null,
-          )}
+              ) : null,
+            )}
+          </div>
         </section>
       )}
 
       {/* Answer reveal */}
       <section>
         <button
+          type="button"
           onClick={() => setAnswerRevealed((v) => !v)}
-          className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] px-4 py-2.5 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-400/[0.09]"
+          aria-expanded={answerRevealed}
+          className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.06] px-4 py-2.5 text-sm font-semibold text-emerald-200 transition-colors hover:bg-emerald-400/[0.12]"
         >
           {answerRevealed ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
           {answerRevealed ? "Hide answer" : "Reveal answer"}
         </button>
 
         {answerRevealed && (
-          <div className="mt-4 rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.05] p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">Answer</p>
-            <p className="mt-2 font-semibold text-emerald-100">{answerLabel}</p>
+          <div className="mt-4 space-y-4 animate-fade-up">
+            <div className="rounded-2xl border border-emerald-400/25 bg-emerald-400/[0.06] p-5">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                <CircleCheckBig size={14} /> Answer
+              </p>
+              <p className="mt-2 font-semibold text-emerald-50">{answerLabel}</p>
+            </div>
+
+            {hasSolution && (
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-purple-300">
+                  <Sparkles size={14} /> Detailed solution
+                </p>
+                <RichMathRenderer content={question.detailed_solution_markdown} className="mt-4" />
+              </div>
+            )}
           </div>
         )}
       </section>
-
-      {/* Detailed solution */}
-      {question.detailed_solution_markdown && (
-        <section className="rounded-2xl border border-white/8 bg-white/[0.025] p-5 sm:p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-purple-300">Detailed solution</p>
-          <RichMathRenderer content={question.detailed_solution_markdown} className="mt-4" />
-        </section>
-      )}
     </div>
   );
 }

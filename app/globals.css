@@ -48,6 +48,30 @@
   margin-top: 0.85rem;
 }
 
+/* Reading variant for long RC passages: comfortable column, airy leading. */
+.rich-math-reading {
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  color: rgb(226 232 240);
+}
+
+.rich-math-reading p {
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+  line-height: 1.9;
+  color: rgb(226 232 240);
+}
+
+.rich-math-reading p:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 640px) {
+  .rich-math-reading {
+    font-size: 1.125rem;
+  }
+}
+
 /* Compact variant for option chips / preview cards. */
 .rich-math-compact {
   line-height: 1.5;

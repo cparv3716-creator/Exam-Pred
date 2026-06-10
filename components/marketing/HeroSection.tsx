@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, BrainCircuit, Sparkles } from "lucide-react";
 import { SoftPill } from "@/components/ui/Badge";
 import { ExamIntelligencePreview } from "@/components/dashboard/ExamIntelligencePreview";
 
@@ -12,7 +12,7 @@ export function HeroSection() {
       <div className="mx-auto max-w-3xl text-center">
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="flex justify-center">
           <SoftPill>
-            <Sparkles size={14} /> AI exam intelligence cockpit
+            <Sparkles size={14} /> AI exam intelligence &amp; practice
           </SoftPill>
         </motion.div>
         <motion.h1
@@ -31,7 +31,9 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.14 }}
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
         >
-          PYQ-backed topic analysis, probability-driven practice, and AI-assisted predicted papers for CAT, JEE, NEET, GATE, UPSC, JAM and more.
+          ExamIQ is an AI-powered exam intelligence and practice platform. It pairs pattern-based
+          topic prediction with a source-grounded practice bank — starting with CAT Quant and VARC,
+          with JEE, NEET and UPSC on the way.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -40,17 +42,17 @@ export function HeroSection() {
           className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Link
-            href="/signup"
+            href="/exams/cat"
             className="group flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-cyan transition-all hover:opacity-90 sm:w-auto"
           >
-            Start Free
+            <BrainCircuit size={16} /> Explore CAT intelligence
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
-            href="/exams"
+            href="/exams/cat/quant/latex-source"
             className="flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-semibold text-slate-200 transition-colors hover:border-cyan-400/40 sm:w-auto"
           >
-            Explore Exams
+            Start practicing
           </Link>
         </motion.div>
         <p className="mt-5 text-xs text-slate-600">

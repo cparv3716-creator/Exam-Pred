@@ -10,14 +10,16 @@ export function RichMathRenderer({
   content,
   className,
   compact = false,
+  reading = false,
 }: {
   content: string;
   className?: string;
   compact?: boolean;
+  reading?: boolean;
 }) {
   try {
     return (
-      <div className={cn("rich-math text-slate-200", compact && "rich-math-compact", className)}>
+      <div className={cn("rich-math text-slate-200", compact && "rich-math-compact", reading && "rich-math-reading", className)}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore" }]]}
