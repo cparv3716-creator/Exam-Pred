@@ -12,10 +12,23 @@ export function getCatVarcSourceQuestions(): VarcSourceQuestion[] {
   try {
     const parsed = JSON.parse(fs.readFileSync(bankPath, "utf8")) as unknown;
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(isVarcSourceQuestion);
+    return parsed.filter(isVarcSourceQuestion).filter((q) => !isDuplicatePhantomRow(q));
   } catch {
     return [];
   }
+}
+
+/**
+ * The source bank contains phantom duplicate rows whose `question_id` ends in
+ * `_DUP`, `_DUP2`, … . They repeat an existing base question and frequently
+ * carry that question's *solution* in the `question_text` field (so a stray
+ * "Answer: 5. …" shows up as if it were a new question) and duplicate RC rows
+ * within a passage set. Every such row has a non-suffixed base row, so hiding
+ * them loses no content. The underlying JSON is never modified — this is a
+ * read-time, student-facing filter only.
+ */
+function isDuplicatePhantomRow(q: VarcSourceQuestion): boolean {
+  return /_DUP\d*$/i.test(q.question_id ?? "");
 }
 
 export function getCatVarcSourceByLevel(level: PracticeLevel): VarcSourceQuestion[] {

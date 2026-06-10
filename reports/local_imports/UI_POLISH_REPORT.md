@@ -163,7 +163,12 @@ A focused functional pass on the practice experience. No data, parsing, or gener
 ### Quant LaTeX rendering
 - Question, options and solution render through `RichMathRenderer` inside clean option cards and a structured answer/solution disclosure. **No raw metadata** (parse status, source file, question number, warnings) is shown; raw TeX is only used as a last-resort body fallback when no parsed markdown exists.
 
-**Files in this pass:** `components/practice/PracticeOptions.tsx` (new), `components/practice/LatexSourceQuestionViewer.tsx`, `components/practice/VarcSourceQuestionViewer.tsx`, `components/ui/premium.tsx` (added `QuestionPager`), `lib/content/practice/cat-varc-source.ts`, `lib/content/practice/cat-quant-latex-source.ts`, `app/exams/cat/quant/latex-source/practice/[questionId]/page.tsx`, `app/exams/cat/varc/source/practice/[questionId]/page.tsx`.
+### Duplicate / "solution-as-question" rows (critical data-display fix)
+- The VARC source bank contained **58 phantom duplicate rows** (out of 241 visible) whose `question_id` ends in `_DUP` / `_DUP2`. Eight of them carried the previous question's **solution in the question field** (a stray "Answer: 5. Sentences 1–4 …" rendered as the next question), and 50 were duplicate RC rows that polluted passage sets and the prev/next sequence.
+- Verified that **every duplicate has a matching non-suffixed base row (0 orphans)**, so hiding them removes no real content. After filtering: **183 clean questions, 0 solution-as-question rows, every RC carries its passage, 31 passage groups with 0 non-consecutive gaps** (same-passage questions are now consecutive). The Quant bank had **no** such rows.
+- Fix: a single read-time filter (`isDuplicatePhantomRow`) in `getCatVarcSourceQuestions`, which is the single source for listings, level pages, stats, navigation, passage resolution and static params — so the correction propagates everywhere. **The generated JSON is not modified**; the rows are only hidden from the student-facing bank.
+
+**Files in this pass:** `components/practice/PracticeOptions.tsx` (new), `components/practice/LatexSourceQuestionViewer.tsx`, `components/practice/VarcSourceQuestionViewer.tsx`, `components/ui/premium.tsx` (added `QuestionPager`), `lib/content/practice/cat-varc-source.ts` (passage/neighbor helpers + duplicate-row filter), `lib/content/practice/cat-quant-latex-source.ts`, `app/exams/cat/quant/latex-source/practice/[questionId]/page.tsx`, `app/exams/cat/varc/source/practice/[questionId]/page.tsx`.
 
 **Safety:** generated JSON untouched (yes); `content/cat/practice/generated/` untouched (yes); parser/import/recovery scripts untouched (yes); `next.config.ts` untouched (yes); no question/option/answer/solution/passage text changed.
 
