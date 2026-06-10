@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -631,6 +631,59 @@ export function EmptyState({
       )}
       {action && <div className="mt-6">{action}</div>}
     </div>
+  );
+}
+
+/* ── QuestionPager ────────────────────────────────────────────────────────
+   Whole-bank previous/next navigation between question detail pages.
+   Buttons disable (render as inert) at the boundaries of the bank. */
+export function QuestionPager({
+  prevHref,
+  nextHref,
+  label,
+  className,
+}: {
+  prevHref: string | null;
+  nextHref: string | null;
+  label?: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("flex items-center justify-between gap-3", className)}>
+      <PagerButton href={prevHref} direction="prev" />
+      {label && <span className="text-center text-xs font-medium text-slate-500">{label}</span>}
+      <PagerButton href={nextHref} direction="next" />
+    </div>
+  );
+}
+
+function PagerButton({ href, direction }: { href: string | null; direction: "prev" | "next" }) {
+  const isPrev = direction === "prev";
+  const text = isPrev ? "Previous" : "Next";
+  const Icon = isPrev ? ChevronLeft : ChevronRight;
+  const base =
+    "inline-flex items-center gap-1.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all";
+  if (!href) {
+    return (
+      <span
+        aria-disabled
+        className={cn(base, "cursor-not-allowed border-white/8 bg-white/[0.02] text-slate-700")}
+      >
+        {isPrev && <Icon size={15} />}
+        {text}
+        {!isPrev && <Icon size={15} />}
+      </span>
+    );
+  }
+  return (
+    <Link
+      href={href}
+      className={cn(base, "border-white/10 bg-white/[0.04] text-slate-200 hover:border-cyan-400/30 hover:text-white")}
+    >
+      {isPrev && <Icon size={15} />}
+      {text}
+      {!isPrev && <Icon size={15} />}
+    </Link>
   );
 }
 

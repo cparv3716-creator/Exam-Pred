@@ -143,6 +143,34 @@ The changes are confined to `app/` pages, `components/`, and `app/globals.css`; 
 
 ---
 
+## 7b. Practice Interaction Fixes (second pass)
+
+A focused functional pass on the practice experience. No data, parsing, or generated content was touched; all logic was added as read-only helpers in the content libraries and as presentational components.
+
+### VARC RC passage linkage
+- Every RC question now renders its **full passage**. Passage text is resolved via a new helper that prefers the row's own `passage_text_markdown`, then falls back to any sibling in the same passage — matched by `passage_id`, or by `source_file + source_set_number` when no id is present.
+- Added **"Question X of Y in this passage"** plus **Previous / Next within the passage**, computed from the passage group ordered by `source_question_number`. In-passage steppers disable at the set boundaries.
+- Helpers added to `lib/content/practice/cat-varc-source.ts`: `getCatVarcPassageGroup`, `getCatVarcPassageText`, `getCatVarcPassageTitle`, `getCatVarcPassagePosition`, `getCatVarcSourceNeighbors`. (Read-only; no JSON or script changes.)
+
+### Interactive attempt flow (Quant + VARC)
+- New `components/practice/PracticeOptions.tsx`: options are **selectable**, with a **Check answer** button. After checking it shows **Correct / Incorrect**, **highlights the correct option** (emerald) and **highlights the selected wrong option** (rose), then discloses the **answer + detailed solution**.
+- **Reveal answer** is retained as a **secondary fallback** (and becomes the primary action for items that can't be single-select graded — e.g. Para Jumble sequence answers, or pure-numeric Quant TITA with no options).
+- Grading keys: VARC MCQ/Odd-Sentence map the stored `correct_answer` letter/number to the chosen option; Quant extracts the leading option letter from `correct_answer_markdown` (e.g. `"(B) $18.5$."` → B) **only when options exist** — source strings are never modified, only read.
+
+### Previous / Next question navigation
+- New reusable `QuestionPager` (in `components/ui/premium.tsx`) added to both the Quant and VARC question pages. It follows the **visible source-bank order** (`getCat…Neighbors`), shows "Question N of total", and **disables at the first/last** question.
+
+### Quant LaTeX rendering
+- Question, options and solution render through `RichMathRenderer` inside clean option cards and a structured answer/solution disclosure. **No raw metadata** (parse status, source file, question number, warnings) is shown; raw TeX is only used as a last-resort body fallback when no parsed markdown exists.
+
+**Files in this pass:** `components/practice/PracticeOptions.tsx` (new), `components/practice/LatexSourceQuestionViewer.tsx`, `components/practice/VarcSourceQuestionViewer.tsx`, `components/ui/premium.tsx` (added `QuestionPager`), `lib/content/practice/cat-varc-source.ts`, `lib/content/practice/cat-quant-latex-source.ts`, `app/exams/cat/quant/latex-source/practice/[questionId]/page.tsx`, `app/exams/cat/varc/source/practice/[questionId]/page.tsx`.
+
+**Safety:** generated JSON untouched (yes); `content/cat/practice/generated/` untouched (yes); parser/import/recovery scripts untouched (yes); `next.config.ts` untouched (yes); no question/option/answer/solution/passage text changed.
+
+**Build:** `npm run build` still cannot execute in this sandbox for the same environment reason documented in §7 (native SWC `Bus error` on load). Run `npm run build` on the Windows machine / Vercel to verify.
+
+---
+
 ## 8. Remaining UI improvement ideas
 
 - Wire `PremiumStatCard` into the dashboard shells (`/dashboard`) for visual consistency with the new system.

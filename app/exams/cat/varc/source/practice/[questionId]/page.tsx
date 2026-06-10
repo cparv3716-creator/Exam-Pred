@@ -5,14 +5,22 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { VarcSourceQuestionViewer } from "@/components/practice/VarcSourceQuestionViewer";
 import { OutlinePill } from "@/components/ui/Badge";
-import { Breadcrumb, DifficultyBadge } from "@/components/ui/premium";
-import { getCatVarcSourceById, getCatVarcSourceQuestions } from "@/lib/content/practice/cat-varc-source";
+import { Breadcrumb, DifficultyBadge, QuestionPager } from "@/components/ui/premium";
+import {
+  getCatVarcPassagePosition,
+  getCatVarcPassageText,
+  getCatVarcSourceById,
+  getCatVarcSourceNeighbors,
+  getCatVarcSourceQuestions,
+} from "@/lib/content/practice/cat-varc-source";
 
 const LEVEL_HREF: Record<string, string> = {
   Beginner: "/exams/cat/varc/source/beginner",
   Intermediate: "/exams/cat/varc/source/intermediate",
   Advanced: "/exams/cat/varc/source/advanced",
 };
+
+const QUESTION_HREF = (id: string) => `/exams/cat/varc/source/practice/${id}`;
 
 export function generateStaticParams() {
   return getCatVarcSourceQuestions().map((q) => ({ questionId: q.question_id }));
@@ -32,6 +40,17 @@ export default async function CatVarcSourcePracticePage({ params }: { params: Pr
 
   const backHref = LEVEL_HREF[question.practice_level] ?? "/exams/cat/varc/source";
   const isRc = question.varc_type === "RC";
+  const passageText = getCatVarcPassageText(question);
+  const passagePosition = getCatVarcPassagePosition(question);
+  const passageNav = passagePosition
+    ? {
+        current: passagePosition.current,
+        total: passagePosition.total,
+        prevHref: passagePosition.prevId ? QUESTION_HREF(passagePosition.prevId) : null,
+        nextHref: passagePosition.nextId ? QUESTION_HREF(passagePosition.nextId) : null,
+      }
+    : null;
+  const neighbors = getCatVarcSourceNeighbors(questionId);
 
   return (
     <PageShell withGrid>
@@ -60,13 +79,20 @@ export default async function CatVarcSourcePracticePage({ params }: { params: Pr
         )}
 
         <div className="mt-8 rounded-2xl border border-white/8 bg-white/[0.025] p-6 sm:p-8">
-          <VarcSourceQuestionViewer question={question} />
+          <VarcSourceQuestionViewer question={question} passageText={passageText} passageNav={passageNav} />
         </div>
 
         <div className="mt-8 border-t border-white/5 pt-6">
-          <Link href={backHref} className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white">
-            <ArrowLeft size={15} /> Back to {question.practice_level} VARC practice
-          </Link>
+          <QuestionPager
+            prevHref={neighbors.prevId ? QUESTION_HREF(neighbors.prevId) : null}
+            nextHref={neighbors.nextId ? QUESTION_HREF(neighbors.nextId) : null}
+            label={neighbors.index >= 0 ? `Question ${neighbors.index + 1} of ${neighbors.total}` : undefined}
+          />
+          <div className="mt-5">
+            <Link href={backHref} className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white">
+              <ArrowLeft size={15} /> Back to {question.practice_level} VARC practice
+            </Link>
+          </div>
         </div>
       </section>
     </PageShell>

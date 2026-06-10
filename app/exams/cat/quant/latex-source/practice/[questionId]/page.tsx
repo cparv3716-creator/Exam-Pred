@@ -5,8 +5,14 @@ import { ArrowLeft } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { LatexSourceQuestionViewer } from "@/components/practice/LatexSourceQuestionViewer";
 import { OutlinePill } from "@/components/ui/Badge";
-import { Breadcrumb, DifficultyBadge } from "@/components/ui/premium";
-import { getCatQuantLatexSourceById, getCatQuantLatexSourceQuestions } from "@/lib/content/practice/cat-quant-latex-source";
+import { Breadcrumb, DifficultyBadge, QuestionPager } from "@/components/ui/premium";
+import {
+  getCatQuantLatexSourceById,
+  getCatQuantLatexSourceNeighbors,
+  getCatQuantLatexSourceQuestions,
+} from "@/lib/content/practice/cat-quant-latex-source";
+
+const QUESTION_HREF = (id: string) => `/exams/cat/quant/latex-source/practice/${id}`;
 
 const LEVEL_HREF: Record<string, string> = {
   Beginner: "/exams/cat/quant/latex-source/beginner",
@@ -30,6 +36,7 @@ export default async function CatQuantLatexSourceQuestionPage({ params }: { para
   const question = getCatQuantLatexSourceById(questionId);
   if (!question) notFound();
   const backHref = LEVEL_HREF[question.practice_level] ?? "/exams/cat/quant/latex-source";
+  const neighbors = getCatQuantLatexSourceNeighbors(questionId);
 
   return (
     <PageShell withGrid>
@@ -60,9 +67,16 @@ export default async function CatQuantLatexSourceQuestionPage({ params }: { para
         </div>
 
         <div className="mt-8 border-t border-white/5 pt-6">
-          <Link href={backHref} className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white">
-            <ArrowLeft size={15} /> Back to {question.practice_level} Quant practice
-          </Link>
+          <QuestionPager
+            prevHref={neighbors.prevId ? QUESTION_HREF(neighbors.prevId) : null}
+            nextHref={neighbors.nextId ? QUESTION_HREF(neighbors.nextId) : null}
+            label={neighbors.index >= 0 ? `Question ${neighbors.index + 1} of ${neighbors.total}` : undefined}
+          />
+          <div className="mt-5">
+            <Link href={backHref} className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition-colors hover:text-white">
+              <ArrowLeft size={15} /> Back to {question.practice_level} Quant practice
+            </Link>
+          </div>
         </div>
       </section>
     </PageShell>

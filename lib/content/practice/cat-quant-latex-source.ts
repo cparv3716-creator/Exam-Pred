@@ -27,6 +27,24 @@ export function getCatQuantLatexSourceById(questionId: string) {
   return getCatQuantLatexSourceQuestions().find((question) => question.question_id === questionId) ?? null;
 }
 
+/** Prev/next ids in the visible source-bank order for whole-bank navigation. */
+export function getCatQuantLatexSourceNeighbors(questionId: string): {
+  prevId: string | null;
+  nextId: string | null;
+  index: number;
+  total: number;
+} {
+  const all = getCatQuantLatexSourceQuestions();
+  const i = all.findIndex((question) => question.question_id === questionId);
+  if (i === -1) return { prevId: null, nextId: null, index: -1, total: all.length };
+  return {
+    prevId: i > 0 ? all[i - 1].question_id : null,
+    nextId: i < all.length - 1 ? all[i + 1].question_id : null,
+    index: i,
+    total: all.length,
+  };
+}
+
 export function getCatQuantLatexSourceStats(): LatexSourcePracticeStats {
   const questions = getCatQuantLatexSourceQuestions();
   const sourceFiles = unique(questions.map((question) => question.source_tex_file));

@@ -30,6 +30,81 @@ export function getCatVarcSourceByType(varcType: VarcType): VarcSourceQuestion[]
   return getCatVarcSourceQuestions().filter((q) => q.varc_type === varcType);
 }
 
+/** Stable grouping key for an RC passage: prefer passage_id, fall back to file + set. */
+function passageKey(q: VarcSourceQuestion): string {
+  const id = (q.passage_id ?? "").trim();
+  if (id) return id;
+  return `${q.source_file ?? ""}#${q.source_set_number ?? ""}`;
+}
+
+/** All visible RC questions that belong to the same passage, in source order. */
+export function getCatVarcPassageGroup(question: VarcSourceQuestion): VarcSourceQuestion[] {
+  if (question.varc_type !== "RC") return [question];
+  const key = passageKey(question);
+  return getCatVarcSourceQuestions()
+    .filter((q) => q.varc_type === "RC" && passageKey(q) === key)
+    .sort(
+      (a, b) =>
+        (a.source_question_number ?? 0) - (b.source_question_number ?? 0) ||
+        a.question_id.localeCompare(b.question_id),
+    );
+}
+
+/** Resolve the full passage text for a question, falling back across its passage group. */
+export function getCatVarcPassageText(question: VarcSourceQuestion): string {
+  if ((question.passage_text_markdown ?? "").trim()) return question.passage_text_markdown;
+  const fromGroup = getCatVarcPassageGroup(question).find((q) => (q.passage_text_markdown ?? "").trim());
+  return fromGroup?.passage_text_markdown ?? "";
+}
+
+/** Resolve a passage title from the question or its group. */
+export function getCatVarcPassageTitle(question: VarcSourceQuestion): string {
+  if ((question.passage_title ?? "").trim()) return question.passage_title;
+  const fromGroup = getCatVarcPassageGroup(question).find((q) => (q.passage_title ?? "").trim());
+  return fromGroup?.passage_title ?? "";
+}
+
+/**
+ * Position of a question within its passage set, with in-passage prev/next ids.
+ * Returns null when the question is not part of a multi-question RC passage.
+ */
+export function getCatVarcPassagePosition(question: VarcSourceQuestion): {
+  current: number;
+  total: number;
+  prevId: string | null;
+  nextId: string | null;
+} | null {
+  if (question.varc_type !== "RC") return null;
+  const group = getCatVarcPassageGroup(question);
+  if (group.length <= 1) return null;
+  const idx = group.findIndex((q) => q.question_id === question.question_id);
+  if (idx === -1) return null;
+  return {
+    current: idx + 1,
+    total: group.length,
+    prevId: idx > 0 ? group[idx - 1].question_id : null,
+    nextId: idx < group.length - 1 ? group[idx + 1].question_id : null,
+  };
+}
+
+/** Prev/next ids in the visible source-bank order for whole-bank navigation. */
+export function getCatVarcSourceNeighbors(questionId: string): {
+  prevId: string | null;
+  nextId: string | null;
+  index: number;
+  total: number;
+} {
+  const all = getCatVarcSourceQuestions();
+  const i = all.findIndex((q) => q.question_id === questionId);
+  if (i === -1) return { prevId: null, nextId: null, index: -1, total: all.length };
+  return {
+    prevId: i > 0 ? all[i - 1].question_id : null,
+    nextId: i < all.length - 1 ? all[i + 1].question_id : null,
+    index: i,
+    total: all.length,
+  };
+}
+
 export function getCatVarcSourceStats(): VarcSourceStats {
   const all = getCatVarcSourceQuestions();
   const rc = all.filter((q) => q.varc_type === "RC");
