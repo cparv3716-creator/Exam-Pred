@@ -92,11 +92,43 @@ All twelve requested primitives are present (plus `Breadcrumb` and `QuickLinkCar
 
 ---
 
+## 6b. `git status --short` (verified)
+
+Obtained with `GIT_OPTIONAL_LOCKS=0` (the sandbox denies writing `.git/index.lock`). Result — exactly the intended surface, nothing else:
+
+```
+ M app/exams/[examSlug]/page.tsx
+ M app/exams/cat/quant/latex-source/advanced/page.tsx
+ M app/exams/cat/quant/latex-source/beginner/page.tsx
+ M app/exams/cat/quant/latex-source/intermediate/page.tsx
+ M app/exams/cat/quant/latex-source/page.tsx
+ M app/exams/cat/quant/latex-source/practice/[questionId]/page.tsx
+ M app/exams/cat/varc/source/advanced/page.tsx
+ M app/exams/cat/varc/source/beginner/page.tsx
+ M app/exams/cat/varc/source/intermediate/page.tsx
+ M app/exams/cat/varc/source/page.tsx
+ M app/exams/cat/varc/source/practice/[questionId]/page.tsx
+ M app/globals.css
+ M app/page.tsx
+ M components/layout/Footer.tsx
+ M components/layout/PremiumNavbar.tsx
+ M components/marketing/HeroSection.tsx
+ M components/practice/LatexSourcePracticeBrowser.tsx
+ M components/practice/LatexSourceQuestionViewer.tsx
+ M components/practice/RichMathRenderer.tsx
+ M components/practice/VarcSourcePracticeBrowser.tsx
+ M components/practice/VarcSourceQuestionViewer.tsx
+?? app/exams/cat/page.tsx
+?? components/ui/premium.tsx
+```
+
+`git diff --name-only` confirms **no `content/`, no `content/cat/practice/generated/`, no `scripts/`, and no `next.config.ts`** in the change set. (CRLF notices git prints for those files during its working-tree scan are line-ending attribute checks, not modifications.) The generated JSON directory was confirmed still intact on disk.
+
 ## 7. Build result
 
 `npm run build` **could not be executed inside this Linux build sandbox** due to two environment-level blockers that are independent of the code changes:
 
-1. **SWC native binary is incompatible with the sandbox CPU.** `next build` loads `@next/swc-linux-x64-gnu` and the process terminates with `Bus error (core dumped)` on load (the bundled SWC binary requires CPU instructions the sandbox does not provide). This happens before any source is compiled.
+1. **SWC native binary cannot load in this sandbox.** `next build` loads `@next/swc-linux-x64-gnu` and the process terminates with `Bus error (core dumped)` on load — even when the binary is copied byte-identical (9,015,296 bytes) to native tmpfs and loaded directly, confirming it is the binary itself, not a file-read/truncation issue. The sandbox CPU exposes `avx2`/`sse4_2`, so the incompatibility is at a deeper level (instruction set / glibc ABI), and is independent of the source changes. This happens before any source is compiled, so the build cannot proceed at all here.
 2. **The shell's view of the project mount is not coherent with freshly written files**, so shell-based tooling (and a copied-out build) read truncated source. The editor/file layer holds the correct, complete files (verified), but the shell cannot see them reliably, and git index operations fail with `index.lock: Operation not permitted`.
 
 Because of (1) the build is not runnable here at all, and (2) prevents a reliable copied-source fallback.
