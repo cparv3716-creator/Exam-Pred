@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BookOpenText,
   Calculator,
+  Layers,
   Network,
   Sparkles,
 } from "lucide-react";
@@ -11,6 +12,11 @@ import type { ReactNode } from "react";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
 import { DilrHubResume } from "@/components/dilr/DilrHubResume";
 import { getAllDilrSets } from "@/lib/content/dilr";
+import { getCatQuantPracticeQuestions } from "@/lib/content/practice/cat-quant-practice";
+import { getCatQuantLatexSourceQuestions } from "@/lib/content/practice/cat-quant-latex-source";
+import { getCatVarcSourceQuestions } from "@/lib/content/practice/cat-varc-source";
+import { getCatPredictedPapers } from "@/lib/content/cat";
+import { getExamPyqs } from "@/lib/content/pyqs";
 
 export const metadata: Metadata = {
   title: "CAT Cockpit",
@@ -29,6 +35,11 @@ const VARC_TOPICS = ["RC", "Para Jumbles", "Para Summary", "Odd Sentence", "Crit
 
 export default function CatHubPage() {
   const dilrSetCount = getAllDilrSets().length;
+  const quantCount = getCatQuantPracticeQuestions().length;
+  const quantLatexCount = getCatQuantLatexSourceQuestions().length;
+  const varcCount = getCatVarcSourceQuestions().length;
+  const predictedCount = getCatPredictedPapers().length;
+  const pyqCount = getExamPyqs("cat").length;
 
   return (
     <AuroraPageShell>
@@ -56,22 +67,27 @@ export default function CatHubPage() {
             </span>
           </h1>
           <p className="mt-4 text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
-            DILR is live with content-driven practice sets today. Quantitative Aptitude and
-            VARC run on the same pipeline and are being prepared — shown here exactly as they
-            stand, with nothing invented.
+            All three sections are connected to the local content pipeline: generated Quant
+            practice, source-true VARC practice, and curated DILR sets — with counts loaded
+            from the real question banks, nothing invented.
           </p>
         </div>
 
         {/* module cards */}
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {/* Quant — pipeline */}
+          {/* Quant — live generated bank */}
           <ModuleCard
             icon={Calculator}
             name="Quantitative Aptitude"
-            state="Pipeline ready"
-            live={false}
-            desc="PYQ-mapped quant practice built on the same content engine as DILR: topic-tagged sets, answer keys and worked solutions."
+            state={quantCount > 0 ? "Active" : "Pipeline ready"}
+            live={quantCount > 0}
+            desc="Generated quant practice with topic tags, difficulty levels and worked solutions, loaded from the local question bank."
             topics={QUANT_TOPICS}
+            cta={
+              quantCount > 0
+                ? { label: `Open Quant practice (${quantCount} questions)`, href: "/exams/cat/quant" }
+                : undefined
+            }
           />
 
           {/* DILR — live */}
@@ -86,15 +102,85 @@ export default function CatHubPage() {
             cta={{ label: dilrSetCount > 0 ? `Open DILR library (${dilrSetCount} ${dilrSetCount === 1 ? "set" : "sets"})` : "Open DILR library", href: "/exams/cat/dilr" }}
           />
 
-          {/* VARC — pipeline */}
+          {/* VARC — live source bank */}
           <ModuleCard
             icon={BookOpenText}
             name="VARC"
-            state="Pipeline ready"
-            live={false}
-            desc="Reading-first verbal practice with passage-true reasoning — same review pipeline, no shortcuts on quality."
+            state={varcCount > 0 ? "Active" : "Pipeline ready"}
+            live={varcCount > 0}
+            desc="Source-true verbal practice across RC and reasoning types, loaded from the local question bank."
             topics={VARC_TOPICS}
+            cta={
+              varcCount > 0
+                ? { label: `Open VARC practice (${varcCount} questions)`, href: "/exams/cat/varc/source" }
+                : undefined
+            }
           />
+        </div>
+
+        {/* more intelligence: practice library, predicted papers, PYQ vault */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Link
+            href="/exams/cat/practice"
+            className="aurora-glass aurora-card-hover aurora-focus-ring group flex items-center gap-4 p-5"
+          >
+            <span
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+              style={{ background: "var(--aurora-background-soft)", color: "var(--aurora-primary)" }}
+            >
+              <Layers size={18} aria-hidden />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-bold" style={{ color: "var(--aurora-text-primary)" }}>
+                Practice library
+              </span>
+              <span className="block text-xs tabular-nums" style={{ color: "var(--aurora-text-muted)" }}>
+                {quantCount + quantLatexCount + varcCount} questions · {dilrSetCount} DILR{" "}
+                {dilrSetCount === 1 ? "set" : "sets"}
+              </span>
+            </span>
+            <ArrowRight size={15} aria-hidden className="ml-auto shrink-0 transition-transform group-hover:translate-x-0.5" style={{ color: "var(--aurora-primary)" }} />
+          </Link>
+          <Link
+            href="/exams/cat/predicted-papers"
+            className="aurora-glass aurora-card-hover aurora-focus-ring group flex items-center gap-4 p-5"
+          >
+            <span
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+              style={{ background: "var(--aurora-background-soft)", color: "var(--aurora-violet)" }}
+            >
+              <Sparkles size={18} aria-hidden />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-bold" style={{ color: "var(--aurora-text-primary)" }}>
+                Predicted papers
+              </span>
+              <span className="block text-xs tabular-nums" style={{ color: "var(--aurora-text-muted)" }}>
+                {predictedCount} pattern-based {predictedCount === 1 ? "paper" : "papers"}
+              </span>
+            </span>
+            <ArrowRight size={15} aria-hidden className="ml-auto shrink-0 transition-transform group-hover:translate-x-0.5" style={{ color: "var(--aurora-primary)" }} />
+          </Link>
+          <Link
+            href="/exams/cat/pyqs"
+            className="aurora-glass aurora-card-hover aurora-focus-ring group flex items-center gap-4 p-5"
+          >
+            <span
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+              style={{ background: "var(--aurora-background-soft)", color: "var(--aurora-cyan)" }}
+            >
+              <BookOpenText size={18} aria-hidden />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-bold" style={{ color: "var(--aurora-text-primary)" }}>
+                PYQ vault
+              </span>
+              <span className="block text-xs tabular-nums" style={{ color: "var(--aurora-text-muted)" }}>
+                {pyqCount} validated questions
+              </span>
+            </span>
+            <ArrowRight size={15} aria-hidden className="ml-auto shrink-0 transition-transform group-hover:translate-x-0.5" style={{ color: "var(--aurora-primary)" }} />
+          </Link>
         </div>
 
         {/* honest pipeline note */}
@@ -103,7 +189,7 @@ export default function CatHubPage() {
           style={{ color: "var(--aurora-text-muted)" }}
         >
           <Sparkles size={14} aria-hidden style={{ color: "var(--aurora-violet)" }} />
-          Modules go live only after their content clears review — no placeholder question sets.
+          Counts above are loaded from the local content pipeline at build time — no placeholder question sets.
         </p>
       </section>
     </AuroraPageShell>
