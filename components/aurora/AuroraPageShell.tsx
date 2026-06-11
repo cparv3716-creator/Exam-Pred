@@ -43,7 +43,7 @@ export function AuroraPageShell({ children }: { children: ReactNode }) {
               <span>
                 <span className="block text-base font-extrabold tracking-tight">Statstrive</span>
                 <span
-                  className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em]"
+                  className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em]"
                   style={{ color: "var(--aurora-text-muted)" }}
                 >
                   AI exam cockpit

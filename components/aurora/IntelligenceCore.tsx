@@ -239,7 +239,7 @@ export function IntelligenceCore({ size = 380 }: { size?: number }) {
             />
             <div className="absolute inset-0 grid place-items-center">
               <span
-                className="text-center text-[0.5rem] font-bold uppercase leading-relaxed tracking-[0.3em] text-white/90"
+                className="text-center text-[0.55rem] font-bold uppercase leading-relaxed tracking-[0.3em] text-white/90"
                 style={{ textShadow: "0 1px 10px rgba(15,23,42,0.5)" }}
               >
                 Statstrive

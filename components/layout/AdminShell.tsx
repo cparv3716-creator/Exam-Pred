@@ -60,7 +60,7 @@ export function AdminShell({
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-600">
               <Brain size={18} className="text-white" />
             </div>
-            <span className="text-sm font-semibold text-white">ExamIQ Admin</span>
+            <span className="text-sm font-semibold text-white">Statstrive Admin</span>
           </Link>
           <button type="button" onClick={() => setOpen(false)} className="text-slate-400 lg:hidden">
             <X size={20} />

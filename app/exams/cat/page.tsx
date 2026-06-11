@@ -30,7 +30,7 @@ export default function CatHubPage() {
 
   return (
     <AuroraPageShell>
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         {/* hub header */}
         <div className="aurora-fade-slide-up max-w-2xl">
           <p
