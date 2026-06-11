@@ -7,7 +7,7 @@ import { legalDisclaimer } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "ExamIQ demo pricing for free, premium and institution access tiers.",
+  description: "Statstrive demo pricing for free, premium and institution access tiers.",
 };
 
 export default function PricingPage() {

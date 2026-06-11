@@ -5,7 +5,7 @@ import { RoleSwitcher } from "@/components/ui/RoleSwitcher";
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "ExamIQ demo profile.",
+  description: "Statstrive demo profile.",
 };
 
 export default function ProfilePage() {

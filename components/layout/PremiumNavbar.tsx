@@ -30,7 +30,7 @@ export function PremiumNavbar() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-base font-semibold tracking-tight text-white">
-                Exam<span className="text-cyan-300">IQ</span>
+                Stat<span className="text-cyan-300">strive</span>
               </span>
               <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
                 Intelligence

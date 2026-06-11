@@ -1,0 +1,9 @@
+{
+  "formally_verified": false,
+  "consistent_world_count": null,
+  "per_question_determinacy": {},
+  "uniqueness_status": "not_formally_verified",
+  "notes": [
+    "No finite candidate-world representation was supplied."
+  ]
+}

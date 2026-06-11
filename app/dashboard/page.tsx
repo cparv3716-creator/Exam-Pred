@@ -15,7 +15,7 @@ import { getCatDashboardStats, getCatFinalRecommendation } from "@/lib/content/c
 
 export const metadata: Metadata = {
   title: "Dashboard",
-  description: "ExamIQ AI exam intelligence cockpit demo.",
+  description: "Statstrive AI exam intelligence cockpit demo.",
 };
 
 export default function DashboardPage() {

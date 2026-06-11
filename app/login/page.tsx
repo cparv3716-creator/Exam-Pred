@@ -6,7 +6,7 @@ import { RoleSwitcher } from "@/components/ui/RoleSwitcher";
 
 export const metadata: Metadata = {
   title: "Login",
-  description: "Demo login placeholder for ExamIQ role switching.",
+  description: "Demo login placeholder for Statstrive role switching.",
 };
 
 export default function LoginPage() {
@@ -15,7 +15,7 @@ export default function LoginPage() {
       <section className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-md items-center px-4 py-20">
         <div className="w-full rounded-2xl border border-white/8 bg-white/[0.03] p-8 shadow-cyan">
           <Brain size={30} className="text-cyan-300" />
-          <h1 className="mt-5 text-2xl font-semibold text-white">Log in to ExamIQ</h1>
+          <h1 className="mt-5 text-2xl font-semibold text-white">Log in to Statstrive</h1>
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
             Authentication is mocked for now. Use the role switcher to preview free, premium and admin states.
           </p>

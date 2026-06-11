@@ -6,7 +6,7 @@ import { reports } from "@/data/analytics";
 
 export const metadata: Metadata = {
   title: "Downloads",
-  description: "ExamIQ demo download center.",
+  description: "Statstrive demo download center.",
 };
 
 export default function DownloadsPage() {

@@ -7,7 +7,7 @@ import { legalDisclaimer } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "CAT Predicted Papers",
-  description: "Role-gated CAT predicted practice papers loaded from local ExamIQ content files.",
+  description: "Role-gated CAT predicted practice papers loaded from local Statstrive content files.",
 };
 
 export default function CatPredictedPapersPage() {

@@ -7,7 +7,7 @@ import { examCategories, exams } from "@/data/exams";
 
 export const metadata: Metadata = {
   title: "Supported Exams",
-  description: "Explore ExamIQ supported exams with demo PYQ counts, topic coverage, and premium analytics previews.",
+  description: "Explore Statstrive supported exams with demo PYQ counts, topic coverage, and premium analytics previews.",
 };
 
 export default function ExamsPage() {

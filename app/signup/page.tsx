@@ -6,7 +6,7 @@ import { RoleSwitcher } from "@/components/ui/RoleSwitcher";
 
 export const metadata: Metadata = {
   title: "Signup",
-  description: "Demo signup placeholder for ExamIQ.",
+  description: "Demo signup placeholder for Statstrive.",
 };
 
 export default function SignupPage() {

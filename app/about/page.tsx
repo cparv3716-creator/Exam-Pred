@@ -7,7 +7,7 @@ import { legalDisclaimer } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About ExamIQ's pattern-based exam intelligence demo.",
+  description: "About Statstrive's pattern-based exam intelligence demo.",
 };
 
 export default function AboutPage() {
@@ -15,9 +15,9 @@ export default function AboutPage() {
     <PageShell withGrid>
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="About ExamIQ"
+          eyebrow="About Statstrive"
           title="A premium AI-edtech platform for preparation intelligence"
-          description="ExamIQ is designed to transform legally permitted question metadata into topic trends, practice priorities, mock blueprints and downloadable reports."
+          description="Statstrive is designed to transform legally permitted question metadata into topic trends, practice priorities, mock blueprints and downloadable reports."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           <FeatureCard icon={Brain} title="Pattern-first" description="The product centers on topics, subtopics, archetypes, difficulty and recurrence." />
