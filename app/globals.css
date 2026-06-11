@@ -509,6 +509,16 @@ a {
 .aurora-scan-y { animation: aurora-scan-y 5.5s var(--aurora-ease-in-out) infinite; }
 .aurora-scan-x { animation: aurora-scan-x 6.5s var(--aurora-ease-in-out) infinite; }
 
+/* Opt-in SVG line draw (Intelligence Lab instruments). */
+@keyframes aurora-dash {
+  to { stroke-dashoffset: 0; }
+}
+.aurora-dash-draw {
+  stroke-dasharray: 640;
+  stroke-dashoffset: 640;
+  animation: aurora-dash 2.6s var(--aurora-ease-out) 0.2s forwards;
+}
+
 /* ── Reduced-motion fallback (DESIGN.md §13) ──────────────────────────────
    Scoped to aurora utilities so it cannot affect unrelated app animations.
    Disables long/looping decorative motion; keeps state changes instant. */
@@ -527,6 +537,10 @@ a {
   .aurora-scan-x {
     opacity: 0 !important;
   }
+  .aurora-dash-draw {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
   .aurora-fade-slide-up { opacity: 1 !important; transform: none !important; }
   .aurora-card-hover,
   .aurora-button-primary,
@@ -535,3 +549,43 @@ a {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ── Command Mode compat skin (Aurora Phase 5) ────────────────────────────
+   Scoped to `.aurora-command` (the light Command shell content area) ONLY.
+   Re-maps the legacy dark-theme utility classes used by existing dashboard
+   widgets so they stay readable on the light Aurora canvas, without touching
+   the widgets themselves or any other page. */
+.aurora-command [class*="text-white"] { color: var(--aurora-text-primary) !important; }
+.aurora-command [class*="text-slate-1"],
+.aurora-command [class*="text-slate-2"],
+.aurora-command [class*="text-slate-3"] { color: var(--aurora-text-secondary) !important; }
+.aurora-command [class*="text-slate-4"],
+.aurora-command [class*="text-slate-5"],
+.aurora-command [class*="text-slate-6"] { color: var(--aurora-text-muted) !important; }
+.aurora-command [class*="text-cyan-2"],
+.aurora-command [class*="text-cyan-3"] { color: #0E7490 !important; }
+.aurora-command [class*="text-emerald-3"] { color: #047857 !important; }
+.aurora-command [class*="text-purple-3"] { color: var(--aurora-violet) !important; }
+.aurora-command [class*="text-blue-3"] { color: var(--aurora-primary-bright) !important; }
+.aurora-command [class*="text-amber-3"] { color: #B45309 !important; }
+.aurora-command [class*="text-rose-3"] { color: var(--aurora-danger) !important; }
+.aurora-command [class*="bg-white/"] {
+  background-color: var(--aurora-surface) !important;
+}
+.aurora-command [class*="bg-ink-9"] { background-color: var(--aurora-background-soft) !important; }
+.aurora-command [class*="border-white/"] { border-color: var(--aurora-border-soft) !important; }
+.aurora-command .skeleton {
+  background: linear-gradient(90deg, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%) !important;
+  background-size: 800px 100% !important;
+}
+/* Gradient CTAs keep white text (override the text remap above). */
+.aurora-command [class*="bg-gradient-to"],
+.aurora-command [class*="bg-gradient-to"] * { color: #ffffff !important; }
+/* Escape hatch: deliberately-dark islands (e.g. RoleSwitcher pill). */
+.aurora-command .aurora-darkland [class*="text-white"] { color: #ffffff !important; }
+.aurora-command .aurora-darkland [class*="text-slate-3"] { color: #cbd5e1 !important; }
+.aurora-command .aurora-darkland [class*="text-slate-5"] { color: #94a3b8 !important; }
+.aurora-command .aurora-darkland [class*="text-cyan-3"] { color: #67e8f9 !important; }
+.aurora-command .aurora-darkland [class*="bg-white/"] { background-color: rgba(255, 255, 255, 0.07) !important; }
+.aurora-command .aurora-darkland [class*="border-white/"] { border-color: rgba(255, 255, 255, 0.12) !important; }
+.aurora-command .aurora-darkland [class*="bg-ink-9"] { background-color: #070b16 !important; }

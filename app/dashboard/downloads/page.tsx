@@ -15,7 +15,7 @@ export default function DownloadsPage() {
       subtitle="Report exports and download placeholders. Premium reports unlock with the premium tier."
       activeHref="/dashboard/downloads"
     >
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="aurora-fade-slide-up grid gap-5 md:grid-cols-3">
         {reports.map((report) => (
           <ReportDownloadCard key={report.id} report={report} locked={report.tier === "premium"} />
         ))}

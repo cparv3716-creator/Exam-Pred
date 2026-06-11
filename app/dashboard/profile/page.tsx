@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
   return (
     <DashboardShell title="Profile" subtitle="Demo account settings and role preview." activeHref="/dashboard/profile">
-      <div className="aurora-glass relative max-w-2xl overflow-hidden p-7">
+      <div className="aurora-glass aurora-fade-slide-up relative max-w-2xl overflow-hidden p-7">
         <span
           aria-hidden
           className="absolute inset-x-0 top-0 h-[3px]"

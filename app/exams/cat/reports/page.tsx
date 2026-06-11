@@ -30,14 +30,36 @@ function LabPulseStrip() {
         <span className="absolute left-[34%] top-[58%] h-1.5 w-1.5 rounded-full bg-violet-300" />
       </div>
       {/* heat strip */}
-      <div className="grid grid-cols-12 items-center gap-1.5">
-        {Array.from({ length: 24 }).map((_, i) => (
-          <span
-            key={i}
-            className="h-3 rounded-[3px]"
-            style={{ background: `rgba(99, 102, 241, ${0.08 + ((i * 29) % 60) / 100})` }}
+      <div>
+        <div className="grid grid-cols-12 items-center gap-1.5">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <span
+              key={i}
+              className={`h-3 rounded-[3px] ${i % 5 === 0 ? "aurora-soft-pulse" : ""}`}
+              style={{
+                background: `rgba(99, 102, 241, ${0.08 + ((i * 29) % 60) / 100})`,
+                animationDelay: `${(i % 5) * -0.9}s`,
+              }}
+            />
+          ))}
+        </div>
+        {/* signal waveform — line draw on load */}
+        <svg viewBox="0 0 560 56" className="mt-4 h-12 w-full" fill="none" preserveAspectRatio="none">
+          <path
+            className="aurora-dash-draw"
+            d="M0 36 C 30 36, 38 18, 64 18 S 96 44, 124 44 S 158 12, 190 12 S 224 40, 256 40 S 288 22, 318 22 S 350 48, 382 48 S 414 16, 446 16 S 480 34, 510 34 S 540 26, 560 28"
+            stroke="url(#labWave)"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
-        ))}
+          <defs>
+            <linearGradient id="labWave" x1="0" y1="0" x2="560" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#06B6D4" />
+              <stop offset="0.5" stopColor="#6366F1" />
+              <stop offset="1" stopColor="#8B5CF6" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   );
@@ -51,7 +73,7 @@ export default function CatReportsPage() {
   return (
     <PageShell withGrid>
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.03] p-8">
+        <div className="aurora-fade-slide-up relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.03] p-8">
           <span
             aria-hidden
             className="absolute inset-x-0 top-0 h-[3px]"

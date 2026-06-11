@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, BrainCircuit, CalendarCheck, Download, Flame, Play, Target } from "lucide-react";
 import { DashboardShell } from "@/components/layout/DashboardShell";
+import { CommandPulse } from "@/components/dashboard/CommandPulse";
 import { PlanLockCard } from "@/components/ui/PlanLockCard";
 import { TopicHeatmap } from "@/components/dashboard/TopicHeatmap";
 import { AnalyticsChartCard } from "@/components/dashboard/AnalyticsChartCard";
@@ -72,7 +73,7 @@ export default function DashboardPage() {
       activeHref="/dashboard"
     >
       {/* readiness-style stat row (existing placeholder values) */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="aurora-fade-slide-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile icon={BookOpen} label="Followed exams" value="4" detail="CAT, JEE, NEET, GATE" />
         <StatTile icon={BrainCircuit} label="Tracked topics" value="426" detail="Across demo catalog" accent="var(--aurora-cyan)" />
         <StatTile icon={Target} label="Top signal" value="86%" detail="Arithmetic cluster" accent="var(--aurora-violet)" />
@@ -81,15 +82,21 @@ export default function DashboardPage() {
 
       {/* continue practice strip */}
       <div
-        className="aurora-glass relative mt-6 flex flex-col gap-4 overflow-hidden p-6 sm:flex-row sm:items-center sm:justify-between"
-        style={{ boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)" }}
+        className="aurora-glass aurora-fade-slide-up relative mt-6 flex flex-col gap-4 overflow-hidden p-6 sm:flex-row sm:items-center sm:justify-between"
+        style={{ boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)", animationDelay: "120ms" }}
       >
         <span
           aria-hidden
           className="absolute inset-x-0 top-0 h-[3px]"
           style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))" }}
         />
-        <div>
+        <span
+          aria-hidden
+          className="aurora-scan-x absolute top-0 h-[3px] w-[18%]"
+          style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent)" }}
+        />
+        <CommandPulse size={120} className="absolute -right-6 -top-3 hidden opacity-60 md:block" />
+        <div className="relative">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-cyan)" }}>
             Continue practice
           </p>
@@ -106,7 +113,7 @@ export default function DashboardPage() {
       </div>
 
       {/* trend + priorities */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="aurora-fade-slide-up mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]" style={{ animationDelay: "200ms" }}>
         <AnalyticsChartCard title="Recent PYQ trend movement" subtitle="Synthetic year-wise signal preview" />
         <div className="aurora-surface p-6">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-primary)" }}>
@@ -132,7 +139,7 @@ export default function DashboardPage() {
       </div>
 
       {/* CAT live pipeline */}
-      <div className="mt-8 space-y-6">
+      <div className="aurora-fade-slide-up mt-8 space-y-6" style={{ animationDelay: "280ms" }}>
         <div>
           <h2 className="text-lg font-bold" style={{ color: "var(--aurora-text-primary)" }}>
             CAT intelligence — live pipeline
@@ -146,7 +153,7 @@ export default function DashboardPage() {
       </div>
 
       {/* heatmap + weak-area planner */}
-      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+      <div className="aurora-fade-slide-up mt-8 grid gap-6 lg:grid-cols-2" style={{ animationDelay: "340ms" }}>
         <div className="aurora-surface p-6">
           <h3 className="text-base font-bold" style={{ color: "var(--aurora-text-primary)" }}>
             Probability heatmap
@@ -197,7 +204,7 @@ export default function DashboardPage() {
       </div>
 
       {/* exam cockpit links */}
-      <div className="mt-8 grid gap-4 lg:grid-cols-3">
+      <div className="aurora-fade-slide-up mt-8 grid gap-4 lg:grid-cols-3" style={{ animationDelay: "400ms" }}>
         {exams.slice(0, 3).map((exam) => (
           <Link
             key={exam.slug}
@@ -222,7 +229,7 @@ export default function DashboardPage() {
       </div>
 
       {/* plan lock + quick actions */}
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <div className="aurora-fade-slide-up mt-8 grid gap-4 md:grid-cols-2" style={{ animationDelay: "460ms" }}>
         <PlanLockCard compact title="Premium practice planner" description="Free users see the preview. Premium unlocks adaptive weak-area planning." />
         <Link href="/dashboard/downloads" className="aurora-glass aurora-card-hover aurora-focus-ring p-5">
           <CalendarCheck size={18} aria-hidden style={{ color: "var(--aurora-success)" }} />
