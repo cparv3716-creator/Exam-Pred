@@ -12,7 +12,7 @@ export function Footer() {
               <Brain size={19} className="text-white" />
             </div>
             <span className="text-base font-semibold text-white">
-              Exam<span className="text-cyan-300">IQ</span>
+              Stat<span className="text-cyan-300">strive</span>
             </span>
           </Link>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500">

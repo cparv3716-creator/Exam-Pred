@@ -4,13 +4,13 @@ import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "ExamIQ | AI Exam Intelligence Platform",
-    template: "%s | ExamIQ",
+    default: "Statstrive | AI Exam Intelligence Platform",
+    template: "%s | Statstrive",
   },
   description:
     "Premium AI-powered exam intelligence for PYQ analysis, topic probability, trend-weighted mocks, and pattern-based preparation insights.",
   keywords: [
-    "ExamIQ",
+    "Statstrive",
     "exam intelligence",
     "PYQ analysis",
     "topic probability",

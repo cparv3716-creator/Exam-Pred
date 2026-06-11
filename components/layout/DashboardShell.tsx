@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   BookOpen,
-  Brain,
   Calendar,
   ChevronLeft,
   Crown,
@@ -28,6 +27,13 @@ const nav = [
   { label: "Profile", href: "/dashboard/profile", icon: User, tier: "free" },
 ];
 
+/**
+ * DashboardShell — Aurora Glass Intelligence Command Mode.
+ * Light icy canvas, glass cockpit rail (drawer < lg), sticky glass top bar,
+ * one faint corner aurora glow (static — no orb, no drift). Content area is
+ * wrapped in `.aurora-command`, which re-skins legacy dark widgets for
+ * readability without modifying them.
+ */
 export function DashboardShell({
   children,
   title,
@@ -44,28 +50,59 @@ export function DashboardShell({
   const premium = isPremium(role);
 
   return (
-    <div className="relative min-h-screen bg-ink-950 text-slate-200">
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/8 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-purple-500/8 blur-[120px]" />
+    <div
+      className="relative min-h-screen overflow-x-clip"
+      style={{ background: "var(--aurora-background)", color: "var(--aurora-text-primary)" }}
+    >
+      {/* static corner aurora glow (Command Mode: one faint corner, no motion) */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div
+          className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--aurora-glow-primary), transparent 70%)", opacity: 0.5 }}
+        />
+        <div
+          className="absolute -bottom-44 -left-44 h-[30rem] w-[30rem] rounded-full blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--aurora-glow-cyan), transparent 70%)", opacity: 0.45 }}
+        />
       </div>
 
+      {/* glass cockpit rail */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 w-64 transform border-r border-white/5 bg-ink-900/82 backdrop-blur-2xl transition-transform duration-200 lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 w-64 transform border-r transition-transform duration-200 lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
         )}
+        style={{
+          background: "var(--aurora-surface-glass-strong)",
+          backdropFilter: "blur(18px) saturate(140%)",
+          WebkitBackdropFilter: "blur(18px) saturate(140%)",
+          borderColor: "var(--aurora-border-soft)",
+        }}
       >
-        <div className="flex h-16 items-center justify-between border-b border-white/5 px-5">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
-              <Brain size={18} className="text-white" />
-            </div>
-            <span className="text-sm font-semibold text-white">
-              Exam<span className="text-cyan-300">IQ</span>
+        <div className="flex h-16 items-center justify-between border-b px-5" style={{ borderColor: "var(--aurora-border-soft)" }}>
+          <Link href="/" className="aurora-focus-ring flex items-center gap-2.5 rounded-lg">
+            <span
+              aria-hidden
+              className="relative grid h-8 w-8 place-items-center rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 30%, #ffffff, var(--aurora-primary-bright) 55%, var(--aurora-primary) 100%)",
+                boxShadow: "var(--aurora-glow-md)",
+              }}
+            >
+              <span className="text-[0.65rem] font-black text-white">S</span>
+            </span>
+            <span className="text-sm font-extrabold tracking-tight" style={{ color: "var(--aurora-text-primary)" }}>
+              Statstrive
             </span>
           </Link>
-          <button type="button" onClick={() => setOpen(false)} className="text-slate-400 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="aurora-focus-ring rounded-md lg:hidden"
+            style={{ color: "var(--aurora-text-muted)" }}
+            aria-label="Close sidebar"
+          >
             <X size={20} />
           </button>
         </div>
@@ -78,16 +115,23 @@ export function DashboardShell({
               <Link
                 key={item.href}
                 href={item.href}
-                className={cn(
-                  "group flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
-                  active ? "bg-cyan-400/10 text-cyan-200" : "text-slate-400 hover:bg-white/5 hover:text-white",
-                )}
+                aria-current={active ? "page" : undefined}
+                className="aurora-focus-ring group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors"
+                style={
+                  active
+                    ? {
+                        color: "var(--aurora-primary)",
+                        background: "var(--aurora-background-soft)",
+                        boxShadow: "var(--aurora-glow-sm)",
+                      }
+                    : { color: "var(--aurora-text-secondary)" }
+                }
               >
                 <span className="flex items-center gap-3">
-                  <item.icon size={18} />
+                  <item.icon size={17} aria-hidden />
                   {item.label}
                 </span>
-                {locked && <Crown size={13} className="text-purple-300/70" />}
+                {locked && <Crown size={13} aria-hidden style={{ color: "var(--aurora-violet)" }} />}
               </Link>
             );
           })}
@@ -95,29 +139,44 @@ export function DashboardShell({
 
         {isAdmin(role) && (
           <div className="px-3">
-            <p className="px-3 pb-2 pt-3 text-[10px] uppercase tracking-wider text-slate-600">Admin</p>
+            <p className="px-3 pb-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: "var(--aurora-text-muted)" }}>
+              Admin
+            </p>
             <Link
               href="/admin"
-              className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white"
+              className="aurora-focus-ring flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors"
+              style={{ color: "var(--aurora-text-secondary)" }}
             >
-              <ShieldCheck size={18} /> Admin Console
+              <ShieldCheck size={17} aria-hidden /> Admin Console
             </Link>
           </div>
         )}
 
         <div className="absolute inset-x-3 bottom-3">
           <div
-            className={cn(
-              "rounded-xl border p-4",
-              premium ? "border-purple-400/25 bg-purple-500/[0.06]" : "border-white/8 bg-white/[0.03]",
-            )}
+            className="rounded-2xl border p-4"
+            style={{
+              borderColor: premium
+                ? "color-mix(in srgb, var(--aurora-violet) 40%, transparent)"
+                : "var(--aurora-border-soft)",
+              background: premium
+                ? "color-mix(in srgb, var(--aurora-violet) 7%, var(--aurora-surface))"
+                : "var(--aurora-surface)",
+              boxShadow: "var(--aurora-shadow-1)",
+            }}
           >
             <div className="flex items-center gap-2">
-              {premium ? <Crown size={15} className="text-purple-300" /> : <Sparkles size={15} className="text-cyan-300" />}
-              <span className="text-xs font-semibold text-white">{roleLabels[role]}</span>
+              {premium ? (
+                <Crown size={15} aria-hidden style={{ color: "var(--aurora-violet)" }} />
+              ) : (
+                <Sparkles size={15} aria-hidden style={{ color: "var(--aurora-cyan)" }} />
+              )}
+              <span className="text-xs font-bold" style={{ color: "var(--aurora-text-primary)" }}>
+                {roleLabels[role]}
+              </span>
             </div>
             {!premium && (
-              <Link href="/pricing" className="mt-3 block rounded-lg bg-gradient-to-r from-purple-500 to-blue-600 px-3 py-2 text-center text-xs font-semibold text-white">
+              <Link href="/pricing" className="aurora-button-primary aurora-focus-ring mt-3 w-full px-3 py-2 text-xs" style={{ minHeight: 36 }}>
                 Upgrade to Premium
               </Link>
             )}
@@ -125,29 +184,66 @@ export function DashboardShell({
         </div>
       </aside>
 
-      {open && <button type="button" aria-label="Close sidebar" className="fixed inset-0 z-30 bg-black/60 lg:hidden" onClick={() => setOpen(false)} />}
+      {open && (
+        <button
+          type="button"
+          aria-label="Close sidebar"
+          className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm lg:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-16 items-center gap-4 border-b border-white/5 bg-ink-900/82 px-4 backdrop-blur-2xl sm:px-6">
-          <button type="button" onClick={() => setOpen(true)} className="text-slate-300 lg:hidden" aria-label="Open sidebar">
+        {/* sticky glass top bar */}
+        <header
+          className="sticky top-0 z-20 flex h-16 items-center gap-4 border-b px-4 sm:px-6"
+          style={{
+            background: "var(--aurora-surface-glass)",
+            backdropFilter: "blur(16px) saturate(140%)",
+            WebkitBackdropFilter: "blur(16px) saturate(140%)",
+            borderColor: "var(--aurora-border-soft)",
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="aurora-focus-ring rounded-md lg:hidden"
+            style={{ color: "var(--aurora-text-primary)" }}
+            aria-label="Open sidebar"
+          >
             <Menu size={22} />
           </button>
-          <Link href="/" className="hidden items-center gap-1 text-sm text-slate-500 hover:text-slate-300 sm:flex">
-            <ChevronLeft size={16} /> Back to site
+          <Link
+            href="/"
+            className="aurora-focus-ring hidden items-center gap-1 rounded-md text-sm font-medium transition-colors hover:text-[color:var(--aurora-primary)] sm:flex"
+            style={{ color: "var(--aurora-text-muted)" }}
+          >
+            <ChevronLeft size={16} aria-hidden /> Back to site
           </Link>
           <div className="ml-auto flex items-center gap-3">
-            <RoleSwitcher compact />
-            <Link href="/exams" className="rounded-lg border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-300 hover:bg-white/5">
+            <span className="aurora-darkland rounded-full p-0.5" style={{ background: "var(--aurora-text-primary)" }}>
+              <RoleSwitcher compact />
+            </span>
+            <Link href="/exams" className="aurora-button-secondary aurora-focus-ring px-3 py-1.5 text-xs" style={{ minHeight: 34 }}>
               Explore PYQs
             </Link>
           </div>
         </header>
 
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6">
+        <div className="aurora-command relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6">
           {title && (
             <div className="mb-8">
-              <h1 className="text-2xl font-semibold tracking-tight text-white">{title}</h1>
-              {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-primary)" }}>
+                Command center
+              </p>
+              <h1 className="mt-1.5 text-2xl font-extrabold tracking-tight sm:text-3xl" style={{ color: "var(--aurora-text-primary)" }}>
+                {title}
+              </h1>
+              {subtitle && (
+                <p className="mt-1.5 max-w-2xl text-sm leading-6" style={{ color: "var(--aurora-text-secondary)" }}>
+                  {subtitle}
+                </p>
+              )}
             </div>
           )}
           {children}

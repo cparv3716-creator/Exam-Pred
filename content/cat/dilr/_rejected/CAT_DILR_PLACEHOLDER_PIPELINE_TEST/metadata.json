@@ -1,0 +1,36 @@
+{
+  "set_id": "CAT_DILR_PLACEHOLDER_PIPELINE_TEST",
+  "source_inference_report_used": "reports/dilr_inference_full/CAT_DILR_Full_PYQ_Inference_Report.md",
+  "surface_family": "pipeline-placeholder",
+  "engine_archetype": "not-a-practice-set",
+  "engine_hybrid_of": [],
+  "driver_vector": {
+    "L": 0,
+    "R": 0,
+    "C": 0,
+    "D": 0,
+    "M": 0
+  },
+  "entity_count": 0,
+  "hidden_object_type": "none-placeholder",
+  "consistent_world_count": null,
+  "casework_branch_count": 0,
+  "has_indeterminate_question": false,
+  "ladder_profile": {
+    "entry": "missing",
+    "medium": "missing",
+    "hard": "missing",
+    "global_conditional_necessity": "missing"
+  },
+  "blind_solver_minutes": null,
+  "blind_solver_branches": 0,
+  "judge_verdict": "reject",
+  "rejection_reasons": [
+    "no_hidden_object",
+    "no_real_casework_survives",
+    "universe_too_small",
+    "no_global_conditional_necessity_question",
+    "no_determinacy_profile"
+  ],
+  "created_at": "2026-06-10T17:10:29.756384+00:00"
+}

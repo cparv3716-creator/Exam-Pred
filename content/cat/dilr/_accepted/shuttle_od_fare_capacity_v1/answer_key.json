@@ -1,0 +1,9 @@
+{
+  "set_id": "shuttle_od_fare_capacity_v1",
+  "answers": [
+    { "question_id": "Q1", "type": "TITA", "answer": "68" },
+    { "question_id": "Q2", "type": "MCQ", "answer": "C" },
+    { "question_id": "Q3", "type": "MCQ", "answer": "C" },
+    { "question_id": "Q4", "type": "TITA", "answer": "3" }
+  ]
+}

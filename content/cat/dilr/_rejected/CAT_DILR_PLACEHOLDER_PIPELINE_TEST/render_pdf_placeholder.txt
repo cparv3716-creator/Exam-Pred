@@ -1,0 +1,1 @@
+PDF rendering placeholder: run a LaTeX engine against set.tex once the renderer is finalized.

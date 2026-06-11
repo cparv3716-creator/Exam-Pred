@@ -89,7 +89,7 @@ export function SplineHeroCore({ fallbackSize = 380 }: { fallbackSize?: number }
 
         {/* corner module tags (real modules, no metrics) */}
         <div className="aurora-glass pointer-events-none absolute left-5 top-5 px-3.5 py-2.5" style={{ borderRadius: "var(--aurora-radius-md)" }}>
-          <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--aurora-cyan)" }}>
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--aurora-cyan)" }}>
             AI Core
           </p>
           <p className="mt-0.5 text-xs font-bold" style={{ color: "var(--aurora-text-primary)" }}>
@@ -105,7 +105,7 @@ export function SplineHeroCore({ fallbackSize = 380 }: { fallbackSize?: number }
             boxShadow: "var(--aurora-shadow-2)",
           }}
         >
-          <p className="text-[0.6rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--aurora-2)" }}>
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--aurora-2)" }}>
             Coverage
           </p>
           <p className="mt-0.5 text-xs font-bold">DILR · Quant · VARC</p>

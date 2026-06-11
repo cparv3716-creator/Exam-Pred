@@ -56,7 +56,7 @@ export function HudWidget({
             {title}
           </p>
           <p
-            className="text-[0.6rem] font-semibold uppercase tracking-[0.18em]"
+            className="text-[0.65rem] font-semibold uppercase tracking-[0.18em]"
             style={{ color: accentVar[accent] }}
           >
             Module

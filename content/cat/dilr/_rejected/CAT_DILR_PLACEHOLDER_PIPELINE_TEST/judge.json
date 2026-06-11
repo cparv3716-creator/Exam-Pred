@@ -1,0 +1,31 @@
+{
+  "judge_verdict": "reject",
+  "rejection_reasons": [
+    "no_hidden_object",
+    "no_real_casework_survives",
+    "universe_too_small",
+    "no_global_conditional_necessity_question",
+    "no_determinacy_profile"
+  ],
+  "checklist": {
+    "direct_reading_possible": false,
+    "one_early_deduction_collapses_set": false,
+    "no_hidden_object": true,
+    "graph_table_or_grid_handed_over": false,
+    "no_real_casework_survives": true,
+    "universe_too_small": true,
+    "arithmetic_only_difficulty": false,
+    "no_global_conditional_necessity_question": true,
+    "no_determinacy_profile": true,
+    "unique_but_not_cat_like": false,
+    "full_corpus_alignment": false
+  },
+  "cat_likeness_notes": "Deterministic placeholder judge. Replace with adversarial LLM judge output before accepting production content.",
+  "required_revision_notes": [
+    "no_hidden_object",
+    "no_real_casework_survives",
+    "universe_too_small",
+    "no_global_conditional_necessity_question",
+    "no_determinacy_profile"
+  ]
+}

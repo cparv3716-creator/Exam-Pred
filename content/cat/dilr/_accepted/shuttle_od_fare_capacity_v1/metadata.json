@@ -1,0 +1,19 @@
+{
+  "set_id": "shuttle_od_fare_capacity_v1",
+  "title": "Hidden Origin-Destination Matrix with Fare and Capacity Constraints",
+  "exam": "CAT",
+  "section": "DILR",
+  "surface_family": "routes/network",
+  "engine_archetype": "flow network + hidden origin-destination matrix",
+  "engine_hybrid_of": ["allocation", "conservation", "fare constraints", "capacity constraints"],
+  "difficulty_label": "CAT upper-medium / lower-hard",
+  "quality_level": 2,
+  "website_ready": "review_required",
+  "question_count": 4,
+  "estimated_time_min": 10,
+  "has_tita": true,
+  "has_mcq": true,
+  "has_determinacy_question": true,
+  "source": "generated_from_full_corpus_dilr_inference",
+  "status": "accepted_experimental"
+}

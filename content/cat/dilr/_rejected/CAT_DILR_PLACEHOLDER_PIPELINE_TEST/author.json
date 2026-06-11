@@ -1,0 +1,25 @@
+{
+  "set_id": "CAT_DILR_PLACEHOLDER_PIPELINE_TEST",
+  "metadata": {
+    "surface_family": "pipeline-placeholder",
+    "engine_archetype": "not-a-practice-set",
+    "engine_hybrid_of": [],
+    "driver_vector": {
+      "L": 0,
+      "R": 0,
+      "C": 0,
+      "D": 0,
+      "M": 0
+    },
+    "entity_count": 0,
+    "state_or_cell_count": 0,
+    "hidden_object_type": "none-placeholder",
+    "casework_branch_count": 0
+  },
+  "student_facing_prompt": "Placeholder only. This is not a student practice set.",
+  "questions": [],
+  "answer_key": {},
+  "hidden_object": null,
+  "candidate_worlds": [],
+  "author_notes": "Tiny placeholder used only to test folder writing. It should be rejected."
+}

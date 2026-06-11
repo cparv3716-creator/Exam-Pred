@@ -125,7 +125,7 @@ export default async function ExamDetailPage({ params }: { params: Params }) {
           <SectionHeader
             eyebrow="Trend cards"
             title="Recent signal preview"
-            description={isCat ? "CAT combines local pipeline stats with demo charts where visualization data is still pending." : "Demo preview metadata demonstrates how ExamIQ will communicate topic shifts after this pipeline is uploaded."}
+            description={isCat ? "CAT combines local pipeline stats with demo charts where visualization data is still pending." : "Demo preview metadata demonstrates how Statstrive will communicate topic shifts after this pipeline is uploaded."}
           />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[

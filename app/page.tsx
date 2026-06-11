@@ -1,10 +1,7 @@
 import Link from "next/link";
 import {
-  Activity,
   ArrowRight,
-  BrainCircuit,
   Layers,
-  LayoutGrid,
   Network,
   Radar,
   Route,
@@ -13,8 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { AuroraBackground } from "@/components/aurora/AuroraBackground";
-import { HudWidget } from "@/components/aurora/HudWidget";
-import { SplineHeroCore } from "@/components/aurora/SplineHeroCore";
+import { AuroraHeroScene } from "@/components/aurora/AuroraHeroScene";
 
 /* ── nav / content data ─────────────────────────────────────────────── */
 
@@ -27,79 +23,8 @@ const NAV_LINKS = [
 
 const HERO_CHIPS = ["CAT-first", "PYQ-backed", "Multi-exam architecture", "Adaptive practice"];
 
-const HEAT_OPACITY = [0.85, 0.3, 0.6, 0.18, 0.92, 0.45, 0.28, 0.7, 0.14, 0.55, 0.88, 0.38];
-const BAR_HEIGHTS = ["42%", "68%", "55%", "84%", "61%"];
-const SIGNAL_HEIGHTS = ["28%", "44%", "58%", "74%", "90%"];
 
 /* ── tiny abstract visuals (decorative, no metrics) ─────────────────── */
-
-function MiniBars() {
-  return (
-    <div aria-hidden className="flex h-12 items-end gap-1.5">
-      {BAR_HEIGHTS.map((h, i) => (
-        <span
-          key={i}
-          className={`w-full rounded-sm ${i === 3 ? "aurora-soft-pulse" : ""}`}
-          style={{
-            height: h,
-            background: "linear-gradient(180deg, var(--aurora-2), var(--aurora-1))",
-            opacity: 0.85,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MiniNodes() {
-  return (
-    <div aria-hidden className="relative h-10">
-      <span
-        className="absolute left-0 right-0 top-1/2 h-px"
-        style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))", opacity: 0.6 }}
-      />
-      {["6%", "32%", "58%", "86%"].map((left, i) => (
-        <span
-          key={left}
-          className={`absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full ${i === 2 ? "aurora-soft-pulse" : ""}`}
-          style={{
-            left,
-            background: i === 2 ? "var(--aurora-cyan)" : "var(--aurora-primary-bright)",
-            boxShadow: i === 2 ? "0 0 12px 2px var(--aurora-glow-cyan)" : "var(--aurora-shadow-1)",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MiniSignal() {
-  return (
-    <div aria-hidden className="flex h-12 items-end gap-1.5">
-      {SIGNAL_HEIGHTS.map((h, i) => (
-        <span
-          key={i}
-          className={`w-full rounded-sm ${i === 4 ? "aurora-soft-pulse" : ""}`}
-          style={{ height: h, background: "var(--aurora-violet)", opacity: 0.4 + i * 0.13 }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MiniHeatGrid() {
-  return (
-    <div aria-hidden className="grid grid-cols-6 gap-1">
-      {HEAT_OPACITY.map((o, i) => (
-        <span
-          key={i}
-          className="h-3.5 rounded-[4px]"
-          style={{ background: `color-mix(in srgb, var(--aurora-primary) ${Math.round(o * 75)}%, var(--aurora-background-soft))` }}
-        />
-      ))}
-    </div>
-  );
-}
 
 function RadarVisual() {
   return (
@@ -207,39 +132,6 @@ function MemoryVisual() {
   );
 }
 
-/* ── HUD module definitions (real product modules, no metrics) ──────── */
-
-const HUD_MODULES = [
-  {
-    icon: BrainCircuit,
-    title: "PYQ Pattern Engine",
-    desc: "Detects recurring exam structures",
-    accent: "primary" as const,
-    visual: <MiniBars />,
-  },
-  {
-    icon: Route,
-    title: "Adaptive Practice Map",
-    desc: "Routes practice by weakness and difficulty",
-    accent: "cyan" as const,
-    visual: <MiniNodes />,
-  },
-  {
-    icon: Activity,
-    title: "Readiness Intelligence",
-    desc: "Tracks section-level preparation signals",
-    accent: "violet" as const,
-    visual: <MiniSignal />,
-  },
-  {
-    icon: LayoutGrid,
-    title: "Topic Heatmap",
-    desc: "Highlights coverage gaps and repeated concepts",
-    accent: "primary" as const,
-    visual: <MiniHeatGrid />,
-  },
-];
-
 const BENTO = [
   {
     icon: Radar,
@@ -320,6 +212,38 @@ export default function HomePage() {
           }}
         />
 
+        {/* cinematic 3D prediction field — background atmosphere layer */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+          style={{
+            maskImage: "radial-gradient(125% 95% at 62% 42%, black 52%, transparent 94%)",
+            WebkitMaskImage: "radial-gradient(125% 95% at 62% 42%, black 52%, transparent 94%)",
+          }}
+        >
+          <AuroraHeroScene className="absolute inset-0 h-full w-full" />
+          {/* readability veil over the copy column (desktop) */}
+          <div
+            className="absolute inset-0 hidden lg:block"
+            style={{
+              background:
+                "linear-gradient(90deg, var(--aurora-background) 4%, color-mix(in srgb, var(--aurora-background) 62%, transparent) 34%, transparent 58%)",
+            }}
+          />
+          {/* readability veil (mobile/tablet — even wash) */}
+          <div
+            className="absolute inset-0 lg:hidden"
+            style={{ background: "color-mix(in srgb, var(--aurora-background) 52%, transparent)" }}
+          />
+          {/* bottom fade into the next section */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-36"
+            style={{
+              background: "linear-gradient(180deg, transparent, var(--aurora-background))",
+            }}
+          />
+        </div>
+
         {/* glass navbar */}
         <header className="sticky top-4 z-50 mx-auto max-w-7xl">
           <div
@@ -370,21 +294,18 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* hero composition */}
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 pt-12 sm:pt-16 lg:min-h-[calc(100vh-9.5rem)] lg:grid-cols-[1fr_1.04fr] lg:gap-8 lg:pt-6">
-          {/* left — glass cockpit panel */}
-          <div
-            className="aurora-glass aurora-fade-slide-up relative overflow-hidden p-7 sm:p-9"
-            style={{ borderRadius: "var(--aurora-radius-xl)", boxShadow: "var(--aurora-shadow-3), var(--aurora-shadow-glass)" }}
-          >
-            {/* top aurora hairline */}
-            <span
-              aria-hidden
-              className="absolute inset-x-0 top-0 h-[3px]"
-              style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))" }}
-            />
-
-            <p className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-primary)" }}>
+        {/* hero composition — one cinematic block over the 3D field */}
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl items-center px-0 pb-10 pt-20 sm:pt-24 lg:pt-12">
+          <div className="aurora-fade-slide-up relative max-w-3xl">
+            <p
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.2em]"
+              style={{
+                color: "var(--aurora-primary)",
+                background: "var(--aurora-surface-glass)",
+                border: "1px solid var(--aurora-border-soft)",
+                boxShadow: "var(--aurora-shadow-1)",
+              }}
+            >
               <span
                 aria-hidden
                 className="aurora-soft-pulse h-2 w-2 rounded-full"
@@ -393,7 +314,7 @@ export default function HomePage() {
               Statstrive · AI Exam Intelligence
             </p>
 
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl xl:text-[3.4rem]">
+            <h1 className="mt-7 text-5xl font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-6xl xl:text-7xl">
               AI-powered{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -404,57 +325,35 @@ export default function HomePage() {
               for serious aspirants.
             </h1>
 
-            <p className="mt-5 max-w-xl text-lg leading-8" style={{ color: "var(--aurora-text-secondary)" }}>
+            <p
+              className="mt-7 max-w-2xl text-lg leading-8 sm:text-xl sm:leading-9"
+              style={{ color: "var(--aurora-text-secondary)" }}
+            >
               Analyze PYQ patterns, map weak areas, and practice with exam-aware intelligence.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/exams/cat/dilr"
-                className="aurora-button-primary aurora-focus-ring group px-7 py-3.5 text-base"
+                className="aurora-button-primary aurora-focus-ring group px-8 py-4 text-base"
                 style={{ boxShadow: "var(--aurora-shadow-2), var(--aurora-glow-md)" }}
               >
                 Start CAT Practice
-                <ArrowRight size={17} aria-hidden className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={18} aria-hidden className="transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/exams/cat/dilr" className="aurora-button-secondary aurora-focus-ring px-7 py-3.5 text-base">
+              <Link
+                href="/exams/cat/dilr"
+                className="aurora-button-secondary aurora-focus-ring px-8 py-4 text-base"
+              >
                 Explore DILR Sets
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2.5">
+            <div className="mt-10 flex flex-wrap gap-2.5">
               {HERO_CHIPS.map((chip) => (
                 <span key={chip} className="aurora-badge px-3 py-1.5">
                   {chip}
                 </span>
-              ))}
-            </div>
-          </div>
-
-          {/* right — cinematic core + HUD modules (desktop) */}
-          <div className="relative hidden min-h-[660px] items-center justify-center lg:flex">
-            <SplineHeroCore fallbackSize={380} />
-
-            <div className="aurora-fade-slide-up absolute -left-4 top-6 w-60" style={{ animationDelay: "140ms" }}>
-              <HudWidget {...HUD_MODULES[0]} />
-            </div>
-            <div className="aurora-fade-slide-up absolute -right-3 top-16 w-64" style={{ animationDelay: "260ms" }}>
-              <HudWidget {...HUD_MODULES[1]} style={{ animationDelay: "-2s" }} />
-            </div>
-            <div className="aurora-fade-slide-up absolute -left-2 bottom-14 w-60" style={{ animationDelay: "380ms" }}>
-              <HudWidget {...HUD_MODULES[2]} style={{ animationDelay: "-4s" }} />
-            </div>
-            <div className="aurora-fade-slide-up absolute -right-4 bottom-4 w-64" style={{ animationDelay: "500ms" }}>
-              <HudWidget {...HUD_MODULES[3]} style={{ animationDelay: "-6s" }} />
-            </div>
-          </div>
-
-          {/* right — stacked variant (mobile/tablet) */}
-          <div className="lg:hidden">
-            <SplineHeroCore fallbackSize={260} />
-            <div className="mx-auto mt-10 grid max-w-xl gap-4 sm:grid-cols-2">
-              {HUD_MODULES.map((m) => (
-                <HudWidget key={m.title} {...m} float={false} />
               ))}
             </div>
           </div>
