@@ -7,7 +7,9 @@ import {
   Network,
   Sparkles,
 } from "lucide-react";
+import type { ReactNode } from "react";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
+import { DilrHubResume } from "@/components/dilr/DilrHubResume";
 import { getAllDilrSets } from "@/lib/content/dilr";
 
 export const metadata: Metadata = {
@@ -80,6 +82,7 @@ export default function CatHubPage() {
             live
             desc="Curated hidden-object DILR sets grouped by reasoning pattern, each with metadata, answer key and worked solution."
             topics={["Data Interpretation", "Logical Reasoning", "Hybrid sets", "TITA + MCQ"]}
+            extra={<DilrHubResume />}
             cta={{ label: dilrSetCount > 0 ? `Open DILR library (${dilrSetCount} ${dilrSetCount === 1 ? "set" : "sets"})` : "Open DILR library", href: "/exams/cat/dilr" }}
           />
 
@@ -115,6 +118,7 @@ function ModuleCard({
   desc,
   topics,
   cta,
+  extra,
 }: {
   icon: typeof Network;
   name: string;
@@ -123,6 +127,7 @@ function ModuleCard({
   desc: string;
   topics: string[];
   cta?: { label: string; href: string };
+  extra?: ReactNode;
 }) {
   return (
     <div
@@ -216,6 +221,7 @@ function ModuleCard({
             Coming soon
           </span>
         )}
+        {extra}
       </div>
     </div>
   );
