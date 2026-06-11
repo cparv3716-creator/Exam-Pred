@@ -177,3 +177,361 @@ a {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   AURORA GLASS INTELLIGENCE — PHASE 1 (tokens + opt-in utilities)
+   ------------------------------------------------------------------------
+   ADDITIVE & OPT-IN. Nothing below changes any page unless a page chooses to
+   use an `.aurora-*` class. All tokens are namespaced `--aurora-*` and all
+   classes are namespaced `.aurora-*` so they never collide with or override
+   existing tokens/classes (e.g. the existing dark `.glass`, `:root` vars).
+   Source of truth: docs/design-exploration/aurora-glass-intelligence/DESIGN.md
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Base surfaces (DESIGN.md §5) ── */
+  --aurora-background:            #F8FBFF; /* icy white */
+  --aurora-background-soft:       #EEF4FF; /* pale blue wash */
+  --aurora-surface:               #FFFFFF; /* solid card */
+  --aurora-surface-glass:         rgba(255, 255, 255, 0.72); /* translucent glass */
+  --aurora-surface-glass-strong:  rgba(255, 255, 255, 0.85);
+
+  /* ── Text ── */
+  --aurora-text-primary:    #0F172A; /* deep navy */
+  --aurora-text-secondary:  #475569; /* slate */
+  --aurora-text-muted:      #64748B; /* cool gray */
+
+  /* ── Accents ── */
+  --aurora-primary:         #4F46E5; /* indigo */
+  --aurora-primary-bright:  #6366F1; /* blue-violet */
+  --aurora-cyan:            #06B6D4; /* electric cyan */
+  --aurora-violet:          #8B5CF6; /* aurora violet */
+  --aurora-success:         #10B981; /* mint */
+  --aurora-warning:         #F59E0B; /* amber */
+  --aurora-danger:          #F43F5E; /* rose */
+
+  /* ── Lines & glow ── */
+  --aurora-border-soft:     rgba(148, 163, 184, 0.28);
+  --aurora-border-strong:   rgba(148, 163, 184, 0.45);
+  --aurora-glow-primary:    rgba(99, 102, 241, 0.35);
+  --aurora-glow-cyan:       rgba(6, 182, 212, 0.25);
+  --aurora-glow-violet:     rgba(139, 92, 246, 0.28);
+
+  /* ── Aurora gradient stops (backgrounds only — never behind body text) ── */
+  --aurora-1: #6366F1;
+  --aurora-2: #06B6D4;
+  --aurora-3: #8B5CF6;
+
+  /* ── Border radius scale (DESIGN.md §8) ── */
+  --aurora-radius-xs:   8px;
+  --aurora-radius-sm:   12px;
+  --aurora-radius-md:   16px;
+  --aurora-radius-lg:   20px;
+  --aurora-radius-xl:   28px;
+  --aurora-radius-pill: 999px;
+
+  /* ── Elevation & glow shadows (DESIGN.md §9) ── */
+  --aurora-shadow-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --aurora-shadow-2: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.05);
+  --aurora-shadow-3: 0 12px 32px rgba(15, 23, 42, 0.10), 0 6px 14px rgba(15, 23, 42, 0.06);
+  --aurora-shadow-glass: 0 8px 30px rgba(79, 70, 229, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --aurora-glow-sm: 0 0 0 1px var(--aurora-glow-primary), 0 0 18px -6px var(--aurora-glow-primary);
+  --aurora-glow-md: 0 0 28px -8px var(--aurora-glow-primary);
+  --aurora-glow-cyan-md: 0 0 28px -8px var(--aurora-glow-cyan);
+
+  /* ── Motion: durations & easing (DESIGN.md §11) ── */
+  --aurora-dur-instant: 90ms;
+  --aurora-dur-fast:    160ms;
+  --aurora-dur-base:    240ms;
+  --aurora-dur-slow:    420ms;
+  --aurora-dur-slower:  700ms;
+  --aurora-ease-out:    cubic-bezier(0.22, 1, 0.36, 1);     /* enter / lift */
+  --aurora-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);     /* moves */
+  --aurora-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);  /* playful pop (Showcase only) */
+}
+
+/* ── Safe keyframes (namespaced) ──────────────────────────────────────────
+   Decorative/looping animations are disabled under reduced-motion below. */
+@keyframes aurora-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-3%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes aurora-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes aurora-fade-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aurora-soft-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+@keyframes aurora-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes aurora-scan-y {
+  0%   { transform: translateY(-160%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateY(660%); opacity: 0; }
+}
+
+@keyframes aurora-scan-x {
+  0%   { transform: translateX(-180%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateX(900%); opacity: 0; }
+}
+
+/* ── Opt-in utility classes (all namespaced `.aurora-*`) ─────────────────── */
+
+/* Signature glass surface (light theme). Solid fallback when blur unsupported. */
+.aurora-glass {
+  background: var(--aurora-surface);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--aurora-radius-lg);
+  box-shadow: var(--aurora-shadow-glass);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .aurora-glass {
+    background: var(--aurora-surface-glass);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+  }
+}
+
+/* Plain opaque card surface. */
+.aurora-surface {
+  background: var(--aurora-surface);
+  border: 1px solid var(--aurora-border-soft);
+  border-radius: var(--aurora-radius-lg);
+  box-shadow: var(--aurora-shadow-1);
+}
+
+/* Soft flat background wash (Command/Library). */
+.aurora-soft-bg {
+  background:
+    radial-gradient(circle at 85% -10%, var(--aurora-glow-primary), transparent 60%),
+    var(--aurora-background);
+}
+
+/* Full aurora gradient wash (Showcase/Lab headers — never behind body text). */
+.aurora-gradient-bg {
+  background:
+    linear-gradient(120deg,
+      color-mix(in srgb, var(--aurora-1) 22%, transparent),
+      color-mix(in srgb, var(--aurora-2) 18%, transparent) 45%,
+      color-mix(in srgb, var(--aurora-3) 22%, transparent)),
+    var(--aurora-background);
+}
+
+/* Drifting aurora orb field. Decorative only — set pointer-events:none on use. */
+.aurora-orb-bg {
+  position: relative;
+  background: var(--aurora-background);
+  overflow: hidden;
+}
+.aurora-orb-bg::before,
+.aurora-orb-bg::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--aurora-radius-pill);
+  filter: blur(80px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.aurora-orb-bg::before {
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, var(--aurora-1), transparent 70%);
+  animation: aurora-drift 24s var(--aurora-ease-in-out) infinite;
+}
+.aurora-orb-bg::after {
+  bottom: -25%;
+  right: -10%;
+  background: radial-gradient(circle, var(--aurora-2), transparent 70%);
+  animation: aurora-drift 28s var(--aurora-ease-in-out) infinite reverse;
+}
+
+/* Glow rings (chrome/intelligence accents). */
+.aurora-glow-primary { box-shadow: var(--aurora-glow-md); }
+.aurora-glow-cyan    { box-shadow: var(--aurora-glow-cyan-md); }
+
+/* Interactive card hover lift. */
+.aurora-card-hover {
+  transition:
+    transform var(--aurora-dur-fast) var(--aurora-ease-out),
+    box-shadow var(--aurora-dur-fast) var(--aurora-ease-out);
+}
+.aurora-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--aurora-shadow-3);
+}
+
+/* Accessible focus ring (pair with focus-visible on use). */
+.aurora-focus-ring:focus-visible {
+  outline: 2px solid var(--aurora-primary-bright);
+  outline-offset: 2px;
+}
+
+/* Calm opaque reading surface (Focus mode passages/questions). */
+.aurora-reading-surface {
+  background: var(--aurora-surface);
+  color: var(--aurora-text-primary);
+  border: 1px solid var(--aurora-border-soft);
+  border-radius: var(--aurora-radius-md);
+  box-shadow: var(--aurora-shadow-1);
+  line-height: 1.85;
+}
+
+/* Chip (filters/topics). */
+.aurora-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: var(--aurora-text-secondary);
+  background: var(--aurora-surface);
+  border: 1px solid var(--aurora-border-soft);
+  border-radius: var(--aurora-radius-pill);
+  transition:
+    border-color var(--aurora-dur-fast) var(--aurora-ease-out),
+    box-shadow var(--aurora-dur-fast) var(--aurora-ease-out);
+}
+.aurora-chip[aria-pressed="true"] {
+  color: var(--aurora-primary);
+  border-color: var(--aurora-primary-bright);
+  box-shadow: var(--aurora-glow-sm);
+}
+
+/* Status/difficulty badge. */
+.aurora-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--aurora-text-secondary);
+  background: var(--aurora-background-soft);
+  border: 1px solid var(--aurora-border-soft);
+  border-radius: var(--aurora-radius-xs);
+}
+
+/* Primary button — indigo→blue-violet gradient. */
+.aurora-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  min-height: 44px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--aurora-primary), var(--aurora-primary-bright));
+  border: 1px solid transparent;
+  border-radius: var(--aurora-radius-sm);
+  box-shadow: var(--aurora-shadow-1);
+  cursor: pointer;
+  transition:
+    transform var(--aurora-dur-fast) var(--aurora-ease-out),
+    filter var(--aurora-dur-fast) var(--aurora-ease-out),
+    box-shadow var(--aurora-dur-fast) var(--aurora-ease-out);
+}
+.aurora-button-primary:hover  { transform: translateY(-1px); filter: brightness(1.06); }
+.aurora-button-primary:active { transform: translateY(0); }
+.aurora-button-primary:focus-visible {
+  outline: 2px solid var(--aurora-primary-bright);
+  outline-offset: 2px;
+}
+
+/* Secondary button — surface with hairline border. */
+.aurora-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--aurora-text-primary);
+  background: var(--aurora-surface);
+  border: 1px solid var(--aurora-border-strong);
+  border-radius: var(--aurora-radius-sm);
+  cursor: pointer;
+  transition:
+    transform var(--aurora-dur-fast) var(--aurora-ease-out),
+    background-color var(--aurora-dur-fast) var(--aurora-ease-out),
+    box-shadow var(--aurora-dur-fast) var(--aurora-ease-out);
+}
+.aurora-button-secondary:hover  { transform: translateY(-1px); box-shadow: var(--aurora-shadow-2); }
+.aurora-button-secondary:active { transform: translateY(0); }
+.aurora-button-secondary:focus-visible {
+  outline: 2px solid var(--aurora-primary-bright);
+  outline-offset: 2px;
+}
+
+/* Opt-in entrance animation helper (single calm fade-slide). */
+.aurora-fade-slide-up {
+  animation: aurora-fade-slide-up var(--aurora-dur-slow) var(--aurora-ease-out) both;
+}
+
+/* Opt-in idle float (Showcase decorative cards). */
+.aurora-float-slow {
+  animation: aurora-float-slow 8s var(--aurora-ease-in-out) infinite;
+}
+
+/* Opt-in soft pulse (live/AI accent dots). */
+.aurora-soft-pulse {
+  animation: aurora-soft-pulse 3s var(--aurora-ease-in-out) infinite;
+}
+
+/* Opt-in slow continuous rotation (Showcase orb rings only). */
+.aurora-spin-slow {
+  animation: aurora-spin 22s linear infinite;
+}
+
+/* Opt-in scanning sweeps (Showcase HUD/bento visuals only). */
+.aurora-scan-y { animation: aurora-scan-y 5.5s var(--aurora-ease-in-out) infinite; }
+.aurora-scan-x { animation: aurora-scan-x 6.5s var(--aurora-ease-in-out) infinite; }
+
+/* ── Reduced-motion fallback (DESIGN.md §13) ──────────────────────────────
+   Scoped to aurora utilities so it cannot affect unrelated app animations.
+   Disables long/looping decorative motion; keeps state changes instant. */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb-bg::before,
+  .aurora-orb-bg::after,
+  .aurora-float-slow,
+  .aurora-soft-pulse,
+  .aurora-spin-slow,
+  .aurora-scan-y,
+  .aurora-scan-x,
+  .aurora-fade-slide-up {
+    animation: none !important;
+  }
+  .aurora-scan-y,
+  .aurora-scan-x {
+    opacity: 0 !important;
+  }
+  .aurora-fade-slide-up { opacity: 1 !important; transform: none !important; }
+  .aurora-card-hover,
+  .aurora-button-primary,
+  .aurora-button-secondary,
+  .aurora-chip {
+    transition-duration: 0.001ms !important;
+  }
+}

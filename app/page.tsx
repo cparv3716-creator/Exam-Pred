@@ -1,249 +1,587 @@
 import Link from "next/link";
 import {
+  Activity,
   ArrowRight,
-  BarChart3,
-  Brain,
-  Check,
-  Crown,
-  DatabaseZap,
-  FileLock2,
-  FlaskConical,
+  BrainCircuit,
   Layers,
-  Lock,
-  ShieldCheck,
+  LayoutGrid,
+  Network,
+  Radar,
+  Route,
+  ScanLine,
+  Signal,
   Sparkles,
-  Target,
-  X,
 } from "lucide-react";
-import { PageShell } from "@/components/layout/PageShell";
-import { HeroSection } from "@/components/marketing/HeroSection";
-import { ExamCard } from "@/components/exams/ExamCard";
-import { FeatureCard } from "@/components/marketing/FeatureCard";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SoftPill } from "@/components/ui/Badge";
-import { ProbabilityRing } from "@/components/ui/ProbabilityMeter";
-import { BlurredPreviewGate } from "@/components/ui/BlurredPreviewGate";
-import { ExamIntelligencePreview } from "@/components/dashboard/ExamIntelligencePreview";
-import { TopicHeatmap } from "@/components/dashboard/TopicHeatmap";
-import { exams } from "@/data/exams";
-import { faqs, heatmap, howItWorks, topicProbability } from "@/data/analytics";
-import { legalDisclaimer } from "@/lib/utils";
+import { AuroraBackground } from "@/components/aurora/AuroraBackground";
+import { HudWidget } from "@/components/aurora/HudWidget";
+import { SplineHeroCore } from "@/components/aurora/SplineHeroCore";
 
-export default function HomePage() {
+/* ── nav / content data ─────────────────────────────────────────────── */
+
+const NAV_LINKS = [
+  { label: "CAT", href: "/exams/cat" },
+  { label: "Practice", href: "/exams/cat/dilr" },
+  { label: "AI Insights", href: "/exams/cat/reports" },
+  { label: "Reports", href: "/dashboard" },
+];
+
+const HERO_CHIPS = ["CAT-first", "PYQ-backed", "Multi-exam architecture", "Adaptive practice"];
+
+const HEAT_OPACITY = [0.85, 0.3, 0.6, 0.18, 0.92, 0.45, 0.28, 0.7, 0.14, 0.55, 0.88, 0.38];
+const BAR_HEIGHTS = ["42%", "68%", "55%", "84%", "61%"];
+const SIGNAL_HEIGHTS = ["28%", "44%", "58%", "74%", "90%"];
+
+/* ── tiny abstract visuals (decorative, no metrics) ─────────────────── */
+
+function MiniBars() {
   return (
-    <PageShell withGrid>
-      <HeroSection />
-
-      <section className="border-y border-white/5 bg-white/[0.015] py-8">
-        <div className="mx-auto max-w-7xl px-4">
-          <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-slate-600">
-            Intelligence across major competitive exams
-          </p>
-          <p className="mx-auto mt-3 max-w-3xl text-center text-sm leading-relaxed text-slate-400">
-            CAT is connected to local pipeline outputs. Other exams currently use demo previews until their pipelines are uploaded.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {exams.map((exam) => (
-              <span key={exam.slug} className="text-lg font-semibold text-slate-600 transition-colors hover:text-slate-300">
-                {exam.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Supported exams"
-          title="Built to scale across every exam"
-          description="A premium exam intelligence directory with PYQ structure, topic coverage, trend metadata and role-aware access."
-          action={
-            <Link href="/exams" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white">
-              View all exams <ArrowRight size={15} />
-            </Link>
-          }
+    <div aria-hidden className="flex h-12 items-end gap-1.5">
+      {BAR_HEIGHTS.map((h, i) => (
+        <span
+          key={i}
+          className={`w-full rounded-sm ${i === 3 ? "aurora-soft-pulse" : ""}`}
+          style={{
+            height: h,
+            background: "linear-gradient(180deg, var(--aurora-2), var(--aurora-1))",
+            opacity: 0.85,
+          }}
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {exams.slice(0, 6).map((exam) => (
-            <ExamCard key={exam.slug} exam={exam} />
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white/[0.015] py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="PYQ intelligence preview"
-            title="An exam pattern engine, not a question dump"
-            description="Every demo question is structured by topic, subtopic, archetype, difficulty and trend metadata."
-            align="center"
-          />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            <FeatureCard icon={BarChart3} title="PYQ Intelligence" description="Dense, scannable question analysis with topic, subtopic and difficulty metadata." />
-            <FeatureCard icon={Target} title="Probability Engine" tone="blue" description="Topic likelihood blends frequency, recurrence and recent trend movement." />
-            <FeatureCard icon={FlaskConical} title="Trend-Weighted Mocks" tone="purple" description="Mock paper blueprints are generated from transparent prediction specifications." />
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-24 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div>
-          <SoftPill><Lock size={14} /> Access model demo</SoftPill>
-          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white">Blur-lock previews make upgrade value obvious.</h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-400">
-            Guests see a limited PYQ preview, free users unlock basic analysis, and premium users unlock analytics, predictions, mocks and reports.
-          </p>
-        </div>
-        <BlurredPreviewGate>
-          <div className="grid gap-4 rounded-xl border border-white/8 bg-white/[0.025] p-5">
-            {["Topic probability matrix", "Premium report download", "Predicted archetype rationale"].map((item) => (
-              <div key={item} className="rounded-lg border border-white/8 bg-white/[0.025] p-4">
-                <p className="text-sm font-semibold text-white">{item}</p>
-                <p className="mt-2 text-sm text-slate-500">A locked preview layer for non-signed-in users.</p>
-              </div>
-            ))}
-          </div>
-        </BlurredPreviewGate>
-      </section>
-
-      <section className="bg-white/[0.015] py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <SectionHeader
-              eyebrow="Probability engine preview"
-              title="See likelihood, not endless lists"
-              description="CAT uses local pipeline output where available; other exams currently show demo preview probability widgets."
-            />
-            <div className="mt-8 flex flex-wrap gap-6">
-              {topicProbability.slice(0, 4).map((topic) => (
-                <div key={topic.topic} className="flex flex-col items-center gap-2">
-                  <ProbabilityRing value={topic.probability} size={86} />
-                  <span className="max-w-[96px] text-center text-xs text-slate-400">{topic.topic}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <StaticTrendPreview />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-3">
-          <FeatureCard icon={FileLock2} title="Trend-weighted mocks" description="Premium mock papers are weighted by topic movement, recurrence and difficulty blend." tone="purple" />
-          <FeatureCard icon={Crown} title="Free vs Premium" description="Free handles basic PYQ analysis. Premium unlocks the full cockpit and download stack." tone="blue" />
-          <FeatureCard icon={DatabaseZap} title="Admin content pipeline" description="A premium placeholder console for upload, review, quality checks and publishing." tone="emerald" />
-        </div>
-      </section>
-
-      <section className="bg-white/[0.015] py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Dashboard preview" title="A cockpit for exam preparation decisions" align="center" />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <ExamIntelligencePreview />
-            <div className="rounded-2xl border border-white/8 bg-white/[0.025] p-6">
-              <h3 className="text-base font-semibold text-white">Probability heatmap</h3>
-              <p className="mt-1 text-sm text-slate-500">Synthetic topic-by-year weights.</p>
-              <div className="mt-6">
-                <TopicHeatmap data={heatmap} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="Free vs Premium comparison" title="Start free. Upgrade when you want the edge." align="center" />
-        <div className="mt-12 overflow-hidden rounded-2xl border border-white/8">
-          {[
-            ["PYQs with topic and subtopic", true, true],
-            ["Basic filters and difficulty", true, true],
-            ["Basic PYQ analysis downloads", true, true],
-            ["Topic probability dashboard", false, true],
-            ["Predicted high-probability practice", false, true],
-            ["Trend-weighted mock papers", false, true],
-            ["Topic heatmaps and premium reports", false, true],
-          ].map(([label, free, premium]) => (
-            <div key={String(label)} className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-white/5 px-6 py-3.5">
-              <span className="text-sm text-slate-300">{label}</span>
-              <span className="flex w-20 justify-center">{free ? <Check size={17} className="text-emerald-300" /> : <X size={17} className="text-slate-700" />}</span>
-              <span className="flex w-20 justify-center">{premium ? <Check size={17} className="text-cyan-300" /> : <X size={17} className="text-slate-700" />}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white/[0.015] py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Admin pipeline preview" title="Content operations, prepared for Phase 2" description="Admin placeholders already frame upload, quality review, prediction specs and publish/unpublish controls." />
-          <div className="mt-12 grid gap-5 md:grid-cols-4">
-            {howItWorks.map((step) => (
-              <div key={step.step} className="rounded-xl border border-white/8 bg-white/[0.025] p-5">
-                <span className="text-sm font-semibold text-cyan-300">{step.step}</span>
-                <h3 className="mt-3 text-base font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="FAQ" title="Questions, answered honestly" align="center" />
-        <div className="mt-12 space-y-3">
-          {faqs.map((faq) => (
-            <details key={faq.q} className="rounded-xl border border-white/8 bg-white/[0.025] p-5">
-              <summary className="cursor-pointer text-sm font-semibold text-white">{faq.q}</summary>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-600/5 to-purple-600/10 p-10 text-center sm:p-16">
-          <ShieldCheck size={36} className="mx-auto text-cyan-300" />
-          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Prepare with evidence, not guesswork.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-300">{legalDisclaimer}</p>
-          <Link href="/signup" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-7 py-3.5 text-sm font-semibold text-white">
-            <Brain size={16} /> Start Free
-          </Link>
-        </div>
-      </section>
-    </PageShell>
+      ))}
+    </div>
   );
 }
 
-function StaticTrendPreview() {
-  const rows = [
-    { label: "Arithmetic", values: [44, 52, 61, 74, 86] },
-    { label: "Algebra", values: [38, 48, 58, 67, 79] },
-    { label: "Geometry", values: [70, 64, 58, 51, 44] },
-    { label: "Modern Math", values: [30, 37, 45, 52, 58] },
-  ];
-
+function MiniNodes() {
   return (
-    <div className="rounded-xl border border-white/8 bg-white/[0.025] p-6">
-      <h3 className="text-base font-semibold text-white">Topic trend movement</h3>
-      <p className="mt-1 text-sm text-slate-500">Lightweight homepage preview; detailed charts live in dashboards.</p>
-      <div className="mt-6 space-y-5">
-        {rows.map((row) => (
-          <div key={row.label}>
-            <div className="mb-2 flex items-center justify-between text-sm">
-              <span className="text-slate-300">{row.label}</span>
-              <span className="text-cyan-300">{row.values.at(-1)}%</span>
+    <div aria-hidden className="relative h-10">
+      <span
+        className="absolute left-0 right-0 top-1/2 h-px"
+        style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))", opacity: 0.6 }}
+      />
+      {["6%", "32%", "58%", "86%"].map((left, i) => (
+        <span
+          key={left}
+          className={`absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full ${i === 2 ? "aurora-soft-pulse" : ""}`}
+          style={{
+            left,
+            background: i === 2 ? "var(--aurora-cyan)" : "var(--aurora-primary-bright)",
+            boxShadow: i === 2 ? "0 0 12px 2px var(--aurora-glow-cyan)" : "var(--aurora-shadow-1)",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function MiniSignal() {
+  return (
+    <div aria-hidden className="flex h-12 items-end gap-1.5">
+      {SIGNAL_HEIGHTS.map((h, i) => (
+        <span
+          key={i}
+          className={`w-full rounded-sm ${i === 4 ? "aurora-soft-pulse" : ""}`}
+          style={{ height: h, background: "var(--aurora-violet)", opacity: 0.4 + i * 0.13 }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function MiniHeatGrid() {
+  return (
+    <div aria-hidden className="grid grid-cols-6 gap-1">
+      {HEAT_OPACITY.map((o, i) => (
+        <span
+          key={i}
+          className="h-3.5 rounded-[4px]"
+          style={{ background: `color-mix(in srgb, var(--aurora-primary) ${Math.round(o * 75)}%, var(--aurora-background-soft))` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function RadarVisual() {
+  return (
+    <div aria-hidden className="relative mx-auto h-24 w-24">
+      {["inset-0", "inset-3", "inset-6"].map((inset) => (
+        <span key={inset} className={`absolute ${inset} rounded-full`} style={{ border: "1px solid var(--aurora-border-strong)" }} />
+      ))}
+      <span
+        className="aurora-spin-slow absolute inset-0 rounded-full"
+        style={{
+          animationDuration: "7s",
+          background: "conic-gradient(from 0deg, var(--aurora-glow-cyan), transparent 70deg)",
+        }}
+      />
+      {[
+        { left: "62%", top: "24%" },
+        { left: "30%", top: "52%" },
+        { left: "68%", top: "66%" },
+      ].map((pos, i) => (
+        <span
+          key={i}
+          className={i === 0 ? "aurora-soft-pulse absolute h-1.5 w-1.5 rounded-full" : "absolute h-1.5 w-1.5 rounded-full"}
+          style={{ ...pos, background: "var(--aurora-cyan)", boxShadow: "0 0 8px 1px var(--aurora-glow-cyan)" }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ScannerVisual() {
+  return (
+    <div aria-hidden className="relative h-24 overflow-hidden rounded-lg" style={{ background: "var(--aurora-background-soft)" }}>
+      <div className="absolute inset-2 grid grid-cols-8 gap-1.5">
+        {Array.from({ length: 24 }).map((_, i) => (
+          <span
+            key={i}
+            className="rounded-[3px]"
+            style={{ background: `color-mix(in srgb, var(--aurora-violet) ${(i * 37) % 70}%, transparent)` }}
+          />
+        ))}
+      </div>
+      <span
+        className="aurora-scan-x absolute bottom-1 top-1 w-[10%] rounded-full"
+        style={{ background: "linear-gradient(90deg, transparent, var(--aurora-glow-cyan), rgba(255,255,255,0.5), var(--aurora-glow-cyan), transparent)" }}
+      />
+    </div>
+  );
+}
+
+function RouteVisual() {
+  return (
+    <div aria-hidden className="relative h-24">
+      <svg viewBox="0 0 220 90" className="h-full w-full" fill="none">
+        <path
+          d="M10 70 C 60 70, 70 24, 116 24 S 190 56, 210 36"
+          stroke="url(#routeGrad)"
+          strokeWidth="2"
+          strokeDasharray="5 5"
+        />
+        <defs>
+          <linearGradient id="routeGrad" x1="0" y1="0" x2="220" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stopColor="var(--aurora-1)" />
+            <stop offset="0.5" stopColor="var(--aurora-2)" />
+            <stop offset="1" stopColor="var(--aurora-3)" />
+          </linearGradient>
+        </defs>
+      </svg>
+      {[
+        { left: "2%", top: "72%" },
+        { left: "50%", top: "18%" },
+        { left: "93%", top: "32%" },
+      ].map((pos, i) => (
+        <span
+          key={i}
+          className={`absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full ${i === 1 ? "aurora-soft-pulse" : ""}`}
+          style={{
+            ...pos,
+            background: i === 1 ? "var(--aurora-cyan)" : "var(--aurora-primary-bright)",
+            boxShadow: "0 0 10px 1px var(--aurora-glow-primary)",
+            border: "2px solid rgba(255,255,255,0.85)",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function MemoryVisual() {
+  return (
+    <div aria-hidden className="flex h-24 items-center gap-1">
+      {Array.from({ length: 18 }).map((_, i) => (
+        <span
+          key={i}
+          className={`w-full rounded-full ${i === 13 ? "aurora-soft-pulse" : ""}`}
+          style={{
+            height: `${28 + ((i * 23) % 46)}%`,
+            background:
+              i === 13
+                ? "var(--aurora-cyan)"
+                : `color-mix(in srgb, var(--aurora-primary) ${35 + ((i * 17) % 50)}%, var(--aurora-background-soft))`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ── HUD module definitions (real product modules, no metrics) ──────── */
+
+const HUD_MODULES = [
+  {
+    icon: BrainCircuit,
+    title: "PYQ Pattern Engine",
+    desc: "Detects recurring exam structures",
+    accent: "primary" as const,
+    visual: <MiniBars />,
+  },
+  {
+    icon: Route,
+    title: "Adaptive Practice Map",
+    desc: "Routes practice by weakness and difficulty",
+    accent: "cyan" as const,
+    visual: <MiniNodes />,
+  },
+  {
+    icon: Activity,
+    title: "Readiness Intelligence",
+    desc: "Tracks section-level preparation signals",
+    accent: "violet" as const,
+    visual: <MiniSignal />,
+  },
+  {
+    icon: LayoutGrid,
+    title: "Topic Heatmap",
+    desc: "Highlights coverage gaps and repeated concepts",
+    accent: "primary" as const,
+    visual: <MiniHeatGrid />,
+  },
+];
+
+const BENTO = [
+  {
+    icon: Radar,
+    title: "Pattern Radar",
+    desc: "Watches structural repetition across PYQ years and flags what keeps returning.",
+    visual: <RadarVisual />,
+  },
+  {
+    icon: ScanLine,
+    title: "Weakness Scanner",
+    desc: "Sweeps your attempts for fragile concepts, slow zones and avoidable errors.",
+    visual: <ScannerVisual />,
+  },
+  {
+    icon: Route,
+    title: "Practice Route",
+    desc: "Sequences sets so difficulty rises exactly as your skill does.",
+    visual: <RouteVisual />,
+  },
+  {
+    icon: Layers,
+    title: "Performance Memory",
+    desc: "Remembers every attempt so the next session starts smarter than the last.",
+    visual: <MemoryVisual />,
+  },
+];
+
+const MODULES_STRIP = [
+  {
+    icon: Sparkles,
+    title: "Prediction Layer",
+    desc: "Models how exam patterns evolve before the exam does.",
+  },
+  {
+    icon: Signal,
+    title: "Exam Signal Scanner",
+    desc: "Surfaces high-signal topics from years of PYQ data.",
+  },
+  {
+    icon: Network,
+    title: "Question-Type Intelligence",
+    desc: "Reads question structure and skill demands, not just topic tags.",
+  },
+];
+
+/* ── page ───────────────────────────────────────────────────────────── */
+
+export default function HomePage() {
+  return (
+    <main
+      className="min-h-screen overflow-x-clip antialiased"
+      style={{ background: "var(--aurora-background)", color: "var(--aurora-text-primary)" }}
+    >
+      {/* HERO — Showcase Mode */}
+      <AuroraBackground className="px-4 pb-20 pt-4 sm:px-6 lg:px-8">
+        {/* neural particle field */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-50"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--aurora-glow-primary) 1px, transparent 1.5px)",
+            backgroundSize: "30px 30px",
+            maskImage: "radial-gradient(ellipse at 72% 36%, black, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(ellipse at 72% 36%, black, transparent 70%)",
+          }}
+        />
+        {/* deep violet bloom on the stage side */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -z-10 hidden rounded-full blur-3xl lg:block"
+          style={{
+            top: "6%",
+            right: "-8%",
+            width: "46rem",
+            height: "46rem",
+            background: "radial-gradient(circle, var(--aurora-glow-violet), transparent 70%)",
+            opacity: 0.85,
+          }}
+        />
+
+        {/* glass navbar */}
+        <header className="sticky top-4 z-50 mx-auto max-w-7xl">
+          <div
+            className="aurora-glass flex items-center justify-between gap-3 px-4 py-3 sm:px-6"
+            style={{ borderRadius: "var(--aurora-radius-xl)" }}
+          >
+            <Link href="/" className="aurora-focus-ring flex items-center gap-3 rounded-xl">
+              <span
+                aria-hidden
+                className="relative grid h-10 w-10 place-items-center rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle at 35% 30%, #ffffff, var(--aurora-primary-bright) 55%, var(--aurora-primary) 100%)",
+                  boxShadow: "var(--aurora-glow-md)",
+                }}
+              >
+                <span className="absolute inset-1 rounded-full border border-white/40" />
+                <span className="text-sm font-black text-white">S</span>
+              </span>
+              <span>
+                <span className="block text-base font-extrabold tracking-tight">Statstrive</span>
+                <span
+                  className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em]"
+                  style={{ color: "var(--aurora-text-muted)" }}
+                >
+                  AI exam cockpit
+                </span>
+              </span>
+            </Link>
+
+            <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="aurora-focus-ring rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-white/60"
+                  style={{ color: "var(--aurora-text-secondary)" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
+              Start
+              <ArrowRight size={15} aria-hidden />
+            </Link>
+          </div>
+        </header>
+
+        {/* hero composition */}
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 pt-12 sm:pt-16 lg:min-h-[calc(100vh-9.5rem)] lg:grid-cols-[1fr_1.04fr] lg:gap-8 lg:pt-6">
+          {/* left — glass cockpit panel */}
+          <div
+            className="aurora-glass aurora-fade-slide-up relative overflow-hidden p-7 sm:p-9"
+            style={{ borderRadius: "var(--aurora-radius-xl)", boxShadow: "var(--aurora-shadow-3), var(--aurora-shadow-glass)" }}
+          >
+            {/* top aurora hairline */}
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[3px]"
+              style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))" }}
+            />
+
+            <p className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-primary)" }}>
+              <span
+                aria-hidden
+                className="aurora-soft-pulse h-2 w-2 rounded-full"
+                style={{ background: "var(--aurora-cyan)", boxShadow: "0 0 12px 2px var(--aurora-glow-cyan)" }}
+              />
+              Statstrive · AI Exam Intelligence
+            </p>
+
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-5xl xl:text-[3.4rem]">
+              AI-powered{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(100deg, var(--aurora-1), var(--aurora-2) 50%, var(--aurora-3))" }}
+              >
+                exam intelligence
+              </span>{" "}
+              for serious aspirants.
+            </h1>
+
+            <p className="mt-5 max-w-xl text-lg leading-8" style={{ color: "var(--aurora-text-secondary)" }}>
+              Analyze PYQ patterns, map weak areas, and practice with exam-aware intelligence.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/exams/cat/dilr"
+                className="aurora-button-primary aurora-focus-ring group px-7 py-3.5 text-base"
+                style={{ boxShadow: "var(--aurora-shadow-2), var(--aurora-glow-md)" }}
+              >
+                Start CAT Practice
+                <ArrowRight size={17} aria-hidden className="transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link href="/exams/cat/dilr" className="aurora-button-secondary aurora-focus-ring px-7 py-3.5 text-base">
+                Explore DILR Sets
+              </Link>
             </div>
-            <div className="flex h-16 items-end gap-2 rounded-lg border border-white/8 bg-white/[0.02] p-3">
-              {row.values.map((value, index) => (
-                <div
-                  key={`${row.label}-${index}`}
-                  className="flex-1 rounded-t-md bg-gradient-to-t from-cyan-500/30 to-cyan-300 shadow-cyan"
-                  style={{ height: `${value}%` }}
-                />
+
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {HERO_CHIPS.map((chip) => (
+                <span key={chip} className="aurora-badge px-3 py-1.5">
+                  {chip}
+                </span>
               ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
+
+          {/* right — cinematic core + HUD modules (desktop) */}
+          <div className="relative hidden min-h-[660px] items-center justify-center lg:flex">
+            <SplineHeroCore fallbackSize={380} />
+
+            <div className="aurora-fade-slide-up absolute -left-4 top-6 w-60" style={{ animationDelay: "140ms" }}>
+              <HudWidget {...HUD_MODULES[0]} />
+            </div>
+            <div className="aurora-fade-slide-up absolute -right-3 top-16 w-64" style={{ animationDelay: "260ms" }}>
+              <HudWidget {...HUD_MODULES[1]} style={{ animationDelay: "-2s" }} />
+            </div>
+            <div className="aurora-fade-slide-up absolute -left-2 bottom-14 w-60" style={{ animationDelay: "380ms" }}>
+              <HudWidget {...HUD_MODULES[2]} style={{ animationDelay: "-4s" }} />
+            </div>
+            <div className="aurora-fade-slide-up absolute -right-4 bottom-4 w-64" style={{ animationDelay: "500ms" }}>
+              <HudWidget {...HUD_MODULES[3]} style={{ animationDelay: "-6s" }} />
+            </div>
+          </div>
+
+          {/* right — stacked variant (mobile/tablet) */}
+          <div className="lg:hidden">
+            <SplineHeroCore fallbackSize={260} />
+            <div className="mx-auto mt-10 grid max-w-xl gap-4 sm:grid-cols-2">
+              {HUD_MODULES.map((m) => (
+                <HudWidget key={m.title} {...m} float={false} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </AuroraBackground>
+
+      {/* BENTO — intelligence systems */}
+      <section className="border-t px-4 py-16 sm:px-6 sm:py-20 lg:px-8" style={{ borderColor: "var(--aurora-border-soft)" }}>
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-primary)" }}>
+                Intelligence systems
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                A cockpit, not a question bank.
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
+              Statstrive turns PYQ patterns, attempt history and topic coverage into one
+              connected practice system.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {BENTO.map(({ icon: Icon, title, desc, visual }) => (
+              <div key={title} className="aurora-glass aurora-card-hover flex flex-col p-6">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white"
+                    style={{
+                      background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))",
+                      boxShadow: "var(--aurora-glow-md)",
+                    }}
+                  >
+                    <Icon size={18} aria-hidden />
+                  </span>
+                  <h3 className="text-lg font-bold">{title}</h3>
+                </div>
+                <p className="mt-3 flex-1 text-sm leading-6" style={{ color: "var(--aurora-text-secondary)" }}>
+                  {desc}
+                </p>
+                <div className="mt-5">{visual}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MODULES STRIP */}
+      <section className="aurora-soft-bg px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-violet)" }}>
+            The prediction stack
+          </p>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Built for serious aspirants.
+          </h2>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {MODULES_STRIP.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="aurora-glass aurora-card-hover flex items-start gap-4 p-6">
+                <span
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                  style={{ background: "var(--aurora-background-soft)", color: "var(--aurora-primary)" }}
+                >
+                  <Icon size={20} aria-hidden />
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-6" style={{ color: "var(--aurora-text-secondary)" }}>
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLOSING CTA */}
+      <section className="px-4 pb-20 sm:px-6 lg:px-8">
+        <div
+          className="aurora-gradient-bg relative mx-auto max-w-7xl overflow-hidden px-6 py-14 text-center sm:px-12"
+          style={{
+            borderRadius: "var(--aurora-radius-xl)",
+            border: "1px solid var(--aurora-border-soft)",
+            boxShadow: "var(--aurora-shadow-3)",
+          }}
+        >
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Start where the exam is heading.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
+            Jump into PYQ-backed DILR practice and let the intelligence layer map your next move.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring px-7 py-3.5 text-base">
+              Start CAT Practice
+              <ArrowRight size={17} aria-hidden />
+            </Link>
+            <Link href="/exams/cat/dilr" className="aurora-button-secondary aurora-focus-ring px-7 py-3.5 text-base">
+              Explore DILR Sets
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t px-4 py-8 sm:px-6 lg:px-8" style={{ borderColor: "var(--aurora-border-soft)" }}>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-sm font-semibold">
+            Statstrive <span style={{ color: "var(--aurora-text-muted)" }}>— AI exam intelligence</span>
+          </p>
+          <nav aria-label="Footer" className="flex flex-wrap items-center gap-5 text-sm">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="aurora-focus-ring rounded-md font-medium text-[color:var(--aurora-text-secondary)] transition-colors hover:text-[color:var(--aurora-primary)]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </footer>
+    </main>
   );
 }

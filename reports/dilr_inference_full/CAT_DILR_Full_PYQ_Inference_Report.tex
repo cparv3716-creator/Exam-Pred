@@ -1,0 +1,676 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{parskip}
+\usepackage[hidelinks,colorlinks=true,linkcolor=catblue,urlcolor=catblue]{hyperref}
+
+\definecolor{catblue}{RGB}{20,60,110}
+\definecolor{catgray}{RGB}{90,90,90}
+\definecolor{catred}{RGB}{150,30,30}
+\definecolor{catlight}{RGB}{236,240,247}
+
+\titleformat{\section}{\Large\bfseries\color{catblue}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{catblue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{catgray}}{\thesubsubsection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\color{catgray}CAT DILR Full-Corpus Inference Report}
+\fancyhead[R]{\small\color{catgray}ExamIQ Platform}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\cmark}{\ding{51}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\rejectitem}[1]{\item[\textcolor{catred}{\xmark}] #1}
+
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+
+% small font helper for big tables
+\newcommand{\invtab}{\footnotesize}
+
+\begin{document}
+
+% ===================== TITLE PAGE =====================
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{1.2cm}
+\begin{center}
+{\color{catblue}\rule{\textwidth}{2pt}}\\[0.5cm]
+{\Huge\bfseries\color{catblue} CAT DILR\\[0.2cm] Full-Corpus PYQ\\[0.2cm] Inference Report}\\[0.5cm]
+{\large\color{catgray} Reverse-engineering the reasoning architecture of CAT DILR\\ across nine years (2017--2025), and a build specification\\ for a CAT-grade DILR generator}\\[0.4cm]
+{\color{catblue}\rule{\textwidth}{2pt}}\\[1.6cm]
+
+\begin{tabular}{rl}
+\textbf{Prepared for} & ExamIQ Platform --- DILR Generation Initiative\\[0.3cm]
+\textbf{Corpus} & \texttt{CAT PYQ.pdf} (2017--2025, 693 pp)\\
+ & + CAT 2025 Slot 1/2/3 solved papers\\[0.15cm]
+\textbf{Coverage} & 24 DILR slot-sections, $\sim$129 DILR sets, 2017--2025\\[0.3cm]
+\textbf{Status} & Inference \& specification document\\
+ & No practice questions, mocks, or new sets are generated\\[0.3cm]
+\textbf{Date} & 10 June 2026\\
+\end{tabular}
+
+\vfill
+{\small\color{catgray} Confidential --- internal engineering document. Structures and reasoning patterns only;\\ no CAT question is reproduced verbatim.}
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ===================== 1. EXEC SUMMARY =====================
+\section{Executive Summary}
+
+This report rebuilds the previous DILR inference, which analysed only CAT 2025 (three slots, 15 sets, one year). \textbf{This version analyses the full historical corpus --- $\sim$129 DILR sets spanning CAT 2017 through 2025} --- with \texttt{CAT PYQ.pdf} as the primary expansion and the three 2025 solved papers providing solution-grade depth.
+
+The expansion reinforces the earlier central thesis: \textbf{a CAT DILR set is a hidden object the student must reconstruct, not information to be read.} But several secondary conclusions were \textbf{overfit to 2025}:
+
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{``Venn / set-theory sets are gone''} --- false. Venn is the \textbf{6th most common family (12 sets, $\sim$9\%)}, a per-slot staple in 2018, 2020 and 2022; it merely sat out 2021, 2023 and 2025.
+\item \textbf{``Tournaments don't appear''} --- false. \textbf{Tournament / score-reconstruction is a recurring family (8 sets)}: Hi-Lo bidding, betting-pairs, javelin, archery, rifle, the Chango knockout, the QUIET schedule, and 2025's promote-demote set.
+\item \textbf{``Calculation is never the whole step''} --- overstated. The corpus has a real vein of \textbf{near-pure quant-DI} (2023 broadly; 2024 GDP/candlestick/bubble). \textbf{quant-DI is the single most common surface family (22 sets, $\sim$17\%).}
+\item An entire engine class --- \textbf{number-theory / cipher reconstruction} (cryptarithms, letter$\to$digit ciphers, prime-product allocation) --- recurs in 2018--2022 and was \textbf{invisible to the 2025-only view}.
+\end{enumerate}
+
+The corpus also reveals a \textbf{structural era-shift}: 2017--2019 ran \textbf{8 sets / 32 questions per slot} with high arithmetic intensity and number-theory engines; 2020 was a transition; 2021--2025 settled at \textbf{4--5 sets / 20--22 questions per slot}, hybrid-first and deeper per set.
+
+% ===================== 3. SOURCE COVERAGE =====================
+\section{Source Coverage (summary)}
+
+Full detail is in \texttt{source\_coverage\_table.md}. All four mandatory PDFs were detected in \texttt{sources/cat\_pyqs/}, are readable, carry real text layers (no OCR), and are included.
+
+\begin{center}
+\begin{tabular}{lccll}
+\toprule
+\textbf{File} & \textbf{Pages} & \textbf{DILR} & \textbf{Years} & \textbf{Role} \\
+\midrule
+\texttt{CAT PYQ.pdf} & 693 & 24 sections & 2017--2025 & \textbf{Primary corpus} ($\sim$129 sets) \\
+2025 Slot-1 Q-Sol & 28 & Section II & 2025 S1 & Solution-grade (5 sets) \\
+2025 Slot-2 Q-Sol & 28 & Section II & 2025 S2 & Solution-grade (5 sets) \\
+2025 Slot-3 Q-Sol & 32 & Section II & 2025 S3 & Solution-grade (5 sets) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Gate: PASSED} --- \texttt{CAT PYQ.pdf} present, readable, and the analytical backbone. Limitation: 2017--2024 are questions-only (no examiner solutions), so casework for those years is structurally inferred and tagged \emph{(inf)}; CAT 2025 solutions calibrate that inference.
+
+% ===================== 4. METHODOLOGY =====================
+\section{Methodology}
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{Source gate first.} Inspected \texttt{sources/cat\_pyqs/}, verified all four PDFs, confirmed text layers with PyMuPDF. No analysis before the gate passed.
+\item \textbf{Structural extraction.} \texttt{pdftotext -layout} on every file; for \texttt{CAT PYQ.pdf}, year blocks and section headers located programmatically and the 24 DILR sections sliced per slot.
+\item \textbf{Per-year classification.} Each section segmented into sets; each set scored on surface family, true engine, visible/hidden/inferable split, casework, a five-axis difficulty vector, ladder character, and CAT-likeness.
+\item \textbf{Difficulty vector (L/R/C/D/M), 0--3:} \textbf{L} logic depth, \textbf{R} representation difficulty, \textbf{C} calculation load, \textbf{D} data density, \textbf{M} dynamic movement / feedback.
+\item \textbf{Calibration.} CAT 2025 solutions anchored casework patterns; older-year casework inferred from constraint structure and necessity phrasing.
+\item \textbf{Integrity.} No question text reproduced; invented labels and structural descriptions only.
+\end{enumerate}
+
+% ===================== 5. FINDINGS =====================
+\section{Full-Corpus Findings}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[F1 --- The hidden object is universal.] In every set a structure is fully specified in the examiner's mind but only partially exposed; the work is reconstruction.
+\item[F2 --- Hybrids dominate, increasingly.] The share of sets whose true engine is an explicit hybrid of two archetypes rises markedly from 2021.
+\item[F3 --- Arithmetic is a real difficulty axis --- sometimes the whole axis.] $\sim$40\% of sets carry C$\ge$2; a minority (2023; 2024 GDP/candlestick/bubble) are near-pure quant-DI.
+\item[F4 --- Designed indeterminacy is pervasive.] Necessity / ``cannot be determined'' / range answers recur in the majority of sets in every year.
+\item[F5 --- Family mix rotates year to year.] No family is guaranteed in a given year, but over a multi-year window all nine families recur. Tuning to one year misses families that sat out.
+\end{description}
+
+% ===================== 6. TAXONOMY =====================
+\section{Set Family Taxonomy \& Frequency}
+
+Classifying all $\sim$129 sets by \textbf{surface family} (exact tallies from Appendix A):
+
+\begin{center}
+\begin{tabular}{lccll}
+\toprule
+\textbf{Surface family} & \textbf{Sets} & \textbf{Share} & \textbf{Peak years} & \textbf{Absent in} \\
+\midrule
+quant-DI & 22 & 17\% & 2023, 2024 & --- \\
+matrix / grid & 20 & 16\% & 2019, 2020, 2023 & --- \\
+distribution / allocation & 19 & 15\% & 2018, 2022, 2025 & --- \\
+chart-plus-logic & 19 & 15\% & 2019, 2024, 2025 & --- \\
+scheduling & 15 & 12\% & 2017, 2019 & --- \\
+Venn / set-theory & 12 & 9\% & 2018, 2020, 2022 & \textbf{2021, 2023, 2025} \\
+routes / network & 9 & 7\% & 2017 & 2018, 2020 \\
+tournament & 8 & 6\% & 2019, 2021 & 2017, 2018, 2023 \\
+dynamic-movement & 3 & 2\% & 2025 & most years \\
+hybrid (surface) & 2 & 2\% & 2017--2018 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}[leftmargin=1.4em]
+\item The ``big four'' (quant-DI, matrix/grid, distribution, chart-plus-logic) are $\sim$63\% of all sets --- the generator's core output.
+\item \textbf{Venn and tournament are not optional} ($\sim$15\% combined, multi-year cycle). The 2025-only report wrongly retired both because both sat out 2025.
+\item \textbf{dynamic-movement is rare but high-signal} (M=3 sets): a premium, occasional output, not a staple.
+\end{itemize}
+
+\subsection{The structural era-shift}
+\begin{center}
+\begin{tabularx}{\textwidth}{llcY}
+\toprule
+\textbf{Era} & \textbf{Sets/slot} & \textbf{Qs/slot} & \textbf{Character} \\
+\midrule
+2017--2019 & 8 & 32 & High arithmetic; number-theory engines (ciphers, cryptarithms); heavy networks (airline, congestion/Braess); dense necessity culture \\
+2020 & 6 & $\sim$24 & Transition; logic flagships (binary-encoding blood-vial, parking simulation); strong Venn \\
+2021--2025 & 4--5 & 20--22 & Hybrid-first; fewer but deeper sets; reconstruction fused with arithmetic; movement re-emerges in 2025 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Target the \textbf{modern shape} (4--5 deep hybrid sets/slot) with the \textbf{full-corpus vocabulary}.
+
+% ===================== 7. HIDDEN ENGINE =====================
+\section{The Hidden Reasoning Engine}
+
+The ten surface families collapse into a smaller set of true-engine archetypes.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lYY}
+\toprule
+\textbf{Engine archetype} & \textbf{Reconstructed object} & \textbf{Representative sets (year)} \\
+\midrule
+Grid / matrix & 2-D table of relationships & platform-height (’17), pouch coins (’19), bead grid (’20), call-ledger (’25) \\
+Timeline / sequence & who-does-what-when blocks & dancers (’19), seminars (’20), journals (’21), Gurus (’25) \\
+Allocation & distribution of discrete units & inheritance (’17), committees (’18), envy-free (’21), train occupancy (’25) \\
+Ranking / score table & ordering, often time-varying & tea-taster (’17), Hi-Lo (’20), promote-demote (’25) \\
+Movement system & trajectory through states & parking (’20), patrol (’23), passing-buck \& round-table (’25) \\
+Flow network & conserved directed volumes & elective flow (’17), town friendship (’21), trade flows (’25) \\
+Venn region-set & counts in overlaps, often ranges & CET (’17), satellites (’18), medicine (’20), travelers (’24) \\
+Reconstruct-from-rates & absolutes from ratios/\% & smartphones (’18), store doubling (’19), SI scatter (’25) \\
+Number-theory / cipher & code/factorisation forced by arithmetic & cryptarithm (’19), letter cipher (’18), prime funding (’22) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Key insight:} the hardest sets are \textbf{hybrids of two archetypes} (train occupancy = allocation + flow network; promote-demote = ranking + feedback; prime funding = allocation + number-theory). A generator that builds only single-archetype objects sits a full difficulty tier below CAT.
+
+% ===================== 8. INFO MODEL =====================
+\section{Visible vs Hidden vs Inferable Information}
+
+A deliberate three-layer design, consistent across all nine years:
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{Visible} --- scaffolding: entities, rule, units, a chart, a few anchor facts.
+\item \textbf{Hidden} --- the body of the object: most cells, positions, assignments, volumes.
+\item \textbf{Inferable-only} --- facts that appear nowhere and emerge only after combining clues; the target of hard/global questions.
+\end{enumerate}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lYYY}
+\toprule
+\textbf{Set (year)} & \textbf{Visible} & \textbf{Hidden} & \textbf{Inferable-only} \\
+\midrule
+CET percentiles (’17) & ``exactly two'' rule, a ratio, one count & 3-set Venn region sizes & Triple-overlap is a \emph{free variable} $\Rightarrow$ range answer \\
+Tea-taster (’17) & doubling/even/min clues & cup$\leftrightarrow$origin$\leftrightarrow$rating bijection & Which statements are only \emph{``may be true''} \\
+Parking (’20) & arrival/exit rule, slot map & car type \& occupancy over time & State at a queried moment, per scenario \\
+Promote-demote (’25) & leaders, range, tie-break, $\sim$4 ratings & full rating grid + scores + membership & Whose score is \emph{undeterminable} at a quarter \\
+Train occupancy (’25) & capacity, few \%, multiples-of-10 & full origin--destination matrix & Counts only the full matrix pins \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Design principle:} anchor facts must under-determine the object alone and become sufficient only in combination; no single fact resolves a cell directly. The ``NOT determinable / NOT necessarily true'' question type (every year) is the explicit test of layer 3.
+
+% ===================== 9. CASEWORK =====================
+\section{Real Casework Analysis}
+
+Casework = the deduction forks, $\ge2$ live hypotheses are carried, and a \textbf{non-local} later clue kills all but one.
+
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Heavy, genuine casework is the norm} in every year; exceptions cluster in near-pure quant-DI (read-and-compute).
+\item \textbf{The killing clue is non-local} --- different condition or later question premise (2025 solutions show this explicitly: the $x{=}7$ tap branch dies on an impossibility three steps away; the $(x{+}60){=}96$ SI branch dies on a lowest-rank condition stated elsewhere).
+\item \textbf{At least one branch is seductive} --- arithmetically clean, dying only under a divisibility/parity/range test. This is why \textbf{over-clean arithmetic destroys realism}: nothing for the false branch to die on.
+\item \textbf{Designed residual ambiguity} --- many sets are correct but not fully solvable (Venn ranges; ``cannot be determined''; ``may be true'').
+\end{itemize}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lY}
+\toprule
+\textbf{Family} & \textbf{Typical casework} \\
+\midrule
+matrix/grid, allocation, scheduling, tournament, movement, Venn & \textbf{Heavy} --- forced forks, non-local kills, often residual ambiguity \\
+reconstruct-from-rates, number-theory & Medium--heavy --- divisibility/factorisation forks \\
+quant-DI (pure), chart read-off & Light / none --- the arithmetic is the point \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ===================== 10. DRIVERS =====================
+\section{Difficulty Driver Analysis}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lY}
+\toprule
+\textbf{Driver} & \textbf{Corpus tendency} \\
+\midrule
+\textbf{L --- logic depth} & High in grid/allocation/scheduling/tournament/movement/number-theory; low in pure quant-DI \\
+\textbf{R --- representation} & \textbf{Consistently high ($\ge$2) in most sets} --- choosing how to draw the object is half the battle; the most under-rated driver \\
+\textbf{C --- calculation} & Bimodal --- spikes to 3 in quant-DI / reconstruct-from-rates / older arithmetic sets; near 0 in logic flagships \\
+\textbf{D --- data density} & Moderate--high in DI/chart sets; high D without high L = textbook DI, not CAT \\
+\textbf{M --- movement / feedback} & Rare but decisive (parking ’20, passing-buck/round-table ’25); hardest to fake \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{The stacking law:} CAT-level difficulty comes from stacking $\ge2$ drivers, not cranking one. High on C alone = a calculation drill; high on D alone = textbook DI. Neither is CAT-level.
+
+% ===================== 11. LADDER =====================
+\section{The Question Ladder}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{lYY}
+\toprule
+\textbf{Rung} & \textbf{Purpose} & \textbf{Typical form} \\
+\midrule
+Entry & Reward the first solid deduction & A value that falls out early \\
+Medium & Require a partially-built object & A value needing 2--3 chained clues \\
+Hard & Require the fully reconstructed object & A value/comparison resolving only at the end \\
+Global / conditional / necessity & Test command of the whole structure or robustness & ``For how many\ldots determinable?'', ``NECESSARILY true / CANNOT be true'', ``If X then\ldots'' \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The necessity / ``cannot be determined'' rung is present in the majority of sets every year (dominant 2017--2020; central 2024--2025). Pure quant-DI sets are the exception and the easiest family. \textbf{Author a graded ladder with at least one global/necessity question; where the object is under-determined, at least one question must test determinacy.}
+
+% ===================== 12. WHAT CHANGED =====================
+\section{What Changed After Including \texttt{CAT PYQ.pdf}}
+
+\subsection{Conclusions that remain valid}
+The hidden-object thesis; hybrid-first; representation as the under-rated driver; designed indeterminacy; the stacking law; ``never hand over the graph'' (confirmed by historical network sets: elective flow ’17, town friendship ’21, dean votes ’23).
+
+\subsection{Conclusions that were overfit to 2025}
+\begin{center}
+\begin{tabularx}{\textwidth}{YY}
+\toprule
+\textbf{2025-only claim} & \textbf{Full-corpus correction} \\
+\midrule
+``Venn sets gone $\Rightarrow$ de-prioritise.'' & Venn is the 6th-most-common family (12 sets); staple in 2018/2020/2022; only sat out 2021/2023/2025. \textbf{Keep Venn.} \\
+``Tournaments don't appear.'' & Tournament/score-reconstruction recurs (8 sets): Hi-Lo, betting, javelin, archery, rifle, Chango, QUIET, promote-demote. \textbf{First-class family.} \\
+``Calculation is never the whole step.'' & Near-pure quant-DI is a real vein (2023; 2024 GDP/candlestick/bubble). quant-DI is the most common surface family (22). Produce a controlled minority of calc-dominant sets. \\
+(silent) ``$\sim$4--5 sets/slot is the norm.'' & True now, but 2017--2019 ran 8 sets / 32 Q per slot --- a larger engine vocabulary. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Historical patterns missing / under-weighted in the 2025-only view}
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Number-theory / cipher} engines (cryptarithm ’19, letter cipher ’18, prime funding ’22) --- an entire class invisible to 2025-only.
+\item \textbf{Equilibrium / congestion networks} (2017 four-car Braess-style, airline connectivity) --- game-theoretic flow networks.
+\item \textbf{Simulation / state-machine} sets (parking ’20, project-team rotation ’17) --- pure dynamic-state engines.
+\item \textbf{Extremal / min-max optimisation} (100-boxes ’19, ATM notes ’18, cab ratings ’20).
+\end{itemize}
+
+\subsection{How the generation strategy should change}
+\begin{enumerate}[leftmargin=1.6em]
+\item Sample families from the full-corpus distribution, not 2025 --- reinstate Venn, tournament, number-theory, simulation, equilibrium-network.
+\item Target the modern \emph{shape} (4--5 deep hybrid sets/slot) with the historical \emph{vocabulary}.
+\item Add a controlled minority of calculation-dominant quant-DI sets to match CAT's real mix.
+\item Make necessity / determinacy questions mandatory.
+\end{enumerate}
+
+\subsection{Families to prioritise}
+\textbf{Tier 1 (core, every batch):} matrix/grid, distribution/allocation, scheduling/timeline, quant-DI (incl. reconstruct-from-rates).\\
+\textbf{Tier 2 (regular rotation):} chart-plus-logic, Venn/set-theory, tournament/score-reconstruction, flow-network.\\
+\textbf{Tier 3 (premium, occasional):} dynamic-movement/simulation, number-theory/cipher, equilibrium-network.
+
+% ===================== 13. AI FAILURE =====================
+\section{Why Our AI-Generated DILR Failed}
+
+\begin{center}
+\begin{longtable}{c l p{11.5cm}}
+\toprule
+\textbf{\#} & \textbf{Failure mode} & \textbf{Practical rejection signal} \\
+\midrule
+\endhead
+1 & Direct graph/structure reading & A question is answered by quoting the diagram \\
+2 & Graph/table handed over & The set ships with the grid/graph drawn \\
+3 & Small universe & Hand-solvable in $<60$ s \\
+4 & Fake casework & Every ``case'' closes in the next clue \\
+5 & One-step deductions & Each clue resolves exactly one cell \\
+6 & Over-clean arithmetic & No integer/parity/multiple/range constraint eliminates \\
+7 & No hidden object & Cannot name a structure to build that isn't printed \\
+8 & No dynamic state & Nothing changes as you deduce (when theme implies it should) \\
+9 & No residual ambiguity & One clean world; no honest ``cannot be determined'' \\
+10 & Weak question ladder & All questions same difficulty \\
+11 & No global/conditional/necessity question & No ``necessarily true''/``if X then'' \\
+12 & Answerable directly from given facts & The question restates a printed fact \\
+13 & Uniqueness verified but not CAT-likeness & Solver confirms one answer, but the set is one-step/clean/static/ladderless \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\textbf{The deepest failure is \#13.} Our prior pipeline verified \emph{answer uniqueness} and stopped --- but a set can be unique and still trivial. \textbf{Uniqueness is necessary, not sufficient.} The generator needs a second gate that checks \emph{CAT-likeness} (multi-driver difficulty, forced non-local casework, a hidden object, a proper ladder), not just solvability.
+
+\textbf{On the graph mock:} it fails \#1, \#2, \#3, \#7, \#10 at once. The fix is not ``avoid networks'' but \textbf{``never hand over the network''} --- CAT's network sets (elective flow ’17, town friendship ’21, dean votes ’23, trade flows ’25) reconstruct the network from balances/conservation/aggregates, never drawn.
+
+% ===================== 14. RULES =====================
+\section{Full-Corpus Generation Rules}
+\begin{enumerate}[leftmargin=1.8em]
+\item \textbf{Object-first authoring.} Build the complete hidden object first, then derive clues by deletion + indirection. Never generate clues first.
+\item \textbf{Hidden representation.} Do not hand over the final graph/table/grid; if a diagram is shown, the challenge must be reconstructing a further hidden layer behind it.
+\item \textbf{Forced casework.} $\ge2$ globally-consistent partial worlds survive past the initial clue reading.
+\item \textbf{Non-local clue interaction.} The clue that kills a false case must not be adjacent to the clue that created the fork.
+\item \textbf{Multi-driver difficulty (stacking law).} Score $\ge2$ on at least two of \{L,R,C,D,M\}. C-alone or D-alone is rejected.
+\item \textbf{Proper question ladder.} Entry + medium + hard + at least one global/conditional/necessity; test determinacy where the object is under-determined.
+\item \textbf{Arithmetic that does logical work.} Numbers carry constraints (integer, parity, multiples, distinctness, range) so a clean-but-wrong branch has something to die on.
+\item \textbf{Solver-verified determinacy.} A formal solver / enumerator confirms, per question, unique vs intentionally indeterminate.
+\item \textbf{AI quality gate (CAT-likeness, not just uniqueness).} A separate judge tries to reject on the checklist, specifically catching ``unique but trivial'' (\#13).
+\item \textbf{Family/engine sampling from the full corpus.} Draw from the \S6 distribution (incl. Venn, tournament, number-theory, simulation); target the modern 4--5-set shape.
+\end{enumerate}
+
+% ===================== 15. REJECTION CHECKLIST =====================
+\section{Rejection Checklist}
+\begin{center}\itshape Run on every generated set before PDF rendering. A single tick is an automatic reject.\end{center}
+\begin{itemize}[leftmargin=2.2em,label={}]
+\rejectitem{Any answer is \textbf{directly readable} from a clue, chart, or graph.}
+\rejectitem{\textbf{One early deduction collapses} the whole set.}
+\rejectitem{\textbf{No hidden object} must be reconstructed.}
+\rejectitem{The final \textbf{graph/table/grid is handed over} (no further hidden layer).}
+\rejectitem{\textbf{No real casework} survives past the first clue reading.}
+\rejectitem{The \textbf{universe is too small} ($<\sim$60 s by hand).}
+\rejectitem{\textbf{Arithmetic is the only difficulty} (C high, L/R/M all low).}
+\rejectitem{\textbf{All questions are the same difficulty} (no ladder).}
+\rejectitem{\textbf{No question tests global structure.}}
+\rejectitem{\textbf{No question tests conditional or necessity} reasoning.}
+\rejectitem{\textbf{No question tests determinacy} where the object is intentionally under-determined.}
+\rejectitem{The set is \textbf{merely chart reading + calculation}.}
+\rejectitem{The \textbf{blind solver solves it too quickly, with no branching}.}
+\rejectitem{The \textbf{formal solver cannot verify} uniqueness or intended ambiguity.}
+\rejectitem{\emph{(meta)} The set is \textbf{unique but not CAT-like} (passes uniqueness yet trips $\ge3$ above --- failure \#13).}
+\end{itemize}
+
+\textbf{Acceptance bar:} no box ticked; rules \S14.1--\S14.10 hold; an independent blind solver reconstructs the object from the prompt alone and reproduces both the intended answers and the intended indeterminacies; the CAT-likeness judge returns accept.
+
+% ===================== 16. PIPELINE =====================
+\section{Recommended Terminal Pipeline}
+
+Core principle: \textbf{separate the author from the checkers}, and gate on \textbf{CAT-likeness}, not just uniqueness.
+
+\begin{small}
+\begin{verbatim}
+ 1. SOURCE INGESTION    Place PDFs in sources/cat_pyqs/. Verify text layer; pdftotext.
+ 2. PYQ SET EXTRACTION  Slice year/slot/section; segment sets; structural digests.
+ 3. REASONING INFERENCE Classify family+engine+driver vector; corpus dist = sampler prior.
+ 4. HIDDEN-OBJECT       Sample (family, engine-hybrid, driver target). Build FULL object
+    AUTHORING           first, then delete+re-express into clues. Author graded ladder
+    (object-first)      incl. a necessity/determinacy question.
+ 5. BLIND SOLVING       SEPARATE agent (no key) reconstructs object from clues; logs
+                        deduction order, branch count, time-to-solve.
+ 6. FORMAL VERIFICATION z3 / OR-Tools / brute enumeration counts ALL worlds -> per-Q
+                        determinacy profile (unique vs intended-ambiguous).
+ 7. ADVERSARIAL JUDGING SEPARATE judge runs rejection checklist incl. CAT-likeness gate.
+                        Any tick -> reject, loop to stage 4 with reasons.
+ 8. LaTeX / PDF RENDER  Template set.tex + solution.tex; pdflatex (x2 for ToC).
+ 9. WEBSITE-READY OUT   Emit set.json (prompt, options, answers, determinacy flags) + HTML.
+10. STORAGE / INDEXING  content/cat/dilr/<id>/; register in practice DB; index by family,
+                        engine, driver vector, difficulty, world-count, ladder profile.
+\end{verbatim}
+\end{small}
+
+\subsection{Proposed folder structure}
+\begin{small}
+\begin{verbatim}
+content/cat/dilr/
+  <set_id>/
+    prompt.json        # entities, rule, anchor clues, questions, options
+    answer_key.json    # full hidden object + per-question answers + determinacy
+    metadata.json      # family, engine, drivers, world-count, judge verdict, provenance
+    set.tex set.pdf
+    solution.tex solution.pdf
+    web.json           # website-ready payload
+  _rejected/<set_id>/  # rejected drafts + structured failure reasons
+sources/cat_pyqs/      # raw PYQ PDFs (never committed; analysis input only)
+reports/dilr_inference_full/  # this report + coverage/extraction logs
+\end{verbatim}
+\end{small}
+
+\subsection{Metadata to store per set}
+\texttt{engine\_archetype}, \texttt{engine\_hybrid\_of[]}, \texttt{surface\_family}, \texttt{driver\_vector \{L,R,C,D,M\}}, \texttt{entity\_count}, \texttt{consistent\_world\_count}, \texttt{casework\_branch\_count}, \texttt{has\_indeterminate\_question}, \texttt{ladder\_profile}, \texttt{blind\_solver\_minutes}, \texttt{blind\_solver\_branches}, \texttt{judge\_verdict}, \texttt{source\_family\_prior}, \texttt{provenance}.
+
+\subsection{Orchestration \& repo hygiene}
+One \texttt{dilr\_pipeline.py} (or Claude Code workflow), \texttt{--count N}. Author / Solver / Judge are distinct agents; solver and judge run without the key. Formal verifier: \texttt{z3-solver} / \texttt{ortools} (or brute enumeration). Only stage-7-passing sets reach \texttt{content/}. \textbf{Never} commit/move raw PDFs; never touch app/source, \texttt{next-env.d.ts}, \texttt{tsconfig.json}, package/build config, or \texttt{.next/}.
+
+% ===================== 17. APPENDIX =====================
+\section{Appendix A --- Per-Year Set Inventory}
+
+Compact teardown of all $\sim$129 sets. Drivers are L/R/C/D/M (0--3). Casework for 2017--2024 is \emph{(inf)} = inferred from structure; 2025 is solution-calibrated. Labels are invented descriptors --- no question text is reproduced.
+
+\subsection{CAT 2017 (16 sets --- 8/slot; high arithmetic, networks, number-theory)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Pizzeria type-proportion & quant-DI & matrix (party$\times$type) & light & L1 R2 C3 D2 M0 & partial \\
+Elective re-enrollment flow & routes/network & flow-network & heavy & L3 R3 C2 D3 M1 & yes \\
+Inheritance asset split & distribution & allocation & heavy & L3 R1 C2 D1 M0 & partial \\
+Dorm repair-cost grid & chart-plus-logic & grid & heavy & L3 R2 C1 D2 M0 & yes \\
+Tea-taster cup ratings & scheduling & ranking & heavy & L3 R2 C1 D1 M0 & yes \\
+Queen attack chessboard & matrix/grid & grid geometry & light & L2 R3 C2 D1 M1 & partial \\
+Airline seat pricing & scheduling & allocation & heavy & L3 R2 C3 D3 M0 & yes \\
+Fingerprint scan-order count & hybrid & sequence (perm.) & light & L3 R1 C2 D0 M0 & yes \\
+Fast-food order scheduling & scheduling & timeline (parallel) & heavy & L2 R2 C2 D2 M2 & yes \\
+Rural-kids school survey & quant-DI & 3-way matrix & light--heavy & L2 R2 C3 D3 M0 & partial \\
+CET percentile selection & Venn & Venn-regions & heavy & L3 R2 C2 D2 M0 & yes (range) \\
+Happiness-index scores & chart-plus-logic & grid (S/F/C) & heavy & L3 R2 C2 D2 M0 & yes \\
+Project-team SE/RE rotation & distribution & movement-traj. & heavy & L3 R2 C3 D2 M3 & yes \\
+Platform-height reachability & matrix/grid & grid (sightline) & heavy & L3 R3 C1 D2 M0 & yes \\
+Airline network connectivity & routes/network & flow-network & heavy & L3 R2 C2 D1 M0 & yes \\
+Four-car route equilibrium & routes/network & flow-network (eq.) & heavy & L3 R1 C3 D2 M2 & yes (Braess) \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2018 (16 sets --- 8/slot; logic-heavy, Venn $\times2$, ciphers)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Currency buy/sell inventory & quant-DI & score-table & light & L1 R1 C3 D2 M1 & partial \\
+Letter$\to$digit cipher & number-theory & allocation+deduction & heavy & L3 R2 C1 D2 M0 & yes \\
+Smartphone share/profit & quant-DI & score-table & none & L0 R1 C3 D1 M0 & no \\
+Interview-room arrival log & scheduling & timeline & heavy & L3 R2 C1 D1 M1 & yes \\
+Accreditation weights & matrix/grid & score-table (perm.) & heavy & L3 R2 C3 D2 M0 & yes \\
+Product portfolio grid & chart-plus-logic & matrix & heavy & L3 R2 C2 D2 M0 & partial \\
+Amusement-park tickets & distribution & matrix (age$\times$ticket) & heavy & L2 R2 C3 D3 M0 & yes \\
+Sports enrollment Venn & Venn & Venn-regions & heavy & L2 R2 C3 D2 M0 & yes (min/max) \\
+$n\times n$ numeral colouring & matrix/grid & grid (king-graph) & light & L3 R0 C2 D1 M0 & partial \\
+Recruitment composite scores & quant-DI & score-table & heavy & L3 R2 C3 D2 M0 & yes \\
+Multi-layer pie sales & chart-plus-logic & score-table (nested) & light & L1 R1 C3 D2 M1 & no \\
+Petrol-pump contamination & scheduling & sequence (positional) & heavy & L3 R2 C2 D2 M0 & yes \\
+Satellite purposes & Venn & Venn-regions & heavy & L2 R2 C3 D2 M0 & yes (range) \\
+ATM note-dispensing & distribution & allocation (partition) & heavy & L2 R2 C3 D2 M0 & partial \\
+Three-committee composition & distribution & matrix & heavy & L3 R2 C3 D2 M0 & yes \\
+Students major/minor & matrix/grid & grid (triple-attr.) & heavy & L3 R2 C1 D1 M0 & yes \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2019 (16 sets --- 8/slot; sequence/grid, cryptarithm, tournaments)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Store revenue/cost shares & quant-DI & score-table & heavy & L1 R1 C2 D3 M0 & partial \\
+Pouch min-max coins grid & matrix/grid & grid (integer-avg) & heavy & L3 R1 C3 D2 M0 & partial \\
+Two-proposal voter survey & Venn & Venn-regions & heavy & L2 R1 C3 D2 M0 & partial \\
+Speakers/teams/languages & matrix/grid & grid+allocation & heavy & L3 R2 C3 D1 M0 & partial \\
+Doctors rooms/queue tokens & scheduling & timeline (queue) & heavy & L2 R1 C2 D2 M2 & partial \\
+Monsoon rainfall vs LPA & chart-plus-logic & score-table (roll.) & light & L1 R1 C2 D1 M0 & partial \\
+Faculty MT/ET question order & scheduling & sequence & heavy & L3 R2 C3 D1 M0 & yes \\
+Rifle shooting 10 rounds & tournament & score-table (window) & heavy & L3 R3 C3 D2 M0 & partial \\
+Cryptarithm 6-digit & number-theory & grid+ranking (carry) & heavy & L3 R1 C3 D2 M0 & partial \\
+Dancers/composers order & scheduling & sequence & heavy & L3 R2 C3 D0 M0 & partial \\
+100-boxes prize doubling & distribution & allocation (extremal) & heavy & L3 R1 C2 D1 M0 & yes \\
+Supermarket 16 shelves & distribution & sequence (cluster) & heavy & L3 R2 C3 D0 M0 & yes \\
+Street-map line-of-sight & routes/network & movement-traj. & heavy & L3 R2 C3 D0 M2 & partial \\
+Archery bonus rounds & tournament & score-table & heavy & L2 R3 C3 D2 M0 & partial \\
+Foreigner-crime ranking DI & chart-plus-logic & score-table+rank & light--med & L1 R3 C2 D1 M0 & partial \\
+Five-vendor radar scoring & chart-plus-logic & score-table & none--light & L1 R1 C1 D2 M0 & no \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2020 (15 sets --- 5/slot; logic flagships, strong Venn, simulation)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Pooled blood-vial diagnosis & matrix/grid & matrix+binary-encoding & heavy & L3 R2 C2 D0 M0 & yes \\
+Hi-Lo four-player bidding & tournament & score-table & heavy & L3 R2 C2 D2 M0 & yes \\
+OTLP 4-facility survey & Venn & Venn-regions (4-set) & light & L1 R1 C1 D3 M0 & partial \\
+Two-day grocery delivery & quant-DI & timeline+score-table & light & L1 R2 C0 D3 M0 & partial \\
+Farmer's 12-plot land & matrix/grid & grid+allocation & heavy & L3 R2 C2 D2 M1 & yes \\
+$5\times5$ tri-colour beads & matrix/grid & matrix+combinatorics & heavy & L3 R2 C3 D0 M1 & partial \\
+Doctoral seminar scheduling & scheduling & timeline & heavy & L3 R2 C1 D0 M0 & yes \\
+Constituency deposit votes & chart-plus-logic & score-table+quant-DI & light--heavy & L2 R2 C1 D3 M0 & partial \\
+Departmental-store sales & quant-DI & matrix (AP fill) & light & L1 R2 C0 D3 M0 & partial \\
+Basement compact/SUV parking & dynamic-movement & movement-traj. & heavy & L3 R2 C1 D0 M3 & no \\
+Four-medicine groups & Venn & Venn-regions (4-set) & light & L1 R1 C1 D3 M0 & partial \\
+Vendor-institute contracts & scheduling & timeline & heavy & L3 R2 C1 D1 M0 & yes \\
+Board-exam missed marks & chart-plus-logic & score-table+matrix & heavy & L3 R2 C1 D2 M0 & yes \\
+Cab-driver ratings & quant-DI & score-table+allocation & heavy & L2 R2 C2 D2 M0 & partial \\
+Ten percussion experts & Venn & Venn-regions+logic & heavy & L3 R2 C1 D0 M0 & yes \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2021 (12 sets --- 4/slot; hybrid-first, arithmetic-laced)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Javelin throw re-ranking & tournament & score-table+rank+timeline & heavy & L2 R3 C2 D3 M1 & yes \\
+Reviewer approval routing & distribution & flow-network+grid & heavy & L3 R3 C3 D1 M1 & partial \\
+Employee project Gantt & chart-plus-logic & timeline+score-table & light & L1 R2 C1 D3 M1 & no \\
+Impurity bottle testing & quant-DI & allocation+flow-network & heavy & L2 R2 C3 D2 M0 & partial \\
+Order shipping Gantt & chart-plus-logic & timeline & light & L1 R2 C1 D3 M1 & no \\
+Chango knockout bracket & tournament & ranking+flow-network & heavy & L3 R2 C2 D2 M0 & yes \\
+Delivery ratings \& bonus & matrix/grid & grid+score-table & heavy & L3 R2 C3 D2 M1 & partial \\
+Envy-free object bundles & distribution & allocation+score-table & heavy & L3 R3 C3 D2 M0 & yes \\
+Subcategory sales bars & quant-DI & score-table & none--light & L0 R1 C1 D3 M0 & no \\
+Smoothie production econ. & quant-DI & allocation+score-table & heavy & L2 R2 C3 D2 M1 & partial \\
+Journal paper scheduling & scheduling & grid+timeline & heavy & L3 R3 C3 D2 M1 & yes \\
+Town friendship network & routes/network & Venn+flow-network & heavy & L3 R2 C3 D1 M0 & yes \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2022 (12 sets --- 4/slot; Venn $\times3$, prime-number allocation)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+CS/non-CS course grades & Venn & Venn-regions & light & L2 R2 C3 D1 M0 & yes \\
+Cohort mortality age-bands & quant-DI & timeline & light & L1 R1 C3 D3 M0 & partial \\
+Pandemic daily new-cases & distribution & grid (bounded int.) & heavy & L3 R3 C2 D1 M0 & yes \\
+Betting-pairs money tracker & tournament & score-table & heavy & L3 R2 C2 D1 M2 & partial \\
+Supermarket approvals & Venn & Venn-regions ($2{\times}2{\times}2$) & light & L2 R2 C3 D1 M0 & yes \\
+Widget supply routing & routes/network & flow-network & heavy & L2 R2 C2 D3 M2 & partial \\
+Four-company revenue/cost & chart-plus-logic & score-table & none & L1 R1 C0 D3 M2 & no \\
+TRICCEK door-to-door sales & distribution & grid & heavy & L3 R2 C2 D2 M1 & partial \\
+Four players goals/matches & matrix/grid & grid (scoring) & heavy & L3 R3 C2 D1 M0 & yes \\
+Prime-token funding & number-theory & matrix (prime-fact.) & heavy & L3 R3 C2 D1 M1 & yes \\
+Attendance interest tiers & Venn & Venn-regions (nested) & heavy & L2 R2 C3 D1 M0 & yes \\
+Metro line scheduling & scheduling & timeline (map) & light & L2 R2 C1 D1 M3 & partial \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2023 (12 sets --- 4/slot; very high arithmetic, ZERO Venn)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+AC dealer variant sales & distribution & grid ($4{\times}2{\times}2$) & light & L1 R1 C1 D3 M3 & partial \\
+Course project-test scoring & matrix/grid & score-table+ranking & heavy & L2 R2 C2 D2 M2 & yes \\
+Patrol teams street routes & routes/network & movement-traj.+timeline & heavy & L2 R2 C3 D0 M0 & yes \\
+Online vs offline registr. & quant-DI & score-table (min/max/med) & heavy & L1 R1 C3 D3 M1 & partial \\
+Firms funding rise-fall & quant-DI & sequence & heavy & L1 R2 C3 D3 M0 & yes \\
+Draw competition ranks & quant-DI & score-table+ranking & heavy & L1 R2 C3 D3 M0 & yes \\
+$3\times3$ coin-sack boxes & matrix/grid & matrix (sums+medians) & heavy & L1 R1 C3 D3 M0 & yes \\
+Theme-park rides timing & scheduling & timeline+allocation & heavy & L2 R1 C3 D2 M2 & yes \\
+Dean election voting & distribution & flow-network+allocation & heavy & L2 R3 C3 D1 M0 & yes \\
+Restaurant worker ratings & quant-DI & score-table (stats) & heavy & L1 R1 C3 D3 M0 & partial \\
+Visa office slot processing & scheduling & timeline+flow-network & heavy & L2 R1 C2 D3 M1 & yes \\
+Housing-complex pricing & matrix/grid & grid+score-table & heavy & L2 R2 C3 D2 M1 & yes \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2024 (15 sets --- 5/slot; chart-plus-logic heavy, Venn returns)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+ATM cash on road grid & routes/network & matrix+allocation & heavy & L2 R2 C3 D2 M0 & yes \\
+OTT subscriber app usage & Venn & Venn-regions+quant-DI & light & L1 R2 C1 D3 M0 & partial \\
+Country GDP per-capita & quant-DI & score-table & none & L0 R1 C0 D3 M1 & no \\
+AC temperature mode graph & chart-plus-logic & timeline & heavy & L2 R3 C3 D2 M3 & yes \\
+Foodgrain nutrient comp. & matrix/grid & matrix (incomplete) & heavy & L1 R2 C3 D2 M0 & yes \\
+10-number ordered grid & matrix/grid & grid (monotone) & heavy & L3 R3 C3 D0 M0 & yes \\
+Gated-area walkway routes & routes/network & flow-network & heavy & L1 R3 C2 D2 M0 & partial \\
+E-commerce daily ratings & chart-plus-logic & score-table & light & L1 R2 C1 D3 M0 & partial \\
+Firm PAT/ES/PRD bubble & chart-plus-logic & quant-DI & none & L0 R1 C0 D3 M1 & no \\
+Gymnasts coach ratings & distribution & allocation+score-table & heavy & L2 R3 C3 D1 M0 & yes \\
+QUIET tournament schedule & tournament & timeline & heavy & L2 R3 C3 D0 M0 & yes \\
+Travelers' country Venn & Venn & Venn-regions (3-set) & light & L1 R2 C2 D2 M0 & partial \\
+Candlestick share prices & chart-plus-logic & quant-DI & none & L0 R1 C0 D3 M1 & no \\
+Web surfers' star giving & distribution & allocation & heavy & L1 R3 C3 D2 M0 & yes \\
+Election campaign voting & quant-DI & score-table+casework & heavy & L1 R2 C3 D3 M0 & partial \\
+\bottomrule
+\end{longtable}}
+
+\subsection{CAT 2025 (15 sets --- 5/slot; solution-calibrated; movement returns, ZERO Venn)}
+{\invtab
+\begin{longtable}{p{3.0cm}p{2.05cm}p{2.5cm}p{1.2cm}p{2.05cm}p{1.7cm}}
+\toprule
+\textbf{Set} & \textbf{Family} & \textbf{Engine} & \textbf{Casework} & \textbf{Drivers} & \textbf{Ladder} \\
+\midrule
+\endhead
+Operator call-minutes ledger & matrix/grid & matrix+score-table & heavy & L3 R0 C2 D3 M0 & partial \\
+Cross-currency traveler costs & quant-DI & allocation+score-table & heavy & L2 R0 C2 D3 M0 & yes \\
+Puzzle-solving progress charts & chart-plus-logic & timeline (cross-chart) & light & L1 R0 C1 D3 M1 & partial \\
+Three/Five-country trade flows & quant-DI & flow-network & light & L1 R0 C1 D3 M0 & yes \\
+Passing-the-Buck circle & dynamic-movement & movement-traj. & heavy & L3 R2 C3 D0 M2 & partial \\
+Gurus training timeline & scheduling & timeline (blocks) & heavy & L3 R2 C3 D0 M0 & partial \\
+Sustainability-index scatter & chart-plus-logic & score-table+rank (rates) & heavy & L2 R2 C2 D3 M0 & yes \\
+State pollution measures & distribution & allocation+ranking & heavy & L3 R2 C2 D2 M0 & partial \\
+Co-authorship paper counts & chart-plus-logic & matrix+allocation & heavy & L3 R1 C3 D2 M0 & partial \\
+Balls-through-hoops sizing & matrix/grid & matrix+ranking (order) & heavy & L3 R3 C2 D0 M0 & yes \\
+Train segment occupancy & distribution & flow-network (O-D) & heavy & L2 R1 C2 D3 M0 & yes \\
+Quarterly promote-demote & tournament & score-table+rank (fb) & heavy & L3 R2 C2 D2 M1 & partial \\
+Round-table chair moves & dynamic-movement & movement-traj. & heavy & L3 R2 C3 D0 M3 & partial \\
+Foot-tap question game & distribution & allocation+score-table & heavy & L3 R0 C3 D2 M0 & partial \\
+Five-country tariff charts & quant-DI & flow-network & light & L1 R0 C1 D3 M0 & yes \\
+\bottomrule
+\end{longtable}}
+
+\vspace{0.6cm}
+\begin{center}\textit{End of report.}\end{center}
+
+\end{document}
