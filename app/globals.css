@@ -273,6 +273,25 @@ a {
   50%      { opacity: 1; }
 }
 
+@keyframes aurora-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes aurora-scan-y {
+  0%   { transform: translateY(-160%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateY(660%); opacity: 0; }
+}
+
+@keyframes aurora-scan-x {
+  0%   { transform: translateX(-180%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateX(900%); opacity: 0; }
+}
+
 /* ── Opt-in utility classes (all namespaced `.aurora-*`) ─────────────────── */
 
 /* Signature glass surface (light theme). Solid fallback when blur unsupported. */
@@ -481,6 +500,15 @@ a {
   animation: aurora-soft-pulse 3s var(--aurora-ease-in-out) infinite;
 }
 
+/* Opt-in slow continuous rotation (Showcase orb rings only). */
+.aurora-spin-slow {
+  animation: aurora-spin 22s linear infinite;
+}
+
+/* Opt-in scanning sweeps (Showcase HUD/bento visuals only). */
+.aurora-scan-y { animation: aurora-scan-y 5.5s var(--aurora-ease-in-out) infinite; }
+.aurora-scan-x { animation: aurora-scan-x 6.5s var(--aurora-ease-in-out) infinite; }
+
 /* ── Reduced-motion fallback (DESIGN.md §13) ──────────────────────────────
    Scoped to aurora utilities so it cannot affect unrelated app animations.
    Disables long/looping decorative motion; keeps state changes instant. */
@@ -489,8 +517,15 @@ a {
   .aurora-orb-bg::after,
   .aurora-float-slow,
   .aurora-soft-pulse,
+  .aurora-spin-slow,
+  .aurora-scan-y,
+  .aurora-scan-x,
   .aurora-fade-slide-up {
     animation: none !important;
+  }
+  .aurora-scan-y,
+  .aurora-scan-x {
+    opacity: 0 !important;
   }
   .aurora-fade-slide-up { opacity: 1 !important; transform: none !important; }
   .aurora-card-hover,
