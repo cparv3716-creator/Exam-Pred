@@ -19,7 +19,7 @@ export function IsiSolutionSteps({ content }: { content: string }) {
 
 function splitSolutionLines(content: string): string[] {
   const lines: string[] = [];
-  const normalized = content.replace(/\r\n/g, "\n").trim();
+  const normalized = normalizeDisplayMath(content.replace(/\r\n/g, "\n").trim());
   const displayMathPattern = /\$\$[\s\S]*?\$\$/g;
   let cursor = 0;
   let match: RegExpExecArray | null;
@@ -32,6 +32,26 @@ function splitSolutionLines(content: string): string[] {
 
   pushTextLines(normalized.slice(cursor), lines);
   return lines.length ? lines : [content];
+}
+
+function normalizeDisplayMath(content: string): string {
+  const sourceLines = content.split("\n");
+  const normalizedLines: string[] = [];
+  for (let index = 0; index < sourceLines.length; index += 1) {
+    const line = sourceLines[index].trim();
+    if (line === "$") {
+      const mathLines: string[] = [];
+      index += 1;
+      while (index < sourceLines.length && sourceLines[index].trim() !== "$") {
+        mathLines.push(sourceLines[index]);
+        index += 1;
+      }
+      normalizedLines.push(`$$\n${mathLines.join("\n").trim()}\n$$`);
+    } else {
+      normalizedLines.push(sourceLines[index]);
+    }
+  }
+  return normalizedLines.join("\n");
 }
 
 function pushTextLines(text: string, lines: string[]) {
