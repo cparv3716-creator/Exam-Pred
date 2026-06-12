@@ -1,6 +1,6 @@
 ﻿import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight, Sigma } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const links = [
   { label: "ISI", href: "/exams/isi" },
@@ -17,7 +17,7 @@ export function IsiPageShell({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-7xl">
           <div className="aurora-glass flex items-center justify-between gap-3 px-4 py-3 sm:px-6" style={{ borderRadius: "var(--aurora-radius-xl)" }}>
             <Link href="/" className="aurora-focus-ring flex items-center gap-3 rounded-xl">
-              <span className="grid h-9 w-9 place-items-center rounded-full text-white" style={{ background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))", boxShadow: "var(--aurora-glow-md)" }}><Sigma size={17} aria-hidden /></span>
+              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white shadow-sm"><img src="/brand/statstrive-logo.png" alt="" className="h-full w-full object-cover" /></span>
               <span><span className="block text-base font-extrabold tracking-tight">Statstrive</span><span className="block text-[0.65rem] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-text-muted)" }}>ISI intelligence</span></span>
             </Link>
             <nav aria-label="ISI navigation" className="hidden items-center gap-1 md:flex">
@@ -37,4 +37,6 @@ export function IsiPageShell({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+
 
