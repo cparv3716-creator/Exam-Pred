@@ -1,21 +1,21 @@
 {
     "exam":  "ISI",
     "program":  "MSQE",
-    "status":  "phase_1_sample_ready",
-    "version":  "1.0.0",
-    "websiteSourcePolicy":  "Use verified txt, md, json, or tex sources. PDFs are references only and are not parsed directly by the website loader.",
-    "activeQuestionFile":  "question_bank/sample_msqe_questions.json",
+    "status":  "pea_pyq_practice_ready",
+    "version":  "1.1.0",
+    "websiteSourcePolicy":  "Use verified txt, md, json, or tex sources. Preserve full ISI question context from the source text. If the original wording, conditions, options, or traps are incomplete in the available source, keep the item in the bank but mark needsReview instead of compressing it.",
+    "activeQuestionFile":  "question_bank/pea/isi_msqe_pea_2022_2026_questions.json",
     "sourceInventory":  {
-                            "structuredFilesFound":  3,
-                            "reportedExternalPeaCount":  615,
+                            "structuredFilesFound":  4,
+                            "reportedExternalPeaCount":  150,
                             "reportedExternalPebCount":  212,
-                            "note":  "Detected 615 PEA rows, 212 PEB rows, and 827 combined rows in external structured CSV banks. They remain import candidates and are not yet used by student practice pages."
+                            "note":  "The active website bank is regenerated from the local Statstrive PEA solution TeX files for 2022-2026. Items whose source wording or option block is incomplete are flagged needsReview."
                         },
     "modules":  [
                     {
                         "id":  "pea",
                         "label":  "PEA objective paper",
-                        "status":  "sample_ready",
+                        "status":  "pyq_practice_ready",
                         "path":  "question_bank/pea"
                     },
                     {

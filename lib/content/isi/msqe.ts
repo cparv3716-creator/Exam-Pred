@@ -14,6 +14,7 @@ import type {
 const msqeRoot = path.join(process.cwd(), "content", "isi", "msqe");
 const manifestPath = path.join(msqeRoot, "manifest.json");
 const sampleQuestionPath = path.join(msqeRoot, "question_bank", "sample_msqe_questions.json");
+const peaQuestionBankPath = path.join(msqeRoot, "question_bank", "pea", "isi_msqe_pea_2022_2026_questions.json");
 
 export function getMsqeManifest(): MsqeManifest {
   const manifest = readJson<MsqeManifest>(manifestPath);
@@ -57,7 +58,13 @@ export function getMsqePebQuestions(): IsiQuestion[] {
 }
 
 export function getMsqeAllQuestions(): IsiQuestion[] {
-  const questions = readJson<unknown[]>(sampleQuestionPath);
+  const manifest = getMsqeManifest();
+  const manifestQuestionPath = manifest.activeQuestionFile
+    ? path.join(msqeRoot, manifest.activeQuestionFile)
+    : "";
+  const questions = readJson<unknown[]>(manifestQuestionPath) ??
+    readJson<unknown[]>(peaQuestionBankPath) ??
+    readJson<unknown[]>(sampleQuestionPath);
   if (!Array.isArray(questions)) return [];
   return questions.filter(isIsiQuestion);
 }
@@ -92,22 +99,23 @@ export function getMsqeTopicStats(): MsqeTopicStat[] {
 export function getMsqePracticeSets(): MsqePracticeSet[] {
   const pea = getMsqePeaQuestions().map((question) => question.id);
   const peb = getMsqePebQuestions().map((question) => question.id);
+  const review = getMsqeAllQuestions().filter((question) => question.needsReview).map((question) => question.id);
   return [
     {
-      id: "msqe-sample-pea",
-      title: "PEA objective sampler",
-      description: "Development-only objective questions used to verify MCQ rendering and metadata flow.",
+      id: "msqe-pea-2022-2026",
+      title: "PEA PYQ bank 2022-2026",
+      description: "Regenerated objective PYQ practice with source-preserved wording and clickable answer checking.",
       paper: "PEA",
       questionIds: pea,
-      status: "sample_dev",
+      status: "source_tex_ready",
     },
     {
-      id: "msqe-sample-peb",
-      title: "PEB descriptive sampler",
-      description: "Development-only descriptive questions used to verify long-form solution rendering.",
-      paper: "PEB",
-      questionIds: peb,
-      status: "sample_dev",
+      id: "msqe-review-queue",
+      title: "Needs-review queue",
+      description: "Items retained for continuity because the available source lacks complete options, answer certainty, or verified status.",
+      paper: "Mixed",
+      questionIds: review.length ? review : peb,
+      status: "needs_review",
     },
   ];
 }
@@ -130,7 +138,7 @@ function isIsiQuestion(value: unknown): value is IsiQuestion {
     question.exam === "ISI" &&
     question.program === "MSQE" &&
     (question.paper === "PEA" || question.paper === "PEB") &&
-    question.questionText &&
+    typeof question.questionText === "string" &&
     question.topic &&
     Array.isArray(question.options) &&
     Array.isArray(question.tags),

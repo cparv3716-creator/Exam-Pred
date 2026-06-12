@@ -1,43 +1,84 @@
 \documentclass[11pt]{article}
-\usepackage[a4paper,margin=0.85in]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage[a4paper,margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{hyperref}
+\usepackage{booktabs,longtable,array}
 \usepackage{fancyhdr}
-\usepackage{eso-pic}
-\usepackage{graphicx}
-\definecolor{StatBlue}{HTML}{0752B8}
-\definecolor{StatOrange}{HTML}{FF7A1A}
-\hypersetup{colorlinks=true,linkcolor=StatBlue,urlcolor=StatBlue}
+\usepackage[colorlinks=true,linkcolor=StatBlue,urlcolor=StatBlue]{hyperref}
+
+\definecolor{StatBlue}{HTML}{1D4ED8}
+\definecolor{StatInk}{HTML}{111827}
+\definecolor{StatAmber}{HTML}{B45309}
+
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{5pt}
+\setlist[enumerate]{itemsep=4pt,topsep=6pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{Statstrive}}
+\lhead{\textcolor{StatBlue}{\textbf{Statstrive ExamIQ}}}
 \rhead{ISI MSQE PEA 2024}
 \cfoot{\thepage}
-\AddToShipoutPictureBG{\AtPageCenter{\makebox(0,0){\rotatebox{35}{\textcolor[gray]{0.94}{\fontsize{44}{44}\selectfont STATSTRIVE}}}}}
+
 \begin{document}
-\begin{titlepage}
-\centering
-\vspace*{1.2cm}
-\includegraphics[width=0.28\textwidth]{../../../../../../brand/statstrive-logo.png}\par\vspace{0.8cm}
-{\Huge\bfseries ISI MSQE PEA 2024 PYQ Practice Booklet\par}
-\vspace{0.4cm}
-{\Large Organized by Statstrive for structured practice\par}
-\vfill
-\begin{minipage}{0.86\textwidth}
-\small Previous-year questions are organized for practice and revision. Statstrive is not affiliated with ISI or any official examination body. This booklet contains questions only; solutions are available inside the Statstrive practice viewer.
-\end{minipage}
-\vfill
-{\small Generated from structured Statstrive PYQ practice content.}
-\end{titlepage}
+
+\begin{center}
+{\Huge \textbf{Statstrive ExamIQ}}\\[6pt]
+{\Large ISI MSQE PEA 2024 Question Paper}\\[4pt]
+{\small Regenerated from the local solution TeX source. Items missing full source detail are marked Needs Review.}
+\end{center}
+
+\vspace{0.5cm}
+\begin{longtable}{c l c}
+\toprule
+Question & Topic & Website Status \\
+\midrule
+\endhead
+1 & Calculus & Ready \\
+2 & Sequences and Series & Ready \\
+3 & Calculus & Ready \\
+4 & Functions & Ready \\
+5 & Functions & Ready \\
+6 & Calculus & Ready \\
+7 & Calculus & Ready \\
+8 & Linear Algebra & Ready \\
+9 & Linear Algebra & Ready \\
+10 & Linear Algebra & Ready \\
+11 & Linear Algebra & Ready \\
+12 & Combinatorics & Ready \\
+13 & Combinatorics & Ready \\
+14 & Combinatorics & Ready \\
+15 & Probability & Ready \\
+16 & Statistics & Ready \\
+17 & Probability & Ready \\
+18 & Probability & Ready \\
+19 & Expected Value and Variance & Ready \\
+20 & Distributions & Ready \\
+21 & Growth Models & Ready \\
+22 & Growth Models & Ready \\
+23 & Growth Models & Ready \\
+24 & Growth Models & Ready \\
+25 & International Trade / General Equilibrium & Ready \\
+26 & International Trade / General Equilibrium & Ready \\
+27 & Consumer Theory & Ready \\
+28 & Intertemporal Optimization & Ready \\
+29 & Market Structure & Ready \\
+30 & Consumer Theory & Needs Review \\
+\bottomrule
+\end{longtable}
+
+\newpage
 \tableofcontents
 \newpage
+
 \section*{Question 1}
+
 \addcontentsline{toc}{section}{Question 1}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 If $f:\mathbb{R}\to\mathbb{R}$ is a differentiable function at $a\in\mathbb{R}$ such that $f'(a)=af(a)$, then what is
 \[
 \lim_{x\to a}\frac{xf(a)-af(x)}{x-a}\, ?
@@ -48,12 +89,17 @@ If $f:\mathbb{R}\to\mathbb{R}$ is a differentiable function at $a\in\mathbb{R}$ 
 \item $(1-a^2)f(a)$
 \item None of the previous options
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 2}
+
 \addcontentsline{toc}{section}{Question 2}
+
+\noindent\textbf{Topic:} Sequences and Series \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Suppose $S_n$ is defined as follows for every positive integer $n\ge 2$:
 \[
 S_n=\left(1-\tfrac{1}{2^2}\right)\!\left(1-\tfrac{1}{3^2}\right)\cdots\!\left(1-\tfrac{1}{n^2}\right).
@@ -65,12 +111,17 @@ The value of $\displaystyle\lim_{n\to\infty}S_n$ is
 \item $1$
 \item $\infty$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 3}
+
 \addcontentsline{toc}{section}{Question 3}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Suppose
 \[
 \lim_{x\to 0}\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}=1,
@@ -82,12 +133,17 @@ where $a_1,a_2,a_3$ are given real numbers. Then it is necessarily true that
 \item $a_2=0$
 \item $a_2+a_3\ne 0$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 4}
+
 \addcontentsline{toc}{section}{Question 4}
+
+\noindent\textbf{Topic:} Functions \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Ready
+
+
+
 Let $f:\mathbb{R}\to\mathbb{R}$ be defined as
 \[
 f(x)=\begin{cases}
@@ -103,12 +159,17 @@ where $a,b,c$ are positive real numbers. Which of the following statements is co
 \item $f$ is continuous iff $a=b$ and $c=2a$
 \item $f$ is continuous iff $a=b=c$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 5}
+
 \addcontentsline{toc}{section}{Question 5}
+
+\noindent\textbf{Topic:} Functions \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Consider $f:[0,1]\to[0,1]$ such that $f(x)=\dfrac{x}{2-x}$. Which of the following statements is \emph{incorrect}?
 \begin{enumerate}[label=(\Alph*)]
 \item $f(0)=0$ and $f(1)=1$
@@ -116,12 +177,17 @@ Consider $f:[0,1]\to[0,1]$ such that $f(x)=\dfrac{x}{2-x}$. Which of the followi
 \item $f$ is strictly concave in the interval $(0,1)$
 \item $f$ is strictly increasing in the interval $(0,1)$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 6}
+
 \addcontentsline{toc}{section}{Question 6}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $f:\mathbb{R}\to\mathbb{R}$ be the function $f(x)=|x|+x^{2}\ \forall x\in\mathbb{R}$. Which of the following statements about $f$ is correct?
 \begin{enumerate}[label=(\Alph*)]
 \item $f$ is differentiable
@@ -129,12 +195,17 @@ Let $f:\mathbb{R}\to\mathbb{R}$ be the function $f(x)=|x|+x^{2}\ \forall x\in\ma
 \item $f$ is convex but not differentiable
 \item $f$ is discontinuous
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 7}
+
 \addcontentsline{toc}{section}{Question 7}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 $\displaystyle\int x^{3}e^{x^{2}}\,dx$ equals
 \begin{enumerate}[label=(\Alph*)]
 \item $\dfrac{x(x-1)}{2}\,e^{x^{2}}$
@@ -142,12 +213,17 @@ $\displaystyle\int x^{3}e^{x^{2}}\,dx$ equals
 \item $\dfrac{x(x+1)}{2}\,e^{x^{2}}$
 \item $\dfrac{x^{2}+1}{2}\,e^{x^{2}}$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 8}
+
 \addcontentsline{toc}{section}{Question 8}
+
+\noindent\textbf{Topic:} Linear Algebra \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $A$ be a $3\times 3$ matrix having eigenvalues $2,7,5$. What is the determinant of $A+2I$?
 \begin{enumerate}[label=(\Alph*)]
 \item $252$
@@ -155,12 +231,17 @@ Let $A$ be a $3\times 3$ matrix having eigenvalues $2,7,5$. What is the determin
 \item $420$
 \item $84$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 9}
+
 \addcontentsline{toc}{section}{Question 9}
+
+\noindent\textbf{Topic:} Linear Algebra \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $x$ and $y$ be two column vectors of length $3$ such that $\sum_{i}x_{i}y_{i}=1$. What is the rank of $xy^{T}$?
 \begin{enumerate}[label=(\Alph*)]
 \item $0$
@@ -168,12 +249,17 @@ Let $x$ and $y$ be two column vectors of length $3$ such that $\sum_{i}x_{i}y_{i
 \item $2$
 \item $3$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 10}
+
 \addcontentsline{toc}{section}{Question 10}
+
+\noindent\textbf{Topic:} Linear Algebra \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $A$ be a $3\times 3$ matrix such that $Ax=x$ for all column vectors $x$ of length $3$. Which of the following statements is correct?
 \begin{enumerate}[label=(\Alph*)]
 \item No such $A$ exists
@@ -181,12 +267,17 @@ Let $A$ be a $3\times 3$ matrix such that $Ax=x$ for all column vectors $x$ of l
 \item $A=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}$
 \item $A$ exists but is different from the matrices given in parts (B) and (C)
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 11}
+
 \addcontentsline{toc}{section}{Question 11}
+
+\noindent\textbf{Topic:} Linear Algebra \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $S=\{(x_1,0):x_1\in\mathbb{R}\}$ and $T=\{(0,x_2):x_2\in\mathbb{R}\}$. Which of the following is correct?
 \begin{enumerate}[label=(\Alph*)]
 \item $S,T$ and $S\cap T$ are vector spaces
@@ -194,12 +285,17 @@ Let $S=\{(x_1,0):x_1\in\mathbb{R}\}$ and $T=\{(0,x_2):x_2\in\mathbb{R}\}$. Which
 \item $S\cup T$ and $S\cap T$ are vector spaces
 \item Neither $S\cup T$ nor $S\cap T$ is a vector space
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 12}
+
 \addcontentsline{toc}{section}{Question 12}
+
+\noindent\textbf{Topic:} Combinatorics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 In a chess tournament, there are both boys and girls. Each player plays with another player exactly once. If there are $45$ games in total and exactly $15$ of them feature only boys, how many games feature a boy and a girl?
 \begin{enumerate}[label=(\Alph*)]
 \item $6$
@@ -207,12 +303,17 @@ In a chess tournament, there are both boys and girls. Each player plays with ano
 \item $20$
 \item $24$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 13}
+
 \addcontentsline{toc}{section}{Question 13}
+
+\noindent\textbf{Topic:} Combinatorics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 What is the number of possible arrangements of the letters of the word `madam' such that the two `a's never appear in consecutive positions?
 \begin{enumerate}[label=(\Alph*)]
 \item $30$
@@ -220,12 +321,17 @@ What is the number of possible arrangements of the letters of the word `madam' s
 \item $18$
 \item $12$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 14}
+
 \addcontentsline{toc}{section}{Question 14}
+
+\noindent\textbf{Topic:} Combinatorics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 A monkey starts at $(0,0)$ on the $xy$-plane in period $1$. From any position $(x,y)$ in a period, the monkey can only jump to $(a,b)$ in the next period, where $a\in\{x+1,x,x-1\}$ and $b\in\{y+1,y,y-1\}$. How many possible positions can the monkey be in period $2$?
 \begin{enumerate}[label=(\Alph*)]
 \item $9$
@@ -233,12 +339,17 @@ A monkey starts at $(0,0)$ on the $xy$-plane in period $1$. From any position $(
 \item $4$
 \item $3$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 15}
+
 \addcontentsline{toc}{section}{Question 15}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 In the previous question, suppose in every period the monkey can go to any of the possible positions in the next period with equal probability. Then what is the probability that the monkey is at a distance of more than $1$ from $(0,0)$ in period $2$?
 \begin{enumerate}[label=(\Alph*)]
 \item $0$
@@ -246,12 +357,17 @@ In the previous question, suppose in every period the monkey can go to any of th
 \item $\tfrac{1}{3}$
 \item $\tfrac{4}{9}$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 16}
+
 \addcontentsline{toc}{section}{Question 16}
+
+\noindent\textbf{Topic:} Statistics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 For a given data set, let the least squares regression line be $y=10+2x$. It is given that variance of $x$ is $9$ and variance of $y$ is $81$. What is the correlation coefficient between $x$ and $y$?
 \begin{enumerate}[label=(\Alph*)]
 \item $\tfrac{1}{3}$
@@ -259,12 +375,17 @@ For a given data set, let the least squares regression line be $y=10+2x$. It is 
 \item $\tfrac{2}{3}$
 \item $\tfrac{3}{4}$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 17}
+
 \addcontentsline{toc}{section}{Question 17}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Ready
+
+
+
 An urn contains $4$ white, $6$ red, and $5$ black balls. $5$ balls are randomly selected from the urn. Let $X$ and $Y$ denote respectively the number of white and black balls selected. Suppose $Y=2$, i.e., $2$ of the $5$ selected balls are black. What is the probability that $X$ takes the value $2$?
 \begin{enumerate}[label=(\Alph*)]
 \item $\tfrac{3}{10}$
@@ -272,12 +393,17 @@ An urn contains $4$ white, $6$ red, and $5$ black balls. $5$ balls are randomly 
 \item $\tfrac{3}{15}$
 \item $\tfrac{4}{15}$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 18}
+
 \addcontentsline{toc}{section}{Question 18}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 In answering an MCQ with $4$ choices, a student either knows the answer (with probability $\tfrac14$) or guesses (with probability $\tfrac34$). A guess is correct with probability $\tfrac14$. What is the probability that the student knew the answer, given that he answered correctly?
 \begin{enumerate}[label=(\Alph*)]
 \item $\tfrac{3}{7}$
@@ -285,12 +411,17 @@ In answering an MCQ with $4$ choices, a student either knows the answer (with pr
 \item $\tfrac{3}{4}$
 \item $1$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 19}
+
 \addcontentsline{toc}{section}{Question 19}
+
+\noindent\textbf{Topic:} Expected Value and Variance \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Let $X_1,X_2,\dots,X_5$ be i.i.d.\ random variables with $E(X_i)=0$ and $V(X_i)=1$. What is the value of
 \[
 E\!\left[\frac{(\sum_{i=1}^{5} X_i)^{2}}{5}\right]?
@@ -301,12 +432,17 @@ E\!\left[\frac{(\sum_{i=1}^{5} X_i)^{2}}{5}\right]?
 \item $-1$
 \item None of the previous options
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 20}
+
 \addcontentsline{toc}{section}{Question 20}
+
+\noindent\textbf{Topic:} Distributions \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Consider $X\sim\text{Bin}(n,p)$. Which of the following is \emph{incorrect}?
 \begin{enumerate}[label=(\Alph*)]
 \item If $np$ is an integer, then the mean and mode of this distribution coincide
@@ -314,12 +450,17 @@ Consider $X\sim\text{Bin}(n,p)$. Which of the following is \emph{incorrect}?
 \item If $P(X=k)=P(X=n-k)$ for every $k\in\{0,1,\dots,n\}$, then $p=\tfrac12$
 \item If $(n+1)p-1$ is an integer, then this distribution is unimodal
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 21}
+
 \addcontentsline{toc}{section}{Question 21}
+
+\noindent\textbf{Topic:} Growth Models \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Consider an economy with $y=Ak$ (per-capita form), saving rate $s\in(0,1)$, population growth rate $n>0$ and depreciation rate $\delta\in(0,1)$. Assume parameters ensure positive long-run growth of $y$. Which of the following is \emph{incorrect}?
 \begin{enumerate}[label=(\Alph*)]
 \item The growth rate of capital--labour ratio is $sA-(n+\delta)$
@@ -327,12 +468,17 @@ Consider an economy with $y=Ak$ (per-capita form), saving rate $s\in(0,1)$, popu
 \item The economy is always on the steady state growth path
 \item Increasing the savings rate $s$ will not have any effect on the long-run growth rate of output per worker
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 22}
+
 \addcontentsline{toc}{section}{Question 22}
+
+\noindent\textbf{Topic:} Growth Models \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Solow economy with $Y=K^{1/3}L^{2/3}$, no population growth or technological change, $\delta=0.05$, $s=0.2$. What is the steady-state capital--labour ratio?
 \begin{enumerate}[label=(\Alph*)]
 \item $6$
@@ -340,12 +486,17 @@ Solow economy with $Y=K^{1/3}L^{2/3}$, no population growth or technological cha
 \item $2$
 \item $4$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 23}
+
 \addcontentsline{toc}{section}{Question 23}
+
+\noindent\textbf{Topic:} Growth Models \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 With the same Solow economy (no population growth, $\delta=0.05$, $Y=K^{1/3}L^{2/3}$), a social planner wishes to maximize steady-state per-capita consumption. What savings rate $s$ achieves this?
 \begin{enumerate}[label=(\Alph*)]
 \item $\tfrac{2}{3}$
@@ -353,12 +504,17 @@ With the same Solow economy (no population growth, $\delta=0.05$, $Y=K^{1/3}L^{2
 \item $\tfrac{1}{3}$
 \item $\tfrac{1}{4}$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 24}
+
 \addcontentsline{toc}{section}{Question 24}
+
+\noindent\textbf{Topic:} Growth Models \quad \textbf{Difficulty:} Moderate-Hard \quad \textbf{Status:} Ready
+
+
+
 A Solow economy has $y=k^{1/2}$, $\delta=0$, labour grows at $n>0$. If the steady-state value of $k$ is $50$ and the current value of $k$ is $2$, what is the current growth rate of per-capita output?
 \begin{enumerate}[label=(\Alph*)]
 \item $24n$
@@ -366,12 +522,17 @@ A Solow economy has $y=k^{1/2}$, $\delta=0$, labour grows at $n>0$. If the stead
 \item $0.3$
 \item None of the previous options
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 25}
+
 \addcontentsline{toc}{section}{Question 25}
+
+\noindent\textbf{Topic:} International Trade / General Equilibrium \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Two countries $A$ and $B$ produce wheat and television respectively, with $Y_A=200$ and $Y_B=250$. The TV price is normalised to $1$, the relative price of wheat is $p$. Let $E_A$ (in wheat units) and $E_B$ (in TV units) denote total expenditures. The income identity is $pY_A+Y_B=pE_A+E_B$. Initially $E_A=100$; $A$ reduces $E_A$ to $70$. Suppose $1/3$ of each country's expenditure is on wheat. What happens to the equilibrium $p$?
 \begin{enumerate}[label=(\Alph*)]
 \item $p$ stays the same
@@ -379,12 +540,17 @@ Two countries $A$ and $B$ produce wheat and television respectively, with $Y_A=2
 \item $p$ decreases
 \item The effect is ambiguous
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 26}
+
 \addcontentsline{toc}{section}{Question 26}
+
+\noindent\textbf{Topic:} International Trade / General Equilibrium \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 Same setup as Q25, except now \emph{each} country spends $2/3$ of its expenditure on its \emph{own} good and $1/3$ on the foreign good. What is the impact on $p$ when $E_A$ falls from $100$ to $70$?
 \begin{enumerate}[label=(\Alph*)]
 \item $p$ stays the same
@@ -392,12 +558,17 @@ Same setup as Q25, except now \emph{each} country spends $2/3$ of its expenditur
 \item $p$ decreases
 \item The effect is ambiguous
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 27}
+
 \addcontentsline{toc}{section}{Question 27}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 A consumer consumes two goods $X$ and $Y$. It is observed that her consumption of $X$ always falls when the price of $X$ falls, \emph{ceteris paribus}. Suppose now income rises, with prices of $X$ and $Y$ held constant. What happens to consumption of $X$?
 \begin{enumerate}[label=(\Alph*)]
 \item Consumption of $X$ falls
@@ -405,12 +576,17 @@ A consumer consumes two goods $X$ and $Y$. It is observed that her consumption o
 \item Consumption of $X$ remains unchanged
 \item Indeterminate: consumption of $X$ could rise, fall, or remain unchanged
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 28}
+
 \addcontentsline{toc}{section}{Question 28}
+
+\noindent\textbf{Topic:} Intertemporal Optimization \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Ready
+
+
+
 $A$ has a pond which yields $f$ fish at $t=1$ and nothing at $t=2$. He consumes only fish. Storage is costless and undepreciated; no discounting. Utility in any period $t$ is $u(c_t)=c_t^{\,n}$ with $0<n<1$. Optimal consumption?
 \begin{enumerate}[label=(\Alph*)]
 \item Any division is optimal
@@ -418,12 +594,17 @@ $A$ has a pond which yields $f$ fish at $t=1$ and nothing at $t=2$. He consumes 
 \item $c_1=f,\ c_2=0$
 \item $c_1=0,\ c_2=f$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 29}
+
 \addcontentsline{toc}{section}{Question 29}
+
+\noindent\textbf{Topic:} Market Structure \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 Country $C$ has $10{,}000$ identical farmers with cost $C(q_i)=0.5q_i^{2}+4q_i+100$, aggregate demand $Q=-10{,}000p+400{,}000$. Current price support $p=30$; government buys all unsold output at $30$. The government proposes removing the support and giving each farmer an equal share of the saved expenditure as a lump-sum transfer. Each farmer must, however, pay $300$ to open a bank account to receive the transfer. By how much does a farmer gain (or lose)?
 \begin{enumerate}[label=(\Alph*)]
 \item Rise by $8$
@@ -431,12 +612,18 @@ Country $C$ has $10{,}000$ identical farmers with cost $C(q_i)=0.5q_i^{2}+4q_i+1
 \item Fall by $4$
 \item Fall by $8$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 30}
+
 \addcontentsline{toc}{section}{Question 30}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Needs Review
+
+\par\noindent\textcolor{StatAmber}{\textbf{Review note:} source status is Draft.}
+
+
 A consumer consumes three goods $X,Y,Z$ over three periods. Prices and bundles:
 \[
 \begin{aligned}
@@ -452,7 +639,5 @@ Which of the following statements about her preferences is correct?
 \item Preferences are incomplete and intransitive
 \item Preferences are complete and transitive
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
 \end{document}

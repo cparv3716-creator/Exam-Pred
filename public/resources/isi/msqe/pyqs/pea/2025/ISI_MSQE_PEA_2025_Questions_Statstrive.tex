@@ -1,43 +1,84 @@
 \documentclass[11pt]{article}
-\usepackage[a4paper,margin=0.85in]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage[a4paper,margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{hyperref}
+\usepackage{booktabs,longtable,array}
 \usepackage{fancyhdr}
-\usepackage{eso-pic}
-\usepackage{graphicx}
-\definecolor{StatBlue}{HTML}{0752B8}
-\definecolor{StatOrange}{HTML}{FF7A1A}
-\hypersetup{colorlinks=true,linkcolor=StatBlue,urlcolor=StatBlue}
+\usepackage[colorlinks=true,linkcolor=StatBlue,urlcolor=StatBlue]{hyperref}
+
+\definecolor{StatBlue}{HTML}{1D4ED8}
+\definecolor{StatInk}{HTML}{111827}
+\definecolor{StatAmber}{HTML}{B45309}
+
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{5pt}
+\setlist[enumerate]{itemsep=4pt,topsep=6pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{Statstrive}}
+\lhead{\textcolor{StatBlue}{\textbf{Statstrive ExamIQ}}}
 \rhead{ISI MSQE PEA 2025}
 \cfoot{\thepage}
-\AddToShipoutPictureBG{\AtPageCenter{\makebox(0,0){\rotatebox{35}{\textcolor[gray]{0.94}{\fontsize{44}{44}\selectfont STATSTRIVE}}}}}
+
 \begin{document}
-\begin{titlepage}
-\centering
-\vspace*{1.2cm}
-\includegraphics[width=0.28\textwidth]{../../../../../../brand/statstrive-logo.png}\par\vspace{0.8cm}
-{\Huge\bfseries ISI MSQE PEA 2025 PYQ Practice Booklet\par}
-\vspace{0.4cm}
-{\Large Organized by Statstrive for structured practice\par}
-\vfill
-\begin{minipage}{0.86\textwidth}
-\small Previous-year questions are organized for practice and revision. Statstrive is not affiliated with ISI or any official examination body. This booklet contains questions only; solutions are available inside the Statstrive practice viewer.
-\end{minipage}
-\vfill
-{\small Generated from structured Statstrive PYQ practice content.}
-\end{titlepage}
+
+\begin{center}
+{\Huge \textbf{Statstrive ExamIQ}}\\[6pt]
+{\Large ISI MSQE PEA 2025 Question Paper}\\[4pt]
+{\small Regenerated from the local solution TeX source. Items missing full source detail are marked Needs Review.}
+\end{center}
+
+\vspace{0.5cm}
+\begin{longtable}{c l c}
+\toprule
+Question & Topic & Website Status \\
+\midrule
+\endhead
+1 & Macroeconomics & Ready \\
+2 & Macroeconomics & Ready \\
+3 & Macroeconomics & Ready \\
+4 & Macroeconomics & Ready \\
+5 & Macroeconomics & Ready \\
+6 & Macroeconomics & Ready \\
+7 & Macroeconomics & Ready \\
+8 & Macroeconomics & Ready \\
+9 & Statistics & Ready \\
+10 & Probability & Ready \\
+11 & Econometrics & Ready \\
+12 & Probability & Ready \\
+13 & Probability & Ready \\
+14 & Econometrics & Ready \\
+15 & Econometrics & Ready \\
+16 & Calculus & Ready \\
+17 & Sequences and Series & Ready \\
+18 & Optimization & Ready \\
+19 & Calculus & Ready \\
+20 & Number Theory & Ready \\
+21 & Functional Equations & Ready \\
+22 & Microeconomics & Ready \\
+23 & Microeconomics & Ready \\
+24 & Consumer Theory & Ready \\
+25 & Public Goods & Ready \\
+26 & Consumer Theory & Ready \\
+27 & Consumer Theory & Ready \\
+28 & Consumer Theory & Ready \\
+29 & Consumer Theory & Ready \\
+30 & General Equilibrium & Ready \\
+\bottomrule
+\end{longtable}
+
+\newpage
 \tableofcontents
 \newpage
+
 \section*{Question 1}
+
 \addcontentsline{toc}{section}{Question 1}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Consider a standard Solow style economy where the aggregate production function is $Y = KN$. Assume no technological progress ($g=0$) and no population growth ($n=0$). Let $\bar K$ and $\bar Y$ be the steady state capital stock and output respectively, $s \in [0,1]$ the saving rate and $\delta \in [0,1]$ the depreciation rate. Find the steady-state capital per worker and output per worker.
 \begin{enumerate}[label=(\Alph*)]
 \item $s\delta$ and $(s\delta)^2$
@@ -45,12 +86,17 @@ Consider a standard Solow style economy where the aggregate production function 
 \item $s^2/\delta^2$ and $s/\delta$
 \item None of the above
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 2}
+
 \addcontentsline{toc}{section}{Question 2}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Continue with Q1. Assume $\delta = 0.1$. At the steady state, consumption per worker and the saving rate that maximises consumption per worker are given by, respectively:
 \begin{enumerate}[label=(\Alph*)]
 \item $s(1-s)$ and $s = 0.5$
@@ -58,12 +104,17 @@ Continue with Q1. Assume $\delta = 0.1$. At the steady state, consumption per wo
 \item $s/\delta^2$ and $s = 0$
 \item $\delta/(1-s)$ and $s = 1$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 3}
+
 \addcontentsline{toc}{section}{Question 3}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Wage setting: $W = P(1-u)$. Production: $Y = N$. Markup $\mu = 20\%$. Labour force $L = 60$. Find the natural rate $u_n$ and natural output $Y_n$.
 \begin{enumerate}[label=(\Alph*)]
 \item $16.667\%$ and $50$
@@ -71,38 +122,48 @@ Wage setting: $W = P(1-u)$. Production: $Y = N$. Markup $\mu = 20\%$. Labour for
 \item $20\%$ and $15.5$
 \item $20\%$ and $20$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 4}
+
 \addcontentsline{toc}{section}{Question 4}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Open economy, fixed exchange rate $=1$. $IM = 0.3Y$, $X = 0.3Y^*$. The foreign country has the same structure. Find the domestic multiplier.
+
 \begin{enumerate}[label=(\Alph*)]
-\item $1$ \quad
-\item $2$ \quad
-\item $0.4$ \quad
-\item $0.8$
+\item $1$ \quad \item $2$ \quad \item $0.4$ \quad \item $0.8$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 5}
+
 \addcontentsline{toc}{section}{Question 5}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Continue with Q4. Target $Y = 250$, foreign $G^*$ unchanged. Required increase in $G$?
 \begin{enumerate}[label=(\Alph*)]
-\item $112.4$ \quad
-\item $96$ \quad
-\item $38.8$ \quad
-\item $86$
+\item $112.4$ \quad \item $96$ \quad \item $38.8$ \quad \item $86$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 6}
+
 \addcontentsline{toc}{section}{Question 6}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 $Y = A\min\{K,L\}$, $A > 0$. With $W=\partial Y/\partial L$ and $R = \partial Y/\partial K$:
 \begin{enumerate}[label=(\Alph*)]
 \item $R$ and $W$ same for every $k$.
@@ -110,25 +171,32 @@ $Y = A\min\{K,L\}$, $A > 0$. With $W=\partial Y/\partial L$ and $R = \partial Y/
 \item Same for $k>1$ but not for $k\le 1$.
 \item None of the above.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 7}
+
 \addcontentsline{toc}{section}{Question 7}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 $\dfrac{d}{dt}\bigl[e^{-\rho t}U'(C)\bigr] = e^{-\rho t}U'(C) r$. When is $\dot c > 0$?
 \begin{enumerate}[label=(\Alph*)]
-\item $r < \rho$ \quad
-\item $r > \rho$ \quad
-\item $r = \rho$ \quad
-\item Never.
+\item $r < \rho$ \quad \item $r > \rho$ \quad \item $r = \rho$ \quad \item Never.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 8}
+
 \addcontentsline{toc}{section}{Question 8}
+
+\noindent\textbf{Topic:} Macroeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Income stream $\{y_h, y_l, y_h, y_l, \ldots\}$, discount factor $\beta\in(0,1)$. Find constant $\bar c$ with equal present value.
 \begin{enumerate}[label=(\Alph*)]
 \item $\beta(y_h + y_l)/(1-\beta)$
@@ -136,51 +204,62 @@ Income stream $\{y_h, y_l, y_h, y_l, \ldots\}$, discount factor $\beta\in(0,1)$.
 \item $\beta^2(y_h+y_l)(1-\beta)$
 \item $(y_h + \beta y_l)/(1+\beta)$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 9}
+
 \addcontentsline{toc}{section}{Question 9}
+
+\noindent\textbf{Topic:} Statistics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Out of 20 questions, average correct $= 11.7$, average wrong $= 5.3$. Has the TA made a mistake?
 \begin{enumerate}[label=(\Alph*)]
-\item Yes
-\item No
-\item Maybe
-\item Insufficient information
+\item Yes \item No \item Maybe \item Insufficient information
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 10}
+
 \addcontentsline{toc}{section}{Question 10}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Under the null $p = 1/2$, compare $P(\text{15 of 20 smokers die first})$ vs.\ $P(\text{12 of 20})$.
 \begin{enumerate}[label=(\Alph*)]
-\item $=1$
-\item $<1$
-\item $>1$
-\item Insufficient info.
+\item $=1$ \item $<1$ \item $>1$ \item Insufficient info.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 11}
+
 \addcontentsline{toc}{section}{Question 11}
+
+\noindent\textbf{Topic:} Econometrics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 $\hat\beta_0 = 5$, $\bar y = 65$, $\bar x = 90$. Predict $y$ for $x = 75$.
 \begin{enumerate}[label=(\Alph*)]
-\item $55$
-\item $75$
-\item $40$
-\item $65$
+\item $55$ \item $75$ \item $40$ \item $65$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 12}
+
 \addcontentsline{toc}{section}{Question 12}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Two fair coins. $A$: head on first coin. $C$: head on second coin. $D$: coins match. $G$: two heads. Which statement is false?
 \begin{enumerate}[label=(\Alph*)]
 \item $C$ and $D$ independent.
@@ -188,25 +267,32 @@ Two fair coins. $A$: head on first coin. $C$: head on second coin. $D$: coins ma
 \item $A$ and $D$ independent.
 \item $A$ and $C$ independent.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 13}
+
 \addcontentsline{toc}{section}{Question 13}
+
+\noindent\textbf{Topic:} Probability \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Bowl: 3 chips $=$ Re.\ 1, 2 chips $=$ Rs.\ 4. Draw 2 without replacement. Expected sum?
 \begin{enumerate}[label=(\Alph*)]
-\item $<2$
-\item $3$
-\item $(3,4)$
-\item $(4,5)$
+\item $<2$ \item $3$ \item $(3,4)$ \item $(4,5)$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 14}
+
 \addcontentsline{toc}{section}{Question 14}
+
+\noindent\textbf{Topic:} Econometrics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Two samples; $R^2$ of first $>$ $R^2$ of second. Which follows?
 \begin{enumerate}[label=(\Alph*)]
 \item Coefficient on $X$ greater in first.
@@ -214,25 +300,32 @@ Two samples; $R^2$ of first $>$ $R^2$ of second. Which follows?
 \item Variance of $Y$ smaller in first.
 \item None of the above.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 15}
+
 \addcontentsline{toc}{section}{Question 15}
+
+\noindent\textbf{Topic:} Econometrics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 $\mathrm{sd}(x) = 2$, $\mathrm{sd}(y) = 4$. The OLS slope of $Y$ on $X$ equals:
 \begin{enumerate}[label=(\Alph*)]
-\item $8 r$
-\item $2r$
-\item $r/2$
-\item None.
+\item $8 r$ \item $2r$ \item $r/2$ \item None.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 16}
+
 \addcontentsline{toc}{section}{Question 16}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 $f(x) = 4x^3 - 6x^2 - 72x$. Where is $f$ increasing / decreasing?
 \begin{enumerate}[label=(\Alph*)]
 \item Increasing everywhere.
@@ -240,103 +333,127 @@ $f(x) = 4x^3 - 6x^2 - 72x$. Where is $f$ increasing / decreasing?
 \item Increasing in $(-\infty,-2)$, decreasing in $(-2,\infty)$.
 \item Increasing in $(-\infty,-2)$ and $(3,\infty)$, decreasing in $(-2,3)$.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 17}
+
 \addcontentsline{toc}{section}{Question 17}
+
+\noindent\textbf{Topic:} Sequences and Series \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Find $\sum_{k=1}^{2024}\dfrac{1}{k(k+1)}$.
 \begin{enumerate}[label=(\Alph*)]
-\item $1$
-\item $2025/2026$
-\item $2024/2025$
-\item $2025/2024$
+\item $1$ \item $2025/2026$ \item $2024/2025$ \item $2025/2024$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 18}
+
 \addcontentsline{toc}{section}{Question 18}
+
+\noindent\textbf{Topic:} Optimization \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Find non-negative $x,y$ with $x + y = 16$ minimising $x^3 + y^3$.
 \begin{enumerate}[label=(\Alph*)]
-\item $x=y=8$
-\item $x=15,y=1$
-\item $x=12,y=4$
-\item None.
+\item $x=y=8$ \item $x=15,y=1$ \item $x=12,y=4$ \item None.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 19}
+
 \addcontentsline{toc}{section}{Question 19}
+
+\noindent\textbf{Topic:} Calculus \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 $\displaystyle \int_1^2 \log x\, dx$.
 \begin{enumerate}[label=(\Alph*)]
-\item $\log 4$
-\item $\log 4 - 1$
-\item $\log 2 - 1$
-\item None.
+\item $\log 4$ \item $\log 4 - 1$ \item $\log 2 - 1$ \item None.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 20}
+
 \addcontentsline{toc}{section}{Question 20}
+
+\noindent\textbf{Topic:} Number Theory \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Find $6^{2025} \mod 25$.
 \begin{enumerate}[label=(\Alph*)]
-\item $0$
-\item $1$
-\item $24$
-\item $6$
+\item $0$ \item $1$ \item $24$ \item $6$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 21}
+
 \addcontentsline{toc}{section}{Question 21}
+
+\noindent\textbf{Topic:} Functional Equations \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 $f : \mathbb{N}_+ \to \mathbb{N}_+$, $f(x+y) = f(x) f(y)$, $f(1) = 2$. Find $2 + \sum_{n=1}^{2025} f(n)$.
 \begin{enumerate}[label=(\Alph*)]
-\item $2^{2025}$
-\item $2^{2026}$
-\item $3^{2024}$
-\item None.
+\item $2^{2025}$ \item $2^{2026}$ \item $3^{2024}$ \item None.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 22}
+
 \addcontentsline{toc}{section}{Question 22}
+
+\noindent\textbf{Topic:} Microeconomics \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Two demand groups. Both stop at $p = 5$. Per Re.\ price decrease: student demand $+5$, professor demand $+10$. $MC = 1$. Who is charged more?
+
 \begin{enumerate}[label=(\Alph*)]
-\item Professors
-\item Students
-\item Same
-\item Insufficient info.
+\item Professors \item Students \item Same \item Insufficient info.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 23}
+
 \addcontentsline{toc}{section}{Question 23}
+
+\noindent\textbf{Topic:} Microeconomics \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Ready
+
+
+
 Bharat: linear demand, zero above $p=5$. Chinmayi: linear demand, zero above $p=10$. Market demand kink and flatness?
+
 \begin{enumerate}[label=(\Alph*)]
 \item Kink at Rs.~5, flatter to right.
 \item Kink at Rs.~5, flatter to left.
 \item Kink at Rs.~15, flatter to right.
 \item Kink at Rs.~15, flatter to left.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 24}
+
 \addcontentsline{toc}{section}{Question 24}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Income $= 200$. $p_B = 5$, $p_Y = 1$. $U = 4B + 2Y$. Plus a Rs.\ 50 gift card usable only on books.
 \begin{enumerate}[label=(\Alph*)]
 \item $10$ books, $200$ other goods.
@@ -344,25 +461,33 @@ Income $= 200$. $p_B = 5$, $p_Y = 1$. $U = 4B + 2Y$. Plus a Rs.\ 50 gift card us
 \item $20$ books, $150$ other goods.
 \item $40$ books, $0$ other goods.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 25}
+
 \addcontentsline{toc}{section}{Question 25}
+
+\noindent\textbf{Topic:} Public Goods \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 $MC = 25$. $5$ ``high'' people have $MB_H = 100 - 0.5Q$, $10$ ``low'' people have $MB_L = 50 - 0.25Q$. Max number of trees voluntarily provided with cost-sharing?
+
 \begin{enumerate}[label=(\Alph*)]
-\item $0$
-\item $100$
-\item $150$
-\item $195$
+\item $0$ \item $100$ \item $150$ \item $195$
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 26}
+
 \addcontentsline{toc}{section}{Question 26}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 $x \succ y$ iff (i) $x_a + x_b > y_a + y_b$, or (ii) $x_a + x_b = y_a + y_b$ and $x_a > y_a$. Which statements are true?
 
 \textbf{I.} $d_a = w/p_a$ if $p_a < p_b$. \quad
@@ -370,18 +495,21 @@ $x \succ y$ iff (i) $x_a + x_b > y_a + y_b$, or (ii) $x_a + x_b = y_a + y_b$ and
 \textbf{III.} $d_a = 0$ if $p_b \le p_a$. \quad
 \textbf{IV.} $d_b = w/p_b$ if $p_b < p_a$. \quad
 \textbf{V.} $d_b = 0$ if $p_b < p_a$.
+
 \begin{enumerate}[label=(\Alph*)]
-\item I and III
-\item II and III
-\item II and IV
-\item I and V
+\item I and III \item II and III \item II and IV \item I and V
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 27}
+
 \addcontentsline{toc}{section}{Question 27}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 Same setting as Q26. Are $d_a, d_b$ continuous in $(p_a, p_b)$?
 \begin{enumerate}[label=(\Alph*)]
 \item Both continuous.
@@ -389,38 +517,55 @@ Same setting as Q26. Are $d_a, d_b$ continuous in $(p_a, p_b)$?
 \item $d_a$ not continuous, $d_b$ continuous.
 \item Neither continuous.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 28}
+
 \addcontentsline{toc}{section}{Question 28}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Ready
+
+
+
 $U(x_1,x_2) = 4 x_1^2 + x_2^2$. Solve $\max U$ subject to $p_1 x_1 + p_2 x_2 = w$. Let $X(p_1, p_2, w)$ be the solution set. Which is true?
+
 \begin{enumerate}[label=(\Alph*)]
 \item $X(2,1,10)$ not convex.
 \item $X(6,3,30)$ convex.
 \item $X(1,1,10)$ not convex.
 \item $X(4,2,20)$ convex.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 29}
+
 \addcontentsline{toc}{section}{Question 29}
+
+\noindent\textbf{Topic:} Consumer Theory \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 $U(x,y) = \dfrac{x}{1+x} + y$, $p_x = p_y$. Then:
+
 \begin{enumerate}[label=(\Alph*)]
 \item $x > 0$, $y = 0$.
 \item $x = 0$, $y > 0$.
 \item $x > 0$, $y > 0$.
 \item $x = y = 0$.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
+\newpage
 
 \section*{Question 30}
+
 \addcontentsline{toc}{section}{Question 30}
+
+\noindent\textbf{Topic:} General Equilibrium \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Ready
+
+
+
 Two consumers, same preferences, same endowments. Strictly convex preferences. Then the economy has:
 \begin{enumerate}[label=(\Alph*)]
 \item No Pareto-efficient allocation.
@@ -428,7 +573,5 @@ Two consumers, same preferences, same endowments. Strictly convex preferences. T
 \item Exactly two Pareto-efficient allocations.
 \item Only one competitive equilibrium allocation.
 \end{enumerate}
-\vspace{0.35cm}
-\hrule
-\vspace{0.25cm}
+
 \end{document}
