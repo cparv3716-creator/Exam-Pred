@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "isi-msqe-pea-2026-q01",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 1,
+    "questionText": "Suppose $a$ and $b$ are positive integers that are relatively prime, and\n$\n\\frac{a}{b} \\;=\\; \\sum_{n=1}^{2026} \\frac{1}{n^2 + 15n + 56}.\n$\nThen the value of $a+b$ is",
+    "questionLatex": "Suppose $a$ and $b$ are positive integers that are relatively prime, and\n\\[\n\\frac{a}{b} \\;=\\; \\sum_{n=1}^{2026} \\frac{1}{n^2 + 15n + 56}.\n\\]\nThen the value of $a+b$ is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item 9149 \\item 9229 \\item 8189 \\item 11\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "9149",
+        "latex": "9149"
+      },
+      {
+        "label": "B",
+        "text": "9229",
+        "latex": "9229"
+      },
+      {
+        "label": "C",
+        "text": "8189",
+        "latex": "8189"
+      },
+      {
+        "label": "D",
+        "text": "11",
+        "latex": "11"
+      }
+    ],
+    "answer": "A",
+    "solution": "Factor the denominator:\n$\nn^2 + 15n + 56 \\;=\\; (n+7)(n+8).\n$\nPartial fractions give\n$\n\\frac{1}{(n+7)(n+8)} \\;=\\; \\frac{1}{n+7} - \\frac{1}{n+8}.\n$\nHence the sum telescopes:\n$\n\\sum_{n=1}^{2026}\\left(\\frac{1}{n+7} - \\frac{1}{n+8}\\right)\n= \\frac{1}{8} - \\frac{1}{2034}\n= \\frac{2034 - 8}{8 \\cdot 2034}\n= \\frac{2026}{16272}.\n$\nNow simplify $\\dfrac{2026}{16272}$. Since $2026 = 2 \\cdot 1013$ and $16272 = 2 \\cdot 8136$,\n$\n\\frac{2026}{16272} = \\frac{1013}{8136}.\n$\nWe verify $\\gcd(1013, 8136)=1$: $8136 = 2^3 \\cdot 3^2 \\cdot 113$, and $1013$ is prime\n(no prime factor up to $\\lfloor\\sqrt{1013}\\rfloor = 31$ divides it). Thus the fraction\nis already in lowest terms with $a = 1013$, $b = 8136$.\n\nTherefore\n$\na + b = 1013 + 8136 = 9149.\n$",
+    "topic": "Sequences and Series",
+    "subtopic": "Telescoping sum",
+    "concept": "partial fractions",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: A common error is to take $1/8 - 1/(N+8)$ with $N=2026$ but then forget to verify coprimality. The fraction $\\tfrac{2026}{16272}$ reduces by a factor of $2$ only. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q02",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 2,
+    "questionText": "If $x^2 - 3x + 1 = 0$, then the value of $\\left(x^4 + \\dfrac{1}{x^4}\\right)$ is",
+    "questionLatex": "If $x^2 - 3x + 1 = 0$, then the value of $\\left(x^4 + \\dfrac{1}{x^4}\\right)$ is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item 43 \\item 45 \\item 47 \\item 49\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "43",
+        "latex": "43"
+      },
+      {
+        "label": "B",
+        "text": "45",
+        "latex": "45"
+      },
+      {
+        "label": "C",
+        "text": "47",
+        "latex": "47"
+      },
+      {
+        "label": "D",
+        "text": "49",
+        "latex": "49"
+      }
+    ],
+    "answer": "C",
+    "solution": "From $x^2 - 3x + 1 = 0$ (and $x \\ne 0$, since the constant term is non-zero), divide by $x$:\n$\nx + \\frac{1}{x} = 3.\n$\nSquare:\n$\nx^2 + \\frac{1}{x^2} = \\left(x + \\tfrac{1}{x}\\right)^2 - 2 = 9 - 2 = 7.\n$\nSquare again:\n$\nx^4 + \\frac{1}{x^4} = \\left(x^2 + \\tfrac{1}{x^2}\\right)^2 - 2 = 49 - 2 = 47.\n$",
+    "topic": "Algebra",
+    "subtopic": "Symmetric expressions in $x$ and $1/x$",
+    "concept": "Symmetric expressions in $x$ and $1/x$",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q03",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 3,
+    "questionText": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ satisfy $f(x^3+1) = x^6 + 4x^3 + 8$ for all\n$x \\in \\mathbb{R}$. Then $\\displaystyle \\int_1^2 f(x)\\,dx$ equals",
+    "questionLatex": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ satisfy $f(x^3+1) = x^6 + 4x^3 + 8$ for all\n$x \\in \\mathbb{R}$. Then $\\displaystyle \\int_1^2 f(x)\\,dx$ equals\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\dfrac{29}{3}$ \\item $10$ \\item $11$ \\item $\\dfrac{31}{3}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\dfrac{29}{3}$",
+        "latex": "$\\dfrac{29}{3}$"
+      },
+      {
+        "label": "B",
+        "text": "$10$",
+        "latex": "$10$"
+      },
+      {
+        "label": "C",
+        "text": "$11$",
+        "latex": "$11$"
+      },
+      {
+        "label": "D",
+        "text": "$\\dfrac{31}{3}$",
+        "latex": "$\\dfrac{31}{3}$"
+      }
+    ],
+    "answer": "D",
+    "solution": "Set $u = x^3 + 1$, so $x^3 = u - 1$ and\n$\nf(u) = (u-1)^2 + 4(u-1) + 8 = u^2 - 2u + 1 + 4u - 4 + 8 = u^2 + 2u + 5.\n$\nTherefore\n$\n\\int_1^2 f(x)\\,dx = \\int_1^2 (x^2 + 2x + 5)\\,dx\n= \\left[\\frac{x^3}{3} + x^2 + 5x\\right]_1^2\n= \\left(\\tfrac{8}{3} + 4 + 10\\right) - \\left(\\tfrac{1}{3} + 1 + 5\\right)\n= \\tfrac{7}{3} + 8 = \\tfrac{31}{3}.\n$",
+    "topic": "Calculus",
+    "subtopic": "Definite integrals",
+    "concept": "substitution",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Setting $u = x^3 + 1$ is bijective on $\\mathbb{R}$, so $f$ is uniquely determined. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q04",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 4,
+    "questionText": "Determine the value of\n$\n\\int_0^2 |x^2 - 7x + 10|\\,dx.\n$",
+    "questionLatex": "Determine the value of\n\\[\n\\int_0^2 |x^2 - 7x + 10|\\,dx.\n\\]\n\\begin{enumerate}[label=(\\Alph*)]\n\\item 8 \\item 9 \\item $\\dfrac{26}{3}$ \\item $-\\dfrac{23}{3}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "8",
+        "latex": "8"
+      },
+      {
+        "label": "B",
+        "text": "9",
+        "latex": "9"
+      },
+      {
+        "label": "C",
+        "text": "$\\dfrac{26}{3}$",
+        "latex": "$\\dfrac{26}{3}$"
+      },
+      {
+        "label": "D",
+        "text": "$-\\dfrac{23}{3}$",
+        "latex": "$-\\dfrac{23}{3}$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Factor: $x^2 - 7x + 10 = (x-2)(x-5)$. On $[0,2]$, both factors satisfy\n$x-2 \\le 0$ and $x-5 < 0$, so their product is $\\ge 0$ on $[0,2]$ (with equality\nonly at $x=2$). Hence $|x^2 - 7x + 10| = x^2 - 7x + 10$ on $[0,2]$, and\n$\n\\int_0^2 (x^2 - 7x + 10)\\,dx\n= \\left[\\frac{x^3}{3} - \\frac{7x^2}{2} + 10x\\right]_0^2\n= \\frac{8}{3} - 14 + 20 = \\frac{8}{3} + 6 = \\frac{26}{3}.\n$",
+    "topic": "Calculus",
+    "subtopic": "Integral of an absolute value",
+    "concept": "Integral of an absolute value",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Verifying the sign of the quadratic on the interval is essential before dropping the absolute value. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q05",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 5,
+    "questionText": "Let $f:[0,1]\\to\\mathbb{R}$ be continuous with $\\displaystyle\\int_0^1 f(t)\\,dt = 1$, and let\n$\nP(x) = \\sum_{k=1}^n a_k x^k, \\qquad \\sum_{k=1}^n a_k = 1.\n$\nThen there exists $c \\in (0,1)$ such that",
+    "questionLatex": "Let $f:[0,1]\\to\\mathbb{R}$ be continuous with $\\displaystyle\\int_0^1 f(t)\\,dt = 1$, and let\n\\[\nP(x) = \\sum_{k=1}^n a_k x^k, \\qquad \\sum_{k=1}^n a_k = 1.\n\\]\nThen there exists $c \\in (0,1)$ such that\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $f(c) = 2\\sum_{k=1}^n a_k$\n\\item $f(c) = \\int_0^1 P(t)\\,dt$\n\\item $f(c) = P'(c)$\n\\item $f(c) = P(c)$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$f(c) = 2\\sum_{k=1}^n a_k$",
+        "latex": "$f(c) = 2\\sum_{k=1}^n a_k$"
+      },
+      {
+        "label": "B",
+        "text": "$f(c) = \\int_0^1 P(t)\\,dt$",
+        "latex": "$f(c) = \\int_0^1 P(t)\\,dt$"
+      },
+      {
+        "label": "C",
+        "text": "$f(c) = P'(c)$",
+        "latex": "$f(c) = P'(c)$"
+      },
+      {
+        "label": "D",
+        "text": "$f(c) = P(c)$",
+        "latex": "$f(c) = P(c)$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Define\n$\n\\Phi(x) \\;=\\; \\int_0^x f(t)\\,dt \\;-\\; P(x), \\qquad x \\in [0,1].\n$\nThen $\\Phi$ is continuous on $[0,1]$, differentiable on $(0,1)$, and\n$\n\\Phi(0) = 0 - P(0) = 0, \\qquad\n\\Phi(1) = \\int_0^1 f(t)\\,dt - P(1) = 1 - \\sum_{k=1}^n a_k = 1 - 1 = 0.\n$\nBy Rolle's theorem, there exists $c \\in (0,1)$ with $\\Phi'(c) = 0$, i.e.\n$\nf(c) - P'(c) = 0 \\quad\\Longleftrightarrow\\quad f(c) = P'(c).\n$",
+    "topic": "Real Analysis",
+    "subtopic": "Rolle's theorem applied to an antiderivative",
+    "concept": "Rolle's theorem applied to an antiderivative",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Note $P(0)=0$ because the sum starts at $k=1$. This is essential for $\\Phi(0)=0$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q06",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 6,
+    "questionText": "Let $f:[0,\\pi/4]\\to\\mathbb{R}$ be continuous. Then there exists $c\\in(0,\\pi/4)$ such that",
+    "questionLatex": "Let $f:[0,\\pi/4]\\to\\mathbb{R}$ be continuous. Then there exists $c\\in(0,\\pi/4)$ such that\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $f(c) = \\int_0^{\\pi/4} f(t)\\,dt$\n\\item $f(c) = 2\\cos(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$\n\\item $f(c) = \\sin(2c)$\n\\item $f(c) = \\sin(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$f(c) = \\int_0^{\\pi/4} f(t)\\,dt$",
+        "latex": "$f(c) = \\int_0^{\\pi/4} f(t)\\,dt$"
+      },
+      {
+        "label": "B",
+        "text": "$f(c) = 2\\cos(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$",
+        "latex": "$f(c) = 2\\cos(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$"
+      },
+      {
+        "label": "C",
+        "text": "$f(c) = \\sin(2c)$",
+        "latex": "$f(c) = \\sin(2c)$"
+      },
+      {
+        "label": "D",
+        "text": "$f(c) = \\sin(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$",
+        "latex": "$f(c) = \\sin(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Define\n$\nF(x) \\;=\\; \\int_0^x f(t)\\,dt, \\qquad G(x) \\;=\\; \\sin(2x), \\qquad x \\in [0,\\pi/4].\n$\nBoth are continuous on $[0,\\pi/4]$ and differentiable on $(0,\\pi/4)$ with\n$F'(x) = f(x)$ and $G'(x) = 2\\cos(2x)$. Moreover $G'(x) = 2\\cos(2x) \\neq 0$ on\n$(0,\\pi/4)$, since $0 < 2x < \\pi/2$ there.\n\nBy Cauchy's mean value theorem, there exists $c \\in (0,\\pi/4)$ such that\n$\n\\frac{F(\\pi/4) - F(0)}{G(\\pi/4) - G(0)} \\;=\\; \\frac{F'(c)}{G'(c)},\n$\ni.e.\n$\n\\frac{\\int_0^{\\pi/4} f(t)\\,dt}{\\sin(\\pi/2) - 0} \\;=\\; \\frac{f(c)}{2\\cos(2c)},\n$\nwhich simplifies to\n$\nf(c) \\;=\\; 2\\cos(2c)\\,\\int_0^{\\pi/4} f(t)\\,dt.\n$",
+    "topic": "Real Analysis",
+    "subtopic": "Cauchy mean value theorem",
+    "concept": "Cauchy mean value theorem",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The integral on the right is a constant; the $c$-dependence enters only through $\\cos(2c)$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q07",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 7,
+    "questionText": "Suppose $f:[a,b]\\to\\mathbb{R}$ is continuous and\n$\n\\int_a^x f(t)\\,dt \\;=\\; \\int_x^b f(t)\\,dt \\quad \\text{for all } x \\in [a,b].\n$\nThen $f(x)$ must be",
+    "questionLatex": "Suppose $f:[a,b]\\to\\mathbb{R}$ is continuous and\n\\[\n\\int_a^x f(t)\\,dt \\;=\\; \\int_x^b f(t)\\,dt \\quad \\text{for all } x \\in [a,b].\n\\]\nThen $f(x)$ must be\n\\begin{enumerate}[label=(\\Alph*)]\n\\item A non-zero constant\n\\item A linear function\n\\item Identically zero\n\\item An odd function about $\\dfrac{a+b}{2}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "A non-zero constant",
+        "latex": "A non-zero constant"
+      },
+      {
+        "label": "B",
+        "text": "A linear function",
+        "latex": "A linear function"
+      },
+      {
+        "label": "C",
+        "text": "Identically zero",
+        "latex": "Identically zero"
+      },
+      {
+        "label": "D",
+        "text": "An odd function about $\\dfrac{a+b}{2}$",
+        "latex": "An odd function about $\\dfrac{a+b}{2}$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Differentiate both sides with respect to $x$ using the fundamental theorem of calculus:\n$\n\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x), \\qquad\n\\frac{d}{dx}\\int_x^b f(t)\\,dt = -f(x).\n$\nHence $f(x) = -f(x)$, so $2f(x) = 0$, i.e.\\ $f(x) = 0$ for every $x \\in [a,b]$.",
+    "topic": "Real Analysis",
+    "subtopic": "FTC applied to an identity",
+    "concept": "FTC applied to an identity",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: An odd function about $\\tfrac{a+b}{2}$ would satisfy the identity only at the single point $x = \\tfrac{a+b}{2}$, not for all $x$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q08",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 8,
+    "questionText": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be a continuous odd function, vanishing exactly at one point and satisfying $f(1) = \\tfrac{1}{2}$. If\n$\n\\lim_{x\\to 1} \\frac{F(x)}{G(x)} = \\frac{1}{14},\n$\nwhere\n$\nF(x) = \\int_{-1}^{x} f(t)\\,dt, \\qquad G(x) = \\int_{-1}^{x} t\\,|f(f(t))|\\,dt,\n$\nthen the value of $f\\!\\left(\\tfrac{1}{2}\\right)$ is",
+    "questionLatex": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be a continuous odd function, vanishing exactly at one point and satisfying $f(1) = \\tfrac{1}{2}$. If\n\\[\n\\lim_{x\\to 1} \\frac{F(x)}{G(x)} = \\frac{1}{14},\n\\]\nwhere\n\\[\nF(x) = \\int_{-1}^{x} f(t)\\,dt, \\qquad G(x) = \\int_{-1}^{x} t\\,|f(f(t))|\\,dt,\n\\]\nthen the value of $f\\!\\left(\\tfrac{1}{2}\\right)$ is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\dfrac{1}{7}$ \\item $7$ \\item $-7$ \\item $\\dfrac{7}{2}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\dfrac{1}{7}$",
+        "latex": "$\\dfrac{1}{7}$"
+      },
+      {
+        "label": "B",
+        "text": "$7$",
+        "latex": "$7$"
+      },
+      {
+        "label": "C",
+        "text": "$-7$",
+        "latex": "$-7$"
+      },
+      {
+        "label": "D",
+        "text": "$\\dfrac{7}{2}$",
+        "latex": "$\\dfrac{7}{2}$"
+      }
+    ],
+    "answer": "B",
+    "solution": "\\textbf{Both numerator and denominator vanish at $x=1$.}\nSince $f$ is odd, $\\int_{-1}^{1} f(t)\\,dt = 0$, so $F(1) = 0$.\nFor $G(1)$, note that $f$ odd implies $f(f(-t)) = f(-f(t)) = -f(f(t))$, so\n$|f(f(\\cdot))|$ is even. Hence $t\\,|f(f(t))|$ is an odd function of $t$, and\n$\nG(1) = \\int_{-1}^{1} t\\,|f(f(t))|\\,dt = 0.\n$\nThus the limit is of indeterminate form $0/0$, and by L'H\\^opital's rule:\n$\n\\frac{1}{14} = \\lim_{x\\to 1} \\frac{F'(x)}{G'(x)}\n= \\lim_{x\\to 1} \\frac{f(x)}{x\\,|f(f(x))|}\n= \\frac{f(1)}{1\\cdot |f(f(1))|}\n= \\frac{1/2}{|f(1/2)|}.\n$\nTherefore $|f(1/2)| = 14 \\cdot \\tfrac{1}{2} = 7$.\n\n\\textbf{Determining the sign.}\nSince $f$ is continuous and vanishes only at one point, and $f$ odd implies\n$f(0)=0$, that single zero must be at $0$. Thus $f$ has constant sign on\n$(0,\\infty)$. From $f(1) = \\tfrac{1}{2} > 0$, we conclude $f > 0$ on $(0,\\infty)$,\nso $f(1/2) > 0$, giving $f(1/2) = 7$.",
+    "topic": "Calculus",
+    "subtopic": "L'H\\^opital's rule",
+    "concept": "symmetry of odd functions",
+    "difficulty": "Hard",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The symmetry argument is the key step: without it the denominator $G(1)$ does not obviously vanish and L'H\\^opital cannot be applied. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q09",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 9,
+    "questionText": "If the correlation between $X$ and $Y$ is zero, then which of the following is always true?",
+    "questionLatex": "If the correlation between $X$ and $Y$ is zero, then which of the following is always true?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item They are independent\n\\item There is no linear relationship\n\\item They cannot be functionally related\n\\item All of the above\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "They are independent",
+        "latex": "They are independent"
+      },
+      {
+        "label": "B",
+        "text": "There is no linear relationship",
+        "latex": "There is no linear relationship"
+      },
+      {
+        "label": "C",
+        "text": "They cannot be functionally related",
+        "latex": "They cannot be functionally related"
+      },
+      {
+        "label": "D",
+        "text": "All of the above",
+        "latex": "All of the above"
+      }
+    ],
+    "answer": "B",
+    "solution": "Zero correlation is by definition the absence of any linear association.\nCounterexamples eliminate the other options:\n\n- Zero correlation does not imply independence (e.g.\\ $Y = X^2$ with $X$ symmetric about $0$ yields zero correlation but $X, Y$ are dependent).\n- In the same example, $X$ and $Y$ are functionally related.\n\nThus only ``no linear relationship'' is always true.",
+    "topic": "Statistics",
+    "subtopic": "Interpretation of zero correlation",
+    "concept": "Interpretation of zero correlation",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: ``Uncorrelated'' is strictly weaker than ``independent'' except for jointly Gaussian variables. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q10",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 10,
+    "questionText": "In simple linear regression $Y = a + bX$, the least squares line based on $n$ data points always passes through",
+    "questionLatex": "In simple linear regression $Y = a + bX$, the least squares line based on $n$ data points always passes through\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $(0,0)$\n\\item $\\left(\\tfrac{1}{n}, \\tfrac{1}{n}\\right)$\n\\item $(1,1)$\n\\item None of the previous\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$(0,0)$",
+        "latex": "$(0,0)$"
+      },
+      {
+        "label": "B",
+        "text": "$\\left(\\tfrac{1}{n}, \\tfrac{1}{n}\\right)$",
+        "latex": "$\\left(\\tfrac{1}{n}, \\tfrac{1}{n}\\right)$"
+      },
+      {
+        "label": "C",
+        "text": "$(1,1)$",
+        "latex": "$(1,1)$"
+      },
+      {
+        "label": "D",
+        "text": "None of the previous",
+        "latex": "None of the previous"
+      }
+    ],
+    "answer": "D",
+    "solution": "The OLS line always passes through the point $(\\bar{X}, \\bar{Y})$, the sample means\nof $X$ and $Y$. None of the offered points coincides with $(\\bar{X}, \\bar{Y})$ in general.",
+    "topic": "Regression",
+    "subtopic": "OLS passes through the mean point",
+    "concept": "OLS passes through the mean point",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q11",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 11,
+    "questionText": "Given sample size $n$, reducing the significance level $\\alpha$",
+    "questionLatex": "Given sample size $n$, reducing the significance level $\\alpha$\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Increases Type I error\n\\item Decreases Type II error\n\\item Increases power\n\\item Decreases power\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Increases Type I error",
+        "latex": "Increases Type I error"
+      },
+      {
+        "label": "B",
+        "text": "Decreases Type II error",
+        "latex": "Decreases Type II error"
+      },
+      {
+        "label": "C",
+        "text": "Increases power",
+        "latex": "Increases power"
+      },
+      {
+        "label": "D",
+        "text": "Decreases power",
+        "latex": "Decreases power"
+      }
+    ],
+    "answer": "D",
+    "solution": "By definition $\\alpha = P(\\text{Type I})$, so smaller $\\alpha$ means fewer Type I\nerrors. For a fixed $n$, the rejection region shrinks, increasing the probability\nof failing to reject the null when it is false, i.e.\\ Type II error $\\beta$ rises\nand power $1-\\beta$ falls.",
+    "topic": "Hypothesis Testing",
+    "subtopic": "Trade-off between $\\alpha$ and power",
+    "concept": "Trade-off between $\\alpha$ and power",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Power can only be raised (for fixed effect size) by increasing $n$ or $\\alpha$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q12",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 12,
+    "questionText": "If $X \\sim \\text{Bernoulli}(p)$, then $E(X^2)$ equals",
+    "questionLatex": "If $X \\sim \\text{Bernoulli}(p)$, then $E(X^2)$ equals\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $p^2$ \\item $p$ \\item $p(1-p)$ \\item $p + p^2$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$p^2$",
+        "latex": "$p^2$"
+      },
+      {
+        "label": "B",
+        "text": "$p$",
+        "latex": "$p$"
+      },
+      {
+        "label": "C",
+        "text": "$p(1-p)$",
+        "latex": "$p(1-p)$"
+      },
+      {
+        "label": "D",
+        "text": "$p + p^2$",
+        "latex": "$p + p^2$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Since $X \\in \\{0,1\\}$, we have $X^2 = X$, hence $E(X^2) = E(X) = p$.",
+    "topic": "Random Variables",
+    "subtopic": "Moments of a Bernoulli variable",
+    "concept": "Moments of a Bernoulli variable",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Note $\\operatorname{Var}(X) = p(1-p) = E(X^2) - (E X)^2$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q13",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 13,
+    "questionText": "For $X_1, \\dots, X_n \\sim \\text{Poisson}(\\lambda)$ (i.i.d.), which is unbiased for $\\lambda^2$?",
+    "questionLatex": "For $X_1, \\dots, X_n \\sim \\text{Poisson}(\\lambda)$ (i.i.d.), which is unbiased for $\\lambda^2$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\bar{X}^2$\n\\item $\\bar{X}$\n\\item $\\bar{X}^2 - \\dfrac{\\bar{X}}{n}$\n\\item $\\bar{X}^2 - \\bar{X}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\bar{X}^2$",
+        "latex": "$\\bar{X}^2$"
+      },
+      {
+        "label": "B",
+        "text": "$\\bar{X}$",
+        "latex": "$\\bar{X}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\bar{X}^2 - \\dfrac{\\bar{X}}{n}$",
+        "latex": "$\\bar{X}^2 - \\dfrac{\\bar{X}}{n}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\bar{X}^2 - \\bar{X}$",
+        "latex": "$\\bar{X}^2 - \\bar{X}$"
+      }
+    ],
+    "answer": "D",
+    "solution": "For Poisson, $E(\\bar{X}) = \\lambda$ and $\\operatorname{Var}(\\bar{X}) = \\lambda/n$. Therefore\n$\nE(\\bar{X}^2) = \\operatorname{Var}(\\bar{X}) + (E\\bar{X})^2 = \\frac{\\lambda}{n} + \\lambda^2.\n$\nConsequently\n$\nE\\!\\left(\\bar{X}^2 - \\frac{\\bar{X}}{n}\\right)\n= \\frac{\\lambda}{n} + \\lambda^2 - \\frac{\\lambda}{n}\n= \\lambda^2.\n$\nHence $\\bar{X}^2 - \\bar{X}/n$ is unbiased for $\\lambda^2$.",
+    "topic": "Statistics",
+    "subtopic": "Unbiased estimation for Poisson",
+    "concept": "Unbiased estimation for Poisson",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Option (D)-correction subtracts $\\bar X/n$, \\emph{not} $\\bar X$. The bias of $\\bar X^2$ is $\\lambda/n$, not $\\lambda$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q14",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 14,
+    "questionText": "A dataset consists of $9$ observations arranged in increasing order\n$x_1 \\le x_2 \\le \\cdots \\le x_9$ with mean $20$ and median $18$. If $x_9$ is\nreplaced by a very large number, which must be true?",
+    "questionLatex": "A dataset consists of $9$ observations arranged in increasing order\n$x_1 \\le x_2 \\le \\cdots \\le x_9$ with mean $20$ and median $18$. If $x_9$ is\nreplaced by a very large number, which must be true?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Both the mean and the median increase\n\\item The mean increases but the median remains unchanged\n\\item The median increases but the mean remains unchanged\n\\item Both the mean and the median remain unchanged\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Both the mean and the median increase",
+        "latex": "Both the mean and the median increase"
+      },
+      {
+        "label": "B",
+        "text": "The mean increases but the median remains unchanged",
+        "latex": "The mean increases but the median remains unchanged"
+      },
+      {
+        "label": "C",
+        "text": "The median increases but the mean remains unchanged",
+        "latex": "The median increases but the mean remains unchanged"
+      },
+      {
+        "label": "D",
+        "text": "Both the mean and the median remain unchanged",
+        "latex": "Both the mean and the median remain unchanged"
+      }
+    ],
+    "answer": "B",
+    "solution": "The median of $9$ ordered observations is $x_5$, which is unaffected by changing\nthe largest observation $x_9$ (the ordering is preserved). The mean equals the\nsum divided by $9$, so increasing $x_9$ raises the sum and hence the mean.",
+    "topic": "Descriptive Statistics",
+    "subtopic": "Robustness of median vs.\\ mean",
+    "concept": "Robustness of median vs.\\ mean",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The median is robust to extreme values; the mean is not. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q15",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 15,
+    "questionText": "A restaurant has $60\\%$ vegetarian customers (of whom $30\\%$ order dessert) and\n$40\\%$ non-vegetarian (of whom $50\\%$ order dessert). Given that a randomly\nselected customer ordered dessert, what is the probability they ordered vegetarian?",
+    "questionLatex": "A restaurant has $60\\%$ vegetarian customers (of whom $30\\%$ order dessert) and\n$40\\%$ non-vegetarian (of whom $50\\%$ order dessert). Given that a randomly\nselected customer ordered dessert, what is the probability they ordered vegetarian?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0.375$ \\item $0.474$ \\item $0.600$ \\item $0.750$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0.375$",
+        "latex": "$0.375$"
+      },
+      {
+        "label": "B",
+        "text": "$0.474$",
+        "latex": "$0.474$"
+      },
+      {
+        "label": "C",
+        "text": "$0.600$",
+        "latex": "$0.600$"
+      },
+      {
+        "label": "D",
+        "text": "$0.750$",
+        "latex": "$0.750$"
+      }
+    ],
+    "answer": "B",
+    "solution": "By Bayes' theorem\n$\nP(V \\mid D) = \\frac{P(D \\mid V)\\,P(V)}{P(D \\mid V) P(V) + P(D \\mid V^c) P(V^c)}\n= \\frac{0.3 \\cdot 0.6}{0.3 \\cdot 0.6 + 0.5 \\cdot 0.4}\n= \\frac{0.18}{0.38}\n= \\frac{9}{19} \\approx 0.474.\n$",
+    "topic": "Probability",
+    "subtopic": "Bayes' rule",
+    "concept": "Bayes' rule",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q16",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 16,
+    "questionText": "Suppose preferences are represented by $u(x,y) = x - \\ln y$ for $x,y > 0$. Then the underlying preference relation must be",
+    "questionLatex": "Suppose preferences are represented by $u(x,y) = x - \\ln y$ for $x,y > 0$. Then the underlying preference relation must be\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Incomplete\n\\item Complete but intransitive\n\\item Complete and transitive but discontinuous\n\\item Complete, transitive and continuous but not convex\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Incomplete",
+        "latex": "Incomplete"
+      },
+      {
+        "label": "B",
+        "text": "Complete but intransitive",
+        "latex": "Complete but intransitive"
+      },
+      {
+        "label": "C",
+        "text": "Complete and transitive but discontinuous",
+        "latex": "Complete and transitive but discontinuous"
+      },
+      {
+        "label": "D",
+        "text": "Complete, transitive and continuous but not convex",
+        "latex": "Complete, transitive and continuous but not convex"
+      }
+    ],
+    "answer": "D",
+    "solution": "Since $u$ is a real-valued function on $\\mathbb{R}_{++}^2$, the induced\npreference is automatically \\emph{complete} and \\emph{transitive}. Since $u$ is\ncontinuous, the preference is \\emph{continuous}.\n\n\\emph{Convexity.} The upper contour set is\n$\n\\{(x,y): x - \\ln y \\ge c\\} = \\{(x,y): x \\ge c + \\ln y\\}.\n$\nThe boundary $x = c + \\ln y$ is \\emph{concave} in $y$ (second derivative\n$-1/y^2 < 0$), so the region lying \\emph{above} it is not a convex set.\nEquivalently, the Hessian\n$\n\\nabla^2 u = \\begin{pmatrix} 0 & 0 \\\\ 0 & 1/y^2 \\end{pmatrix}\n$\nis positive semidefinite, not negative semidefinite, so $u$ is convex (not concave) in $y$ and the preference fails to be convex.\n\nHence the preference is complete, transitive, continuous, but not convex.",
+    "topic": "Consumer Theory",
+    "subtopic": "Properties of preferences",
+    "concept": "Properties of preferences",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Note that $y$ enters the utility with a \\emph{negative} sign through $-\\ln y$; so the good $y$ is a ``bad'' here, and indifference curves slope the wrong way for convexity. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q17",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 17,
+    "questionText": "Suppose there are two agents $A$ and $B$ with utilities\n$\nu_A = x_A + y_A - \\tfrac{m}{2}(x_A - y_A)^2, \\qquad u_B = x_B + y_B,\n$\nwhere $x_i$ and $y_i$ are the amounts of goods $X$ and $Y$ consumed by agent\n$i \\in \\{A,B\\}$. The total endowments are $x$ and $y$. Initially $A$ owns the\nentire endowment of $Y$ and $B$ owns the entire endowment of $X$. Then $A$ will\nvoluntarily transfer a positive amount of $Y$ to $B$ if",
+    "questionLatex": "Suppose there are two agents $A$ and $B$ with utilities\n\\[\nu_A = x_A + y_A - \\tfrac{m}{2}(x_A - y_A)^2, \\qquad u_B = x_B + y_B,\n\\]\nwhere $x_i$ and $y_i$ are the amounts of goods $X$ and $Y$ consumed by agent\n$i \\in \\{A,B\\}$. The total endowments are $x$ and $y$. Initially $A$ owns the\nentire endowment of $Y$ and $B$ owns the entire endowment of $X$. Then $A$ will\nvoluntarily transfer a positive amount of $Y$ to $B$ if\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $m > 0$ \\item $m < 0$ \\item $y > 2$ \\item $my > \\dfrac{1}{2}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$m > 0$",
+        "latex": "$m > 0$"
+      },
+      {
+        "label": "B",
+        "text": "$m < 0$",
+        "latex": "$m < 0$"
+      },
+      {
+        "label": "C",
+        "text": "$y > 2$",
+        "latex": "$y > 2$"
+      },
+      {
+        "label": "D",
+        "text": "$my > \\dfrac{1}{2}$",
+        "latex": "$my > \\dfrac{1}{2}$"
+      }
+    ],
+    "answer": "A",
+    "solution": "Compute $A$'s marginal rate of substitution at the endowment $(x_A, y_A) = (0, y)$:\n$\n\\frac{\\partial u_A}{\\partial x_A} = 1 - m(x_A - y_A), \\qquad\n\\frac{\\partial u_A}{\\partial y_A} = 1 + m(x_A - y_A).\n$\nAt $(0,y)$:\n$\n\\text{MRS}^A_{x,y}\n= \\frac{\\partial u_A/\\partial x_A}{\\partial u_A/\\partial y_A}\n= \\frac{1 + my}{1 - my}.\n$\nAgent $B$'s utility is linear with $\\text{MRS}^B_{x,y} = 1$.\n\nFor $A$ to voluntarily transfer $Y$ to $B$ in exchange for $X$ (so that both\nagents are made strictly better off), $A$ must value $X$ relative to $Y$ more\nthan $B$ does at the endowment, i.e.\n$\n\\text{MRS}^A_{x,y} > \\text{MRS}^B_{x,y} \\;=\\; 1.\n$\nAssuming $1 - my > 0$ (so that marginal utilities are positive at the endowment),\n$\n\\frac{1+my}{1-my} > 1 \\quad\\Longleftrightarrow\\quad 1 + my > 1 - my\n\\quad\\Longleftrightarrow\\quad my > 0.\n$\nSince the endowment $y > 0$, this reduces to $m > 0$.",
+    "topic": "General Equilibrium",
+    "subtopic": "Exchange economy",
+    "concept": "gains from trade",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "draft",
+    "needsReview": true,
+    "reviewNotes": "Note: The condition is on the \\emph{sign} of $m$, not on its magnitude relative to $y$, because the relevant comparison is between $A$'s MRS at the endowment and $B$'s constant MRS of unity. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q18",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 18,
+    "questionText": "Two agents $A$ and $B$ have utilities\n$\nu_A = x_A + y, \\qquad u_B = 2x_B + y,\n$\nwhere $x_A, x_B$ are amounts of a private good and $y$ is the amount of a public\ngood. Production satisfies $y + m(x_A + x_B) = 1$, with $m \\in (0,1)$. Suppose a\nsocial planner decides that one unit should be produced. For what value of $m$\nwill the resulting allocation be Pareto optimal?",
+    "questionLatex": "Two agents $A$ and $B$ have utilities\n\\[\nu_A = x_A + y, \\qquad u_B = 2x_B + y,\n\\]\nwhere $x_A, x_B$ are amounts of a private good and $y$ is the amount of a public\ngood. Production satisfies $y + m(x_A + x_B) = 1$, with $m \\in (0,1)$. Suppose a\nsocial planner decides that one unit should be produced. For what value of $m$\nwill the resulting allocation be Pareto optimal?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\dfrac{4}{5}$ \\item $\\dfrac{4}{7}$ \\item $\\dfrac{4}{9}$ \\item $\\dfrac{4}{11}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\dfrac{4}{5}$",
+        "latex": "$\\dfrac{4}{5}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\dfrac{4}{7}$",
+        "latex": "$\\dfrac{4}{7}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\dfrac{4}{9}$",
+        "latex": "$\\dfrac{4}{9}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\dfrac{4}{11}$",
+        "latex": "$\\dfrac{4}{11}$"
+      }
+    ],
+    "answer": "",
+    "solution": "Marginal rates of substitution between the public good $y$ and the private good are\n$\n\\text{MRS}^A_{y,x} = \\frac{\\partial u_A/\\partial y}{\\partial u_A/\\partial x_A} = 1,\n\\qquad\n\\text{MRS}^B_{y,x} = \\frac{\\partial u_B/\\partial y}{\\partial u_B/\\partial x_B} = \\tfrac{1}{2}.\n$\nThe marginal rate of transformation between $y$ and the private good, from\n$y + m(x_A + x_B) = 1$, is $\\text{MRT}_{y,x} = \\tfrac{1}{m}$ (units of private\ngood required per additional unit of public good).\n\nThe Samuelson condition for Pareto optimality with a public good is\n$\n\\text{MRS}^A_{y,x} + \\text{MRS}^B_{y,x} \\;=\\; \\text{MRT}_{y,x},\n$\nwhich yields\n$\n1 + \\tfrac{1}{2} = \\tfrac{1}{m} \\quad\\Longrightarrow\\quad m = \\tfrac{2}{3}.\n$\nThis value is not among the options listed. Given the printed answer choices\n$\\{4/5, 4/7, 4/9, 4/11\\}$, the question as transcribed is internally inconsistent\nwith the standard Samuelson criterion, so the problem statement (in particular\nthe utility specifications or the production technology) is flagged for review.",
+    "topic": "Public Goods",
+    "subtopic": "Samuelson condition",
+    "concept": "Samuelson condition",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "draft",
+    "needsReview": true,
+    "reviewNotes": "Final answer option not clear. | Note: The transcribed utilities yield $m = 2/3$, which does not appear among the options. Until the original problem statement (utility functions and/or production technology) is verified, the correct option cannot be uniquely determined. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q19",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 19,
+    "questionText": "Three consumers with valuations $v_A, v_B, v_C$ each wish to buy one unit. The\nmonopolist has zero marginal cost and knows the valuations but must charge a\nuniform price. It is given that\n$\n\\frac{7 v_B}{6} > v_A > v_B > \\frac{8 v_C}{5} > 0.\n$\nThe profit-maximising price is",
+    "questionLatex": "Three consumers with valuations $v_A, v_B, v_C$ each wish to buy one unit. The\nmonopolist has zero marginal cost and knows the valuations but must charge a\nuniform price. It is given that\n\\[\n\\frac{7 v_B}{6} > v_A > v_B > \\frac{8 v_C}{5} > 0.\n\\]\nThe profit-maximising price is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $v_A$ \\item $v_B$ \\item $v_C$ \\item Something in $(v_C, v_B)$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$v_A$",
+        "latex": "$v_A$"
+      },
+      {
+        "label": "B",
+        "text": "$v_B$",
+        "latex": "$v_B$"
+      },
+      {
+        "label": "C",
+        "text": "$v_C$",
+        "latex": "$v_C$"
+      },
+      {
+        "label": "D",
+        "text": "Something in $(v_C, v_B)$",
+        "latex": "Something in $(v_C, v_B)$"
+      }
+    ],
+    "answer": "B",
+    "solution": "The monopolist's optimum lies at one of the buyers' valuations (any higher price\nloses an additional buyer without gain, any lower price wastes surplus). Profit at each:\n\n- Price $v_A$: only $A$ buys, profit $= v_A$.\n- Price $v_B$: $A$ and $B$ buy, profit $= 2 v_B$.\n- Price $v_C$: all three buy, profit $= 3 v_C$.\n\nCompare:\n$\n2 v_B \\;\\;\\text{vs}\\;\\; v_A: \\quad v_A < \\tfrac{7 v_B}{6} < 2 v_B,\n\\quad\\text{so}\\quad 2 v_B > v_A.\n$\n$\n2 v_B \\;\\;\\text{vs}\\;\\; 3 v_C: \\quad v_B > \\tfrac{8 v_C}{5},\n\\quad\\text{so}\\quad 2 v_B > \\tfrac{16}{5} v_C > 3 v_C.\n$\nThus charging $v_B$ yields the highest profit.",
+    "topic": "Market Structure",
+    "subtopic": "Monopoly with discrete buyers",
+    "concept": "Monopoly with discrete buyers",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The two inequalities $7v_B/6 > v_A$ and $5 v_B > 8 v_C$ are precisely what is needed for $v_B$ to dominate both alternatives. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q20",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 20,
+    "questionText": "$n$ agents simultaneously choose private consumption $x_i$ and public-good\ncontribution $y_i$ to maximise\n$\nu_i = x_i\\, \\Big(\\sum_{j=1}^n y_j\\Big),\n$\nsubject to $x_i + y_i = b$, $x_i, y_i \\ge 0$. As $n$ increases, the total Nash\nequilibrium expenditure on the public good",
+    "questionLatex": "$n$ agents simultaneously choose private consumption $x_i$ and public-good\ncontribution $y_i$ to maximise\n\\[\nu_i = x_i\\, \\Big(\\sum_{j=1}^n y_j\\Big),\n\\]\nsubject to $x_i + y_i = b$, $x_i, y_i \\ge 0$. As $n$ increases, the total Nash\nequilibrium expenditure on the public good\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Remains invariant\n\\item Monotonically increases and approaches $b$\n\\item Approaches $\\dfrac{b}{n}$\n\\item Monotonically decreases and approaches $0$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Remains invariant",
+        "latex": "Remains invariant"
+      },
+      {
+        "label": "B",
+        "text": "Monotonically increases and approaches $b$",
+        "latex": "Monotonically increases and approaches $b$"
+      },
+      {
+        "label": "C",
+        "text": "Approaches $\\dfrac{b}{n}$",
+        "latex": "Approaches $\\dfrac{b}{n}$"
+      },
+      {
+        "label": "D",
+        "text": "Monotonically decreases and approaches $0$",
+        "latex": "Monotonically decreases and approaches $0$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Let $Y_{-i} = \\sum_{j\\ne i} y_j$. Agent $i$ chooses $y_i \\in [0,b]$ to maximise\n$\nu_i = (b - y_i)(y_i + Y_{-i}).\n$\nThe FOC is\n$\n-(y_i + Y_{-i}) + (b - y_i) = 0 \\quad\\Longrightarrow\\quad y_i = \\frac{b - Y_{-i}}{2}.\n$\nAt a symmetric equilibrium $y_i = y^*$ and $Y_{-i} = (n-1) y^*$:\n$\ny^* = \\frac{b - (n-1) y^*}{2} \\quad\\Longrightarrow\\quad (n+1) y^* = b\n\\quad\\Longrightarrow\\quad y^* = \\frac{b}{n+1}.\n$\nTherefore total public-good expenditure is\n$\nY \\;=\\; n y^* \\;=\\; \\frac{n b}{n + 1}.\n$\nThe map $n \\mapsto \\dfrac{n}{n+1}$ is strictly increasing and approaches $1$ as\n$n\\to\\infty$. Hence $Y$ monotonically increases and approaches $b$.",
+    "topic": "Game Theory",
+    "subtopic": "Voluntary contribution to a public good",
+    "concept": "symmetric Nash equilibrium",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Per-capita contribution $b/(n+1)$ shrinks, but it shrinks slower than $1/n$, so the aggregate grows. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q21",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 21,
+    "questionText": "$A$ and $B$ are neighbours; the snow plough cannot clear in front of $A$'s house\nwithout clearing in front of $B$'s. Inverse demands are $P_A = 12 - q$,\n$P_B = 8 - q$. Marginal cost is $16$. What is the efficient level of provision?",
+    "questionLatex": "$A$ and $B$ are neighbours; the snow plough cannot clear in front of $A$'s house\nwithout clearing in front of $B$'s. Inverse demands are $P_A = 12 - q$,\n$P_B = 8 - q$. Marginal cost is $16$. What is the efficient level of provision?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $6$ \\item $4$ \\item $2$ \\item $1$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "B",
+        "text": "$4$",
+        "latex": "$4$"
+      },
+      {
+        "label": "C",
+        "text": "$2$",
+        "latex": "$2$"
+      },
+      {
+        "label": "D",
+        "text": "$1$",
+        "latex": "$1$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Since the service is non-rival between $A$ and $B$, vertical summation gives\nthe aggregate marginal willingness to pay:\n$\nP_A + P_B \\;=\\; (12 - q) + (8 - q) \\;=\\; 20 - 2q.\n$\nEfficiency requires $\\sum P_i = \\text{MC}$:\n$\n20 - 2q \\;=\\; 16 \\quad\\Longrightarrow\\quad q^* \\;=\\; 2.\n$",
+    "topic": "Public Goods",
+    "subtopic": "Vertical summation of demand",
+    "concept": "Samuelson condition",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: For a public good, demands are summed \\emph{vertically} (prices summed at each quantity), not horizontally. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q22",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 22,
+    "questionText": "A lump-sum tax of $\\mathrm{Rs.}\\,1$ is paid by the buyer per unit of a competitive good.\nThe price paid by buyers rises by $80$ paise. Then",
+    "questionLatex": "A lump-sum tax of $\\mathrm{Rs.}\\,1$ is paid by the buyer per unit of a competitive good.\nThe price paid by buyers rises by $80$ paise. Then\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Demand must be perfectly elastic\n\\item Demand must be perfectly inelastic\n\\item Demand and supply elasticities must both be positive but finite\n\\item Supply must be perfectly elastic\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Demand must be perfectly elastic",
+        "latex": "Demand must be perfectly elastic"
+      },
+      {
+        "label": "B",
+        "text": "Demand must be perfectly inelastic",
+        "latex": "Demand must be perfectly inelastic"
+      },
+      {
+        "label": "C",
+        "text": "Demand and supply elasticities must both be positive but finite",
+        "latex": "Demand and supply elasticities must both be positive but finite"
+      },
+      {
+        "label": "D",
+        "text": "Supply must be perfectly elastic",
+        "latex": "Supply must be perfectly elastic"
+      }
+    ],
+    "answer": "C",
+    "solution": "With elasticities $\\varepsilon_D, \\varepsilon_S$ (positive numbers), the share of\nthe tax borne by buyers is\n$\n\\frac{\\varepsilon_S}{\\varepsilon_S + \\varepsilon_D}.\n$\nWe are told this share equals $0.8$.\n\n- Perfectly elastic demand ($\\varepsilon_D = \\infty$) gives buyer share $0$. Rules out (A).\n- Perfectly inelastic demand ($\\varepsilon_D = 0$) gives buyer share $1$. Rules out (B).\n- Perfectly elastic supply ($\\varepsilon_S = \\infty$) gives buyer share $1$. Rules out (D).\n\nA buyer share strictly between $0$ and $1$ requires both elasticities to be\npositive and finite.",
+    "topic": "Microeconomics",
+    "subtopic": "Tax incidence",
+    "concept": "Tax incidence",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The incidence formula uses absolute elasticities; the buyer share is decreasing in $\\varepsilon_D$ and increasing in $\\varepsilon_S$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q23",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 23,
+    "questionText": "A consumer always spends one-fourth of income on $X$, and the income elasticity of demand for $X$ is $5$. Is $Y$ inferior?",
+    "questionLatex": "A consumer always spends one-fourth of income on $X$, and the income elasticity of demand for $X$ is $5$. Is $Y$ inferior?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Yes \\item No\n\\item $Y$ is inferior iff $p_Y \\ge 2 p_X$\n\\item $Y$ is inferior iff $p_Y \\le p_X/2$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Yes",
+        "latex": "Yes"
+      },
+      {
+        "label": "B",
+        "text": "No",
+        "latex": "No"
+      },
+      {
+        "label": "C",
+        "text": "$Y$ is inferior iff $p_Y \\ge 2 p_X$",
+        "latex": "$Y$ is inferior iff $p_Y \\ge 2 p_X$"
+      },
+      {
+        "label": "D",
+        "text": "$Y$ is inferior iff $p_Y \\le p_X/2$",
+        "latex": "$Y$ is inferior iff $p_Y \\le p_X/2$"
+      }
+    ],
+    "answer": "A",
+    "solution": "Let $s_X = 1/4$ and $s_Y = 3/4$ be the budget shares. Engel aggregation states\nthat the share-weighted sum of income elasticities equals $1$:\n$\ns_X\\, \\eta_X + s_Y\\, \\eta_Y = 1.\n$\nSubstituting $s_X = 1/4$, $\\eta_X = 5$, $s_Y = 3/4$:\n$\n\\tfrac{1}{4}\\cdot 5 + \\tfrac{3}{4}\\,\\eta_Y = 1 \\quad\\Longrightarrow\\quad\n\\tfrac{3}{4}\\,\\eta_Y = -\\tfrac{1}{4} \\quad\\Longrightarrow\\quad \\eta_Y = -\\tfrac{1}{3} < 0.\n$\nA negative income elasticity means $Y$ is inferior, irrespective of prices.",
+    "topic": "Consumer Theory",
+    "subtopic": "Engel aggregation",
+    "concept": "Engel aggregation",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Engel aggregation follows from differentiating the budget identity with respect to income. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q24",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 24,
+    "questionText": "Half the total quantity is purchased by $75$ consumers each with price elasticity\n$2$, and the other half by $25$ consumers each with price elasticity $3$. What is\nthe aggregate price elasticity for the $100$ consumers?",
+    "questionLatex": "Half the total quantity is purchased by $75$ consumers each with price elasticity\n$2$, and the other half by $25$ consumers each with price elasticity $3$. What is\nthe aggregate price elasticity for the $100$ consumers?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Cannot be determined \\item $2.25$ \\item $2.5$ \\item $2.75$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Cannot be determined",
+        "latex": "Cannot be determined"
+      },
+      {
+        "label": "B",
+        "text": "$2.25$",
+        "latex": "$2.25$"
+      },
+      {
+        "label": "C",
+        "text": "$2.5$",
+        "latex": "$2.5$"
+      },
+      {
+        "label": "D",
+        "text": "$2.75$",
+        "latex": "$2.75$"
+      }
+    ],
+    "answer": "C",
+    "solution": "The market elasticity is the quantity-share-weighted average of group elasticities. With each group accounting for $50\\%$ of the quantity:\n$\n\\varepsilon = \\tfrac{1}{2}\\cdot 2 + \\tfrac{1}{2}\\cdot 3 = 2.5.\n$",
+    "topic": "Consumer Theory",
+    "subtopic": "Aggregate price elasticity as quantity-weighted average",
+    "concept": "Aggregate price elasticity as quantity-weighted average",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Weights are by \\emph{quantity} (or revenue, given a common price), not by \\emph{number of consumers}. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q25",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 25,
+    "questionText": "Two countries $H$ and $F$ produce single goods with outputs $Y_H, Y_F$. Take\n$H$'s good as numeraire and $p$ as the relative price of $F$'s good. Consumers\nin country $i$ spend a fraction $1/4$ of their expenditure on the foreign good.\n$E_i$ denotes total expenditure of country $i$ measured in its own good.\nGiven $Y_H = 120$, $Y_F = 100$, $E_H = 80$ and market clearing with\n$Y_H + p Y_F = E_H + p E_F$, find $p$.",
+    "questionLatex": "Two countries $H$ and $F$ produce single goods with outputs $Y_H, Y_F$. Take\n$H$'s good as numeraire and $p$ as the relative price of $F$'s good. Consumers\nin country $i$ spend a fraction $1/4$ of their expenditure on the foreign good.\n$E_i$ denotes total expenditure of country $i$ measured in its own good.\nGiven $Y_H = 120$, $Y_F = 100$, $E_H = 80$ and market clearing with\n$Y_H + p Y_F = E_H + p E_F$, find $p$.\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $8$ \\item $6$ \\item $4$ \\item $2$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$8$",
+        "latex": "$8$"
+      },
+      {
+        "label": "B",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "C",
+        "text": "$4$",
+        "latex": "$4$"
+      },
+      {
+        "label": "D",
+        "text": "$2$",
+        "latex": "$2$"
+      }
+    ],
+    "answer": "D",
+    "solution": "By the Cobb--Douglas expenditure shares, each country spends $3/4$ on its own good and $1/4$ on the foreign good.\n\n\\textbf{Market clearing for $H$'s good (measured in units of $H$'s good).}\nDemand by $H$-consumers: $\\tfrac{3}{4} E_H = \\tfrac{3}{4}\\cdot 80 = 60$.\nDemand by $F$-consumers: a fraction $1/4$ of their total expenditure $p\\,E_F$\nexpressed in $H$-units, i.e.\\ $\\tfrac{1}{4}\\,p\\,E_F$.\nTotal demand equals supply $Y_H$:\n$\n60 + \\tfrac{1}{4}\\,p\\,E_F \\;=\\; 120 \\quad\\Longrightarrow\\quad p\\,E_F = 240.\n$\n\n\\textbf{Budget identity.} Total income $=$ total expenditure (in the same units):\n$\nY_H + p\\,Y_F \\;=\\; E_H + p\\,E_F \\quad\\Longrightarrow\\quad\n120 + 100 p \\;=\\; 80 + 240 \\;=\\; 320.\n$\nThus $100 p = 200$, hence $p = 2$.",
+    "topic": "International Trade",
+    "subtopic": "Two-country Cobb--Douglas equilibrium",
+    "concept": "Two-country Cobb--Douglas equilibrium",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Keeping the units straight (own good vs.\\ numeraire) is the only delicate step. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q26",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 26,
+    "questionText": "An economy has one good produced one-for-one from labour. The representative\nconsumer has $U\\!\\left(C, \\tfrac{M}{P}\\right) = \\tfrac{3}{4}\\ln C + \\tfrac{1}{4}\\ln\\!\\tfrac{M}{P}$,\nlabour endowment $50$, money endowment $\\bar M = 100$, with constant money\nsupply $M = \\bar M$. If the price is flexible (so labour is fully employed), the\nequilibrium price is",
+    "questionLatex": "An economy has one good produced one-for-one from labour. The representative\nconsumer has $U\\!\\left(C, \\tfrac{M}{P}\\right) = \\tfrac{3}{4}\\ln C + \\tfrac{1}{4}\\ln\\!\\tfrac{M}{P}$,\nlabour endowment $50$, money endowment $\\bar M = 100$, with constant money\nsupply $M = \\bar M$. If the price is flexible (so labour is fully employed), the\nequilibrium price is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $2$ \\item $4$ \\item $6$ \\item $8$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$2$",
+        "latex": "$2$"
+      },
+      {
+        "label": "B",
+        "text": "$4$",
+        "latex": "$4$"
+      },
+      {
+        "label": "C",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "D",
+        "text": "$8$",
+        "latex": "$8$"
+      }
+    ],
+    "answer": "C",
+    "solution": "With linear technology and perfect competition $P = W$. The consumer's real\nwealth (measured in units of the good) is\n$\n\\Omega = L + \\frac{\\bar M}{P},\n$\nwhere $L$ is labour supplied. Cobb--Douglas preferences imply\n$\nC = \\tfrac{3}{4}\\,\\Omega, \\qquad \\tfrac{M}{P} = \\tfrac{1}{4}\\,\\Omega.\n$\nFull employment means $L = 50$ and goods-market clearing $C = Y = L = 50$:\n$\n50 = \\tfrac{3}{4}\\!\\left(50 + \\tfrac{100}{P}\\right) \\;\\Longleftrightarrow\\;\n\\tfrac{200}{3} - 50 = \\tfrac{100}{P}\\cdot \\tfrac{3}{4}\\cdot\\tfrac{4}{3}.\n$\nEquivalently, the money-market condition\n$\n\\frac{100}{P} = \\tfrac{1}{4}\\!\\left(50 + \\tfrac{100}{P}\\right)\n$\ngives\n$\n\\frac{400}{P} - \\frac{100}{P} = 50 \\;\\Longrightarrow\\; \\frac{300}{P} = 50\n\\;\\Longrightarrow\\; P = 6.\n$",
+    "topic": "Macroeconomics",
+    "subtopic": "Classical monetary equilibrium with full employment",
+    "concept": "Classical monetary equilibrium with full employment",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Either the goods market or the money market suffices (Walras' law guarantees the other clears). %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q27",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 27,
+    "questionText": "With the same setup as Question 26 but with price fixed at $P = 10$,\nthe equilibrium output is",
+    "questionLatex": "With the same setup as Question 26 but with price fixed at $P = 10$,\nthe equilibrium output is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $15$ \\item $20$ \\item $25$ \\item $30$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$15$",
+        "latex": "$15$"
+      },
+      {
+        "label": "B",
+        "text": "$20$",
+        "latex": "$20$"
+      },
+      {
+        "label": "C",
+        "text": "$25$",
+        "latex": "$25$"
+      },
+      {
+        "label": "D",
+        "text": "$30$",
+        "latex": "$30$"
+      }
+    ],
+    "answer": "D",
+    "solution": "With $P=10$, real money endowment is $\\bar M/P = 10$. The money-demand\ncondition\n$\n\\frac{M}{P} = \\tfrac{1}{4}\\!\\left(L + \\tfrac{\\bar M}{P}\\right)\n$\nbecomes\n$\n10 = \\tfrac{1}{4}(L + 10) \\;\\Longrightarrow\\; L + 10 = 40 \\;\\Longrightarrow\\; L = 30.\n$\nSince the price is above the market-clearing level $P^* = 6$ (Question 26), the\nlabour market is in excess supply and employment is demand-determined.\nOutput $Y = L = 30$.",
+    "topic": "Macroeconomics",
+    "subtopic": "Fixed-price (Keynesian) equilibrium",
+    "concept": "Fixed-price (Keynesian) equilibrium",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: At a fixed price above $P^*$, output is pinned down by the money-market (or equivalently, goods-market) condition, not by the labour supply. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q28",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 28,
+    "questionText": "Solow economy with $Y = K^{1/2} L^{1/2}$, no depreciation, $n = 0.02$, savings\nrate $s > 0$. If the steady-state capital--labour ratio is $k^* = 9$ and the\ncurrent ratio is $k = 1$, then the growth rate of $y = Y/L$ at the current date\nis",
+    "questionLatex": "Solow economy with $Y = K^{1/2} L^{1/2}$, no depreciation, $n = 0.02$, savings\nrate $s > 0$. If the steady-state capital--labour ratio is $k^* = 9$ and the\ncurrent ratio is $k = 1$, then the growth rate of $y = Y/L$ at the current date\nis\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0.02$ \\item $0.04$ \\item $0.03$ \\item Indeterminable\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0.02$",
+        "latex": "$0.02$"
+      },
+      {
+        "label": "B",
+        "text": "$0.04$",
+        "latex": "$0.04$"
+      },
+      {
+        "label": "C",
+        "text": "$0.03$",
+        "latex": "$0.03$"
+      },
+      {
+        "label": "D",
+        "text": "Indeterminable",
+        "latex": "Indeterminable"
+      }
+    ],
+    "answer": "A",
+    "solution": "Per-worker output is $y = k^{1/2}$. The Solow law of motion (with no depreciation) is\n$\n\\dot k = s\\,k^{1/2} - n\\,k.\n$\nSteady state: $s\\,(k^*)^{1/2} = n\\,k^* \\Rightarrow s = n\\,(k^*)^{1/2} = 0.02 \\cdot 3 = 0.06$.\n\nCurrent growth rate of $k$:\n$\n\\frac{\\dot k}{k} = \\frac{s}{\\sqrt k} - n = \\frac{0.06}{1} - 0.02 = 0.04.\n$\nSince $y = k^{1/2}$,\n$\n\\frac{\\dot y}{y} = \\tfrac{1}{2}\\cdot \\frac{\\dot k}{k} = \\tfrac{1}{2}\\cdot 0.04 = 0.02.\n$",
+    "topic": "Growth Theory",
+    "subtopic": "Solow model",
+    "concept": "growth rate of per-capita output",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Don't forget the factor $1/2$ when converting from the growth rate of $k$ to that of $y = k^{1/2}$. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q29",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 29,
+    "questionText": "Two Solow economies $A, B$ share the same technology and $n = 0.02$. They have\n$k_A = 3, k^*_A = 9$ and $k_B = 4, k^*_B = 16$. Then per capita output is growing",
+    "questionLatex": "Two Solow economies $A, B$ share the same technology and $n = 0.02$. They have\n$k_A = 3, k^*_A = 9$ and $k_B = 4, k^*_B = 16$. Then per capita output is growing\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Faster in $A$ than in $B$\n\\item Faster in $B$ than in $A$\n\\item At the same rate in $A$ and $B$\n\\item At an indeterminable relative rate\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Faster in $A$ than in $B$",
+        "latex": "Faster in $A$ than in $B$"
+      },
+      {
+        "label": "B",
+        "text": "Faster in $B$ than in $A$",
+        "latex": "Faster in $B$ than in $A$"
+      },
+      {
+        "label": "C",
+        "text": "At the same rate in $A$ and $B$",
+        "latex": "At the same rate in $A$ and $B$"
+      },
+      {
+        "label": "D",
+        "text": "At an indeterminable relative rate",
+        "latex": "At an indeterminable relative rate"
+      }
+    ],
+    "answer": "B",
+    "solution": "As in Question 28, $s_i = n\\,(k^*_i)^{1/2}$. Thus $s_A = 0.02\\cdot 3 = 0.06$ and\n$s_B = 0.02\\cdot 4 = 0.08$. The current growth rate of capital per worker is\n$\\dot k_i/k_i = s_i/\\sqrt{k_i} - n$, so\n$\n\\frac{\\dot k_A}{k_A} = \\frac{0.06}{\\sqrt 3} - 0.02 \\approx 0.0346 - 0.02 = 0.0146,\n\\qquad\n\\frac{\\dot k_B}{k_B} = \\frac{0.08}{2} - 0.02 = 0.04 - 0.02 = 0.02.\n$\nHalving these gives the growth rates of $y$:\n$\n\\frac{\\dot y_A}{y_A} \\approx 0.0073, \\qquad \\frac{\\dot y_B}{y_B} = 0.01.\n$\nHence $y$ grows faster in $B$ than in $A$.",
+    "topic": "Growth Theory",
+    "subtopic": "Comparative dynamics across Solow economies",
+    "concept": "Comparative dynamics across Solow economies",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Both economies are below their respective steady states, but $B$ has a higher savings rate and a closer relative gap, so it grows faster. %--------------------------------------------------"
+  },
+  {
+    "id": "isi-msqe-pea-2026-q30",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2026,
+    "questionNumber": 30,
+    "questionText": "A two-period consumer maximises\n$\nU(C_1, C_2) = \\log C_1 + \\tfrac{1}{1+\\rho}\\log C_2, \\qquad \\rho > 0,\n$\nsubject to $C_1 + S = w$ and $C_2 = (1+r) S$, with $w, r > 0$. If $w$ rises by\n$1\\%$ and $r$ falls by $1\\%$, then $S$",
+    "questionLatex": "A two-period consumer maximises\n\\[\nU(C_1, C_2) = \\log C_1 + \\tfrac{1}{1+\\rho}\\log C_2, \\qquad \\rho > 0,\n\\]\nsubject to $C_1 + S = w$ and $C_2 = (1+r) S$, with $w, r > 0$. If $w$ rises by\n$1\\%$ and $r$ falls by $1\\%$, then $S$\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Increases by more than $1\\%$\n\\item Increases by $1\\%$\n\\item Decreases by $1\\%$\n\\item Decreases by more than $1\\%$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Increases by more than $1\\%$",
+        "latex": "Increases by more than $1\\%$"
+      },
+      {
+        "label": "B",
+        "text": "Increases by $1\\%$",
+        "latex": "Increases by $1\\%$"
+      },
+      {
+        "label": "C",
+        "text": "Decreases by $1\\%$",
+        "latex": "Decreases by $1\\%$"
+      },
+      {
+        "label": "D",
+        "text": "Decreases by more than $1\\%$",
+        "latex": "Decreases by more than $1\\%$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Substitute $C_2 = (1+r)(w - C_1)$ into $U$ and differentiate w.r.t.\\ $C_1$:\n$\n\\frac{1}{C_1} - \\frac{1}{1+\\rho}\\cdot \\frac{1+r}{C_2}\\cdot(1+r)\\cdot\\frac{1}{1+r}\n= \\frac{1}{C_1} - \\frac{1}{(1+\\rho) C_2}\\,(1+r)\\cdot\\frac{1}{1+r} \\cdot (1+r).\n$\nA cleaner derivation: the Euler equation $\\dfrac{C_2}{C_1} = \\dfrac{1+r}{1+\\rho}$, combined with the lifetime budget constraint $C_1 + \\dfrac{C_2}{1+r} = w$, gives\n$\nC_1 + \\frac{1}{1+r}\\cdot \\frac{1+r}{1+\\rho}\\,C_1 \\;=\\; w\n\\quad\\Longrightarrow\\quad C_1\\!\\left(1 + \\frac{1}{1+\\rho}\\right) = w\n\\quad\\Longrightarrow\\quad C_1 = \\frac{(1+\\rho)\\,w}{2+\\rho}.\n$\nTherefore\n$\nS = w - C_1 = w\\!\\left(1 - \\frac{1+\\rho}{2+\\rho}\\right) = \\frac{w}{2+\\rho}.\n$\nThis is the well-known log-utility result: \\emph{saving is proportional to wage\nand independent of $r$} (income and substitution effects of an interest-rate\nchange cancel exactly under log preferences).\n\nSince $S$ depends only on $w$ (not on $r$):\n\n- A $1\\%$ rise in $w$ raises $S$ by exactly $1\\%$.\n- A $1\\%$ fall in $r$ leaves $S$ unchanged.\n\nTherefore $S$ rises by exactly $1\\%$.",
+    "topic": "Intertemporal Choice",
+    "subtopic": "Log utility and the saving function",
+    "concept": "Log utility and the saving function",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Under log utility the income and substitution effects of a change in $r$ on saving cancel out exactly; this is a special property of log preferences. %-------------------------------------------------- \\newpage"
+  }
+]
