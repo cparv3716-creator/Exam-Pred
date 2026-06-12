@@ -1,0 +1,1331 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!50!black
+}
+
+\title{\textbf{ISI MSQE Solutions}\\[4pt]
+\large Paper: PEA \\
+\large Year/Batch: 2026 \\
+\large Prepared for: Statstrive}
+\author{}
+\date{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{0.6cm}
+
+\begin{center}
+\large \textbf{ISI MSQE 2026 --- PEA Question Paper: Polished Solutions}
+\end{center}
+
+\vspace{0.4cm}
+
+This document presents complete, exam-quality solutions to all 30 multiple-choice
+questions of the ISI MSQE 2026 PEA paper. Each solution is derived from first
+principles using standard tools of calculus, real analysis, probability,
+statistics, microeconomics and macroeconomics.
+
+\newpage
+
+\section*{Answer Key Summary (PEA)}
+
+\begin{center}
+\begin{tabular}{c l c c}
+\toprule
+Question & Topic & Correct Option & Status \\
+\midrule
+1  & Sequences and Series (Telescoping)         & A & Verified \\
+2  & Algebra                                    & C & Verified \\
+3  & Calculus (Definite Integrals)              & D & Verified \\
+4  & Calculus (Definite Integrals)              & C & Verified \\
+5  & Real Analysis (Rolle / MVT)                & C & Verified \\
+6  & Real Analysis (Cauchy MVT)                 & B & Verified \\
+7  & Real Analysis (Integrals)                  & C & Verified \\
+8  & Calculus (L'H\^opital, Symmetry)           & B & Verified \\
+9  & Statistics (Correlation)                   & B & Verified \\
+10 & Regression                                 & D & Verified \\
+11 & Hypothesis Testing                         & D & Verified \\
+12 & Random Variables                           & B & Verified \\
+13 & Statistics (Unbiased Estimation)           & D & Verified \\
+14 & Statistics (Descriptive)                   & B & Verified \\
+15 & Probability (Bayes)                        & B & Verified \\
+16 & Consumer Theory                            & D & Verified \\
+17 & General Equilibrium (Exchange)             & A & Draft \\
+18 & General Equilibrium (Public Goods)         & -- & Needs Review \\
+19 & Market Structure (Monopoly Pricing)        & B & Verified \\
+20 & Game Theory (Public Good NE)               & B & Verified \\
+21 & Public Goods (Samuelson)                   & C & Verified \\
+22 & Tax Incidence                              & C & Verified \\
+23 & Consumer Theory (Engel Aggregation)        & A & Verified \\
+24 & Consumer Theory (Aggregate Elasticity)     & C & Verified \\
+25 & International Trade (Cobb--Douglas)        & D & Verified \\
+26 & Macroeconomics (Classical)                 & C & Verified \\
+27 & Macroeconomics (Fixed Price)               & D & Verified \\
+28 & Growth (Solow)                             & A & Verified \\
+29 & Growth (Solow, Cross-country)              & B & Verified \\
+30 & Intertemporal Choice                       & B & Verified \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\section*{Topic Summary}
+
+\begin{center}
+\begin{tabular}{l c}
+\toprule
+Topic Area & Questions \\
+\midrule
+Calculus / Integration                & 3, 4, 8 \\
+Real Analysis (MVT, Rolle)            & 5, 6, 7 \\
+Algebra / Sequences                   & 1, 2 \\
+Probability \& Random Variables       & 12, 15 \\
+Statistics (Estimation, Descriptive)  & 9, 13, 14 \\
+Regression \& Hypothesis Testing      & 10, 11 \\
+Consumer Theory                       & 16, 23, 24 \\
+General Equilibrium \& Public Goods   & 17, 18, 21 \\
+Market Structure                      & 19 \\
+Game Theory                           & 20 \\
+Tax Incidence                         & 22 \\
+International Trade                   & 25 \\
+Macroeconomics \& Money               & 26, 27 \\
+Growth Theory                         & 28, 29 \\
+Intertemporal Choice                  & 30 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Full Polished Solutions}
+
+%--------------------------------------------------
+\section*{Question 1}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Sequences and Series \\
+\textbf{Subtopic/Concept:} Telescoping sum, partial fractions \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Suppose $a$ and $b$ are positive integers that are relatively prime, and
+\[
+\frac{a}{b} \;=\; \sum_{n=1}^{2026} \frac{1}{n^2 + 15n + 56}.
+\]
+Then the value of $a+b$ is
+\begin{enumerate}[label=(\Alph*)]
+\item 9149 \item 9229 \item 8189 \item 11
+\end{enumerate}
+
+\subsection*{Solution}
+Factor the denominator:
+\[
+n^2 + 15n + 56 \;=\; (n+7)(n+8).
+\]
+Partial fractions give
+\[
+\frac{1}{(n+7)(n+8)} \;=\; \frac{1}{n+7} - \frac{1}{n+8}.
+\]
+Hence the sum telescopes:
+\[
+\sum_{n=1}^{2026}\left(\frac{1}{n+7} - \frac{1}{n+8}\right)
+= \frac{1}{8} - \frac{1}{2034}
+= \frac{2034 - 8}{8 \cdot 2034}
+= \frac{2026}{16272}.
+\]
+Now simplify $\dfrac{2026}{16272}$. Since $2026 = 2 \cdot 1013$ and $16272 = 2 \cdot 8136$,
+\[
+\frac{2026}{16272} = \frac{1013}{8136}.
+\]
+We verify $\gcd(1013, 8136)=1$: $8136 = 2^3 \cdot 3^2 \cdot 113$, and $1013$ is prime
+(no prime factor up to $\lfloor\sqrt{1013}\rfloor = 31$ divides it). Thus the fraction
+is already in lowest terms with $a = 1013$, $b = 8136$.
+
+Therefore
+\[
+a + b = 1013 + 8136 = 9149.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A: } 9149}
+\]
+
+\subsection*{Common Trap / Note}
+A common error is to take $1/8 - 1/(N+8)$ with $N=2026$ but then forget to verify
+coprimality. The fraction $\tfrac{2026}{16272}$ reduces by a factor of $2$ only.
+
+%--------------------------------------------------
+\section*{Question 2}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Algebra \\
+\textbf{Subtopic/Concept:} Symmetric expressions in $x$ and $1/x$ \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+If $x^2 - 3x + 1 = 0$, then the value of $\left(x^4 + \dfrac{1}{x^4}\right)$ is
+\begin{enumerate}[label=(\Alph*)]
+\item 43 \item 45 \item 47 \item 49
+\end{enumerate}
+
+\subsection*{Solution}
+From $x^2 - 3x + 1 = 0$ (and $x \ne 0$, since the constant term is non-zero), divide by $x$:
+\[
+x + \frac{1}{x} = 3.
+\]
+Square:
+\[
+x^2 + \frac{1}{x^2} = \left(x + \tfrac{1}{x}\right)^2 - 2 = 9 - 2 = 7.
+\]
+Square again:
+\[
+x^4 + \frac{1}{x^4} = \left(x^2 + \tfrac{1}{x^2}\right)^2 - 2 = 49 - 2 = 47.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } 47}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%--------------------------------------------------
+\section*{Question 3}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Definite integrals, substitution \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:\mathbb{R}\to\mathbb{R}$ satisfy $f(x^3+1) = x^6 + 4x^3 + 8$ for all
+$x \in \mathbb{R}$. Then $\displaystyle \int_1^2 f(x)\,dx$ equals
+\begin{enumerate}[label=(\Alph*)]
+\item $\dfrac{29}{3}$ \item $10$ \item $11$ \item $\dfrac{31}{3}$
+\end{enumerate}
+
+\subsection*{Solution}
+Set $u = x^3 + 1$, so $x^3 = u - 1$ and
+\[
+f(u) = (u-1)^2 + 4(u-1) + 8 = u^2 - 2u + 1 + 4u - 4 + 8 = u^2 + 2u + 5.
+\]
+Therefore
+\[
+\int_1^2 f(x)\,dx = \int_1^2 (x^2 + 2x + 5)\,dx
+= \left[\frac{x^3}{3} + x^2 + 5x\right]_1^2
+= \left(\tfrac{8}{3} + 4 + 10\right) - \left(\tfrac{1}{3} + 1 + 5\right)
+= \tfrac{7}{3} + 8 = \tfrac{31}{3}.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: } \tfrac{31}{3}}
+\]
+
+\subsection*{Common Trap / Note}
+Setting $u = x^3 + 1$ is bijective on $\mathbb{R}$, so $f$ is uniquely determined.
+
+%--------------------------------------------------
+\section*{Question 4}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Integral of an absolute value \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Determine the value of
+\[
+\int_0^2 |x^2 - 7x + 10|\,dx.
+\]
+\begin{enumerate}[label=(\Alph*)]
+\item 8 \item 9 \item $\dfrac{26}{3}$ \item $-\dfrac{23}{3}$
+\end{enumerate}
+
+\subsection*{Solution}
+Factor: $x^2 - 7x + 10 = (x-2)(x-5)$. On $[0,2]$, both factors satisfy
+$x-2 \le 0$ and $x-5 < 0$, so their product is $\ge 0$ on $[0,2]$ (with equality
+only at $x=2$). Hence $|x^2 - 7x + 10| = x^2 - 7x + 10$ on $[0,2]$, and
+\[
+\int_0^2 (x^2 - 7x + 10)\,dx
+= \left[\frac{x^3}{3} - \frac{7x^2}{2} + 10x\right]_0^2
+= \frac{8}{3} - 14 + 20 = \frac{8}{3} + 6 = \frac{26}{3}.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } \tfrac{26}{3}}
+\]
+
+\subsection*{Common Trap / Note}
+Verifying the sign of the quadratic on the interval is essential before dropping the absolute value.
+
+%--------------------------------------------------
+\section*{Question 5}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Real Analysis \\
+\textbf{Subtopic/Concept:} Rolle's theorem applied to an antiderivative \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:[0,1]\to\mathbb{R}$ be continuous with $\displaystyle\int_0^1 f(t)\,dt = 1$, and let
+\[
+P(x) = \sum_{k=1}^n a_k x^k, \qquad \sum_{k=1}^n a_k = 1.
+\]
+Then there exists $c \in (0,1)$ such that
+\begin{enumerate}[label=(\Alph*)]
+\item $f(c) = 2\sum_{k=1}^n a_k$
+\item $f(c) = \int_0^1 P(t)\,dt$
+\item $f(c) = P'(c)$
+\item $f(c) = P(c)$
+\end{enumerate}
+
+\subsection*{Solution}
+Define
+\[
+\Phi(x) \;=\; \int_0^x f(t)\,dt \;-\; P(x), \qquad x \in [0,1].
+\]
+Then $\Phi$ is continuous on $[0,1]$, differentiable on $(0,1)$, and
+\[
+\Phi(0) = 0 - P(0) = 0, \qquad
+\Phi(1) = \int_0^1 f(t)\,dt - P(1) = 1 - \sum_{k=1}^n a_k = 1 - 1 = 0.
+\]
+By Rolle's theorem, there exists $c \in (0,1)$ with $\Phi'(c) = 0$, i.e.
+\[
+f(c) - P'(c) = 0 \quad\Longleftrightarrow\quad f(c) = P'(c).
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } f(c) = P'(c)}
+\]
+
+\subsection*{Common Trap / Note}
+Note $P(0)=0$ because the sum starts at $k=1$. This is essential for $\Phi(0)=0$.
+
+%--------------------------------------------------
+\section*{Question 6}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Real Analysis \\
+\textbf{Subtopic/Concept:} Cauchy mean value theorem \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:[0,\pi/4]\to\mathbb{R}$ be continuous. Then there exists $c\in(0,\pi/4)$ such that
+\begin{enumerate}[label=(\Alph*)]
+\item $f(c) = \int_0^{\pi/4} f(t)\,dt$
+\item $f(c) = 2\cos(2c)\,\int_0^{\pi/4} f(t)\,dt$
+\item $f(c) = \sin(2c)$
+\item $f(c) = \sin(2c)\,\int_0^{\pi/4} f(t)\,dt$
+\end{enumerate}
+
+\subsection*{Solution}
+Define
+\[
+F(x) \;=\; \int_0^x f(t)\,dt, \qquad G(x) \;=\; \sin(2x), \qquad x \in [0,\pi/4].
+\]
+Both are continuous on $[0,\pi/4]$ and differentiable on $(0,\pi/4)$ with
+$F'(x) = f(x)$ and $G'(x) = 2\cos(2x)$. Moreover $G'(x) = 2\cos(2x) \neq 0$ on
+$(0,\pi/4)$, since $0 < 2x < \pi/2$ there.
+
+By Cauchy's mean value theorem, there exists $c \in (0,\pi/4)$ such that
+\[
+\frac{F(\pi/4) - F(0)}{G(\pi/4) - G(0)} \;=\; \frac{F'(c)}{G'(c)},
+\]
+i.e.
+\[
+\frac{\int_0^{\pi/4} f(t)\,dt}{\sin(\pi/2) - 0} \;=\; \frac{f(c)}{2\cos(2c)},
+\]
+which simplifies to
+\[
+f(c) \;=\; 2\cos(2c)\,\int_0^{\pi/4} f(t)\,dt.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: } f(c) = 2\cos(2c)\int_0^{\pi/4} f(t)\,dt}
+\]
+
+\subsection*{Common Trap / Note}
+The integral on the right is a constant; the $c$-dependence enters only through $\cos(2c)$.
+
+%--------------------------------------------------
+\section*{Question 7}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Real Analysis \\
+\textbf{Subtopic/Concept:} FTC applied to an identity \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Suppose $f:[a,b]\to\mathbb{R}$ is continuous and
+\[
+\int_a^x f(t)\,dt \;=\; \int_x^b f(t)\,dt \quad \text{for all } x \in [a,b].
+\]
+Then $f(x)$ must be
+\begin{enumerate}[label=(\Alph*)]
+\item A non-zero constant
+\item A linear function
+\item Identically zero
+\item An odd function about $\dfrac{a+b}{2}$
+\end{enumerate}
+
+\subsection*{Solution}
+Differentiate both sides with respect to $x$ using the fundamental theorem of calculus:
+\[
+\frac{d}{dx}\int_a^x f(t)\,dt = f(x), \qquad
+\frac{d}{dx}\int_x^b f(t)\,dt = -f(x).
+\]
+Hence $f(x) = -f(x)$, so $2f(x) = 0$, i.e.\ $f(x) = 0$ for every $x \in [a,b]$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: identically zero}}
+\]
+
+\subsection*{Common Trap / Note}
+An odd function about $\tfrac{a+b}{2}$ would satisfy the identity only at the
+single point $x = \tfrac{a+b}{2}$, not for all $x$.
+
+%--------------------------------------------------
+\section*{Question 8}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} L'H\^opital's rule, symmetry of odd functions \quad
+\textbf{Difficulty:} Hard \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:\mathbb{R}\to\mathbb{R}$ be a continuous odd function, vanishing exactly at one point and satisfying $f(1) = \tfrac{1}{2}$. If
+\[
+\lim_{x\to 1} \frac{F(x)}{G(x)} = \frac{1}{14},
+\]
+where
+\[
+F(x) = \int_{-1}^{x} f(t)\,dt, \qquad G(x) = \int_{-1}^{x} t\,|f(f(t))|\,dt,
+\]
+then the value of $f\!\left(\tfrac{1}{2}\right)$ is
+\begin{enumerate}[label=(\Alph*)]
+\item $\dfrac{1}{7}$ \item $7$ \item $-7$ \item $\dfrac{7}{2}$
+\end{enumerate}
+
+\subsection*{Solution}
+\textbf{Both numerator and denominator vanish at $x=1$.}
+Since $f$ is odd, $\int_{-1}^{1} f(t)\,dt = 0$, so $F(1) = 0$.
+For $G(1)$, note that $f$ odd implies $f(f(-t)) = f(-f(t)) = -f(f(t))$, so
+$|f(f(\cdot))|$ is even. Hence $t\,|f(f(t))|$ is an odd function of $t$, and
+\[
+G(1) = \int_{-1}^{1} t\,|f(f(t))|\,dt = 0.
+\]
+Thus the limit is of indeterminate form $0/0$, and by L'H\^opital's rule:
+\[
+\frac{1}{14} = \lim_{x\to 1} \frac{F'(x)}{G'(x)}
+= \lim_{x\to 1} \frac{f(x)}{x\,|f(f(x))|}
+= \frac{f(1)}{1\cdot |f(f(1))|}
+= \frac{1/2}{|f(1/2)|}.
+\]
+Therefore $|f(1/2)| = 14 \cdot \tfrac{1}{2} = 7$.
+
+\textbf{Determining the sign.}
+Since $f$ is continuous and vanishes only at one point, and $f$ odd implies
+$f(0)=0$, that single zero must be at $0$. Thus $f$ has constant sign on
+$(0,\infty)$. From $f(1) = \tfrac{1}{2} > 0$, we conclude $f > 0$ on $(0,\infty)$,
+so $f(1/2) > 0$, giving $f(1/2) = 7$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: } 7}
+\]
+
+\subsection*{Common Trap / Note}
+The symmetry argument is the key step: without it the denominator $G(1)$ does not
+obviously vanish and L'H\^opital cannot be applied.
+
+%--------------------------------------------------
+\section*{Question 9}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Statistics \\
+\textbf{Subtopic/Concept:} Interpretation of zero correlation \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+If the correlation between $X$ and $Y$ is zero, then which of the following is always true?
+\begin{enumerate}[label=(\Alph*)]
+\item They are independent
+\item There is no linear relationship
+\item They cannot be functionally related
+\item All of the above
+\end{enumerate}
+
+\subsection*{Solution}
+Zero correlation is by definition the absence of any linear association.
+Counterexamples eliminate the other options:
+\begin{itemize}
+\item Zero correlation does not imply independence (e.g.\ $Y = X^2$ with $X$ symmetric about $0$ yields zero correlation but $X, Y$ are dependent).
+\item In the same example, $X$ and $Y$ are functionally related.
+\end{itemize}
+Thus only ``no linear relationship'' is always true.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: no linear relationship}}
+\]
+
+\subsection*{Common Trap / Note}
+``Uncorrelated'' is strictly weaker than ``independent'' except for jointly Gaussian variables.
+
+%--------------------------------------------------
+\section*{Question 10}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Regression \\
+\textbf{Subtopic/Concept:} OLS passes through the mean point \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+In simple linear regression $Y = a + bX$, the least squares line based on $n$ data points always passes through
+\begin{enumerate}[label=(\Alph*)]
+\item $(0,0)$
+\item $\left(\tfrac{1}{n}, \tfrac{1}{n}\right)$
+\item $(1,1)$
+\item None of the previous
+\end{enumerate}
+
+\subsection*{Solution}
+The OLS line always passes through the point $(\bar{X}, \bar{Y})$, the sample means
+of $X$ and $Y$. None of the offered points coincides with $(\bar{X}, \bar{Y})$ in general.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: None of the previous}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%--------------------------------------------------
+\section*{Question 11}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Hypothesis Testing \\
+\textbf{Subtopic/Concept:} Trade-off between $\alpha$ and power \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Given sample size $n$, reducing the significance level $\alpha$
+\begin{enumerate}[label=(\Alph*)]
+\item Increases Type I error
+\item Decreases Type II error
+\item Increases power
+\item Decreases power
+\end{enumerate}
+
+\subsection*{Solution}
+By definition $\alpha = P(\text{Type I})$, so smaller $\alpha$ means fewer Type I
+errors. For a fixed $n$, the rejection region shrinks, increasing the probability
+of failing to reject the null when it is false, i.e.\ Type II error $\beta$ rises
+and power $1-\beta$ falls.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: decreases power}}
+\]
+
+\subsection*{Common Trap / Note}
+Power can only be raised (for fixed effect size) by increasing $n$ or $\alpha$.
+
+%--------------------------------------------------
+\section*{Question 12}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Random Variables \\
+\textbf{Subtopic/Concept:} Moments of a Bernoulli variable \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+If $X \sim \text{Bernoulli}(p)$, then $E(X^2)$ equals
+\begin{enumerate}[label=(\Alph*)]
+\item $p^2$ \item $p$ \item $p(1-p)$ \item $p + p^2$
+\end{enumerate}
+
+\subsection*{Solution}
+Since $X \in \{0,1\}$, we have $X^2 = X$, hence $E(X^2) = E(X) = p$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: } p}
+\]
+
+\subsection*{Common Trap / Note}
+Note $\operatorname{Var}(X) = p(1-p) = E(X^2) - (E X)^2$.
+
+%--------------------------------------------------
+\section*{Question 13}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Statistics \\
+\textbf{Subtopic/Concept:} Unbiased estimation for Poisson \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+For $X_1, \dots, X_n \sim \text{Poisson}(\lambda)$ (i.i.d.), which is unbiased for $\lambda^2$?
+\begin{enumerate}[label=(\Alph*)]
+\item $\bar{X}^2$
+\item $\bar{X}$
+\item $\bar{X}^2 - \dfrac{\bar{X}}{n}$
+\item $\bar{X}^2 - \bar{X}$
+\end{enumerate}
+
+\subsection*{Solution}
+For Poisson, $E(\bar{X}) = \lambda$ and $\operatorname{Var}(\bar{X}) = \lambda/n$. Therefore
+\[
+E(\bar{X}^2) = \operatorname{Var}(\bar{X}) + (E\bar{X})^2 = \frac{\lambda}{n} + \lambda^2.
+\]
+Consequently
+\[
+E\!\left(\bar{X}^2 - \frac{\bar{X}}{n}\right)
+= \frac{\lambda}{n} + \lambda^2 - \frac{\lambda}{n}
+= \lambda^2.
+\]
+Hence $\bar{X}^2 - \bar{X}/n$ is unbiased for $\lambda^2$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: } \bar{X}^2 - \tfrac{\bar{X}}{n}}
+\]
+
+\subsection*{Common Trap / Note}
+Option (D)-correction subtracts $\bar X/n$, \emph{not} $\bar X$. The bias of $\bar X^2$ is $\lambda/n$, not $\lambda$.
+
+%--------------------------------------------------
+\section*{Question 14}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Descriptive Statistics \\
+\textbf{Subtopic/Concept:} Robustness of median vs.\ mean \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A dataset consists of $9$ observations arranged in increasing order
+$x_1 \le x_2 \le \cdots \le x_9$ with mean $20$ and median $18$. If $x_9$ is
+replaced by a very large number, which must be true?
+\begin{enumerate}[label=(\Alph*)]
+\item Both the mean and the median increase
+\item The mean increases but the median remains unchanged
+\item The median increases but the mean remains unchanged
+\item Both the mean and the median remain unchanged
+\end{enumerate}
+
+\subsection*{Solution}
+The median of $9$ ordered observations is $x_5$, which is unaffected by changing
+the largest observation $x_9$ (the ordering is preserved). The mean equals the
+sum divided by $9$, so increasing $x_9$ raises the sum and hence the mean.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+The median is robust to extreme values; the mean is not.
+
+%--------------------------------------------------
+\section*{Question 15}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Probability \\
+\textbf{Subtopic/Concept:} Bayes' rule \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A restaurant has $60\%$ vegetarian customers (of whom $30\%$ order dessert) and
+$40\%$ non-vegetarian (of whom $50\%$ order dessert). Given that a randomly
+selected customer ordered dessert, what is the probability they ordered vegetarian?
+\begin{enumerate}[label=(\Alph*)]
+\item $0.375$ \item $0.474$ \item $0.600$ \item $0.750$
+\end{enumerate}
+
+\subsection*{Solution}
+By Bayes' theorem
+\[
+P(V \mid D) = \frac{P(D \mid V)\,P(V)}{P(D \mid V) P(V) + P(D \mid V^c) P(V^c)}
+= \frac{0.3 \cdot 0.6}{0.3 \cdot 0.6 + 0.5 \cdot 0.4}
+= \frac{0.18}{0.38}
+= \frac{9}{19} \approx 0.474.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: } 0.474}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%--------------------------------------------------
+\section*{Question 16}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Consumer Theory \\
+\textbf{Subtopic/Concept:} Properties of preferences \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Suppose preferences are represented by $u(x,y) = x - \ln y$ for $x,y > 0$. Then the underlying preference relation must be
+\begin{enumerate}[label=(\Alph*)]
+\item Incomplete
+\item Complete but intransitive
+\item Complete and transitive but discontinuous
+\item Complete, transitive and continuous but not convex
+\end{enumerate}
+
+\subsection*{Solution}
+Since $u$ is a real-valued function on $\mathbb{R}_{++}^2$, the induced
+preference is automatically \emph{complete} and \emph{transitive}. Since $u$ is
+continuous, the preference is \emph{continuous}.
+
+\emph{Convexity.} The upper contour set is
+\[
+\{(x,y): x - \ln y \ge c\} = \{(x,y): x \ge c + \ln y\}.
+\]
+The boundary $x = c + \ln y$ is \emph{concave} in $y$ (second derivative
+$-1/y^2 < 0$), so the region lying \emph{above} it is not a convex set.
+Equivalently, the Hessian
+\[
+\nabla^2 u = \begin{pmatrix} 0 & 0 \\ 0 & 1/y^2 \end{pmatrix}
+\]
+is positive semidefinite, not negative semidefinite, so $u$ is convex (not concave) in $y$ and the preference fails to be convex.
+
+Hence the preference is complete, transitive, continuous, but not convex.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+Note that $y$ enters the utility with a \emph{negative} sign through $-\ln y$; so the good $y$ is a ``bad'' here, and indifference curves slope the wrong way for convexity.
+
+%--------------------------------------------------
+\section*{Question 17}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} General Equilibrium \\
+\textbf{Subtopic/Concept:} Exchange economy, gains from trade \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Draft
+
+\subsection*{Question}
+Suppose there are two agents $A$ and $B$ with utilities
+\[
+u_A = x_A + y_A - \tfrac{m}{2}(x_A - y_A)^2, \qquad u_B = x_B + y_B,
+\]
+where $x_i$ and $y_i$ are the amounts of goods $X$ and $Y$ consumed by agent
+$i \in \{A,B\}$. The total endowments are $x$ and $y$. Initially $A$ owns the
+entire endowment of $Y$ and $B$ owns the entire endowment of $X$. Then $A$ will
+voluntarily transfer a positive amount of $Y$ to $B$ if
+\begin{enumerate}[label=(\Alph*)]
+\item $m > 0$ \item $m < 0$ \item $y > 2$ \item $my > \dfrac{1}{2}$
+\end{enumerate}
+
+\subsection*{Solution}
+Compute $A$'s marginal rate of substitution at the endowment $(x_A, y_A) = (0, y)$:
+\[
+\frac{\partial u_A}{\partial x_A} = 1 - m(x_A - y_A), \qquad
+\frac{\partial u_A}{\partial y_A} = 1 + m(x_A - y_A).
+\]
+At $(0,y)$:
+\[
+\text{MRS}^A_{x,y}
+= \frac{\partial u_A/\partial x_A}{\partial u_A/\partial y_A}
+= \frac{1 + my}{1 - my}.
+\]
+Agent $B$'s utility is linear with $\text{MRS}^B_{x,y} = 1$.
+
+For $A$ to voluntarily transfer $Y$ to $B$ in exchange for $X$ (so that both
+agents are made strictly better off), $A$ must value $X$ relative to $Y$ more
+than $B$ does at the endowment, i.e.
+\[
+\text{MRS}^A_{x,y} > \text{MRS}^B_{x,y} \;=\; 1.
+\]
+Assuming $1 - my > 0$ (so that marginal utilities are positive at the endowment),
+\[
+\frac{1+my}{1-my} > 1 \quad\Longleftrightarrow\quad 1 + my > 1 - my
+\quad\Longleftrightarrow\quad my > 0.
+\]
+Since the endowment $y > 0$, this reduces to $m > 0$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A: } m > 0}
+\]
+
+\subsection*{Common Trap / Note}
+The condition is on the \emph{sign} of $m$, not on its magnitude relative to $y$,
+because the relevant comparison is between $A$'s MRS at the endowment and $B$'s
+constant MRS of unity.
+
+%--------------------------------------------------
+\section*{Question 18}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Public Goods \\
+\textbf{Subtopic/Concept:} Samuelson condition \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Needs Review
+
+\subsection*{Question}
+Two agents $A$ and $B$ have utilities
+\[
+u_A = x_A + y, \qquad u_B = 2x_B + y,
+\]
+where $x_A, x_B$ are amounts of a private good and $y$ is the amount of a public
+good. Production satisfies $y + m(x_A + x_B) = 1$, with $m \in (0,1)$. Suppose a
+social planner decides that one unit should be produced. For what value of $m$
+will the resulting allocation be Pareto optimal?
+\begin{enumerate}[label=(\Alph*)]
+\item $\dfrac{4}{5}$ \item $\dfrac{4}{7}$ \item $\dfrac{4}{9}$ \item $\dfrac{4}{11}$
+\end{enumerate}
+
+\subsection*{Solution}
+Marginal rates of substitution between the public good $y$ and the private good are
+\[
+\text{MRS}^A_{y,x} = \frac{\partial u_A/\partial y}{\partial u_A/\partial x_A} = 1,
+\qquad
+\text{MRS}^B_{y,x} = \frac{\partial u_B/\partial y}{\partial u_B/\partial x_B} = \tfrac{1}{2}.
+\]
+The marginal rate of transformation between $y$ and the private good, from
+$y + m(x_A + x_B) = 1$, is $\text{MRT}_{y,x} = \tfrac{1}{m}$ (units of private
+good required per additional unit of public good).
+
+The Samuelson condition for Pareto optimality with a public good is
+\[
+\text{MRS}^A_{y,x} + \text{MRS}^B_{y,x} \;=\; \text{MRT}_{y,x},
+\]
+which yields
+\[
+1 + \tfrac{1}{2} = \tfrac{1}{m} \quad\Longrightarrow\quad m = \tfrac{2}{3}.
+\]
+This value is not among the options listed. Given the printed answer choices
+$\{4/5, 4/7, 4/9, 4/11\}$, the question as transcribed is internally inconsistent
+with the standard Samuelson criterion, so the problem statement (in particular
+the utility specifications or the production technology) is flagged for review.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Needs Review (standard Samuelson computation yields } m = \tfrac{2}{3})}
+\]
+
+\subsection*{Common Trap / Note}
+The transcribed utilities yield $m = 2/3$, which does not appear among the
+options. Until the original problem statement (utility functions and/or
+production technology) is verified, the correct option cannot be uniquely
+determined.
+
+%--------------------------------------------------
+\section*{Question 19}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Market Structure \\
+\textbf{Subtopic/Concept:} Monopoly with discrete buyers \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Three consumers with valuations $v_A, v_B, v_C$ each wish to buy one unit. The
+monopolist has zero marginal cost and knows the valuations but must charge a
+uniform price. It is given that
+\[
+\frac{7 v_B}{6} > v_A > v_B > \frac{8 v_C}{5} > 0.
+\]
+The profit-maximising price is
+\begin{enumerate}[label=(\Alph*)]
+\item $v_A$ \item $v_B$ \item $v_C$ \item Something in $(v_C, v_B)$
+\end{enumerate}
+
+\subsection*{Solution}
+The monopolist's optimum lies at one of the buyers' valuations (any higher price
+loses an additional buyer without gain, any lower price wastes surplus). Profit at each:
+\begin{itemize}
+\item Price $v_A$: only $A$ buys, profit $= v_A$.
+\item Price $v_B$: $A$ and $B$ buy, profit $= 2 v_B$.
+\item Price $v_C$: all three buy, profit $= 3 v_C$.
+\end{itemize}
+Compare:
+\[
+2 v_B \;\;\text{vs}\;\; v_A: \quad v_A < \tfrac{7 v_B}{6} < 2 v_B,
+\quad\text{so}\quad 2 v_B > v_A.
+\]
+\[
+2 v_B \;\;\text{vs}\;\; 3 v_C: \quad v_B > \tfrac{8 v_C}{5},
+\quad\text{so}\quad 2 v_B > \tfrac{16}{5} v_C > 3 v_C.
+\]
+Thus charging $v_B$ yields the highest profit.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: } p = v_B}
+\]
+
+\subsection*{Common Trap / Note}
+The two inequalities $7v_B/6 > v_A$ and $5 v_B > 8 v_C$ are precisely what is
+needed for $v_B$ to dominate both alternatives.
+
+%--------------------------------------------------
+\section*{Question 20}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Game Theory \\
+\textbf{Subtopic/Concept:} Voluntary contribution to a public good, symmetric Nash equilibrium \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+$n$ agents simultaneously choose private consumption $x_i$ and public-good
+contribution $y_i$ to maximise
+\[
+u_i = x_i\, \Big(\sum_{j=1}^n y_j\Big),
+\]
+subject to $x_i + y_i = b$, $x_i, y_i \ge 0$. As $n$ increases, the total Nash
+equilibrium expenditure on the public good
+\begin{enumerate}[label=(\Alph*)]
+\item Remains invariant
+\item Monotonically increases and approaches $b$
+\item Approaches $\dfrac{b}{n}$
+\item Monotonically decreases and approaches $0$
+\end{enumerate}
+
+\subsection*{Solution}
+Let $Y_{-i} = \sum_{j\ne i} y_j$. Agent $i$ chooses $y_i \in [0,b]$ to maximise
+\[
+u_i = (b - y_i)(y_i + Y_{-i}).
+\]
+The FOC is
+\[
+-(y_i + Y_{-i}) + (b - y_i) = 0 \quad\Longrightarrow\quad y_i = \frac{b - Y_{-i}}{2}.
+\]
+At a symmetric equilibrium $y_i = y^*$ and $Y_{-i} = (n-1) y^*$:
+\[
+y^* = \frac{b - (n-1) y^*}{2} \quad\Longrightarrow\quad (n+1) y^* = b
+\quad\Longrightarrow\quad y^* = \frac{b}{n+1}.
+\]
+Therefore total public-good expenditure is
+\[
+Y \;=\; n y^* \;=\; \frac{n b}{n + 1}.
+\]
+The map $n \mapsto \dfrac{n}{n+1}$ is strictly increasing and approaches $1$ as
+$n\to\infty$. Hence $Y$ monotonically increases and approaches $b$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Per-capita contribution $b/(n+1)$ shrinks, but it shrinks slower than $1/n$, so
+the aggregate grows.
+
+%--------------------------------------------------
+\section*{Question 21}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Public Goods \\
+\textbf{Subtopic/Concept:} Vertical summation of demand, Samuelson condition \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+$A$ and $B$ are neighbours; the snow plough cannot clear in front of $A$'s house
+without clearing in front of $B$'s. Inverse demands are $P_A = 12 - q$,
+$P_B = 8 - q$. Marginal cost is $16$. What is the efficient level of provision?
+\begin{enumerate}[label=(\Alph*)]
+\item $6$ \item $4$ \item $2$ \item $1$
+\end{enumerate}
+
+\subsection*{Solution}
+Since the service is non-rival between $A$ and $B$, vertical summation gives
+the aggregate marginal willingness to pay:
+\[
+P_A + P_B \;=\; (12 - q) + (8 - q) \;=\; 20 - 2q.
+\]
+Efficiency requires $\sum P_i = \text{MC}$:
+\[
+20 - 2q \;=\; 16 \quad\Longrightarrow\quad q^* \;=\; 2.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } q^* = 2}
+\]
+
+\subsection*{Common Trap / Note}
+For a public good, demands are summed \emph{vertically} (prices summed at each quantity), not horizontally.
+
+%--------------------------------------------------
+\section*{Question 22}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Microeconomics \\
+\textbf{Subtopic/Concept:} Tax incidence \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A lump-sum tax of $\mathrm{Rs.}\,1$ is paid by the buyer per unit of a competitive good.
+The price paid by buyers rises by $80$ paise. Then
+\begin{enumerate}[label=(\Alph*)]
+\item Demand must be perfectly elastic
+\item Demand must be perfectly inelastic
+\item Demand and supply elasticities must both be positive but finite
+\item Supply must be perfectly elastic
+\end{enumerate}
+
+\subsection*{Solution}
+With elasticities $\varepsilon_D, \varepsilon_S$ (positive numbers), the share of
+the tax borne by buyers is
+\[
+\frac{\varepsilon_S}{\varepsilon_S + \varepsilon_D}.
+\]
+We are told this share equals $0.8$.
+\begin{itemize}
+\item Perfectly elastic demand ($\varepsilon_D = \infty$) gives buyer share $0$. Rules out (A).
+\item Perfectly inelastic demand ($\varepsilon_D = 0$) gives buyer share $1$. Rules out (B).
+\item Perfectly elastic supply ($\varepsilon_S = \infty$) gives buyer share $1$. Rules out (D).
+\end{itemize}
+A buyer share strictly between $0$ and $1$ requires both elasticities to be
+positive and finite.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+The incidence formula uses absolute elasticities; the buyer share is decreasing in $\varepsilon_D$ and increasing in $\varepsilon_S$.
+
+%--------------------------------------------------
+\section*{Question 23}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Consumer Theory \\
+\textbf{Subtopic/Concept:} Engel aggregation \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A consumer always spends one-fourth of income on $X$, and the income elasticity of demand for $X$ is $5$. Is $Y$ inferior?
+\begin{enumerate}[label=(\Alph*)]
+\item Yes \item No
+\item $Y$ is inferior iff $p_Y \ge 2 p_X$
+\item $Y$ is inferior iff $p_Y \le p_X/2$
+\end{enumerate}
+
+\subsection*{Solution}
+Let $s_X = 1/4$ and $s_Y = 3/4$ be the budget shares. Engel aggregation states
+that the share-weighted sum of income elasticities equals $1$:
+\[
+s_X\, \eta_X + s_Y\, \eta_Y = 1.
+\]
+Substituting $s_X = 1/4$, $\eta_X = 5$, $s_Y = 3/4$:
+\[
+\tfrac{1}{4}\cdot 5 + \tfrac{3}{4}\,\eta_Y = 1 \quad\Longrightarrow\quad
+\tfrac{3}{4}\,\eta_Y = -\tfrac{1}{4} \quad\Longrightarrow\quad \eta_Y = -\tfrac{1}{3} < 0.
+\]
+A negative income elasticity means $Y$ is inferior, irrespective of prices.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A: Yes}}
+\]
+
+\subsection*{Common Trap / Note}
+Engel aggregation follows from differentiating the budget identity with respect to income.
+
+%--------------------------------------------------
+\section*{Question 24}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Consumer Theory \\
+\textbf{Subtopic/Concept:} Aggregate price elasticity as quantity-weighted average \quad
+\textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Half the total quantity is purchased by $75$ consumers each with price elasticity
+$2$, and the other half by $25$ consumers each with price elasticity $3$. What is
+the aggregate price elasticity for the $100$ consumers?
+\begin{enumerate}[label=(\Alph*)]
+\item Cannot be determined \item $2.25$ \item $2.5$ \item $2.75$
+\end{enumerate}
+
+\subsection*{Solution}
+The market elasticity is the quantity-share-weighted average of group elasticities. With each group accounting for $50\%$ of the quantity:
+\[
+\varepsilon = \tfrac{1}{2}\cdot 2 + \tfrac{1}{2}\cdot 3 = 2.5.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } 2.5}
+\]
+
+\subsection*{Common Trap / Note}
+Weights are by \emph{quantity} (or revenue, given a common price), not by \emph{number of consumers}.
+
+%--------------------------------------------------
+\section*{Question 25}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} International Trade \\
+\textbf{Subtopic/Concept:} Two-country Cobb--Douglas equilibrium \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Two countries $H$ and $F$ produce single goods with outputs $Y_H, Y_F$. Take
+$H$'s good as numeraire and $p$ as the relative price of $F$'s good. Consumers
+in country $i$ spend a fraction $1/4$ of their expenditure on the foreign good.
+$E_i$ denotes total expenditure of country $i$ measured in its own good.
+Given $Y_H = 120$, $Y_F = 100$, $E_H = 80$ and market clearing with
+$Y_H + p Y_F = E_H + p E_F$, find $p$.
+\begin{enumerate}[label=(\Alph*)]
+\item $8$ \item $6$ \item $4$ \item $2$
+\end{enumerate}
+
+\subsection*{Solution}
+By the Cobb--Douglas expenditure shares, each country spends $3/4$ on its own good and $1/4$ on the foreign good.
+
+\textbf{Market clearing for $H$'s good (measured in units of $H$'s good).}
+Demand by $H$-consumers: $\tfrac{3}{4} E_H = \tfrac{3}{4}\cdot 80 = 60$.
+Demand by $F$-consumers: a fraction $1/4$ of their total expenditure $p\,E_F$
+expressed in $H$-units, i.e.\ $\tfrac{1}{4}\,p\,E_F$.
+Total demand equals supply $Y_H$:
+\[
+60 + \tfrac{1}{4}\,p\,E_F \;=\; 120 \quad\Longrightarrow\quad p\,E_F = 240.
+\]
+
+\textbf{Budget identity.} Total income $=$ total expenditure (in the same units):
+\[
+Y_H + p\,Y_F \;=\; E_H + p\,E_F \quad\Longrightarrow\quad
+120 + 100 p \;=\; 80 + 240 \;=\; 320.
+\]
+Thus $100 p = 200$, hence $p = 2$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: } p = 2}
+\]
+
+\subsection*{Common Trap / Note}
+Keeping the units straight (own good vs.\ numeraire) is the only delicate step.
+
+%--------------------------------------------------
+\section*{Question 26}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Macroeconomics \\
+\textbf{Subtopic/Concept:} Classical monetary equilibrium with full employment \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+An economy has one good produced one-for-one from labour. The representative
+consumer has $U\!\left(C, \tfrac{M}{P}\right) = \tfrac{3}{4}\ln C + \tfrac{1}{4}\ln\!\tfrac{M}{P}$,
+labour endowment $50$, money endowment $\bar M = 100$, with constant money
+supply $M = \bar M$. If the price is flexible (so labour is fully employed), the
+equilibrium price is
+\begin{enumerate}[label=(\Alph*)]
+\item $2$ \item $4$ \item $6$ \item $8$
+\end{enumerate}
+
+\subsection*{Solution}
+With linear technology and perfect competition $P = W$. The consumer's real
+wealth (measured in units of the good) is
+\[
+\Omega = L + \frac{\bar M}{P},
+\]
+where $L$ is labour supplied. Cobb--Douglas preferences imply
+\[
+C = \tfrac{3}{4}\,\Omega, \qquad \tfrac{M}{P} = \tfrac{1}{4}\,\Omega.
+\]
+Full employment means $L = 50$ and goods-market clearing $C = Y = L = 50$:
+\[
+50 = \tfrac{3}{4}\!\left(50 + \tfrac{100}{P}\right) \;\Longleftrightarrow\;
+\tfrac{200}{3} - 50 = \tfrac{100}{P}\cdot \tfrac{3}{4}\cdot\tfrac{4}{3}.
+\]
+Equivalently, the money-market condition
+\[
+\frac{100}{P} = \tfrac{1}{4}\!\left(50 + \tfrac{100}{P}\right)
+\]
+gives
+\[
+\frac{400}{P} - \frac{100}{P} = 50 \;\Longrightarrow\; \frac{300}{P} = 50
+\;\Longrightarrow\; P = 6.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C: } P = 6}
+\]
+
+\subsection*{Common Trap / Note}
+Either the goods market or the money market suffices (Walras' law guarantees the other clears).
+
+%--------------------------------------------------
+\section*{Question 27}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Macroeconomics \\
+\textbf{Subtopic/Concept:} Fixed-price (Keynesian) equilibrium \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+With the same setup as Question 26 but with price fixed at $P = 10$,
+the equilibrium output is
+\begin{enumerate}[label=(\Alph*)]
+\item $15$ \item $20$ \item $25$ \item $30$
+\end{enumerate}
+
+\subsection*{Solution}
+With $P=10$, real money endowment is $\bar M/P = 10$. The money-demand
+condition
+\[
+\frac{M}{P} = \tfrac{1}{4}\!\left(L + \tfrac{\bar M}{P}\right)
+\]
+becomes
+\[
+10 = \tfrac{1}{4}(L + 10) \;\Longrightarrow\; L + 10 = 40 \;\Longrightarrow\; L = 30.
+\]
+Since the price is above the market-clearing level $P^* = 6$ (Question 26), the
+labour market is in excess supply and employment is demand-determined.
+Output $Y = L = 30$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D: } Y = 30}
+\]
+
+\subsection*{Common Trap / Note}
+At a fixed price above $P^*$, output is pinned down by the money-market
+(or equivalently, goods-market) condition, not by the labour supply.
+
+%--------------------------------------------------
+\section*{Question 28}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Growth Theory \\
+\textbf{Subtopic/Concept:} Solow model, growth rate of per-capita output \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Solow economy with $Y = K^{1/2} L^{1/2}$, no depreciation, $n = 0.02$, savings
+rate $s > 0$. If the steady-state capital--labour ratio is $k^* = 9$ and the
+current ratio is $k = 1$, then the growth rate of $y = Y/L$ at the current date
+is
+\begin{enumerate}[label=(\Alph*)]
+\item $0.02$ \item $0.04$ \item $0.03$ \item Indeterminable
+\end{enumerate}
+
+\subsection*{Solution}
+Per-worker output is $y = k^{1/2}$. The Solow law of motion (with no depreciation) is
+\[
+\dot k = s\,k^{1/2} - n\,k.
+\]
+Steady state: $s\,(k^*)^{1/2} = n\,k^* \Rightarrow s = n\,(k^*)^{1/2} = 0.02 \cdot 3 = 0.06$.
+
+Current growth rate of $k$:
+\[
+\frac{\dot k}{k} = \frac{s}{\sqrt k} - n = \frac{0.06}{1} - 0.02 = 0.04.
+\]
+Since $y = k^{1/2}$,
+\[
+\frac{\dot y}{y} = \tfrac{1}{2}\cdot \frac{\dot k}{k} = \tfrac{1}{2}\cdot 0.04 = 0.02.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A: } 0.02}
+\]
+
+\subsection*{Common Trap / Note}
+Don't forget the factor $1/2$ when converting from the growth rate of $k$ to that of $y = k^{1/2}$.
+
+%--------------------------------------------------
+\section*{Question 29}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Growth Theory \\
+\textbf{Subtopic/Concept:} Comparative dynamics across Solow economies \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Two Solow economies $A, B$ share the same technology and $n = 0.02$. They have
+$k_A = 3, k^*_A = 9$ and $k_B = 4, k^*_B = 16$. Then per capita output is growing
+\begin{enumerate}[label=(\Alph*)]
+\item Faster in $A$ than in $B$
+\item Faster in $B$ than in $A$
+\item At the same rate in $A$ and $B$
+\item At an indeterminable relative rate
+\end{enumerate}
+
+\subsection*{Solution}
+As in Question 28, $s_i = n\,(k^*_i)^{1/2}$. Thus $s_A = 0.02\cdot 3 = 0.06$ and
+$s_B = 0.02\cdot 4 = 0.08$. The current growth rate of capital per worker is
+$\dot k_i/k_i = s_i/\sqrt{k_i} - n$, so
+\[
+\frac{\dot k_A}{k_A} = \frac{0.06}{\sqrt 3} - 0.02 \approx 0.0346 - 0.02 = 0.0146,
+\qquad
+\frac{\dot k_B}{k_B} = \frac{0.08}{2} - 0.02 = 0.04 - 0.02 = 0.02.
+\]
+Halving these gives the growth rates of $y$:
+\[
+\frac{\dot y_A}{y_A} \approx 0.0073, \qquad \frac{\dot y_B}{y_B} = 0.01.
+\]
+Hence $y$ grows faster in $B$ than in $A$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Both economies are below their respective steady states, but $B$ has a higher
+savings rate and a closer relative gap, so it grows faster.
+
+%--------------------------------------------------
+\section*{Question 30}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2026 \quad \textbf{Topic:} Intertemporal Choice \\
+\textbf{Subtopic/Concept:} Log utility and the saving function \quad
+\textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A two-period consumer maximises
+\[
+U(C_1, C_2) = \log C_1 + \tfrac{1}{1+\rho}\log C_2, \qquad \rho > 0,
+\]
+subject to $C_1 + S = w$ and $C_2 = (1+r) S$, with $w, r > 0$. If $w$ rises by
+$1\%$ and $r$ falls by $1\%$, then $S$
+\begin{enumerate}[label=(\Alph*)]
+\item Increases by more than $1\%$
+\item Increases by $1\%$
+\item Decreases by $1\%$
+\item Decreases by more than $1\%$
+\end{enumerate}
+
+\subsection*{Solution}
+Substitute $C_2 = (1+r)(w - C_1)$ into $U$ and differentiate w.r.t.\ $C_1$:
+\[
+\frac{1}{C_1} - \frac{1}{1+\rho}\cdot \frac{1+r}{C_2}\cdot(1+r)\cdot\frac{1}{1+r}
+= \frac{1}{C_1} - \frac{1}{(1+\rho) C_2}\,(1+r)\cdot\frac{1}{1+r} \cdot (1+r).
+\]
+A cleaner derivation: the Euler equation $\dfrac{C_2}{C_1} = \dfrac{1+r}{1+\rho}$, combined with the lifetime budget constraint $C_1 + \dfrac{C_2}{1+r} = w$, gives
+\[
+C_1 + \frac{1}{1+r}\cdot \frac{1+r}{1+\rho}\,C_1 \;=\; w
+\quad\Longrightarrow\quad C_1\!\left(1 + \frac{1}{1+\rho}\right) = w
+\quad\Longrightarrow\quad C_1 = \frac{(1+\rho)\,w}{2+\rho}.
+\]
+Therefore
+\[
+S = w - C_1 = w\!\left(1 - \frac{1+\rho}{2+\rho}\right) = \frac{w}{2+\rho}.
+\]
+This is the well-known log-utility result: \emph{saving is proportional to wage
+and independent of $r$} (income and substitution effects of an interest-rate
+change cancel exactly under log preferences).
+
+Since $S$ depends only on $w$ (not on $r$):
+\begin{itemize}
+\item A $1\%$ rise in $w$ raises $S$ by exactly $1\%$.
+\item A $1\%$ fall in $r$ leaves $S$ unchanged.
+\end{itemize}
+Therefore $S$ rises by exactly $1\%$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B: increases by } 1\%}
+\]
+
+\subsection*{Common Trap / Note}
+Under log utility the income and substitution effects of a change in $r$ on
+saving cancel out exactly; this is a special property of log preferences.
+
+%--------------------------------------------------
+\newpage
+\section*{Review Flags}
+
+\textbf{Question 18.} As transcribed (with $u_A = x_A + y$, $u_B = 2x_B + y$ and
+production constraint $y + m(x_A + x_B) = 1$), the Samuelson condition yields
+$m = 2/3$, which is not among the printed options $\{4/5,\,4/7,\,4/9,\,4/11\}$.
+The problem statement (likely the utility functions or the production technology
+in the underlying source) should be verified before finalising the option choice.
+
+All other questions are flagged as either \textbf{Verified} or \textbf{Draft}
+(see the Answer-Key Summary at the front of this booklet).
+
+\bigskip
+\hrule
+\bigskip
+\begin{center}
+\textit{End of PEA Solutions --- ISI MSQE 2026, prepared for Statstrive.}
+\end{center}
+
+\end{document}

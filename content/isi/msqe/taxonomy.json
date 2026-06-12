@@ -1,0 +1,12 @@
+﻿{
+  "exam": "ISI",
+  "program": "MSQE",
+  "version": "phase_1",
+  "topics": [
+    { "name": "Microeconomics", "subtopics": ["Consumer theory", "Producer theory", "Market structure", "Game theory"] },
+    { "name": "Macroeconomics", "subtopics": ["National income", "Growth", "Inflation", "Open economy"] },
+    { "name": "Mathematics", "subtopics": ["Calculus", "Linear algebra", "Optimization", "Sequences and series"] },
+    { "name": "Statistics", "subtopics": ["Probability", "Random variables", "Estimation", "Hypothesis testing"] }
+  ],
+  "note": "Phase 1 taxonomy boundary. Replace or extend only from verified syllabus and inference sources."
+}

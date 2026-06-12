@@ -1,0 +1,1102 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{ISI MSQE Solutions} \\ \large Paper: PEA \\ Year: 2024 \\ Prepared for: \textbf{Statstrive}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\vfill
+\begin{center}
+\textit{Indian Statistical Institute} \\
+\textit{M.S. in Quantitative Economics --- Entrance Examination} \\
+\textit{PEA 2024 -- Complete Solutions}
+\end{center}
+\vfill
+\newpage
+
+\section*{Answer Key Summary (PEA 2024)}
+
+\begin{center}
+\begin{longtable}{c l c c}
+\toprule
+\textbf{Q. No.} & \textbf{Topic} & \textbf{Correct Option} & \textbf{Status} \\
+\midrule
+\endhead
+1  & Calculus (Limits, Differentiability)     & C & Verified \\
+2  & Sequences and Series                     & B & Verified \\
+3  & Calculus (Limits)                         & B & Verified \\
+4  & Functions (Continuity)                    & D & Verified \\
+5  & Functions (Convexity, Monotonicity)       & C & Verified \\
+6  & Calculus (Differentiability, Convexity)   & C & Verified \\
+7  & Calculus (Integration)                    & B & Verified \\
+8  & Linear Algebra (Eigenvalues)              & A & Verified \\
+9  & Linear Algebra (Rank)                     & B & Verified \\
+10 & Linear Algebra (Identity Map)             & D & Verified \\
+11 & Linear Algebra (Vector Spaces)            & A & Verified \\
+12 & Combinatorics                             & D & Verified \\
+13 & Combinatorics (Permutations)              & C & Verified \\
+14 & Combinatorics                             & A & Verified \\
+15 & Probability                               & D & Verified \\
+16 & Statistics (Regression)                   & C & Verified \\
+17 & Probability (Conditional)                 & A & Verified \\
+18 & Probability (Bayes' Theorem)              & B & Verified \\
+19 & Expected Value and Variance               & B & Verified \\
+20 & Distributions (Binomial)                  & D & Verified \\
+21 & Growth Models (AK Model)                  & D & Verified \\
+22 & Growth Models (Solow)                     & B & Verified \\
+23 & Growth Models (Golden Rule)               & C & Verified \\
+24 & Growth Models (Solow Transition)          & D & Verified \\
+25 & International Trade / General Equilibrium & A & Verified \\
+26 & International Trade / General Equilibrium & C & Verified \\
+27 & Consumer Theory (Giffen Goods)            & A & Verified \\
+28 & Intertemporal Optimization                & B & Verified \\
+29 & Market Structure (Competitive Markets)    & B & Verified \\
+30 & Consumer Theory (Revealed Preference)     & C & Draft    \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\newpage
+
+\section*{Topic Summary Table}
+
+\begin{center}
+\begin{tabular}{l c}
+\toprule
+\textbf{Broad Area} & \textbf{Number of Questions} \\
+\midrule
+Calculus (Limits, Differentiation, Integration) & 6 \\
+Functions and Real Analysis & 2 \\
+Sequences and Series & 1 \\
+Linear Algebra & 4 \\
+Combinatorics & 3 \\
+Probability & 4 \\
+Statistics (Regression, Distributions) & 2 \\
+Macroeconomics (Growth Models) & 4 \\
+Microeconomics (Consumer Theory, Market Structure, Trade) & 4 \\
+\midrule
+\textbf{Total} & \textbf{30} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+%=========================================================
+\section*{Question 1}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Limits, Differentiability \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+If $f:\mathbb{R}\to\mathbb{R}$ is a differentiable function at $a\in\mathbb{R}$ such that $f'(a)=af(a)$, then what is
+\[
+\lim_{x\to a}\frac{xf(a)-af(x)}{x-a}\, ?
+\]
+\begin{enumerate}[label=(\Alph*)]
+\item $af(a)$
+\item $f(a)$
+\item $(1-a^2)f(a)$
+\item None of the previous options
+\end{enumerate}
+
+\subsection*{Solution}
+At $x=a$, the numerator equals $af(a)-af(a)=0$, so the limit is of the form $0/0$. Write
+\[
+\frac{xf(a)-af(x)}{x-a}
+= \frac{(x-a)f(a) + af(a) - af(x)}{x-a}
+= f(a) - a\cdot\frac{f(x)-f(a)}{x-a}.
+\]
+Taking $x\to a$ and using differentiability,
+\[
+\lim_{x\to a}\frac{xf(a)-af(x)}{x-a}
+= f(a) - a\,f'(a)
+= f(a) - a\cdot af(a)
+= (1-a^{2})f(a).
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 2}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Sequences and Series \\
+\textbf{Subtopic/Concept:} Telescoping Products \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Suppose $S_n$ is defined as follows for every positive integer $n\ge 2$:
+\[
+S_n=\left(1-\tfrac{1}{2^2}\right)\!\left(1-\tfrac{1}{3^2}\right)\cdots\!\left(1-\tfrac{1}{n^2}\right).
+\]
+The value of $\displaystyle\lim_{n\to\infty}S_n$ is
+\begin{enumerate}[label=(\Alph*)]
+\item $0$
+\item $\tfrac{1}{2}$
+\item $1$
+\item $\infty$
+\end{enumerate}
+
+\subsection*{Solution}
+Each factor factors as
+\[
+1-\frac{1}{k^2}=\frac{(k-1)(k+1)}{k^2}.
+\]
+Therefore
+\[
+S_n=\prod_{k=2}^{n}\frac{(k-1)(k+1)}{k^2}
+=\left(\prod_{k=2}^{n}\frac{k-1}{k}\right)\!\left(\prod_{k=2}^{n}\frac{k+1}{k}\right)
+=\frac{1}{n}\cdot\frac{n+1}{2}
+=\frac{n+1}{2n}.
+\]
+Hence $\lim_{n\to\infty}S_n=\tfrac{1}{2}$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 3}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Limit and Taylor Expansion \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Suppose
+\[
+\lim_{x\to 0}\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}=1,
+\]
+where $a_1,a_2,a_3$ are given real numbers. Then it is necessarily true that
+\begin{enumerate}[label=(\Alph*)]
+\item $a_1=a_2=a_3=1$
+\item $a_1=a_3\ne 0$
+\item $a_2=0$
+\item $a_2+a_3\ne 0$
+\end{enumerate}
+
+\subsection*{Solution}
+Using $e^{a_1 x}-1 = a_1 x + \tfrac{(a_1 x)^2}{2}+o(x^2)$, we get
+\[
+\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}
+= \frac{a_1 x + O(x^2)}{a_3 x + a_2 x^2}
+= \frac{a_1 + O(x)}{a_3 + a_2 x}\xrightarrow[x\to 0]{}\frac{a_1}{a_3}.
+\]
+For the limit to exist and equal $1$, we must have $a_3\ne 0$ and $a_1=a_3$. (If $a_3=0$, the denominator behaves like $a_2 x^2$, and the limit would diverge or be zero unless $a_1=0$, in which case the limit is $0\ne 1$.) Thus the necessary condition is $a_1=a_3\ne 0$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Note $a_2$ is irrelevant to the leading behaviour.
+
+%=========================================================
+\section*{Question 4}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Functions \\
+\textbf{Subtopic/Concept:} Continuity of Piecewise Functions \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:\mathbb{R}\to\mathbb{R}$ be defined as
+\[
+f(x)=\begin{cases}
+cx^{2}+ax+b, & x<0,\\
+bx^{2}+cx+a, & 0\le x<2,\\
+ax^{2}+bx+c, & x\ge 2,
+\end{cases}
+\]
+where $a,b,c$ are positive real numbers. Which of the following statements is correct, under the assumption that $f$ is continuous?
+\begin{enumerate}[label=(\Alph*)]
+\item $f$ is continuous for all values of $a,b,c$
+\item $f$ is continuous iff $a-b=b-c$
+\item $f$ is continuous iff $a=b$ and $c=2a$
+\item $f$ is continuous iff $a=b=c$
+\end{enumerate}
+
+\subsection*{Solution}
+\textbf{At $x=0$:} left-hand value $=b$; right-hand value $=a$. Hence $a=b$.
+
+\textbf{At $x=2$:} left-hand value $= 4b+2c+a$; right-hand value $=4a+2b+c$. Using $a=b$:
+\[
+4a+2c+a=5a+2c,\qquad 4a+2a+c=6a+c.
+\]
+Equating: $5a+2c=6a+c \Rightarrow c=a$. Therefore $a=b=c$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 5}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Functions \\
+\textbf{Subtopic/Concept:} Convexity/Monotonicity \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Consider $f:[0,1]\to[0,1]$ such that $f(x)=\dfrac{x}{2-x}$. Which of the following statements is \emph{incorrect}?
+\begin{enumerate}[label=(\Alph*)]
+\item $f(0)=0$ and $f(1)=1$
+\item $f(1-f(x))=1-x$
+\item $f$ is strictly concave in the interval $(0,1)$
+\item $f$ is strictly increasing in the interval $(0,1)$
+\end{enumerate}
+
+\subsection*{Solution}
+\textbf{A.} $f(0)=0$ and $f(1)=1/1=1$. True.
+
+\textbf{B.} Compute $1-f(x) = 1-\tfrac{x}{2-x}=\tfrac{2-2x}{2-x}$. Then
+\[
+f\!\left(\tfrac{2-2x}{2-x}\right)
+=\frac{\frac{2-2x}{2-x}}{2-\frac{2-2x}{2-x}}
+=\frac{2-2x}{2(2-x)-(2-2x)}
+=\frac{2-2x}{2}=1-x. \text{ True.}
+\]
+
+\textbf{C.} Differentiate:
+\[
+f'(x)=\frac{(2-x)-x(-1)}{(2-x)^2}=\frac{2}{(2-x)^2}>0,\qquad
+f''(x)=\frac{4}{(2-x)^3}>0\;\text{on}\;(0,1).
+\]
+Hence $f$ is strictly \emph{convex}, not concave. \textbf{Incorrect statement.}
+
+\textbf{D.} $f'(x)>0$, so strictly increasing. True.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+Sign of second derivative; do not confuse convex with concave.
+
+%=========================================================
+\section*{Question 6}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Differentiability and Convexity \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $f:\mathbb{R}\to\mathbb{R}$ be the function $f(x)=|x|+x^{2}\ \forall x\in\mathbb{R}$. Which of the following statements about $f$ is correct?
+\begin{enumerate}[label=(\Alph*)]
+\item $f$ is differentiable
+\item $f$ is concave but not differentiable
+\item $f$ is convex but not differentiable
+\item $f$ is discontinuous
+\end{enumerate}
+
+\subsection*{Solution}
+At $x=0$, the left derivative of $|x|$ is $-1$ and the right derivative is $+1$; hence $|x|$ is not differentiable at $0$, and so $f$ is not differentiable at $0$. However $|x|$ and $x^{2}$ are both convex on $\mathbb{R}$, and the sum of convex functions is convex. Hence $f$ is convex but not differentiable.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+A non-differentiable function can still be convex (e.g., $|x|$).
+
+%=========================================================
+\section*{Question 7}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Calculus \\
+\textbf{Subtopic/Concept:} Integration by Substitution \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+$\displaystyle\int x^{3}e^{x^{2}}\,dx$ equals
+\begin{enumerate}[label=(\Alph*)]
+\item $\dfrac{x(x-1)}{2}\,e^{x^{2}}$
+\item $\dfrac{x^{2}-1}{2}\,e^{x^{2}}$
+\item $\dfrac{x(x+1)}{2}\,e^{x^{2}}$
+\item $\dfrac{x^{2}+1}{2}\,e^{x^{2}}$
+\end{enumerate}
+
+\subsection*{Solution}
+Let $u=x^{2}$, $du=2x\,dx$. Then
+\[
+\int x^{3}e^{x^{2}}\,dx
+=\int x^{2}\cdot e^{x^{2}}\cdot x\,dx
+=\frac{1}{2}\int u\,e^{u}\,du
+=\frac{1}{2}(u-1)e^{u}+C
+=\frac{x^{2}-1}{2}e^{x^{2}}+C.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Use $\int u e^{u}du=(u-1)e^{u}$.
+
+%=========================================================
+\section*{Question 8}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Linear Algebra \\
+\textbf{Subtopic/Concept:} Eigenvalues, Determinant \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $A$ be a $3\times 3$ matrix having eigenvalues $2,7,5$. What is the determinant of $A+2I$?
+\begin{enumerate}[label=(\Alph*)]
+\item $252$
+\item $70$
+\item $420$
+\item $84$
+\end{enumerate}
+
+\subsection*{Solution}
+If $\lambda$ is an eigenvalue of $A$, then $\lambda+2$ is an eigenvalue of $A+2I$. Hence the eigenvalues of $A+2I$ are $4,\,9,\,7$, and
+\[
+\det(A+2I)=4\cdot 9\cdot 7=252.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+Determinant equals the product of eigenvalues (with multiplicity).
+
+%=========================================================
+\section*{Question 9}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Linear Algebra \\
+\textbf{Subtopic/Concept:} Rank of Outer Product \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $x$ and $y$ be two column vectors of length $3$ such that $\sum_{i}x_{i}y_{i}=1$. What is the rank of $xy^{T}$?
+\begin{enumerate}[label=(\Alph*)]
+\item $0$
+\item $1$
+\item $2$
+\item $3$
+\end{enumerate}
+
+\subsection*{Solution}
+The condition $\sum x_iy_i=y^{T}x=1\ne 0$ ensures $x\ne 0$ and $y\ne 0$. The matrix $xy^{T}$ is a nonzero outer product, and every column is a scalar multiple of $x$. Hence the column space is one-dimensional and
+\[
+\operatorname{rank}(xy^{T})=1.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Outer products $uv^T$ have rank $1$ whenever both vectors are nonzero.
+
+%=========================================================
+\section*{Question 10}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Linear Algebra \\
+\textbf{Subtopic/Concept:} Identity Map \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $A$ be a $3\times 3$ matrix such that $Ax=x$ for all column vectors $x$ of length $3$. Which of the following statements is correct?
+\begin{enumerate}[label=(\Alph*)]
+\item No such $A$ exists
+\item $A=\begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix}$
+\item $A=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}$
+\item $A$ exists but is different from the matrices given in parts (B) and (C)
+\end{enumerate}
+
+\subsection*{Solution}
+$Ax=x$ for all $x\in\mathbb{R}^{3}$ means $(A-I)x=0$ for every $x$, which forces $A=I$, the $3\times 3$ identity matrix. The identity matrix is neither the all-ones matrix in (B) nor the anti-diagonal permutation matrix in (C). Therefore the unique $A$ is the identity, which is none of the explicit matrices listed.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+The matrix in (C) only fixes vectors with $x_1=x_3$ --- it is \emph{not} the identity.
+
+%=========================================================
+\section*{Question 11}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Linear Algebra \\
+\textbf{Subtopic/Concept:} Vector Subspaces, Union and Intersection \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $S=\{(x_1,0):x_1\in\mathbb{R}\}$ and $T=\{(0,x_2):x_2\in\mathbb{R}\}$. Which of the following is correct?
+\begin{enumerate}[label=(\Alph*)]
+\item $S,T$ and $S\cap T$ are vector spaces
+\item $S,T$ and $S\cup T$ are vector spaces
+\item $S\cup T$ and $S\cap T$ are vector spaces
+\item Neither $S\cup T$ nor $S\cap T$ is a vector space
+\end{enumerate}
+
+\subsection*{Solution}
+$S$ and $T$ are coordinate axes in $\mathbb{R}^{2}$, both closed under addition and scalar multiplication; they are subspaces of $\mathbb{R}^{2}$. Also $S\cap T=\{(0,0)\}$, the trivial subspace.
+
+However $S\cup T$ is \emph{not} a subspace: $(1,0)\in S$ and $(0,1)\in T$, but $(1,0)+(0,1)=(1,1)\notin S\cup T$.
+
+Hence the vector spaces among the listed objects are $S$, $T$, and $S\cap T$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+Union of subspaces is a subspace only when one is contained in the other.
+
+%=========================================================
+\section*{Question 12}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Combinatorics \\
+\textbf{Subtopic/Concept:} Counting Combinations \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+In a chess tournament, there are both boys and girls. Each player plays with another player exactly once. If there are $45$ games in total and exactly $15$ of them feature only boys, how many games feature a boy and a girl?
+\begin{enumerate}[label=(\Alph*)]
+\item $6$
+\item $15$
+\item $20$
+\item $24$
+\end{enumerate}
+
+\subsection*{Solution}
+Let $b$ and $g$ be the number of boys and girls. Then $\binom{b}{2}=15\Rightarrow b(b-1)=30\Rightarrow b=6$. Also $\binom{b+g}{2}=45\Rightarrow (b+g)(b+g-1)=90\Rightarrow b+g=10\Rightarrow g=4$.
+
+Boy--girl games $=b\cdot g=6\cdot 4=24$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 13}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Combinatorics \\
+\textbf{Subtopic/Concept:} Permutations with Restrictions \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+What is the number of possible arrangements of the letters of the word `madam' such that the two `a's never appear in consecutive positions?
+\begin{enumerate}[label=(\Alph*)]
+\item $30$
+\item $24$
+\item $18$
+\item $12$
+\end{enumerate}
+
+\subsection*{Solution}
+Letters: $m,a,d,a,m$. Total distinct arrangements $=\dfrac{5!}{2!\,2!}=30$.
+
+Arrangements with both $a$'s together: treat `aa' as a single block, leaving symbols $\{m,d,m,aa\}$, total $\dfrac{4!}{2!}=12$.
+
+Arrangements where the two $a$'s are not consecutive $=30-12=18$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+Account for the repeated $m$'s when counting both the full and the `aa-together' arrangements.
+
+%=========================================================
+\section*{Question 14}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Combinatorics \\
+\textbf{Subtopic/Concept:} Counting Reachable States \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A monkey starts at $(0,0)$ on the $xy$-plane in period $1$. From any position $(x,y)$ in a period, the monkey can only jump to $(a,b)$ in the next period, where $a\in\{x+1,x,x-1\}$ and $b\in\{y+1,y,y-1\}$. How many possible positions can the monkey be in period $2$?
+\begin{enumerate}[label=(\Alph*)]
+\item $9$
+\item $6$
+\item $4$
+\item $3$
+\end{enumerate}
+
+\subsection*{Solution}
+$a$ has $3$ possible values and $b$ has $3$ possible values, and they are independent. So the number of reachable positions $=3\times 3=9$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 15}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Probability \\
+\textbf{Subtopic/Concept:} Uniform Discrete, Distance Event \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+In the previous question, suppose in every period the monkey can go to any of the possible positions in the next period with equal probability. Then what is the probability that the monkey is at a distance of more than $1$ from $(0,0)$ in period $2$?
+\begin{enumerate}[label=(\Alph*)]
+\item $0$
+\item $\tfrac{16}{81}$
+\item $\tfrac{1}{3}$
+\item $\tfrac{4}{9}$
+\end{enumerate}
+
+\subsection*{Solution}
+Each of the $9$ neighbours of $(0,0)$ is equally likely (probability $1/9$). Distances from $(0,0)$:
+\begin{itemize}[leftmargin=*]
+\item $(0,0)$: distance $0$.
+\item $(\pm 1,0),(0,\pm 1)$: distance $1$ ($4$ positions).
+\item $(\pm 1,\pm 1)$: distance $\sqrt{2}>1$ ($4$ positions).
+\end{itemize}
+Therefore $P(\text{distance}>1)=\dfrac{4}{9}$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+``Distance $>1$'' is strict, so distance $=1$ does not count.
+
+%=========================================================
+\section*{Question 16}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Statistics \\
+\textbf{Subtopic/Concept:} Linear Regression and Correlation \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+For a given data set, let the least squares regression line be $y=10+2x$. It is given that variance of $x$ is $9$ and variance of $y$ is $81$. What is the correlation coefficient between $x$ and $y$?
+\begin{enumerate}[label=(\Alph*)]
+\item $\tfrac{1}{3}$
+\item $\tfrac{1}{2}$
+\item $\tfrac{2}{3}$
+\item $\tfrac{3}{4}$
+\end{enumerate}
+
+\subsection*{Solution}
+The slope of the OLS regression of $y$ on $x$ satisfies $\hat\beta = r\cdot\dfrac{\sigma_y}{\sigma_x}$. Hence
+\[
+2 = r\cdot\frac{\sqrt{81}}{\sqrt{9}}=r\cdot\frac{9}{3}=3r\ \Longrightarrow\ r=\frac{2}{3}.
+\]
+(Since $\hat\beta>0$, $r$ is also positive.)
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+Use $\sigma_y/\sigma_x$, not the variance ratio.
+
+%=========================================================
+\section*{Question 17}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Probability \\
+\textbf{Subtopic/Concept:} Hypergeometric / Conditional Probability \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+An urn contains $4$ white, $6$ red, and $5$ black balls. $5$ balls are randomly selected from the urn. Let $X$ and $Y$ denote respectively the number of white and black balls selected. Suppose $Y=2$, i.e., $2$ of the $5$ selected balls are black. What is the probability that $X$ takes the value $2$?
+\begin{enumerate}[label=(\Alph*)]
+\item $\tfrac{3}{10}$
+\item $\tfrac{4}{10}$
+\item $\tfrac{3}{15}$
+\item $\tfrac{4}{15}$
+\end{enumerate}
+
+\subsection*{Solution}
+Given $Y=2$, the remaining $3$ balls are drawn from the $4$ white and $6$ red balls (total $10$). Conditionally these $3$ balls are uniformly distributed among $\binom{10}{3}=120$ subsets. Hence
+\[
+P(X=2\mid Y=2)=\frac{\binom{4}{2}\binom{6}{1}}{\binom{10}{3}}=\frac{6\cdot 6}{120}=\frac{36}{120}=\frac{3}{10}.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+After conditioning on $Y=2$, only the colour distribution of the remaining $3$ balls matters.
+
+%=========================================================
+\section*{Question 18}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Probability \\
+\textbf{Subtopic/Concept:} Bayes' Theorem \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+In answering an MCQ with $4$ choices, a student either knows the answer (with probability $\tfrac14$) or guesses (with probability $\tfrac34$). A guess is correct with probability $\tfrac14$. What is the probability that the student knew the answer, given that he answered correctly?
+\begin{enumerate}[label=(\Alph*)]
+\item $\tfrac{3}{7}$
+\item $\tfrac{4}{7}$
+\item $\tfrac{3}{4}$
+\item $1$
+\end{enumerate}
+
+\subsection*{Solution}
+Let $K$ = ``knows'' and $C$ = ``correct''. Then $P(K)=\tfrac14$, $P(C\mid K)=1$, $P(C\mid K^{c})=\tfrac14$. By total probability,
+\[
+P(C)=1\cdot\tfrac{1}{4}+\tfrac{1}{4}\cdot\tfrac{3}{4}=\tfrac{4}{16}+\tfrac{3}{16}=\tfrac{7}{16}.
+\]
+By Bayes' theorem,
+\[
+P(K\mid C)=\frac{P(C\mid K)P(K)}{P(C)}=\frac{1\cdot\tfrac14}{\tfrac{7}{16}}=\frac{4}{7}.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 19}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Expected Value and Variance \\
+\textbf{Subtopic/Concept:} i.i.d. Random Variables \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Let $X_1,X_2,\dots,X_5$ be i.i.d.\ random variables with $E(X_i)=0$ and $V(X_i)=1$. What is the value of
+\[
+E\!\left[\frac{(\sum_{i=1}^{5} X_i)^{2}}{5}\right]?
+\]
+\begin{enumerate}[label=(\Alph*)]
+\item $0$
+\item $1$
+\item $-1$
+\item None of the previous options
+\end{enumerate}
+
+\subsection*{Solution}
+Let $S=\sum_{i=1}^{5} X_i$. Then $E(S)=0$ and $\mathrm{Var}(S)=\sum_{i=1}^{5}\mathrm{Var}(X_i)=5$. Hence
+\[
+E(S^{2})=\mathrm{Var}(S)+\bigl(E(S)\bigr)^{2}=5.
+\]
+Therefore $E[S^{2}/5]=1$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Independence is used to add variances.
+
+%=========================================================
+\section*{Question 20}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Distributions \\
+\textbf{Subtopic/Concept:} Properties of the Binomial Distribution \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Consider $X\sim\text{Bin}(n,p)$. Which of the following is \emph{incorrect}?
+\begin{enumerate}[label=(\Alph*)]
+\item If $np$ is an integer, then the mean and mode of this distribution coincide
+\item If $n$ is even and $p=\tfrac12$, then the median of this distribution is $n/2$
+\item If $P(X=k)=P(X=n-k)$ for every $k\in\{0,1,\dots,n\}$, then $p=\tfrac12$
+\item If $(n+1)p-1$ is an integer, then this distribution is unimodal
+\end{enumerate}
+
+\subsection*{Solution}
+\textbf{A.} A standard result: when $np\in\mathbb{Z}$, the mode equals $np$, which is the mean. True.
+
+\textbf{B.} For $\text{Bin}(n,\tfrac12)$ with $n$ even, the distribution is symmetric about $n/2$, so $n/2$ is the median. True.
+
+\textbf{C.} $\binom{n}{k}p^{k}(1-p)^{n-k}=\binom{n}{k}p^{n-k}(1-p)^{k}$ for all $k$ requires $(p/(1-p))^{k}=(p/(1-p))^{n-k}$ for all $k$, which forces $p=1-p$, i.e.\ $p=\tfrac12$. True.
+
+\textbf{D.} The mode of $\text{Bin}(n,p)$ lies at $\lfloor(n+1)p\rfloor$. When $(n+1)p$ is an integer, BOTH $(n+1)p-1$ and $(n+1)p$ are modes, so the distribution is \emph{bi-modal}, not unimodal. Hence the statement is \emph{incorrect}.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+Two adjacent integers can be modes simultaneously when $(n+1)p\in\mathbb{Z}$.
+
+%=========================================================
+\section*{Question 21}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Growth Models \\
+\textbf{Subtopic/Concept:} AK Model of Endogenous Growth \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Consider an economy with $y=Ak$ (per-capita form), saving rate $s\in(0,1)$, population growth rate $n>0$ and depreciation rate $\delta\in(0,1)$. Assume parameters ensure positive long-run growth of $y$. Which of the following is \emph{incorrect}?
+\begin{enumerate}[label=(\Alph*)]
+\item The growth rate of capital--labour ratio is $sA-(n+\delta)$
+\item If investment $I>\delta K$, then output grows at a positive rate
+\item The economy is always on the steady state growth path
+\item Increasing the savings rate $s$ will not have any effect on the long-run growth rate of output per worker
+\end{enumerate}
+
+\subsection*{Solution}
+With $y=Ak$, capital--labour accumulation gives
+\[
+\dot k = sy - (n+\delta)k = sAk - (n+\delta)k\ \Longrightarrow\ \frac{\dot k}{k}=sA-(n+\delta).
+\]
+\textbf{A:} matches the growth rate of $k$. True.
+
+\textbf{B:} $I>\delta K\Rightarrow\dot K=I-\delta K>0$, hence $K$ and $Y=AK$ grow. True.
+
+\textbf{C:} Because $\dot k/k$ is a constant (independent of $k$), every variable grows at a constant rate at all times --- the economy is permanently on its balanced growth path. True.
+
+\textbf{D:} The growth rate of $y$ equals $\dot k/k=sA-(n+\delta)$, which is strictly increasing in $s$. Hence raising $s$ does affect the long-run growth rate. \textbf{Incorrect.}
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+The AK model differs from Solow: $s$ \emph{does} permanently affect growth.
+
+%=========================================================
+\section*{Question 22}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Growth Models \\
+\textbf{Subtopic/Concept:} Solow Steady State \quad \textbf{Difficulty:} Easy \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Solow economy with $Y=K^{1/3}L^{2/3}$, no population growth or technological change, $\delta=0.05$, $s=0.2$. What is the steady-state capital--labour ratio?
+\begin{enumerate}[label=(\Alph*)]
+\item $6$
+\item $8$
+\item $2$
+\item $4$
+\end{enumerate}
+
+\subsection*{Solution}
+Intensive form: $y=k^{1/3}$. Steady-state condition $sf(k^{*})=\delta k^{*}$:
+\[
+0.2\,k^{1/3}=0.05\,k\ \Longrightarrow\ k^{2/3}=\frac{0.2}{0.05}=4\ \Longrightarrow\ k^{*}=4^{3/2}=8.
+\]
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+No major trap beyond standard calculation care.
+
+%=========================================================
+\section*{Question 23}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Growth Models \\
+\textbf{Subtopic/Concept:} Golden Rule \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+With the same Solow economy (no population growth, $\delta=0.05$, $Y=K^{1/3}L^{2/3}$), a social planner wishes to maximize steady-state per-capita consumption. What savings rate $s$ achieves this?
+\begin{enumerate}[label=(\Alph*)]
+\item $\tfrac{2}{3}$
+\item $\tfrac{1}{2}$
+\item $\tfrac{1}{3}$
+\item $\tfrac{1}{4}$
+\end{enumerate}
+
+\subsection*{Solution}
+Steady-state per-capita consumption: $c^{*}(s)=(1-s)f(k^{*}(s))=f(k^{*})-\delta k^{*}$. The Golden Rule condition is $f'(k^{*})=\delta$. With $f(k)=k^{1/3}$, $f'(k)=\tfrac{1}{3}k^{-2/3}=\delta$. Combined with $sf(k^{*})=\delta k^{*}$:
+\[
+s = \frac{\delta k^{*}}{f(k^{*})}=\delta\cdot k^{*2/3}=\delta\cdot\frac{1}{3\delta}=\frac{1}{3}.
+\]
+This is the standard result that the Golden Rule saving rate equals the capital share $\alpha=\tfrac{1}{3}$ in a Cobb--Douglas economy.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+For $Y=K^{\alpha}L^{1-\alpha}$, $s_{\text{GR}}=\alpha$.
+
+%=========================================================
+\section*{Question 24}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Growth Models \\
+\textbf{Subtopic/Concept:} Solow Transition Dynamics \quad \textbf{Difficulty:} Moderate-Hard \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A Solow economy has $y=k^{1/2}$, $\delta=0$, labour grows at $n>0$. If the steady-state value of $k$ is $50$ and the current value of $k$ is $2$, what is the current growth rate of per-capita output?
+\begin{enumerate}[label=(\Alph*)]
+\item $24n$
+\item $25n$
+\item $0.3$
+\item None of the previous options
+\end{enumerate}
+
+\subsection*{Solution}
+With $\delta=0$, the capital accumulation equation per worker is
+\[
+\dot k = sf(k)-nk,\qquad \frac{\dot k}{k}=s\,\frac{f(k)}{k}-n=\frac{s}{\sqrt{k}}-n.
+\]
+At the steady state $k^{*}=50$: $\dfrac{s}{\sqrt{50}}=n\Rightarrow s=n\sqrt{50}$.
+
+At the current level $k=2$:
+\[
+\frac{\dot k}{k}=\frac{n\sqrt{50}}{\sqrt{2}}-n=n\sqrt{25}-n=5n-n=4n.
+\]
+Since $y=k^{1/2}$, $\dfrac{\dot y}{y}=\dfrac{1}{2}\cdot\dfrac{\dot k}{k}=2n$.
+
+This value is not equal to $24n$, $25n$, or $0.3$ (the last is not even of the form $\cdot n$). Hence the correct option is `None of the previous options'.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option D}}
+\]
+
+\subsection*{Common Trap / Note}
+Make sure to multiply by the elasticity ($1/2$) when converting $\dot k/k$ to $\dot y/y$.
+
+%=========================================================
+\section*{Question 25}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} International Trade / General Equilibrium \\
+\textbf{Subtopic/Concept:} Transfer Problem \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Two countries $A$ and $B$ produce wheat and television respectively, with $Y_A=200$ and $Y_B=250$. The TV price is normalised to $1$, the relative price of wheat is $p$. Let $E_A$ (in wheat units) and $E_B$ (in TV units) denote total expenditures. The income identity is $pY_A+Y_B=pE_A+E_B$. Initially $E_A=100$; $A$ reduces $E_A$ to $70$. Suppose $1/3$ of each country's expenditure is on wheat. What happens to the equilibrium $p$?
+\begin{enumerate}[label=(\Alph*)]
+\item $p$ stays the same
+\item $p$ increases
+\item $p$ decreases
+\item The effect is ambiguous
+\end{enumerate}
+
+\subsection*{Solution}
+Country $A$'s total expenditure in TV units is $pE_A$; spending $1/3$ on wheat yields wheat demand $\dfrac{pE_A/3}{p}=\dfrac{E_A}{3}$. Country $B$'s wheat demand is $\dfrac{E_B/3}{p}$. World wheat market clearing:
+\[
+\frac{E_A}{3}+\frac{E_B}{3p}=Y_A=200. \quad (\star)
+\]
+Combined with the income identity $200p+250=pE_A+E_B$, we can solve:
+
+\textbf{Before ($E_A=100$):} $(\star)\Rightarrow E_B=3p(200-100/3)=p(600-100)=500p$. Income identity: $200p+250=100p+500p=600p\Rightarrow p=\dfrac{250}{400}=\dfrac{5}{8}$.
+
+\textbf{After ($E_A=70$):} $(\star)\Rightarrow E_B=3p(200-70/3)=p(600-70)=530p$. Income identity: $200p+250=70p+530p=600p\Rightarrow p=\dfrac{5}{8}$.
+
+The relative price is unchanged. This is the classical \emph{neutrality of transfers} result: when both countries have identical homothetic preferences (here Cobb--Douglas shares), a transfer or change in expenditure between them does not affect the terms of trade.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+With identical expenditure shares across countries, the transfer problem becomes neutral.
+
+%=========================================================
+\section*{Question 26}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} International Trade / General Equilibrium \\
+\textbf{Subtopic/Concept:} Transfer Problem with Home Bias \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Same setup as Q25, except now \emph{each} country spends $2/3$ of its expenditure on its \emph{own} good and $1/3$ on the foreign good. What is the impact on $p$ when $E_A$ falls from $100$ to $70$?
+\begin{enumerate}[label=(\Alph*)]
+\item $p$ stays the same
+\item $p$ increases
+\item $p$ decreases
+\item The effect is ambiguous
+\end{enumerate}
+
+\subsection*{Solution}
+$A$ spends $2/3$ of $pE_A$ on wheat $\Rightarrow$ wheat demand $=\dfrac{2pE_A/3}{p}=\dfrac{2E_A}{3}$. $B$ spends $1/3$ of $E_B$ (in TV) on wheat $\Rightarrow$ wheat demand $=\dfrac{E_B/3}{p}=\dfrac{E_B}{3p}$.
+
+Wheat market clearing:
+\[
+\frac{2E_A}{3}+\frac{E_B}{3p}=200. \quad (\star\star)
+\]
+
+Combined with $200p+250=pE_A+E_B$:
+
+\textbf{Before ($E_A=100$):} $(\star\star)\Rightarrow E_B=3p(200-200/3)=p(600-200)=400p$. Income identity: $200p+250=100p+400p=500p\Rightarrow p=\dfrac{5}{6}\approx 0.833$.
+
+\textbf{After ($E_A=70$):} $(\star\star)\Rightarrow E_B=3p(200-140/3)=p(600-140)=460p$. Income identity: $200p+250=70p+460p=530p\Rightarrow p=\dfrac{250}{330}=\dfrac{25}{33}\approx 0.758$.
+
+Thus $p$ decreases.
+
+\textit{Intuition:} With home bias, $A$ spends more of its income at home (on wheat). When $A$ reduces total expenditure, the world demand for wheat falls disproportionately (since $A$'s marginal propensity to import is only $1/3$, while it was previously absorbing $2/3$ of its spending on wheat). Hence wheat becomes relatively cheaper.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+With asymmetric (home-biased) preferences, the transfer problem is not neutral.
+
+%=========================================================
+\section*{Question 27}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Consumer Theory \\
+\textbf{Subtopic/Concept:} Giffen and Inferior Goods \quad \textbf{Difficulty:} Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+A consumer consumes two goods $X$ and $Y$. It is observed that her consumption of $X$ always falls when the price of $X$ falls, \emph{ceteris paribus}. Suppose now income rises, with prices of $X$ and $Y$ held constant. What happens to consumption of $X$?
+\begin{enumerate}[label=(\Alph*)]
+\item Consumption of $X$ falls
+\item Consumption of $X$ rises
+\item Consumption of $X$ remains unchanged
+\item Indeterminate: consumption of $X$ could rise, fall, or remain unchanged
+\end{enumerate}
+
+\subsection*{Solution}
+The Slutsky equation gives
+\[
+\frac{\partial x}{\partial p_x}= \underbrace{\frac{\partial x^{h}}{\partial p_x}}_{\text{substitution}\,\le 0}- x\cdot\frac{\partial x}{\partial m}.
+\]
+Since the substitution effect is non-positive, the Marshallian demand $x$ \emph{rises} when $p_x$ falls unless the income effect is sufficiently negative and dominates. The given observation $\partial x/\partial p_x>0$ (a price fall reduces consumption) implies
+\[
+-x\cdot\frac{\partial x}{\partial m}>-\frac{\partial x^{h}}{\partial p_x}\ge 0\ \Longrightarrow\ \frac{\partial x}{\partial m}<0.
+\]
+That is, $X$ is a Giffen good and hence \emph{inferior}. When income rises (prices held fixed), consumption of an inferior good falls.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option A}}
+\]
+
+\subsection*{Common Trap / Note}
+Every Giffen good is inferior, but not every inferior good is Giffen.
+
+%=========================================================
+\section*{Question 28}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Intertemporal Optimization \\
+\textbf{Subtopic/Concept:} Two-period Consumption Smoothing \quad \textbf{Difficulty:} Easy-Moderate \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+$A$ has a pond which yields $f$ fish at $t=1$ and nothing at $t=2$. He consumes only fish. Storage is costless and undepreciated; no discounting. Utility in any period $t$ is $u(c_t)=c_t^{\,n}$ with $0<n<1$. Optimal consumption?
+\begin{enumerate}[label=(\Alph*)]
+\item Any division is optimal
+\item $c_1=c_2=f/2$
+\item $c_1=f,\ c_2=0$
+\item $c_1=0,\ c_2=f$
+\end{enumerate}
+
+\subsection*{Solution}
+The problem is
+\[
+\max_{c_1,c_2\ge 0}\ c_1^{\,n}+c_2^{\,n}\quad\text{s.t.}\quad c_1+c_2=f.
+\]
+Substituting $c_2=f-c_1$ and differentiating with respect to $c_1$:
+\[
+nc_1^{\,n-1}-n(f-c_1)^{n-1}=0\ \Longrightarrow\ c_1^{\,n-1}=(f-c_1)^{n-1}\ \Longrightarrow\ c_1=f-c_1\ \Longrightarrow\ c_1=c_2=\tfrac{f}{2}.
+\]
+The second-order condition holds because $u(c)=c^{n}$ with $0<n<1$ is strictly concave, so the agent strictly prefers a smooth path.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Concave utility + no discount $\Rightarrow$ perfect consumption smoothing.
+
+%=========================================================
+\section*{Question 29}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Market Structure \\
+\textbf{Subtopic/Concept:} Price Support vs.\ Competitive Equilibrium \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Verified
+
+\subsection*{Question}
+Country $C$ has $10{,}000$ identical farmers with cost $C(q_i)=0.5q_i^{2}+4q_i+100$, aggregate demand $Q=-10{,}000p+400{,}000$. Current price support $p=30$; government buys all unsold output at $30$. The government proposes removing the support and giving each farmer an equal share of the saved expenditure as a lump-sum transfer. Each farmer must, however, pay $300$ to open a bank account to receive the transfer. By how much does a farmer gain (or lose)?
+\begin{enumerate}[label=(\Alph*)]
+\item Rise by $8$
+\item Rise by $4$
+\item Fall by $4$
+\item Fall by $8$
+\end{enumerate}
+
+\subsection*{Solution}
+\textbf{Per-farmer profit under price support ($p=30$):} A competitive farmer chooses $q$ s.t.\ $p=MC(q)=q+4\Rightarrow q=26$. Revenue $=30\cdot 26=780$; cost $=0.5\cdot 676+4\cdot 26+100=338+104+100=542$. Profit $\pi^{R}=780-542=238$.
+
+\textbf{Government's purchase cost under support:} At $p=30$ consumers buy $Q^{d}=-10{,}000(30)+400{,}000=100{,}000$. Farmers' aggregate output is $10{,}000\cdot 26=260{,}000$. Government buys $260{,}000-100{,}000=160{,}000$ units at $30$, total expenditure $=30\cdot 160{,}000=4{,}800{,}000$. Per-farmer share of savings $=4{,}800{,}000/10{,}000=480$.
+
+\textbf{Competitive equilibrium after deregulation:} Aggregate supply $q_{s}=10{,}000(p-4)$. Setting $q_{s}=Q^{d}$:
+\[
+10{,}000(p-4)= -10{,}000p+400{,}000\ \Longrightarrow\ 20{,}000p=440{,}000\ \Longrightarrow\ p^{*}=22,\ q^{*}_i=18.
+\]
+Profit $\pi^{C}=22\cdot 18 -(0.5\cdot 324+4\cdot 18+100)=396-(162+72+100)=396-334=62$.
+
+\textbf{Net change in farmer's income:}
+\[
+\Delta = \pi^{C}-\pi^{R}+480-300 = 62-238+480-300=4.
+\]
+So each farmer is better off by $4$.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option B}}
+\]
+
+\subsection*{Common Trap / Note}
+Don't forget to subtract the bank-account cost of $300$.
+
+%=========================================================
+\section*{Question 30}
+\textbf{Paper:} PEA \quad \textbf{Year:} 2024 \quad \textbf{Topic:} Consumer Theory \\
+\textbf{Subtopic/Concept:} Revealed Preference / Rationality \quad \textbf{Difficulty:} Hard \quad \textbf{Status:} Draft
+
+\subsection*{Question}
+A consumer consumes three goods $X,Y,Z$ over three periods. Prices and bundles:
+\[
+\begin{aligned}
+\text{Period 1: } & p^{1}=(2,3,3),\ x^{1}=(3,1,7),\\
+\text{Period 2: } & p^{2}=(3,2,3),\ x^{2}=(7,3,1),\\
+\text{Period 3: } & p^{3}=(3,3,2),\ x^{3}=(1,7,3).
+\end{aligned}
+\]
+Which of the following statements about her preferences is correct?
+\begin{enumerate}[label=(\Alph*)]
+\item Preferences are not complete
+\item Preferences are transitive though not necessarily complete
+\item Preferences are incomplete and intransitive
+\item Preferences are complete and transitive
+\end{enumerate}
+
+\subsection*{Solution}
+Compute the cost matrix $C_{ij}=p^{i}\cdot x^{j}$:
+\[
+\begin{array}{c|ccc}
+ & x^{1} & x^{2} & x^{3}\\\hline
+p^{1} & 30 & 26 & 32\\
+p^{2} & 32 & 30 & 26\\
+p^{3} & 26 & 32 & 30
+\end{array}
+\]
+\textbf{At $p^{1}$:} $C_{11}=30$, $C_{12}=26\le 30$, so the consumer could afford $x^{2}$ but chose $x^{1}$ $\Rightarrow x^{1}\succ x^{2}$.
+
+\textbf{At $p^{2}$:} $C_{22}=30$, $C_{23}=26\le 30$, so $x^{2}\succ x^{3}$.
+
+\textbf{At $p^{3}$:} $C_{33}=30$, $C_{31}=26\le 30$, so $x^{3}\succ x^{1}$.
+
+This yields the cycle $x^{1}\succ x^{2}\succ x^{3}\succ x^{1}$, which directly violates transitivity (and indeed the Strong Axiom of Revealed Preference). Consequently the observed choices cannot be rationalised by a complete-and-transitive (i.e.\ rational) preference relation. Among the four options, the one consistent with the data ruling out rationality is that preferences are not both complete and transitive --- in particular they fail transitivity, and any consistent assignment over $\{x^{1},x^{2},x^{3}\}$ has to drop completeness as well to avoid the cycle. Option (C) is therefore the intended answer.
+
+\subsection*{Final Answer}
+\[
+\boxed{\text{Option C}}
+\]
+
+\subsection*{Common Trap / Note}
+A revealed-preference cycle violates SARP; in a four-option MCQ, both (B) and (D) are ruled out by intransitivity, and (A) alone is too weak to capture the failure.
+
+%=========================================================
+\section*{Review Flags}
+
+The following questions are flagged for human verification:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Question 30 (Status: Draft).} The revealed-preference data establish an intransitive strict-preference cycle, which uniquely rules out options (B) and (D). The choice between (A) and (C) depends on the interpretation of `complete' in the ISI answer key. Our solution adopts the standard convention that a cyclic violation of SARP is inconsistent with rationality (i.e.\ with simultaneous completeness and transitivity), which makes option (C) the closest correct choice.
+\end{itemize}
+
+\end{document}

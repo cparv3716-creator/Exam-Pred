@@ -1,0 +1,52 @@
+{
+    "exam":  "ISI",
+    "program":  "MSQE",
+    "status":  "phase_1_sample_ready",
+    "version":  "1.0.0",
+    "websiteSourcePolicy":  "Use verified txt, md, json, or tex sources. PDFs are references only and are not parsed directly by the website loader.",
+    "activeQuestionFile":  "question_bank/sample_msqe_questions.json",
+    "sourceInventory":  {
+                            "structuredFilesFound":  3,
+                            "reportedExternalPeaCount":  615,
+                            "reportedExternalPebCount":  212,
+                            "note":  "Detected 615 PEA rows, 212 PEB rows, and 827 combined rows in external structured CSV banks. They remain import candidates and are not yet used by student practice pages."
+                        },
+    "modules":  [
+                    {
+                        "id":  "pea",
+                        "label":  "PEA objective paper",
+                        "status":  "sample_ready",
+                        "path":  "question_bank/pea"
+                    },
+                    {
+                        "id":  "peb",
+                        "label":  "PEB descriptive paper",
+                        "status":  "sample_ready",
+                        "path":  "question_bank/peb"
+                    },
+                    {
+                        "id":  "pyqs",
+                        "label":  "Verified PYQ vault",
+                        "status":  "staging_ready",
+                        "path":  "pyqs"
+                    },
+                    {
+                        "id":  "inference",
+                        "label":  "Inference reports",
+                        "status":  "staging_ready",
+                        "path":  "inference"
+                    },
+                    {
+                        "id":  "practice_sets",
+                        "label":  "Curated practice sets",
+                        "status":  "staging_ready",
+                        "path":  "practice_sets"
+                    },
+                    {
+                        "id":  "solutions",
+                        "label":  "PYQ solution booklets",
+                        "status":  "verified_resources",
+                        "path":  "solutions"
+                    }
+                ]
+}
