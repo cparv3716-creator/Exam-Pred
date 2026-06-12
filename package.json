@@ -21,6 +21,7 @@
     "start": "next start",
     "lint": "next lint",
     "build:cat-quant-latex-direct-bank": "tsx scripts/build-cat-quant-latex-direct-bank.ts",
+    "build:isi-msqe-pea-bank": "tsx scripts/build-isi-msqe-pea-bank.ts",
     "audit:cat-quant-latex-map": "tsx scripts/audit-cat-quant-latex-to-json-map.ts",
     "apply:cat-quant-latex-high-confidence": "tsx scripts/apply-cat-quant-latex-high-confidence-matches.ts",
     "build:cat-varc-source-bank": "tsx scripts/build-cat-varc-source-bank.ts",

@@ -21,7 +21,7 @@ export default function IsiMsqeSolutionsPage() {
           <IsiPageHeader
             eyebrow="MSQE / Real resource layer"
             title="ISI MSQE PYQ Solutions Vault"
-            description="Year-wise Statstrive solution booklets preserved in polished PDF and original LaTeX source formats. These resources are separate from the development practice preview."
+            description="Year-wise Statstrive solution booklets preserved in polished PDF and original LaTeX source formats. The PEA practice bank and branded question PDFs are regenerated from these local TeX sources."
             chips={["PDF booklets", "LaTeX source", "Manifest-driven", "No OCR"]}
           />
           <aside className="aurora-surface rounded-3xl p-5 shadow-[0_22px_75px_rgba(15,23,42,0.07)]">

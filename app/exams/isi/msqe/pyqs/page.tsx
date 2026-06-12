@@ -17,7 +17,7 @@ export default function MsqePyqPage() {
   return (
     <IsiPageShell>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <IsiPageHeader eyebrow="MSQE / Real PYQ resources" title="Question papers and source archives." description="Downloadable MSQE source papers are indexed separately from the development practice preview. Historical compilations remain labeled as archives, and the 2026 source remains labeled as a combined PEA/PEB paper." chips={["Real local files", "No OCR", "No question rewriting", "Manifest checked"]} />
+        <IsiPageHeader eyebrow="MSQE / Real PYQ resources" title="Question papers and source archives." description="Downloadable MSQE source papers are indexed alongside regenerated Statstrive-branded PEA question PDFs. Historical compilations remain labeled as archives, and the 2026 source remains labeled as a combined PEA/PEB paper." chips={["Real local files", "Regenerated PEA PDFs", "No question rewriting", "Manifest checked"]} />
 
         <Link href="/exams/isi/msqe/solutions" className="aurora-glass aurora-card-hover aurora-focus-ring mt-8 flex flex-col gap-5 p-6 sm:flex-row sm:items-center">
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-white" style={{ background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))" }}><Library size={20} /></span>
@@ -29,7 +29,7 @@ export default function MsqePyqPage() {
         <ResourceSection title="PEB question-paper resources" resources={pebResources} emptyMessage="No PEB source files are available." />
 
         <div className="mt-10 rounded-3xl border bg-white/65 p-6" style={{ borderColor: "var(--aurora-border-soft)" }}>
-          <div className="flex items-start gap-4"><ShieldCheck size={20} style={{ color: "var(--aurora-success)" }} /><div><h2 className="font-bold">Structured question banks detected, not imported yet</h2><p className="mt-2 text-sm leading-7" style={{ color: "var(--aurora-text-secondary)" }}>The local source root contains PEA, PEB, and combined extracted CSV banks plus year-partitioned text. They remain outside the active practice bank until a later schema-validation and question-integrity pass.</p></div></div>
+          <div className="flex items-start gap-4"><ShieldCheck size={20} style={{ color: "var(--aurora-success)" }} /><div><h2 className="font-bold">PEA practice bank is active</h2><p className="mt-2 text-sm leading-7" style={{ color: "var(--aurora-text-secondary)" }}>The active PEA bank is generated from local solution TeX. Items with missing option blocks, unclear answer keys, or non-verified source status remain marked needsReview rather than being silently compressed.</p></div></div>
         </div>
       </section>
     </IsiPageShell>
