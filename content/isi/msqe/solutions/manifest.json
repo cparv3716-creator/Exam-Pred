@@ -1,0 +1,72 @@
+[
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2026,
+        "title":  "ISI MSQE PEA 2026 Solutions",
+        "pdfPath":  "/resources/isi/msqe/solutions/pea/2026/ISI_MSQE_PEA_2026_Solutions.pdf",
+        "texPath":  "/resources/isi/msqe/solutions/pea/2026/ISI_MSQE_PEA_2026_Solutions.tex",
+        "status":  "verified",
+        "questionCount":  null,
+        "source":  "Statstrive solution booklet",
+        "sourceFile":  "ISI_MSQE_2026_PEA_Solutions.pdf / ISI_MSQE_2026_PEA_Solutions.tex",
+        "lastUpdated":  "2026-06-12"
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2025,
+        "title":  "ISI MSQE PEA 2025 Solutions",
+        "pdfPath":  "/resources/isi/msqe/solutions/pea/2025/ISI_MSQE_PEA_2025_Solutions.pdf",
+        "texPath":  "/resources/isi/msqe/solutions/pea/2025/ISI_MSQE_PEA_2025_Solutions.tex",
+        "status":  "verified",
+        "questionCount":  null,
+        "source":  "Statstrive solution booklet",
+        "sourceFile":  "ISI_PEA_2025_Solutions.pdf / ISI_PEA_2025_Solutions.tex",
+        "lastUpdated":  "2026-06-12"
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2024,
+        "title":  "ISI MSQE PEA 2024 Solutions",
+        "pdfPath":  "/resources/isi/msqe/solutions/pea/2024/ISI_MSQE_PEA_2024_Solutions.pdf",
+        "texPath":  "/resources/isi/msqe/solutions/pea/2024/ISI_MSQE_PEA_2024_Solutions.tex",
+        "status":  "verified",
+        "questionCount":  null,
+        "source":  "Statstrive solution booklet",
+        "sourceFile":  "ISI_PEA_2024_Solutions.pdf / ISI_PEA_2024_Solutions.tex",
+        "lastUpdated":  "2026-06-12"
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2023,
+        "title":  "ISI MSQE PEA 2023 Solutions",
+        "pdfPath":  "/resources/isi/msqe/solutions/pea/2023/ISI_MSQE_PEA_2023_Solutions.pdf",
+        "texPath":  "/resources/isi/msqe/solutions/pea/2023/ISI_MSQE_PEA_2023_Solutions.tex",
+        "status":  "verified",
+        "questionCount":  null,
+        "source":  "Statstrive solution booklet",
+        "sourceFile":  "ISI_MSQE_PEA_2023_Solutions.pdf / ISI_MSQE_PEA_2023_Solutions.tex",
+        "lastUpdated":  "2026-06-12"
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2022,
+        "title":  "ISI MSQE PEA 2022 Solutions",
+        "pdfPath":  "/resources/isi/msqe/solutions/pea/2022/ISI_MSQE_PEA_2022_Solutions.pdf",
+        "texPath":  "/resources/isi/msqe/solutions/pea/2022/ISI_MSQE_PEA_2022_Solutions.tex",
+        "status":  "verified",
+        "questionCount":  null,
+        "source":  "Statstrive solution booklet",
+        "sourceFile":  "ISI_MSQE_PEA_2022_Solutions.pdf / ISI_MSQE_PEA_2022_Solutions.tex",
+        "lastUpdated":  "2026-06-12"
+    }
+]

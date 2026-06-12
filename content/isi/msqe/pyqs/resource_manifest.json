@@ -1,0 +1,58 @@
+[
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  2026,
+        "title":  "ISI MSQE 2026 Combined Question Paper (PEA + PEB)",
+        "resourceType":  "question_paper",
+        "pdfPath":  "/resources/isi/msqe/pyqs/pea/2026/ISI_MSQE_PEA_2026_Combined_Question_Paper.pdf",
+        "textPath":  null,
+        "texPath":  null,
+        "status":  "source",
+        "sourceFile":  "MSQE-2026_merged.pdf",
+        "note":  "The source PDF contains both PEA and PEB papers. This entry is indexed under PEA for discovery."
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEB",
+        "year":  2026,
+        "title":  "ISI MSQE 2026 Combined Question Paper (PEA + PEB)",
+        "resourceType":  "question_paper",
+        "pdfPath":  "/resources/isi/msqe/pyqs/peb/2026/ISI_MSQE_PEB_2026_Combined_Question_Paper.pdf",
+        "textPath":  null,
+        "texPath":  null,
+        "status":  "source",
+        "sourceFile":  "MSQE-2026_merged.pdf",
+        "note":  "The source PDF contains both PEA and PEB papers. This entry is indexed under PEB for discovery."
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEA",
+        "year":  null,
+        "title":  "ISI MSQE PEA 2006-2025 Compiled Question Papers",
+        "resourceType":  "question_paper_archive",
+        "pdfPath":  "/resources/isi/msqe/pyqs/pea/archive/ISI_MSQE_PEA_2006_2025_Question_Papers.pdf",
+        "textPath":  null,
+        "texPath":  null,
+        "status":  "source",
+        "sourceFile":  "isi_pea_copy_260318_012208_compressed.pdf",
+        "note":  "Compiled historical source containing multiple PEA years; retained as an archive rather than mislabeled as a single-year paper."
+    },
+    {
+        "exam":  "ISI",
+        "program":  "MSQE",
+        "paper":  "PEB",
+        "year":  null,
+        "title":  "ISI MSQE PEB 2006-2025 Compiled Question Papers",
+        "resourceType":  "question_paper_archive",
+        "pdfPath":  "/resources/isi/msqe/pyqs/peb/archive/ISI_MSQE_PEB_2006_2025_Question_Papers.pdf",
+        "textPath":  null,
+        "texPath":  null,
+        "status":  "source",
+        "sourceFile":  "isi_peb.pdf",
+        "note":  "Compiled historical source containing multiple PEB years; retained as an archive rather than mislabeled as a single-year paper."
+    }
+]
