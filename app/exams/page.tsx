@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Sigma } from "lucide-react";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
 import { examCategories, exams } from "@/data/exams";
 
@@ -22,7 +22,7 @@ export default function ExamsPage() {
               Choose an intelligence cockpit.
             </h1>
             <p className="mt-4 text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
-              CAT is connected to local pipeline outputs. Other exam cards show demo preview
+              CAT and ISI MSQE have dedicated local content verticals. Other exam cards show demo preview
               coverage until their pipelines are uploaded.
             </p>
           </div>
@@ -36,7 +36,22 @@ export default function ExamsPage() {
           </div>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {exams.map((exam) => {
+            <Link
+              href="/exams/isi"
+              className="aurora-glass aurora-card-hover aurora-focus-ring group relative flex flex-col overflow-hidden p-6"
+              style={{ boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)" }}
+            >
+              <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))" }} />
+              <div className="flex items-center justify-between gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white" style={{ background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))" }}><Sigma size={18} aria-hidden /></span>
+                <span className="aurora-badge" style={{ color: "var(--aurora-success)" }}>Active</span>
+              </div>
+              <h2 className="mt-4 text-xl font-bold tracking-tight">ISI</h2>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--aurora-text-muted)" }}>Economics / Statistics / Mathematics</p>
+              <div className="mt-4 flex flex-wrap gap-2"><span className="aurora-badge">MSQE</span><span className="aurora-badge">PEA</span><span className="aurora-badge">PEB</span></div>
+              <p className="mt-4 flex-1 text-sm leading-6" style={{ color: "var(--aurora-text-secondary)" }}>Dedicated MSQE cockpit with objective and descriptive practice, PYQ staging, and inference modules.</p>
+              <div className="mt-5 flex items-end justify-between border-t pt-4" style={{ borderColor: "var(--aurora-border-soft)" }}><span className="text-xs" style={{ color: "var(--aurora-text-muted)" }}>MSQE Phase 1 active</span><span className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--aurora-primary)" }}>Open <ArrowRight size={15} /></span></div>
+            </Link>            {exams.map((exam) => {
               const live = exam.slug === "cat";
               return (
                 <Link
@@ -117,3 +132,5 @@ export default function ExamsPage() {
     </AuroraPageShell>
   );
 }
+
+
