@@ -5,7 +5,7 @@ import { ArrowLeft, FileText } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { LatexSourceQuestionViewer } from "@/components/practice/LatexSourceQuestionViewer";
 import { OutlinePill } from "@/components/ui/Badge";
-import { getCatQuantLatexSourceById, getCatQuantLatexSourceQuestions } from "@/lib/content/practice/cat-quant-latex-source";
+import { getCatQuantLatexSourceById } from "@/lib/content/practice/cat-quant-latex-source";
 
 const LEVEL_HREF: Record<string, string> = {
   Beginner: "/exams/cat/quant/latex-source/beginner",
@@ -13,9 +13,11 @@ const LEVEL_HREF: Record<string, string> = {
   Advanced: "/exams/cat/quant/latex-source/advanced",
 };
 
-export function generateStaticParams() {
-  return getCatQuantLatexSourceQuestions().map((question) => ({ questionId: question.question_id }));
-}
+/**
+ * Per-question pages are rendered on demand (no generateStaticParams):
+ * pre-rendering all 230 LaTeX-source questions made deploy builds too heavy.
+ */
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ questionId: string }> }): Promise<Metadata> {
   const { questionId } = await params;

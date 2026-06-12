@@ -5,7 +5,7 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { VarcSourceQuestionViewer } from "@/components/practice/VarcSourceQuestionViewer";
 import { OutlinePill } from "@/components/ui/Badge";
-import { getCatVarcSourceById, getCatVarcSourceQuestions } from "@/lib/content/practice/cat-varc-source";
+import { getCatVarcSourceById } from "@/lib/content/practice/cat-varc-source";
 
 const LEVEL_HREF: Record<string, string> = {
   Beginner: "/exams/cat/varc/source/beginner",
@@ -13,9 +13,11 @@ const LEVEL_HREF: Record<string, string> = {
   Advanced: "/exams/cat/varc/source/advanced",
 };
 
-export function generateStaticParams() {
-  return getCatVarcSourceQuestions().map((q) => ({ questionId: q.question_id }));
-}
+/**
+ * Per-question pages are rendered on demand (no generateStaticParams):
+ * pre-rendering all 241 VARC source questions made deploy builds too heavy.
+ */
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ questionId: string }> }): Promise<Metadata> {
   const { questionId } = await params;

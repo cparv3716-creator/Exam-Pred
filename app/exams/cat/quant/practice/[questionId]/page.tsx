@@ -7,6 +7,9 @@ import { PracticeQuestionViewer } from "@/components/practice/PracticeQuestionVi
 import { OutlinePill } from "@/components/ui/Badge";
 import { getCatQuantPracticeById } from "@/lib/content/practice/cat-quant-practice";
 
+/** Rendered on demand — per-question pre-rendering is too heavy for deploys. */
+export const dynamic = "force-dynamic";
+
 const LEVEL_HREF: Record<string, string> = {
   Beginner: "/exams/cat/quant/beginner",
   Intermediate: "/exams/cat/quant/intermediate",
