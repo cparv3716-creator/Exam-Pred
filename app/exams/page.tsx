@@ -22,8 +22,8 @@ export default function ExamsPage() {
               Choose an intelligence cockpit.
             </h1>
             <p className="mt-4 text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
-              CAT is connected to local pipeline outputs. Other exam cards show demo preview
-              coverage until their pipelines are uploaded.
+              ISI MSQE and CAT are active. Other exam cards show preview coverage until
+              their pipelines are uploaded.
             </p>
           </div>
 
@@ -37,19 +37,25 @@ export default function ExamsPage() {
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {exams.map((exam) => {
-              const live = exam.slug === "cat";
+              const active = exam.slug === "cat" || exam.slug === "isi";
+              const href = exam.slug === "cat" ? "/exams/cat" : `/exams/${exam.slug}`;
+              const statusText = exam.slug === "cat"
+                ? "DILR practice live"
+                : exam.slug === "isi"
+                  ? "MSQE PEA PYQ practice live"
+                  : "Pipeline pending";
               return (
                 <Link
                   key={exam.slug}
-                  href={live ? "/exams/cat" : `/exams/${exam.slug}`}
+                  href={href}
                   className="aurora-glass aurora-card-hover aurora-focus-ring group relative flex flex-col overflow-hidden p-6"
-                  style={live ? { boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)" } : undefined}
+                  style={active ? { boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)" } : undefined}
                 >
                   <span
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-[3px]"
                     style={{
-                      background: live
+                      background: active
                         ? "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))"
                         : "var(--aurora-border-soft)",
                     }}
@@ -58,7 +64,7 @@ export default function ExamsPage() {
                     <span
                       className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-white"
                       style={{
-                        background: live
+                        background: active
                           ? "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))"
                           : "linear-gradient(135deg, var(--aurora-text-muted), var(--aurora-text-secondary))",
                       }}
@@ -68,7 +74,7 @@ export default function ExamsPage() {
                     <span
                       className="aurora-badge"
                       style={
-                        live
+                        active
                           ? {
                               color: "var(--aurora-success)",
                               borderColor: "color-mix(in srgb, var(--aurora-success) 45%, transparent)",
@@ -77,7 +83,7 @@ export default function ExamsPage() {
                           : undefined
                       }
                     >
-                      {live ? "Active" : "Preview"}
+                      {active ? "Active" : "Preview"}
                     </span>
                   </div>
 
@@ -99,7 +105,7 @@ export default function ExamsPage() {
                     style={{ borderColor: "var(--aurora-border-soft)" }}
                   >
                     <span className="text-xs" style={{ color: "var(--aurora-text-muted)" }}>
-                      {live ? "DILR practice live" : "Pipeline pending"}
+                      {statusText}
                     </span>
                     <span
                       className="inline-flex items-center gap-1.5 text-sm font-semibold transition-transform group-hover:translate-x-0.5"
