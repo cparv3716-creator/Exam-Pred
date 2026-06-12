@@ -159,8 +159,8 @@ export const howItWorks = [
 
 export const faqs = [
   {
-    q: "Does ExamIQ provide leaked or official exam papers?",
-    a: "No. ExamIQ is an independent pattern-analysis and practice platform. It does not provide leaked, official, exact, or guaranteed exam questions.",
+    q: "Does Statstrive provide leaked or official exam papers?",
+    a: "No. Statstrive is an independent pattern-analysis and practice platform. It does not provide leaked, official, exact, or guaranteed exam questions.",
   },
   {
     q: "Where does the question content come from?",

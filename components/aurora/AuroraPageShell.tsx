@@ -9,10 +9,12 @@ import { ArrowRight } from "lucide-react";
  */
 
 const NAV_LINKS = [
+  { label: "Exams", href: "/exams" },
+  { label: "ISI MSQE", href: "/exams/isi/msqe" },
   { label: "CAT", href: "/exams/cat" },
-  { label: "Practice", href: "/exams/cat/dilr" },
-  { label: "AI Insights", href: "/exams/cat/reports" },
-  { label: "Reports", href: "/dashboard" },
+  { label: "Practice", href: "/exams/isi/msqe/pyqs/pea" },
+  { label: "Login", href: "/login" },
+  { label: "Sign up", href: "/signup" },
 ];
 
 export function AuroraPageShell({ children }: { children: ReactNode }) {
@@ -64,8 +66,8 @@ export function AuroraPageShell({ children }: { children: ReactNode }) {
               ))}
             </nav>
 
-            <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
-              Start
+            <Link href="/signup" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
+              Get Started
               <ArrowRight size={15} aria-hidden />
             </Link>
           </div>

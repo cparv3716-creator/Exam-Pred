@@ -2,6 +2,30 @@ import type { Exam } from "@/types/examiq";
 
 export const exams: Exam[] = [
   {
+    slug: "isi",
+    name: "ISI",
+    fullName: "Indian Statistical Institute",
+    category: "STATISTICS / ECONOMICS / MATHEMATICS",
+    accent: "#0ea5e9",
+    description:
+      "MSQE PEA PYQ practice live with interactive checking, previous-year context, and stepwise solutions.",
+    yearsCovered: "2022-2026",
+    pyqCount: 150,
+    topicCount: 18,
+    lastUpdated: "MSQE PEA PYQ practice live",
+    sections: [
+      { name: "MSQE", code: "MSQE" },
+      { name: "Paper EA", code: "PEA" },
+      { name: "Paper EB", code: "PEB" },
+    ],
+    highlights: ["MSQE PEA", "PYQ practice", "Stepwise solutions"],
+    topTopics: [
+      { name: "Macroeconomics", weight: 88, trend: "up" },
+      { name: "Microeconomics", weight: 84, trend: "flat" },
+      { name: "Probability and Statistics", weight: 80, trend: "up" },
+    ],
+  },
+  {
     slug: "cat",
     name: "CAT",
     fullName: "Common Admission Test",

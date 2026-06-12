@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  BookOpenCheck,
   Layers,
   Network,
   Radar,
@@ -15,13 +16,15 @@ import { AuroraHeroScene } from "@/components/aurora/AuroraHeroScene";
 /* ── nav / content data ─────────────────────────────────────────────── */
 
 const NAV_LINKS = [
+  { label: "Exams", href: "/exams" },
+  { label: "ISI MSQE", href: "/exams/isi/msqe" },
   { label: "CAT", href: "/exams/cat" },
-  { label: "Practice", href: "/exams/cat/dilr" },
-  { label: "AI Insights", href: "/exams/cat/reports" },
-  { label: "Reports", href: "/dashboard" },
+  { label: "Practice", href: "/exams/isi/msqe/pyqs/pea" },
+  { label: "Login", href: "/login" },
+  { label: "Sign up", href: "/signup" },
 ];
 
-const HERO_CHIPS = ["CAT-first", "PYQ-backed", "Multi-exam architecture", "Adaptive practice"];
+const HERO_CHIPS = ["ISI MSQE live", "CAT DILR practice", "PYQ-backed intelligence", "Multi-exam roadmap"];
 
 
 /* ── tiny abstract visuals (decorative, no metrics) ─────────────────── */
@@ -177,6 +180,33 @@ const MODULES_STRIP = [
   },
 ];
 
+const EXAM_PATHS = [
+  {
+    icon: BookOpenCheck,
+    title: "ISI MSQE PEA PYQ Practice",
+    desc: "2022–2026 previous-year questions with interactive checking and stepwise solutions.",
+    cta: "Open ISI MSQE",
+    href: "/exams/isi/msqe",
+    badge: "Active",
+  },
+  {
+    icon: Route,
+    title: "CAT DILR practice",
+    desc: "Focused DILR sets stay visible as one active option inside the broader Statstrive cockpit.",
+    cta: "Open CAT",
+    href: "/exams/cat",
+    badge: "Active",
+  },
+  {
+    icon: Network,
+    title: "Multi-exam roadmap",
+    desc: "PYQ-backed exam intelligence expanding across ISI, CAT, JAM, and other serious exam tracks.",
+    cta: "Explore all exams",
+    href: "/exams",
+    badge: "Roadmap",
+  },
+];
+
 /* ── page ───────────────────────────────────────────────────────────── */
 
 export default function HomePage() {
@@ -287,8 +317,8 @@ export default function HomePage() {
               ))}
             </nav>
 
-            <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
-              Start
+            <Link href="/signup" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
+              Get Started
               <ArrowRight size={15} aria-hidden />
             </Link>
           </div>
@@ -329,23 +359,23 @@ export default function HomePage() {
               className="mt-7 max-w-2xl text-lg leading-8 sm:text-xl sm:leading-9"
               style={{ color: "var(--aurora-text-secondary)" }}
             >
-              Analyze PYQ patterns, map weak areas, and practice with exam-aware intelligence.
+              Analyze PYQ patterns, map weak areas, and practice with exam-aware intelligence across ISI, CAT and the multi-exam roadmap.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
-                href="/exams/cat/dilr"
+                href="/exams/isi/msqe/pyqs/pea"
                 className="aurora-button-primary aurora-focus-ring group px-8 py-4 text-base"
                 style={{ boxShadow: "var(--aurora-shadow-2), var(--aurora-glow-md)" }}
               >
-                Start CAT Practice
+                Start ISI MSQE Practice
                 <ArrowRight size={18} aria-hidden className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/exams/cat/dilr"
+                href="/exams"
                 className="aurora-button-secondary aurora-focus-ring px-8 py-4 text-base"
               >
-                Explore DILR Sets
+                Explore All Exams
               </Link>
             </div>
 
@@ -359,6 +389,48 @@ export default function HomePage() {
           </div>
         </div>
       </AuroraBackground>
+
+      {/* EXAM PATHS */}
+      <section className="border-t px-4 py-16 sm:px-6 sm:py-20 lg:px-8" style={{ borderColor: "var(--aurora-border-soft)" }}>
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: "var(--aurora-primary)" }}>
+                Active exam paths
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                ISI is live. CAT stays in the cockpit.
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
+              Start with ISI MSQE PEA PYQs, continue with CAT DILR practice, and follow the PYQ-backed exam intelligence roadmap as new tracks come online.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {EXAM_PATHS.map(({ icon: Icon, title, desc, cta, href, badge }) => (
+              <Link key={title} href={href} className="aurora-glass aurora-card-hover aurora-focus-ring group flex flex-col p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-white"
+                    style={{ background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))", boxShadow: "var(--aurora-glow-md)" }}
+                  >
+                    <Icon size={19} aria-hidden />
+                  </span>
+                  <span className="aurora-badge">{badge}</span>
+                </div>
+                <h3 className="mt-5 text-xl font-bold tracking-tight">{title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
+                  {desc}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold" style={{ color: "var(--aurora-primary)" }}>
+                  {cta} <ArrowRight size={15} aria-hidden className="transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* BENTO — intelligence systems */}
       <section className="border-t px-4 py-16 sm:px-6 sm:py-20 lg:px-8" style={{ borderColor: "var(--aurora-border-soft)" }}>
@@ -448,15 +520,15 @@ export default function HomePage() {
             Start where the exam is heading.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
-            Jump into PYQ-backed DILR practice and let the intelligence layer map your next move.
+            Jump into ISI MSQE PEA PYQs, keep CAT DILR in view, and let the intelligence layer map your next move.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring px-7 py-3.5 text-base">
-              Start CAT Practice
+            <Link href="/exams/isi/msqe/pyqs/pea" className="aurora-button-primary aurora-focus-ring px-7 py-3.5 text-base">
+              Start ISI MSQE Practice
               <ArrowRight size={17} aria-hidden />
             </Link>
-            <Link href="/exams/cat/dilr" className="aurora-button-secondary aurora-focus-ring px-7 py-3.5 text-base">
-              Explore DILR Sets
+            <Link href="/exams" className="aurora-button-secondary aurora-focus-ring px-7 py-3.5 text-base">
+              Explore All Exams
             </Link>
           </div>
         </div>
