@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, BrainCircuit, CalendarCheck, Download, Flame, Play, Target } from "lucide-react";
+import { ArrowRight, BookOpen, BrainCircuit, CalendarCheck, Download, Flame, Target } from "lucide-react";
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { CommandPulse } from "@/components/dashboard/CommandPulse";
+import { DilrProgressPanel } from "@/components/dashboard/DilrProgressPanel";
 import { PlanLockCard } from "@/components/ui/PlanLockCard";
 import { TopicHeatmap } from "@/components/dashboard/TopicHeatmap";
 import { AnalyticsChartCard } from "@/components/dashboard/AnalyticsChartCard";
@@ -80,37 +80,8 @@ export default function DashboardPage() {
         <StatTile icon={Download} label="Downloads" value="12" detail="Mock report actions" accent="var(--aurora-success)" />
       </div>
 
-      {/* continue practice strip */}
-      <div
-        className="aurora-glass aurora-fade-slide-up relative mt-6 flex flex-col gap-4 overflow-hidden p-6 sm:flex-row sm:items-center sm:justify-between"
-        style={{ boxShadow: "var(--aurora-shadow-glass), var(--aurora-glow-md)", animationDelay: "120ms" }}
-      >
-        <span
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-[3px]"
-          style={{ background: "linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))" }}
-        />
-        <span
-          aria-hidden
-          className="aurora-scan-x absolute top-0 h-[3px] w-[18%]"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.95), transparent)" }}
-        />
-        <CommandPulse size={120} className="absolute -right-6 -top-3 hidden opacity-60 md:block" />
-        <div className="relative">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-cyan)" }}>
-            Continue practice
-          </p>
-          <h2 className="mt-1 text-lg font-bold" style={{ color: "var(--aurora-text-primary)" }}>
-            No recent attempts yet
-          </h2>
-          <p className="mt-1 text-sm" style={{ color: "var(--aurora-text-secondary)" }}>
-            Jump into a DILR set to begin tracking your sessions here.
-          </p>
-        </div>
-        <Link href="/exams/cat/dilr" className="aurora-button-primary aurora-focus-ring shrink-0 px-6 text-sm">
-          <Play size={15} aria-hidden /> Start DILR practice
-        </Link>
-      </div>
+      {/* continue practice (live local DILR progress) */}
+      <DilrProgressPanel />
 
       {/* trend + priorities */}
       <div className="aurora-fade-slide-up mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]" style={{ animationDelay: "200ms" }}>
