@@ -120,3 +120,48 @@ export type IsiMsqePyqResource = {
   sourceFile: string;
   note?: string | null;
 };
+export type IsiAccessTier = "public" | "free_login" | "premium";
+export type IsiSolutionStatus = "missing" | "draft" | "verified" | "disputed";
+
+export type IsiMsqePyqQuestion = {
+  id: string;
+  exam: "ISI";
+  program: "MSQE";
+  paper: MsqePaper;
+  year: number;
+  questionNumber: number;
+  questionText: string;
+  questionLatex: string;
+  options: IsiQuestionOption[];
+  answer: string;
+  solution: string;
+  topic: string;
+  subtopic: string;
+  concept: string;
+  difficulty: string;
+  questionType: "mcq" | "descriptive" | "multipart" | string;
+  source: string;
+  solutionSource: string;
+  solutionStatus: IsiSolutionStatus;
+  needsReview: boolean;
+  reviewNotes: string;
+};
+
+export type IsiMsqePyqPracticeSet = {
+  exam: "ISI";
+  program: "MSQE";
+  paper: MsqePaper;
+  year: number;
+  title: string;
+  questionCount: number;
+  status: "ready" | "needs_review" | "pending" | string;
+  accessTier: IsiAccessTier;
+  questionsPath: string;
+  questionPdfPath: string | null;
+  questionTexPath: string | null;
+  solutionAvailability: "in_app";
+  sourceNote: string;
+  branding: string;
+  needsReviewCount: number;
+  importWarnings: string[];
+};

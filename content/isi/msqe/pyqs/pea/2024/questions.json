@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "isi-msqe-pea-2024-q01",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 1,
+    "questionText": "If $f:\\mathbb{R}\\to\\mathbb{R}$ is a differentiable function at $a\\in\\mathbb{R}$ such that $f'(a)=af(a)$, then what is\n$\n\\lim_{x\\to a}\\frac{xf(a)-af(x)}{x-a}\\, ?\n$",
+    "questionLatex": "If $f:\\mathbb{R}\\to\\mathbb{R}$ is a differentiable function at $a\\in\\mathbb{R}$ such that $f'(a)=af(a)$, then what is\n\\[\n\\lim_{x\\to a}\\frac{xf(a)-af(x)}{x-a}\\, ?\n\\]\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $af(a)$\n\\item $f(a)$\n\\item $(1-a^2)f(a)$\n\\item None of the previous options\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$af(a)$",
+        "latex": "$af(a)$"
+      },
+      {
+        "label": "B",
+        "text": "$f(a)$",
+        "latex": "$f(a)$"
+      },
+      {
+        "label": "C",
+        "text": "$(1-a^2)f(a)$",
+        "latex": "$(1-a^2)f(a)$"
+      },
+      {
+        "label": "D",
+        "text": "None of the previous options",
+        "latex": "None of the previous options"
+      }
+    ],
+    "answer": "C",
+    "solution": "At $x=a$, the numerator equals $af(a)-af(a)=0$, so the limit is of the form $0/0$. Write\n$\n\\frac{xf(a)-af(x)}{x-a}\n= \\frac{(x-a)f(a) + af(a) - af(x)}{x-a}\n= f(a) - a\\cdot\\frac{f(x)-f(a)}{x-a}.\n$\nTaking $x\\to a$ and using differentiability,\n$\n\\lim_{x\\to a}\\frac{xf(a)-af(x)}{x-a}\n= f(a) - a\\,f'(a)\n= f(a) - a\\cdot af(a)\n= (1-a^{2})f(a).\n$",
+    "topic": "Calculus",
+    "subtopic": "Limits",
+    "concept": "Differentiability",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q02",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 2,
+    "questionText": "Suppose $S_n$ is defined as follows for every positive integer $n\\ge 2$:\n$\nS_n=\\left(1-\\tfrac{1}{2^2}\\right)\\!\\left(1-\\tfrac{1}{3^2}\\right)\\cdots\\!\\left(1-\\tfrac{1}{n^2}\\right).\n$\nThe value of $\\displaystyle\\lim_{n\\to\\infty}S_n$ is",
+    "questionLatex": "Suppose $S_n$ is defined as follows for every positive integer $n\\ge 2$:\n\\[\nS_n=\\left(1-\\tfrac{1}{2^2}\\right)\\!\\left(1-\\tfrac{1}{3^2}\\right)\\cdots\\!\\left(1-\\tfrac{1}{n^2}\\right).\n\\]\nThe value of $\\displaystyle\\lim_{n\\to\\infty}S_n$ is\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0$\n\\item $\\tfrac{1}{2}$\n\\item $1$\n\\item $\\infty$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0$",
+        "latex": "$0$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{1}{2}$",
+        "latex": "$\\tfrac{1}{2}$"
+      },
+      {
+        "label": "C",
+        "text": "$1$",
+        "latex": "$1$"
+      },
+      {
+        "label": "D",
+        "text": "$\\infty$",
+        "latex": "$\\infty$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Each factor factors as\n$\n1-\\frac{1}{k^2}=\\frac{(k-1)(k+1)}{k^2}.\n$\nTherefore\n$\nS_n=\\prod_{k=2}^{n}\\frac{(k-1)(k+1)}{k^2}\n=\\left(\\prod_{k=2}^{n}\\frac{k-1}{k}\\right)\\!\\left(\\prod_{k=2}^{n}\\frac{k+1}{k}\\right)\n=\\frac{1}{n}\\cdot\\frac{n+1}{2}\n=\\frac{n+1}{2n}.\n$\nHence $\\lim_{n\\to\\infty}S_n=\\tfrac{1}{2}$.",
+    "topic": "Sequences and Series",
+    "subtopic": "Telescoping Products",
+    "concept": "Telescoping Products",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q03",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 3,
+    "questionText": "Suppose\n$\n\\lim_{x\\to 0}\\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}=1,\n$\nwhere $a_1,a_2,a_3$ are given real numbers. Then it is necessarily true that",
+    "questionLatex": "Suppose\n\\[\n\\lim_{x\\to 0}\\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}=1,\n\\]\nwhere $a_1,a_2,a_3$ are given real numbers. Then it is necessarily true that\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $a_1=a_2=a_3=1$\n\\item $a_1=a_3\\ne 0$\n\\item $a_2=0$\n\\item $a_2+a_3\\ne 0$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$a_1=a_2=a_3=1$",
+        "latex": "$a_1=a_2=a_3=1$"
+      },
+      {
+        "label": "B",
+        "text": "$a_1=a_3\\ne 0$",
+        "latex": "$a_1=a_3\\ne 0$"
+      },
+      {
+        "label": "C",
+        "text": "$a_2=0$",
+        "latex": "$a_2=0$"
+      },
+      {
+        "label": "D",
+        "text": "$a_2+a_3\\ne 0$",
+        "latex": "$a_2+a_3\\ne 0$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Using $e^{a_1 x}-1 = a_1 x + \\tfrac{(a_1 x)^2}{2}+o(x^2)$, we get\n$\n\\frac{e^{a_1 x}-1}{a_2 x^{2}+a_3 x}\n= \\frac{a_1 x + O(x^2)}{a_3 x + a_2 x^2}\n= \\frac{a_1 + O(x)}{a_3 + a_2 x}\\xrightarrow[x\\to 0]{}\\frac{a_1}{a_3}.\n$\nFor the limit to exist and equal $1$, we must have $a_3\\ne 0$ and $a_1=a_3$. (If $a_3=0$, the denominator behaves like $a_2 x^2$, and the limit would diverge or be zero unless $a_1=0$, in which case the limit is $0\\ne 1$.) Thus the necessary condition is $a_1=a_3\\ne 0$.",
+    "topic": "Calculus",
+    "subtopic": "Limit and Taylor Expansion",
+    "concept": "Limit and Taylor Expansion",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Note $a_2$ is irrelevant to the leading behaviour. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q04",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 4,
+    "questionText": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be defined as\n$\nf(x)=\\begin{cases}\ncx^{2}+ax+b, & x<0,\\\\\nbx^{2}+cx+a, & 0\\le x<2,\\\\\nax^{2}+bx+c, & x\\ge 2,\n\\end{cases}\n$\nwhere $a,b,c$ are positive real numbers. Which of the following statements is correct, under the assumption that $f$ is continuous?",
+    "questionLatex": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be defined as\n\\[\nf(x)=\\begin{cases}\ncx^{2}+ax+b, & x<0,\\\\\nbx^{2}+cx+a, & 0\\le x<2,\\\\\nax^{2}+bx+c, & x\\ge 2,\n\\end{cases}\n\\]\nwhere $a,b,c$ are positive real numbers. Which of the following statements is correct, under the assumption that $f$ is continuous?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $f$ is continuous for all values of $a,b,c$\n\\item $f$ is continuous iff $a-b=b-c$\n\\item $f$ is continuous iff $a=b$ and $c=2a$\n\\item $f$ is continuous iff $a=b=c$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$f$ is continuous for all values of $a,b,c$",
+        "latex": "$f$ is continuous for all values of $a,b,c$"
+      },
+      {
+        "label": "B",
+        "text": "$f$ is continuous iff $a-b=b-c$",
+        "latex": "$f$ is continuous iff $a-b=b-c$"
+      },
+      {
+        "label": "C",
+        "text": "$f$ is continuous iff $a=b$ and $c=2a$",
+        "latex": "$f$ is continuous iff $a=b$ and $c=2a$"
+      },
+      {
+        "label": "D",
+        "text": "$f$ is continuous iff $a=b=c$",
+        "latex": "$f$ is continuous iff $a=b=c$"
+      }
+    ],
+    "answer": "D",
+    "solution": "\\textbf{At $x=0$:} left-hand value $=b$; right-hand value $=a$. Hence $a=b$.\n\n\\textbf{At $x=2$:} left-hand value $= 4b+2c+a$; right-hand value $=4a+2b+c$. Using $a=b$:\n$\n4a+2c+a=5a+2c,\\qquad 4a+2a+c=6a+c.\n$\nEquating: $5a+2c=6a+c \\Rightarrow c=a$. Therefore $a=b=c$.",
+    "topic": "Functions",
+    "subtopic": "Continuity of Piecewise Functions",
+    "concept": "Continuity of Piecewise Functions",
+    "difficulty": "Easy-Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q05",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 5,
+    "questionText": "Consider $f:[0,1]\\to[0,1]$ such that $f(x)=\\dfrac{x}{2-x}$. Which of the following statements is \\emph{incorrect}?",
+    "questionLatex": "Consider $f:[0,1]\\to[0,1]$ such that $f(x)=\\dfrac{x}{2-x}$. Which of the following statements is \\emph{incorrect}?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $f(0)=0$ and $f(1)=1$\n\\item $f(1-f(x))=1-x$\n\\item $f$ is strictly concave in the interval $(0,1)$\n\\item $f$ is strictly increasing in the interval $(0,1)$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$f(0)=0$ and $f(1)=1$",
+        "latex": "$f(0)=0$ and $f(1)=1$"
+      },
+      {
+        "label": "B",
+        "text": "$f(1-f(x))=1-x$",
+        "latex": "$f(1-f(x))=1-x$"
+      },
+      {
+        "label": "C",
+        "text": "$f$ is strictly concave in the interval $(0,1)$",
+        "latex": "$f$ is strictly concave in the interval $(0,1)$"
+      },
+      {
+        "label": "D",
+        "text": "$f$ is strictly increasing in the interval $(0,1)$",
+        "latex": "$f$ is strictly increasing in the interval $(0,1)$"
+      }
+    ],
+    "answer": "C",
+    "solution": "\\textbf{A.} $f(0)=0$ and $f(1)=1/1=1$. True.\n\n\\textbf{B.} Compute $1-f(x) = 1-\\tfrac{x}{2-x}=\\tfrac{2-2x}{2-x}$. Then\n$\nf\\!\\left(\\tfrac{2-2x}{2-x}\\right)\n=\\frac{\\frac{2-2x}{2-x}}{2-\\frac{2-2x}{2-x}}\n=\\frac{2-2x}{2(2-x)-(2-2x)}\n=\\frac{2-2x}{2}=1-x. \\text{ True.}\n$\n\n\\textbf{C.} Differentiate:\n$\nf'(x)=\\frac{(2-x)-x(-1)}{(2-x)^2}=\\frac{2}{(2-x)^2}>0,\\qquad\nf''(x)=\\frac{4}{(2-x)^3}>0\\;\\text{on}\\;(0,1).\n$\nHence $f$ is strictly \\emph{convex}, not concave. \\textbf{Incorrect statement.}\n\n\\textbf{D.} $f'(x)>0$, so strictly increasing. True.",
+    "topic": "Functions",
+    "subtopic": "Convexity/Monotonicity",
+    "concept": "Convexity/Monotonicity",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Sign of second derivative; do not confuse convex with concave. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q06",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 6,
+    "questionText": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be the function $f(x)=|x|+x^{2}\\ \\forall x\\in\\mathbb{R}$. Which of the following statements about $f$ is correct?",
+    "questionLatex": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be the function $f(x)=|x|+x^{2}\\ \\forall x\\in\\mathbb{R}$. Which of the following statements about $f$ is correct?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $f$ is differentiable\n\\item $f$ is concave but not differentiable\n\\item $f$ is convex but not differentiable\n\\item $f$ is discontinuous\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$f$ is differentiable",
+        "latex": "$f$ is differentiable"
+      },
+      {
+        "label": "B",
+        "text": "$f$ is concave but not differentiable",
+        "latex": "$f$ is concave but not differentiable"
+      },
+      {
+        "label": "C",
+        "text": "$f$ is convex but not differentiable",
+        "latex": "$f$ is convex but not differentiable"
+      },
+      {
+        "label": "D",
+        "text": "$f$ is discontinuous",
+        "latex": "$f$ is discontinuous"
+      }
+    ],
+    "answer": "C",
+    "solution": "At $x=0$, the left derivative of $|x|$ is $-1$ and the right derivative is $+1$; hence $|x|$ is not differentiable at $0$, and so $f$ is not differentiable at $0$. However $|x|$ and $x^{2}$ are both convex on $\\mathbb{R}$, and the sum of convex functions is convex. Hence $f$ is convex but not differentiable.",
+    "topic": "Calculus",
+    "subtopic": "Differentiability and Convexity",
+    "concept": "Differentiability and Convexity",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: A non-differentiable function can still be convex (e.g., $|x|$). %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q07",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 7,
+    "questionText": "$\\displaystyle\\int x^{3}e^{x^{2}}\\,dx$ equals",
+    "questionLatex": "$\\displaystyle\\int x^{3}e^{x^{2}}\\,dx$ equals\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\dfrac{x(x-1)}{2}\\,e^{x^{2}}$\n\\item $\\dfrac{x^{2}-1}{2}\\,e^{x^{2}}$\n\\item $\\dfrac{x(x+1)}{2}\\,e^{x^{2}}$\n\\item $\\dfrac{x^{2}+1}{2}\\,e^{x^{2}}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\dfrac{x(x-1)}{2}\\,e^{x^{2}}$",
+        "latex": "$\\dfrac{x(x-1)}{2}\\,e^{x^{2}}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\dfrac{x^{2}-1}{2}\\,e^{x^{2}}$",
+        "latex": "$\\dfrac{x^{2}-1}{2}\\,e^{x^{2}}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\dfrac{x(x+1)}{2}\\,e^{x^{2}}$",
+        "latex": "$\\dfrac{x(x+1)}{2}\\,e^{x^{2}}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\dfrac{x^{2}+1}{2}\\,e^{x^{2}}$",
+        "latex": "$\\dfrac{x^{2}+1}{2}\\,e^{x^{2}}$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Let $u=x^{2}$, $du=2x\\,dx$. Then\n$\n\\int x^{3}e^{x^{2}}\\,dx\n=\\int x^{2}\\cdot e^{x^{2}}\\cdot x\\,dx\n=\\frac{1}{2}\\int u\\,e^{u}\\,du\n=\\frac{1}{2}(u-1)e^{u}+C\n=\\frac{x^{2}-1}{2}e^{x^{2}}+C.\n$",
+    "topic": "Calculus",
+    "subtopic": "Integration by Substitution",
+    "concept": "Integration by Substitution",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Use $\\int u e^{u}du=(u-1)e^{u}$. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q08",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 8,
+    "questionText": "Let $A$ be a $3\\times 3$ matrix having eigenvalues $2,7,5$. What is the determinant of $A+2I$?",
+    "questionLatex": "Let $A$ be a $3\\times 3$ matrix having eigenvalues $2,7,5$. What is the determinant of $A+2I$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $252$\n\\item $70$\n\\item $420$\n\\item $84$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$252$",
+        "latex": "$252$"
+      },
+      {
+        "label": "B",
+        "text": "$70$",
+        "latex": "$70$"
+      },
+      {
+        "label": "C",
+        "text": "$420$",
+        "latex": "$420$"
+      },
+      {
+        "label": "D",
+        "text": "$84$",
+        "latex": "$84$"
+      }
+    ],
+    "answer": "A",
+    "solution": "If $\\lambda$ is an eigenvalue of $A$, then $\\lambda+2$ is an eigenvalue of $A+2I$. Hence the eigenvalues of $A+2I$ are $4,\\,9,\\,7$, and\n$\n\\det(A+2I)=4\\cdot 9\\cdot 7=252.\n$",
+    "topic": "Linear Algebra",
+    "subtopic": "Eigenvalues",
+    "concept": "Determinant",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Determinant equals the product of eigenvalues (with multiplicity). %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q09",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 9,
+    "questionText": "Let $x$ and $y$ be two column vectors of length $3$ such that $\\sum_{i}x_{i}y_{i}=1$. What is the rank of $xy^{T}$?",
+    "questionLatex": "Let $x$ and $y$ be two column vectors of length $3$ such that $\\sum_{i}x_{i}y_{i}=1$. What is the rank of $xy^{T}$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0$\n\\item $1$\n\\item $2$\n\\item $3$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0$",
+        "latex": "$0$"
+      },
+      {
+        "label": "B",
+        "text": "$1$",
+        "latex": "$1$"
+      },
+      {
+        "label": "C",
+        "text": "$2$",
+        "latex": "$2$"
+      },
+      {
+        "label": "D",
+        "text": "$3$",
+        "latex": "$3$"
+      }
+    ],
+    "answer": "B",
+    "solution": "The condition $\\sum x_iy_i=y^{T}x=1\\ne 0$ ensures $x\\ne 0$ and $y\\ne 0$. The matrix $xy^{T}$ is a nonzero outer product, and every column is a scalar multiple of $x$. Hence the column space is one-dimensional and\n$\n\\operatorname{rank}(xy^{T})=1.\n$",
+    "topic": "Linear Algebra",
+    "subtopic": "Rank of Outer Product",
+    "concept": "Rank of Outer Product",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Outer products $uv^T$ have rank $1$ whenever both vectors are nonzero. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q10",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 10,
+    "questionText": "Let $A$ be a $3\\times 3$ matrix such that $Ax=x$ for all column vectors $x$ of length $3$. Which of the following statements is correct?",
+    "questionLatex": "Let $A$ be a $3\\times 3$ matrix such that $Ax=x$ for all column vectors $x$ of length $3$. Which of the following statements is correct?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item No such $A$ exists\n\\item $A=\\begin{pmatrix}1&1&1\\\\1&1&1\\\\1&1&1\\end{pmatrix}$\n\\item $A=\\begin{pmatrix}0&0&1\\\\0&1&0\\\\1&0&0\\end{pmatrix}$\n\\item $A$ exists but is different from the matrices given in parts (B) and (C)\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "No such $A$ exists",
+        "latex": "No such $A$ exists"
+      },
+      {
+        "label": "B",
+        "text": "$A=\\begin{pmatrix}1&1&1\\\\1&1&1\\\\1&1&1\\end{pmatrix}$",
+        "latex": "$A=\\begin{pmatrix}1&1&1\\\\1&1&1\\\\1&1&1\\end{pmatrix}$"
+      },
+      {
+        "label": "C",
+        "text": "$A=\\begin{pmatrix}0&0&1\\\\0&1&0\\\\1&0&0\\end{pmatrix}$",
+        "latex": "$A=\\begin{pmatrix}0&0&1\\\\0&1&0\\\\1&0&0\\end{pmatrix}$"
+      },
+      {
+        "label": "D",
+        "text": "$A$ exists but is different from the matrices given in parts (B) and (C)",
+        "latex": "$A$ exists but is different from the matrices given in parts (B) and (C)"
+      }
+    ],
+    "answer": "D",
+    "solution": "$Ax=x$ for all $x\\in\\mathbb{R}^{3}$ means $(A-I)x=0$ for every $x$, which forces $A=I$, the $3\\times 3$ identity matrix. The identity matrix is neither the all-ones matrix in (B) nor the anti-diagonal permutation matrix in (C). Therefore the unique $A$ is the identity, which is none of the explicit matrices listed.",
+    "topic": "Linear Algebra",
+    "subtopic": "Identity Map",
+    "concept": "Identity Map",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The matrix in (C) only fixes vectors with $x_1=x_3$ --- it is \\emph{not} the identity. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q11",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 11,
+    "questionText": "Let $S=\\{(x_1,0):x_1\\in\\mathbb{R}\\}$ and $T=\\{(0,x_2):x_2\\in\\mathbb{R}\\}$. Which of the following is correct?",
+    "questionLatex": "Let $S=\\{(x_1,0):x_1\\in\\mathbb{R}\\}$ and $T=\\{(0,x_2):x_2\\in\\mathbb{R}\\}$. Which of the following is correct?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $S,T$ and $S\\cap T$ are vector spaces\n\\item $S,T$ and $S\\cup T$ are vector spaces\n\\item $S\\cup T$ and $S\\cap T$ are vector spaces\n\\item Neither $S\\cup T$ nor $S\\cap T$ is a vector space\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$S,T$ and $S\\cap T$ are vector spaces",
+        "latex": "$S,T$ and $S\\cap T$ are vector spaces"
+      },
+      {
+        "label": "B",
+        "text": "$S,T$ and $S\\cup T$ are vector spaces",
+        "latex": "$S,T$ and $S\\cup T$ are vector spaces"
+      },
+      {
+        "label": "C",
+        "text": "$S\\cup T$ and $S\\cap T$ are vector spaces",
+        "latex": "$S\\cup T$ and $S\\cap T$ are vector spaces"
+      },
+      {
+        "label": "D",
+        "text": "Neither $S\\cup T$ nor $S\\cap T$ is a vector space",
+        "latex": "Neither $S\\cup T$ nor $S\\cap T$ is a vector space"
+      }
+    ],
+    "answer": "A",
+    "solution": "$S$ and $T$ are coordinate axes in $\\mathbb{R}^{2}$, both closed under addition and scalar multiplication; they are subspaces of $\\mathbb{R}^{2}$. Also $S\\cap T=\\{(0,0)\\}$, the trivial subspace.\n\nHowever $S\\cup T$ is \\emph{not} a subspace: $(1,0)\\in S$ and $(0,1)\\in T$, but $(1,0)+(0,1)=(1,1)\\notin S\\cup T$.\n\nHence the vector spaces among the listed objects are $S$, $T$, and $S\\cap T$.",
+    "topic": "Linear Algebra",
+    "subtopic": "Vector Subspaces",
+    "concept": "Union and Intersection",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Union of subspaces is a subspace only when one is contained in the other. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q12",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 12,
+    "questionText": "In a chess tournament, there are both boys and girls. Each player plays with another player exactly once. If there are $45$ games in total and exactly $15$ of them feature only boys, how many games feature a boy and a girl?",
+    "questionLatex": "In a chess tournament, there are both boys and girls. Each player plays with another player exactly once. If there are $45$ games in total and exactly $15$ of them feature only boys, how many games feature a boy and a girl?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $6$\n\\item $15$\n\\item $20$\n\\item $24$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "B",
+        "text": "$15$",
+        "latex": "$15$"
+      },
+      {
+        "label": "C",
+        "text": "$20$",
+        "latex": "$20$"
+      },
+      {
+        "label": "D",
+        "text": "$24$",
+        "latex": "$24$"
+      }
+    ],
+    "answer": "D",
+    "solution": "Let $b$ and $g$ be the number of boys and girls. Then $\\binom{b}{2}=15\\Rightarrow b(b-1)=30\\Rightarrow b=6$. Also $\\binom{b+g}{2}=45\\Rightarrow (b+g)(b+g-1)=90\\Rightarrow b+g=10\\Rightarrow g=4$.\n\nBoy--girl games $=b\\cdot g=6\\cdot 4=24$.",
+    "topic": "Combinatorics",
+    "subtopic": "Counting Combinations",
+    "concept": "Counting Combinations",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q13",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 13,
+    "questionText": "What is the number of possible arrangements of the letters of the word `madam' such that the two `a's never appear in consecutive positions?",
+    "questionLatex": "What is the number of possible arrangements of the letters of the word `madam' such that the two `a's never appear in consecutive positions?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $30$\n\\item $24$\n\\item $18$\n\\item $12$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$30$",
+        "latex": "$30$"
+      },
+      {
+        "label": "B",
+        "text": "$24$",
+        "latex": "$24$"
+      },
+      {
+        "label": "C",
+        "text": "$18$",
+        "latex": "$18$"
+      },
+      {
+        "label": "D",
+        "text": "$12$",
+        "latex": "$12$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Letters: $m,a,d,a,m$. Total distinct arrangements $=\\dfrac{5!}{2!\\,2!}=30$.\n\nArrangements with both $a$'s together: treat `aa' as a single block, leaving symbols $\\{m,d,m,aa\\}$, total $\\dfrac{4!}{2!}=12$.\n\nArrangements where the two $a$'s are not consecutive $=30-12=18$.",
+    "topic": "Combinatorics",
+    "subtopic": "Permutations with Restrictions",
+    "concept": "Permutations with Restrictions",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Account for the repeated $m$'s when counting both the full and the `aa-together' arrangements. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q14",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 14,
+    "questionText": "A monkey starts at $(0,0)$ on the $xy$-plane in period $1$. From any position $(x,y)$ in a period, the monkey can only jump to $(a,b)$ in the next period, where $a\\in\\{x+1,x,x-1\\}$ and $b\\in\\{y+1,y,y-1\\}$. How many possible positions can the monkey be in period $2$?",
+    "questionLatex": "A monkey starts at $(0,0)$ on the $xy$-plane in period $1$. From any position $(x,y)$ in a period, the monkey can only jump to $(a,b)$ in the next period, where $a\\in\\{x+1,x,x-1\\}$ and $b\\in\\{y+1,y,y-1\\}$. How many possible positions can the monkey be in period $2$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $9$\n\\item $6$\n\\item $4$\n\\item $3$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$9$",
+        "latex": "$9$"
+      },
+      {
+        "label": "B",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "C",
+        "text": "$4$",
+        "latex": "$4$"
+      },
+      {
+        "label": "D",
+        "text": "$3$",
+        "latex": "$3$"
+      }
+    ],
+    "answer": "A",
+    "solution": "$a$ has $3$ possible values and $b$ has $3$ possible values, and they are independent. So the number of reachable positions $=3\\times 3=9$.",
+    "topic": "Combinatorics",
+    "subtopic": "Counting Reachable States",
+    "concept": "Counting Reachable States",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q15",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 15,
+    "questionText": "In the previous question, suppose in every period the monkey can go to any of the possible positions in the next period with equal probability. Then what is the probability that the monkey is at a distance of more than $1$ from $(0,0)$ in period $2$?",
+    "questionLatex": "In the previous question, suppose in every period the monkey can go to any of the possible positions in the next period with equal probability. Then what is the probability that the monkey is at a distance of more than $1$ from $(0,0)$ in period $2$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0$\n\\item $\\tfrac{16}{81}$\n\\item $\\tfrac{1}{3}$\n\\item $\\tfrac{4}{9}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0$",
+        "latex": "$0$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{16}{81}$",
+        "latex": "$\\tfrac{16}{81}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\tfrac{1}{3}$",
+        "latex": "$\\tfrac{1}{3}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\tfrac{4}{9}$",
+        "latex": "$\\tfrac{4}{9}$"
+      }
+    ],
+    "answer": "D",
+    "solution": "Each of the $9$ neighbours of $(0,0)$ is equally likely (probability $1/9$). Distances from $(0,0)$:\n[leftmargin=*]\n- $(0,0)$: distance $0$.\n- $(\\pm 1,0),(0,\\pm 1)$: distance $1$ ($4$ positions).\n- $(\\pm 1,\\pm 1)$: distance $\\sqrt{2}>1$ ($4$ positions).\n\nTherefore $P(\\text{distance}>1)=\\dfrac{4}{9}$.",
+    "topic": "Probability",
+    "subtopic": "Uniform Discrete",
+    "concept": "Distance Event",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: ``Distance $>1$'' is strict, so distance $=1$ does not count. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q16",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 16,
+    "questionText": "For a given data set, let the least squares regression line be $y=10+2x$. It is given that variance of $x$ is $9$ and variance of $y$ is $81$. What is the correlation coefficient between $x$ and $y$?",
+    "questionLatex": "For a given data set, let the least squares regression line be $y=10+2x$. It is given that variance of $x$ is $9$ and variance of $y$ is $81$. What is the correlation coefficient between $x$ and $y$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\tfrac{1}{3}$\n\\item $\\tfrac{1}{2}$\n\\item $\\tfrac{2}{3}$\n\\item $\\tfrac{3}{4}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\tfrac{1}{3}$",
+        "latex": "$\\tfrac{1}{3}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{1}{2}$",
+        "latex": "$\\tfrac{1}{2}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\tfrac{2}{3}$",
+        "latex": "$\\tfrac{2}{3}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\tfrac{3}{4}$",
+        "latex": "$\\tfrac{3}{4}$"
+      }
+    ],
+    "answer": "C",
+    "solution": "The slope of the OLS regression of $y$ on $x$ satisfies $\\hat\\beta = r\\cdot\\dfrac{\\sigma_y}{\\sigma_x}$. Hence\n$\n2 = r\\cdot\\frac{\\sqrt{81}}{\\sqrt{9}}=r\\cdot\\frac{9}{3}=3r\\ \\Longrightarrow\\ r=\\frac{2}{3}.\n$\n(Since $\\hat\\beta>0$, $r$ is also positive.)",
+    "topic": "Statistics",
+    "subtopic": "Linear Regression and Correlation",
+    "concept": "Linear Regression and Correlation",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Use $\\sigma_y/\\sigma_x$, not the variance ratio. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q17",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 17,
+    "questionText": "An urn contains $4$ white, $6$ red, and $5$ black balls. $5$ balls are randomly selected from the urn. Let $X$ and $Y$ denote respectively the number of white and black balls selected. Suppose $Y=2$, i.e., $2$ of the $5$ selected balls are black. What is the probability that $X$ takes the value $2$?",
+    "questionLatex": "An urn contains $4$ white, $6$ red, and $5$ black balls. $5$ balls are randomly selected from the urn. Let $X$ and $Y$ denote respectively the number of white and black balls selected. Suppose $Y=2$, i.e., $2$ of the $5$ selected balls are black. What is the probability that $X$ takes the value $2$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\tfrac{3}{10}$\n\\item $\\tfrac{4}{10}$\n\\item $\\tfrac{3}{15}$\n\\item $\\tfrac{4}{15}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\tfrac{3}{10}$",
+        "latex": "$\\tfrac{3}{10}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{4}{10}$",
+        "latex": "$\\tfrac{4}{10}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\tfrac{3}{15}$",
+        "latex": "$\\tfrac{3}{15}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\tfrac{4}{15}$",
+        "latex": "$\\tfrac{4}{15}$"
+      }
+    ],
+    "answer": "A",
+    "solution": "Given $Y=2$, the remaining $3$ balls are drawn from the $4$ white and $6$ red balls (total $10$). Conditionally these $3$ balls are uniformly distributed among $\\binom{10}{3}=120$ subsets. Hence\n$\nP(X=2\\mid Y=2)=\\frac{\\binom{4}{2}\\binom{6}{1}}{\\binom{10}{3}}=\\frac{6\\cdot 6}{120}=\\frac{36}{120}=\\frac{3}{10}.\n$",
+    "topic": "Probability",
+    "subtopic": "Hypergeometric / Conditional Probability",
+    "concept": "Hypergeometric / Conditional Probability",
+    "difficulty": "Easy-Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: After conditioning on $Y=2$, only the colour distribution of the remaining $3$ balls matters. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q18",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 18,
+    "questionText": "In answering an MCQ with $4$ choices, a student either knows the answer (with probability $\\tfrac14$) or guesses (with probability $\\tfrac34$). A guess is correct with probability $\\tfrac14$. What is the probability that the student knew the answer, given that he answered correctly?",
+    "questionLatex": "In answering an MCQ with $4$ choices, a student either knows the answer (with probability $\\tfrac14$) or guesses (with probability $\\tfrac34$). A guess is correct with probability $\\tfrac14$. What is the probability that the student knew the answer, given that he answered correctly?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\tfrac{3}{7}$\n\\item $\\tfrac{4}{7}$\n\\item $\\tfrac{3}{4}$\n\\item $1$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\tfrac{3}{7}$",
+        "latex": "$\\tfrac{3}{7}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{4}{7}$",
+        "latex": "$\\tfrac{4}{7}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\tfrac{3}{4}$",
+        "latex": "$\\tfrac{3}{4}$"
+      },
+      {
+        "label": "D",
+        "text": "$1$",
+        "latex": "$1$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Let $K$ = ``knows'' and $C$ = ``correct''. Then $P(K)=\\tfrac14$, $P(C\\mid K)=1$, $P(C\\mid K^{c})=\\tfrac14$. By total probability,\n$\nP(C)=1\\cdot\\tfrac{1}{4}+\\tfrac{1}{4}\\cdot\\tfrac{3}{4}=\\tfrac{4}{16}+\\tfrac{3}{16}=\\tfrac{7}{16}.\n$\nBy Bayes' theorem,\n$\nP(K\\mid C)=\\frac{P(C\\mid K)P(K)}{P(C)}=\\frac{1\\cdot\\tfrac14}{\\tfrac{7}{16}}=\\frac{4}{7}.\n$",
+    "topic": "Probability",
+    "subtopic": "Bayes' Theorem",
+    "concept": "Bayes' Theorem",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q19",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 19,
+    "questionText": "Let $X_1,X_2,\\dots,X_5$ be i.i.d.\\ random variables with $E(X_i)=0$ and $V(X_i)=1$. What is the value of\n$\nE\\!\\left[\\frac{(\\sum_{i=1}^{5} X_i)^{2}}{5}\\right]?\n$",
+    "questionLatex": "Let $X_1,X_2,\\dots,X_5$ be i.i.d.\\ random variables with $E(X_i)=0$ and $V(X_i)=1$. What is the value of\n\\[\nE\\!\\left[\\frac{(\\sum_{i=1}^{5} X_i)^{2}}{5}\\right]?\n\\]\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $0$\n\\item $1$\n\\item $-1$\n\\item None of the previous options\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$0$",
+        "latex": "$0$"
+      },
+      {
+        "label": "B",
+        "text": "$1$",
+        "latex": "$1$"
+      },
+      {
+        "label": "C",
+        "text": "$-1$",
+        "latex": "$-1$"
+      },
+      {
+        "label": "D",
+        "text": "None of the previous options",
+        "latex": "None of the previous options"
+      }
+    ],
+    "answer": "B",
+    "solution": "Let $S=\\sum_{i=1}^{5} X_i$. Then $E(S)=0$ and $\\mathrm{Var}(S)=\\sum_{i=1}^{5}\\mathrm{Var}(X_i)=5$. Hence\n$\nE(S^{2})=\\mathrm{Var}(S)+\\bigl(E(S)\\bigr)^{2}=5.\n$\nTherefore $E[S^{2}/5]=1$.",
+    "topic": "Expected Value and Variance",
+    "subtopic": "i.i.d. Random Variables",
+    "concept": "i.i.d. Random Variables",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Independence is used to add variances. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q20",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 20,
+    "questionText": "Consider $X\\sim\\text{Bin}(n,p)$. Which of the following is \\emph{incorrect}?",
+    "questionLatex": "Consider $X\\sim\\text{Bin}(n,p)$. Which of the following is \\emph{incorrect}?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item If $np$ is an integer, then the mean and mode of this distribution coincide\n\\item If $n$ is even and $p=\\tfrac12$, then the median of this distribution is $n/2$\n\\item If $P(X=k)=P(X=n-k)$ for every $k\\in\\{0,1,\\dots,n\\}$, then $p=\\tfrac12$\n\\item If $(n+1)p-1$ is an integer, then this distribution is unimodal\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "If $np$ is an integer, then the mean and mode of this distribution coincide",
+        "latex": "If $np$ is an integer, then the mean and mode of this distribution coincide"
+      },
+      {
+        "label": "B",
+        "text": "If $n$ is even and $p=\\tfrac12$, then the median of this distribution is $n/2$",
+        "latex": "If $n$ is even and $p=\\tfrac12$, then the median of this distribution is $n/2$"
+      },
+      {
+        "label": "C",
+        "text": "If $P(X=k)=P(X=n-k)$ for every $k\\in\\{0,1,\\dots,n\\}$, then $p=\\tfrac12$",
+        "latex": "If $P(X=k)=P(X=n-k)$ for every $k\\in\\{0,1,\\dots,n\\}$, then $p=\\tfrac12$"
+      },
+      {
+        "label": "D",
+        "text": "If $(n+1)p-1$ is an integer, then this distribution is unimodal",
+        "latex": "If $(n+1)p-1$ is an integer, then this distribution is unimodal"
+      }
+    ],
+    "answer": "D",
+    "solution": "\\textbf{A.} A standard result: when $np\\in\\mathbb{Z}$, the mode equals $np$, which is the mean. True.\n\n\\textbf{B.} For $\\text{Bin}(n,\\tfrac12)$ with $n$ even, the distribution is symmetric about $n/2$, so $n/2$ is the median. True.\n\n\\textbf{C.} $\\binom{n}{k}p^{k}(1-p)^{n-k}=\\binom{n}{k}p^{n-k}(1-p)^{k}$ for all $k$ requires $(p/(1-p))^{k}=(p/(1-p))^{n-k}$ for all $k$, which forces $p=1-p$, i.e.\\ $p=\\tfrac12$. True.\n\n\\textbf{D.} The mode of $\\text{Bin}(n,p)$ lies at $\\lfloor(n+1)p\\rfloor$. When $(n+1)p$ is an integer, BOTH $(n+1)p-1$ and $(n+1)p$ are modes, so the distribution is \\emph{bi-modal}, not unimodal. Hence the statement is \\emph{incorrect}.",
+    "topic": "Distributions",
+    "subtopic": "Properties of the Binomial Distribution",
+    "concept": "Properties of the Binomial Distribution",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Two adjacent integers can be modes simultaneously when $(n+1)p\\in\\mathbb{Z}$. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q21",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 21,
+    "questionText": "Consider an economy with $y=Ak$ (per-capita form), saving rate $s\\in(0,1)$, population growth rate $n>0$ and depreciation rate $\\delta\\in(0,1)$. Assume parameters ensure positive long-run growth of $y$. Which of the following is \\emph{incorrect}?",
+    "questionLatex": "Consider an economy with $y=Ak$ (per-capita form), saving rate $s\\in(0,1)$, population growth rate $n>0$ and depreciation rate $\\delta\\in(0,1)$. Assume parameters ensure positive long-run growth of $y$. Which of the following is \\emph{incorrect}?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item The growth rate of capital--labour ratio is $sA-(n+\\delta)$\n\\item If investment $I>\\delta K$, then output grows at a positive rate\n\\item The economy is always on the steady state growth path\n\\item Increasing the savings rate $s$ will not have any effect on the long-run growth rate of output per worker\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "The growth rate of capital--labour ratio is $sA-(n+\\delta)$",
+        "latex": "The growth rate of capital--labour ratio is $sA-(n+\\delta)$"
+      },
+      {
+        "label": "B",
+        "text": "If investment $I>\\delta K$, then output grows at a positive rate",
+        "latex": "If investment $I>\\delta K$, then output grows at a positive rate"
+      },
+      {
+        "label": "C",
+        "text": "The economy is always on the steady state growth path",
+        "latex": "The economy is always on the steady state growth path"
+      },
+      {
+        "label": "D",
+        "text": "Increasing the savings rate $s$ will not have any effect on the long-run growth rate of output per worker",
+        "latex": "Increasing the savings rate $s$ will not have any effect on the long-run growth rate of output per worker"
+      }
+    ],
+    "answer": "D",
+    "solution": "With $y=Ak$, capital--labour accumulation gives\n$\n\\dot k = sy - (n+\\delta)k = sAk - (n+\\delta)k\\ \\Longrightarrow\\ \\frac{\\dot k}{k}=sA-(n+\\delta).\n$\n\\textbf{A:} matches the growth rate of $k$. True.\n\n\\textbf{B:} $I>\\delta K\\Rightarrow\\dot K=I-\\delta K>0$, hence $K$ and $Y=AK$ grow. True.\n\n\\textbf{C:} Because $\\dot k/k$ is a constant (independent of $k$), every variable grows at a constant rate at all times --- the economy is permanently on its balanced growth path. True.\n\n\\textbf{D:} The growth rate of $y$ equals $\\dot k/k=sA-(n+\\delta)$, which is strictly increasing in $s$. Hence raising $s$ does affect the long-run growth rate. \\textbf{Incorrect.}",
+    "topic": "Growth Models",
+    "subtopic": "AK Model of Endogenous Growth",
+    "concept": "AK Model of Endogenous Growth",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: The AK model differs from Solow: $s$ \\emph{does} permanently affect growth. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q22",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 22,
+    "questionText": "Solow economy with $Y=K^{1/3}L^{2/3}$, no population growth or technological change, $\\delta=0.05$, $s=0.2$. What is the steady-state capital--labour ratio?",
+    "questionLatex": "Solow economy with $Y=K^{1/3}L^{2/3}$, no population growth or technological change, $\\delta=0.05$, $s=0.2$. What is the steady-state capital--labour ratio?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $6$\n\\item $8$\n\\item $2$\n\\item $4$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$6$",
+        "latex": "$6$"
+      },
+      {
+        "label": "B",
+        "text": "$8$",
+        "latex": "$8$"
+      },
+      {
+        "label": "C",
+        "text": "$2$",
+        "latex": "$2$"
+      },
+      {
+        "label": "D",
+        "text": "$4$",
+        "latex": "$4$"
+      }
+    ],
+    "answer": "B",
+    "solution": "Intensive form: $y=k^{1/3}$. Steady-state condition $sf(k^{*})=\\delta k^{*}$:\n$\n0.2\\,k^{1/3}=0.05\\,k\\ \\Longrightarrow\\ k^{2/3}=\\frac{0.2}{0.05}=4\\ \\Longrightarrow\\ k^{*}=4^{3/2}=8.\n$",
+    "topic": "Growth Models",
+    "subtopic": "Solow Steady State",
+    "concept": "Solow Steady State",
+    "difficulty": "Easy",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: No major trap beyond standard calculation care. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q23",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 23,
+    "questionText": "With the same Solow economy (no population growth, $\\delta=0.05$, $Y=K^{1/3}L^{2/3}$), a social planner wishes to maximize steady-state per-capita consumption. What savings rate $s$ achieves this?",
+    "questionLatex": "With the same Solow economy (no population growth, $\\delta=0.05$, $Y=K^{1/3}L^{2/3}$), a social planner wishes to maximize steady-state per-capita consumption. What savings rate $s$ achieves this?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $\\tfrac{2}{3}$\n\\item $\\tfrac{1}{2}$\n\\item $\\tfrac{1}{3}$\n\\item $\\tfrac{1}{4}$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$\\tfrac{2}{3}$",
+        "latex": "$\\tfrac{2}{3}$"
+      },
+      {
+        "label": "B",
+        "text": "$\\tfrac{1}{2}$",
+        "latex": "$\\tfrac{1}{2}$"
+      },
+      {
+        "label": "C",
+        "text": "$\\tfrac{1}{3}$",
+        "latex": "$\\tfrac{1}{3}$"
+      },
+      {
+        "label": "D",
+        "text": "$\\tfrac{1}{4}$",
+        "latex": "$\\tfrac{1}{4}$"
+      }
+    ],
+    "answer": "C",
+    "solution": "Steady-state per-capita consumption: $c^{*}(s)=(1-s)f(k^{*}(s))=f(k^{*})-\\delta k^{*}$. The Golden Rule condition is $f'(k^{*})=\\delta$. With $f(k)=k^{1/3}$, $f'(k)=\\tfrac{1}{3}k^{-2/3}=\\delta$. Combined with $sf(k^{*})=\\delta k^{*}$:\n$\ns = \\frac{\\delta k^{*}}{f(k^{*})}=\\delta\\cdot k^{*2/3}=\\delta\\cdot\\frac{1}{3\\delta}=\\frac{1}{3}.\n$\nThis is the standard result that the Golden Rule saving rate equals the capital share $\\alpha=\\tfrac{1}{3}$ in a Cobb--Douglas economy.",
+    "topic": "Growth Models",
+    "subtopic": "Golden Rule",
+    "concept": "Golden Rule",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: For $Y=K^{\\alpha}L^{1-\\alpha}$, $s_{\\text{GR}}=\\alpha$. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q24",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 24,
+    "questionText": "A Solow economy has $y=k^{1/2}$, $\\delta=0$, labour grows at $n>0$. If the steady-state value of $k$ is $50$ and the current value of $k$ is $2$, what is the current growth rate of per-capita output?",
+    "questionLatex": "A Solow economy has $y=k^{1/2}$, $\\delta=0$, labour grows at $n>0$. If the steady-state value of $k$ is $50$ and the current value of $k$ is $2$, what is the current growth rate of per-capita output?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $24n$\n\\item $25n$\n\\item $0.3$\n\\item None of the previous options\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$24n$",
+        "latex": "$24n$"
+      },
+      {
+        "label": "B",
+        "text": "$25n$",
+        "latex": "$25n$"
+      },
+      {
+        "label": "C",
+        "text": "$0.3$",
+        "latex": "$0.3$"
+      },
+      {
+        "label": "D",
+        "text": "None of the previous options",
+        "latex": "None of the previous options"
+      }
+    ],
+    "answer": "D",
+    "solution": "With $\\delta=0$, the capital accumulation equation per worker is\n$\n\\dot k = sf(k)-nk,\\qquad \\frac{\\dot k}{k}=s\\,\\frac{f(k)}{k}-n=\\frac{s}{\\sqrt{k}}-n.\n$\nAt the steady state $k^{*}=50$: $\\dfrac{s}{\\sqrt{50}}=n\\Rightarrow s=n\\sqrt{50}$.\n\nAt the current level $k=2$:\n$\n\\frac{\\dot k}{k}=\\frac{n\\sqrt{50}}{\\sqrt{2}}-n=n\\sqrt{25}-n=5n-n=4n.\n$\nSince $y=k^{1/2}$, $\\dfrac{\\dot y}{y}=\\dfrac{1}{2}\\cdot\\dfrac{\\dot k}{k}=2n$.\n\nThis value is not equal to $24n$, $25n$, or $0.3$ (the last is not even of the form $\\cdot n$). Hence the correct option is `None of the previous options'.",
+    "topic": "Growth Models",
+    "subtopic": "Solow Transition Dynamics",
+    "concept": "Solow Transition Dynamics",
+    "difficulty": "Moderate-Hard",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Make sure to multiply by the elasticity ($1/2$) when converting $\\dot k/k$ to $\\dot y/y$. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q25",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 25,
+    "questionText": "Two countries $A$ and $B$ produce wheat and television respectively, with $Y_A=200$ and $Y_B=250$. The TV price is normalised to $1$, the relative price of wheat is $p$. Let $E_A$ (in wheat units) and $E_B$ (in TV units) denote total expenditures. The income identity is $pY_A+Y_B=pE_A+E_B$. Initially $E_A=100$; $A$ reduces $E_A$ to $70$. Suppose $1/3$ of each country's expenditure is on wheat. What happens to the equilibrium $p$?",
+    "questionLatex": "Two countries $A$ and $B$ produce wheat and television respectively, with $Y_A=200$ and $Y_B=250$. The TV price is normalised to $1$, the relative price of wheat is $p$. Let $E_A$ (in wheat units) and $E_B$ (in TV units) denote total expenditures. The income identity is $pY_A+Y_B=pE_A+E_B$. Initially $E_A=100$; $A$ reduces $E_A$ to $70$. Suppose $1/3$ of each country's expenditure is on wheat. What happens to the equilibrium $p$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $p$ stays the same\n\\item $p$ increases\n\\item $p$ decreases\n\\item The effect is ambiguous\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$p$ stays the same",
+        "latex": "$p$ stays the same"
+      },
+      {
+        "label": "B",
+        "text": "$p$ increases",
+        "latex": "$p$ increases"
+      },
+      {
+        "label": "C",
+        "text": "$p$ decreases",
+        "latex": "$p$ decreases"
+      },
+      {
+        "label": "D",
+        "text": "The effect is ambiguous",
+        "latex": "The effect is ambiguous"
+      }
+    ],
+    "answer": "A",
+    "solution": "Country $A$'s total expenditure in TV units is $pE_A$; spending $1/3$ on wheat yields wheat demand $\\dfrac{pE_A/3}{p}=\\dfrac{E_A}{3}$. Country $B$'s wheat demand is $\\dfrac{E_B/3}{p}$. World wheat market clearing:\n$\n\\frac{E_A}{3}+\\frac{E_B}{3p}=Y_A=200. \\quad (\\star)\n$\nCombined with the income identity $200p+250=pE_A+E_B$, we can solve:\n\n\\textbf{Before ($E_A=100$):} $(\\star)\\Rightarrow E_B=3p(200-100/3)=p(600-100)=500p$. Income identity: $200p+250=100p+500p=600p\\Rightarrow p=\\dfrac{250}{400}=\\dfrac{5}{8}$.\n\n\\textbf{After ($E_A=70$):} $(\\star)\\Rightarrow E_B=3p(200-70/3)=p(600-70)=530p$. Income identity: $200p+250=70p+530p=600p\\Rightarrow p=\\dfrac{5}{8}$.\n\nThe relative price is unchanged. This is the classical \\emph{neutrality of transfers} result: when both countries have identical homothetic preferences (here Cobb--Douglas shares), a transfer or change in expenditure between them does not affect the terms of trade.",
+    "topic": "International Trade / General Equilibrium",
+    "subtopic": "Transfer Problem",
+    "concept": "Transfer Problem",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: With identical expenditure shares across countries, the transfer problem becomes neutral. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q26",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 26,
+    "questionText": "Same setup as Q25, except now \\emph{each} country spends $2/3$ of its expenditure on its \\emph{own} good and $1/3$ on the foreign good. What is the impact on $p$ when $E_A$ falls from $100$ to $70$?",
+    "questionLatex": "Same setup as Q25, except now \\emph{each} country spends $2/3$ of its expenditure on its \\emph{own} good and $1/3$ on the foreign good. What is the impact on $p$ when $E_A$ falls from $100$ to $70$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item $p$ stays the same\n\\item $p$ increases\n\\item $p$ decreases\n\\item The effect is ambiguous\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "$p$ stays the same",
+        "latex": "$p$ stays the same"
+      },
+      {
+        "label": "B",
+        "text": "$p$ increases",
+        "latex": "$p$ increases"
+      },
+      {
+        "label": "C",
+        "text": "$p$ decreases",
+        "latex": "$p$ decreases"
+      },
+      {
+        "label": "D",
+        "text": "The effect is ambiguous",
+        "latex": "The effect is ambiguous"
+      }
+    ],
+    "answer": "C",
+    "solution": "$A$ spends $2/3$ of $pE_A$ on wheat $\\Rightarrow$ wheat demand $=\\dfrac{2pE_A/3}{p}=\\dfrac{2E_A}{3}$. $B$ spends $1/3$ of $E_B$ (in TV) on wheat $\\Rightarrow$ wheat demand $=\\dfrac{E_B/3}{p}=\\dfrac{E_B}{3p}$.\n\nWheat market clearing:\n$\n\\frac{2E_A}{3}+\\frac{E_B}{3p}=200. \\quad (\\star\\star)\n$\n\nCombined with $200p+250=pE_A+E_B$:\n\n\\textbf{Before ($E_A=100$):} $(\\star\\star)\\Rightarrow E_B=3p(200-200/3)=p(600-200)=400p$. Income identity: $200p+250=100p+400p=500p\\Rightarrow p=\\dfrac{5}{6}\\approx 0.833$.\n\n\\textbf{After ($E_A=70$):} $(\\star\\star)\\Rightarrow E_B=3p(200-140/3)=p(600-140)=460p$. Income identity: $200p+250=70p+460p=530p\\Rightarrow p=\\dfrac{250}{330}=\\dfrac{25}{33}\\approx 0.758$.\n\nThus $p$ decreases.\n\n\\textit{Intuition:} With home bias, $A$ spends more of its income at home (on wheat). When $A$ reduces total expenditure, the world demand for wheat falls disproportionately (since $A$'s marginal propensity to import is only $1/3$, while it was previously absorbing $2/3$ of its spending on wheat). Hence wheat becomes relatively cheaper.",
+    "topic": "International Trade / General Equilibrium",
+    "subtopic": "Transfer Problem with Home Bias",
+    "concept": "Transfer Problem with Home Bias",
+    "difficulty": "Hard",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: With asymmetric (home-biased) preferences, the transfer problem is not neutral. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q27",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 27,
+    "questionText": "A consumer consumes two goods $X$ and $Y$. It is observed that her consumption of $X$ always falls when the price of $X$ falls, \\emph{ceteris paribus}. Suppose now income rises, with prices of $X$ and $Y$ held constant. What happens to consumption of $X$?",
+    "questionLatex": "A consumer consumes two goods $X$ and $Y$. It is observed that her consumption of $X$ always falls when the price of $X$ falls, \\emph{ceteris paribus}. Suppose now income rises, with prices of $X$ and $Y$ held constant. What happens to consumption of $X$?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Consumption of $X$ falls\n\\item Consumption of $X$ rises\n\\item Consumption of $X$ remains unchanged\n\\item Indeterminate: consumption of $X$ could rise, fall, or remain unchanged\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Consumption of $X$ falls",
+        "latex": "Consumption of $X$ falls"
+      },
+      {
+        "label": "B",
+        "text": "Consumption of $X$ rises",
+        "latex": "Consumption of $X$ rises"
+      },
+      {
+        "label": "C",
+        "text": "Consumption of $X$ remains unchanged",
+        "latex": "Consumption of $X$ remains unchanged"
+      },
+      {
+        "label": "D",
+        "text": "Indeterminate: consumption of $X$ could rise, fall, or remain unchanged",
+        "latex": "Indeterminate: consumption of $X$ could rise, fall, or remain unchanged"
+      }
+    ],
+    "answer": "A",
+    "solution": "The Slutsky equation gives\n$\n\\frac{\\partial x}{\\partial p_x}= \\underbrace{\\frac{\\partial x^{h}}{\\partial p_x}}_{\\text{substitution}\\,\\le 0}- x\\cdot\\frac{\\partial x}{\\partial m}.\n$\nSince the substitution effect is non-positive, the Marshallian demand $x$ \\emph{rises} when $p_x$ falls unless the income effect is sufficiently negative and dominates. The given observation $\\partial x/\\partial p_x>0$ (a price fall reduces consumption) implies\n$\n-x\\cdot\\frac{\\partial x}{\\partial m}>-\\frac{\\partial x^{h}}{\\partial p_x}\\ge 0\\ \\Longrightarrow\\ \\frac{\\partial x}{\\partial m}<0.\n$\nThat is, $X$ is a Giffen good and hence \\emph{inferior}. When income rises (prices held fixed), consumption of an inferior good falls.",
+    "topic": "Consumer Theory",
+    "subtopic": "Giffen and Inferior Goods",
+    "concept": "Giffen and Inferior Goods",
+    "difficulty": "Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Every Giffen good is inferior, but not every inferior good is Giffen. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q28",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 28,
+    "questionText": "$A$ has a pond which yields $f$ fish at $t=1$ and nothing at $t=2$. He consumes only fish. Storage is costless and undepreciated; no discounting. Utility in any period $t$ is $u(c_t)=c_t^{\\,n}$ with $0<n<1$. Optimal consumption?",
+    "questionLatex": "$A$ has a pond which yields $f$ fish at $t=1$ and nothing at $t=2$. He consumes only fish. Storage is costless and undepreciated; no discounting. Utility in any period $t$ is $u(c_t)=c_t^{\\,n}$ with $0<n<1$. Optimal consumption?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Any division is optimal\n\\item $c_1=c_2=f/2$\n\\item $c_1=f,\\ c_2=0$\n\\item $c_1=0,\\ c_2=f$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Any division is optimal",
+        "latex": "Any division is optimal"
+      },
+      {
+        "label": "B",
+        "text": "$c_1=c_2=f/2$",
+        "latex": "$c_1=c_2=f/2$"
+      },
+      {
+        "label": "C",
+        "text": "$c_1=f,\\ c_2=0$",
+        "latex": "$c_1=f,\\ c_2=0$"
+      },
+      {
+        "label": "D",
+        "text": "$c_1=0,\\ c_2=f$",
+        "latex": "$c_1=0,\\ c_2=f$"
+      }
+    ],
+    "answer": "B",
+    "solution": "The problem is\n$\n\\max_{c_1,c_2\\ge 0}\\ c_1^{\\,n}+c_2^{\\,n}\\quad\\text{s.t.}\\quad c_1+c_2=f.\n$\nSubstituting $c_2=f-c_1$ and differentiating with respect to $c_1$:\n$\nnc_1^{\\,n-1}-n(f-c_1)^{n-1}=0\\ \\Longrightarrow\\ c_1^{\\,n-1}=(f-c_1)^{n-1}\\ \\Longrightarrow\\ c_1=f-c_1\\ \\Longrightarrow\\ c_1=c_2=\\tfrac{f}{2}.\n$\nThe second-order condition holds because $u(c)=c^{n}$ with $0<n<1$ is strictly concave, so the agent strictly prefers a smooth path.",
+    "topic": "Intertemporal Optimization",
+    "subtopic": "Two-period Consumption Smoothing",
+    "concept": "Two-period Consumption Smoothing",
+    "difficulty": "Easy-Moderate",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Concave utility + no discount $\\Rightarrow$ perfect consumption smoothing. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q29",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 29,
+    "questionText": "Country $C$ has $10{,}000$ identical farmers with cost $C(q_i)=0.5q_i^{2}+4q_i+100$, aggregate demand $Q=-10{,}000p+400{,}000$. Current price support $p=30$; government buys all unsold output at $30$. The government proposes removing the support and giving each farmer an equal share of the saved expenditure as a lump-sum transfer. Each farmer must, however, pay $300$ to open a bank account to receive the transfer. By how much does a farmer gain (or lose)?",
+    "questionLatex": "Country $C$ has $10{,}000$ identical farmers with cost $C(q_i)=0.5q_i^{2}+4q_i+100$, aggregate demand $Q=-10{,}000p+400{,}000$. Current price support $p=30$; government buys all unsold output at $30$. The government proposes removing the support and giving each farmer an equal share of the saved expenditure as a lump-sum transfer. Each farmer must, however, pay $300$ to open a bank account to receive the transfer. By how much does a farmer gain (or lose)?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Rise by $8$\n\\item Rise by $4$\n\\item Fall by $4$\n\\item Fall by $8$\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Rise by $8$",
+        "latex": "Rise by $8$"
+      },
+      {
+        "label": "B",
+        "text": "Rise by $4$",
+        "latex": "Rise by $4$"
+      },
+      {
+        "label": "C",
+        "text": "Fall by $4$",
+        "latex": "Fall by $4$"
+      },
+      {
+        "label": "D",
+        "text": "Fall by $8$",
+        "latex": "Fall by $8$"
+      }
+    ],
+    "answer": "B",
+    "solution": "\\textbf{Per-farmer profit under price support ($p=30$):} A competitive farmer chooses $q$ s.t.\\ $p=MC(q)=q+4\\Rightarrow q=26$. Revenue $=30\\cdot 26=780$; cost $=0.5\\cdot 676+4\\cdot 26+100=338+104+100=542$. Profit $\\pi^{R}=780-542=238$.\n\n\\textbf{Government's purchase cost under support:} At $p=30$ consumers buy $Q^{d}=-10{,}000(30)+400{,}000=100{,}000$. Farmers' aggregate output is $10{,}000\\cdot 26=260{,}000$. Government buys $260{,}000-100{,}000=160{,}000$ units at $30$, total expenditure $=30\\cdot 160{,}000=4{,}800{,}000$. Per-farmer share of savings $=4{,}800{,}000/10{,}000=480$.\n\n\\textbf{Competitive equilibrium after deregulation:} Aggregate supply $q_{s}=10{,}000(p-4)$. Setting $q_{s}=Q^{d}$:\n$\n10{,}000(p-4)= -10{,}000p+400{,}000\\ \\Longrightarrow\\ 20{,}000p=440{,}000\\ \\Longrightarrow\\ p^{*}=22,\\ q^{*}_i=18.\n$\nProfit $\\pi^{C}=22\\cdot 18 -(0.5\\cdot 324+4\\cdot 18+100)=396-(162+72+100)=396-334=62$.\n\n\\textbf{Net change in farmer's income:}\n$\n\\Delta = \\pi^{C}-\\pi^{R}+480-300 = 62-238+480-300=4.\n$\nSo each farmer is better off by $4$.",
+    "topic": "Market Structure",
+    "subtopic": "Price Support vs.\\ Competitive Equilibrium",
+    "concept": "Price Support vs.\\ Competitive Equilibrium",
+    "difficulty": "Hard",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "verified",
+    "needsReview": false,
+    "reviewNotes": "Note: Don't forget to subtract the bank-account cost of $300$. %========================================================="
+  },
+  {
+    "id": "isi-msqe-pea-2024-q30",
+    "exam": "ISI",
+    "program": "MSQE",
+    "paper": "PEA",
+    "year": 2024,
+    "questionNumber": 30,
+    "questionText": "A consumer consumes three goods $X,Y,Z$ over three periods. Prices and bundles:\n$\n\\begin{aligned}\n\\text{Period 1: } & p^{1}=(2,3,3),\\ x^{1}=(3,1,7),\\\\\n\\text{Period 2: } & p^{2}=(3,2,3),\\ x^{2}=(7,3,1),\\\\\n\\text{Period 3: } & p^{3}=(3,3,2),\\ x^{3}=(1,7,3).\n\\end{aligned}\n$\nWhich of the following statements about her preferences is correct?",
+    "questionLatex": "A consumer consumes three goods $X,Y,Z$ over three periods. Prices and bundles:\n\\[\n\\begin{aligned}\n\\text{Period 1: } & p^{1}=(2,3,3),\\ x^{1}=(3,1,7),\\\\\n\\text{Period 2: } & p^{2}=(3,2,3),\\ x^{2}=(7,3,1),\\\\\n\\text{Period 3: } & p^{3}=(3,3,2),\\ x^{3}=(1,7,3).\n\\end{aligned}\n\\]\nWhich of the following statements about her preferences is correct?\n\\begin{enumerate}[label=(\\Alph*)]\n\\item Preferences are not complete\n\\item Preferences are transitive though not necessarily complete\n\\item Preferences are incomplete and intransitive\n\\item Preferences are complete and transitive\n\\end{enumerate}",
+    "options": [
+      {
+        "label": "A",
+        "text": "Preferences are not complete",
+        "latex": "Preferences are not complete"
+      },
+      {
+        "label": "B",
+        "text": "Preferences are transitive though not necessarily complete",
+        "latex": "Preferences are transitive though not necessarily complete"
+      },
+      {
+        "label": "C",
+        "text": "Preferences are incomplete and intransitive",
+        "latex": "Preferences are incomplete and intransitive"
+      },
+      {
+        "label": "D",
+        "text": "Preferences are complete and transitive",
+        "latex": "Preferences are complete and transitive"
+      }
+    ],
+    "answer": "C",
+    "solution": "Compute the cost matrix $C_{ij}=p^{i}\\cdot x^{j}$:\n$\n\\begin{array}{c|ccc}\n & x^{1} & x^{2} & x^{3}\\\\\\hline\np^{1} & 30 & 26 & 32\\\\\np^{2} & 32 & 30 & 26\\\\\np^{3} & 26 & 32 & 30\n\\end{array}\n$\n\\textbf{At $p^{1}$:} $C_{11}=30$, $C_{12}=26\\le 30$, so the consumer could afford $x^{2}$ but chose $x^{1}$ $\\Rightarrow x^{1}\\succ x^{2}$.\n\n\\textbf{At $p^{2}$:} $C_{22}=30$, $C_{23}=26\\le 30$, so $x^{2}\\succ x^{3}$.\n\n\\textbf{At $p^{3}$:} $C_{33}=30$, $C_{31}=26\\le 30$, so $x^{3}\\succ x^{1}$.\n\nThis yields the cycle $x^{1}\\succ x^{2}\\succ x^{3}\\succ x^{1}$, which directly violates transitivity (and indeed the Strong Axiom of Revealed Preference). Consequently the observed choices cannot be rationalised by a complete-and-transitive (i.e.\\ rational) preference relation. Among the four options, the one consistent with the data ruling out rationality is that preferences are not both complete and transitive --- in particular they fail transitivity, and any consistent assignment over $\\{x^{1},x^{2},x^{3}\\}$ has to drop completeness as well to avoid the cycle. Option (C) is therefore the intended answer.",
+    "topic": "Consumer Theory",
+    "subtopic": "Revealed Preference / Rationality",
+    "concept": "Revealed Preference / Rationality",
+    "difficulty": "Hard",
+    "questionType": "mcq",
+    "source": "ISI MSQE PEA previous-year question",
+    "solutionSource": "Statstrive solution TeX",
+    "solutionStatus": "draft",
+    "needsReview": true,
+    "reviewNotes": "Note: A revealed-preference cycle violates SARP; in a four-option MCQ, both (B) and (D) are ruled out by intransitivity, and (A) alone is too weak to capture the failure. %========================================================="
+  }
+]
