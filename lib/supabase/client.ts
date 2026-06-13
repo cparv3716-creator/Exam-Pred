@@ -26,12 +26,20 @@ export function signUpWithPassword(email: string, password: string, fullName: st
   return authRequest<{ message: string; hasSession?: boolean }>("/api/auth/signup", { email, password, fullName });
 }
 
-export function requestPasswordReset(email: string) {
+export function resetPasswordForEmail(email: string) {
   return authRequest<{ message: string }>("/api/auth/forgot-password", { email });
 }
 
-export function updatePassword(password: string) {
+export function requestPasswordReset(email: string) {
+  return resetPasswordForEmail(email);
+}
+
+export function updateUserPassword(password: string) {
   return authRequest<{ message: string }>("/api/auth/reset-password", { password });
+}
+
+export function updatePassword(password: string) {
+  return updateUserPassword(password);
 }
 
 export function storeAuthSession(accessToken: string, refreshToken?: string) {

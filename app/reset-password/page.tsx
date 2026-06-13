@@ -3,13 +3,18 @@ import Link from "next/link";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
 import { AuthCard } from "@/components/auth/AuthCard";
 import { ResetPasswordForm } from "@/components/auth/ResetPasswordForm";
+import { getCurrentUser } from "@/lib/backend/auth";
 
 export const metadata: Metadata = {
   title: "Reset password",
   description: "Choose a new Statstrive password.",
 };
 
-export default function ResetPasswordPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ResetPasswordPage() {
+  const user = await getCurrentUser();
+
   return (
     <AuroraPageShell>
       <AuthCard
@@ -21,7 +26,13 @@ export default function ResetPasswordPage() {
           </Link>
         }
       >
-        <ResetPasswordForm />
+        {user ? (
+          <ResetPasswordForm />
+        ) : (
+          <div className="rounded-xl border p-4 text-sm leading-6" style={{ borderColor: "var(--aurora-border-soft)", color: "var(--aurora-text-secondary)" }}>
+            Your reset session is missing or expired. Please request a fresh password reset link.
+          </div>
+        )}
       </AuthCard>
     </AuroraPageShell>
   );
