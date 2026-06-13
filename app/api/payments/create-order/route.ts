@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
+import { getCurrentUser } from "@/lib/backend/auth";
+import { insertPaymentOrder } from "@/lib/backend/payments";
 import {
   getPlan,
   isExamId,
@@ -9,10 +11,23 @@ import {
 
 export const runtime = "nodejs";
 
+function devLog(message: string, details?: unknown) {
+  if (process.env.NODE_ENV === "development") {
+    console.info(`[payments/create-order] ${message}`, details ?? "");
+  }
+}
+
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as Record<string, unknown>;
+    const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
     const { examId, planId } = body;
+    const user = await getCurrentUser();
+
+    devLog("request received", { examId, planId, authenticated: Boolean(user) });
+
+    if (!user) {
+      return NextResponse.json({ error: "Please log in before upgrading." }, { status: 401 });
+    }
 
     if (!isExamId(examId)) {
       return NextResponse.json({ error: "Invalid examId." }, { status: 400 });
@@ -28,7 +43,7 @@ export async function POST(request: Request) {
     const keyId = process.env.RAZORPAY_KEY_ID;
     const keySecret = process.env.RAZORPAY_KEY_SECRET;
     if (!keyId || !keySecret) {
-      console.error("Razorpay server credentials are not configured.");
+      devLog("Razorpay server credentials are not configured.");
       return NextResponse.json({ error: "Payment service is not configured." }, { status: 500 });
     }
 
@@ -42,9 +57,28 @@ export async function POST(request: Request) {
     const order = await razorpay.orders.create({
       amount,
       currency: "INR",
-      receipt: `examiq_${Date.now()}`,
+      receipt: `examiq_${Date.now()}_${user.id.slice(0, 8)}`,
       notes: { examId, planId },
     });
+
+    devLog("Razorpay order created", { orderId: order.id });
+
+    try {
+      await insertPaymentOrder({
+        userId: user.id,
+        examId,
+        planId,
+        razorpayOrderId: order.id,
+        amount: Number(order.amount),
+        currency: order.currency,
+      });
+    } catch (error) {
+      devLog("Supabase payment_orders insert failed", {
+        orderId: order.id,
+        error: error instanceof Error ? error.message : "Unknown error",
+      });
+      return NextResponse.json({ error: "Unable to save payment order." }, { status: 500 });
+    }
 
     const response: CreateOrderResponse = {
       orderId: order.id,
@@ -56,8 +90,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(response);
   } catch (error) {
-    console.error("Razorpay order creation failed:", error);
+    devLog("Order creation failed", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json({ error: "Unable to create payment order." }, { status: 500 });
   }
 }
-

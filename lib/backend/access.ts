@@ -1,6 +1,7 @@
 import "server-only";
 
 import { isAdmin, getCurrentUser } from "@/lib/backend/auth";
+import { getAnyActiveExamSubscription } from "@/lib/backend/payments";
 import { supabaseAdminRestFetch } from "@/lib/supabase/admin";
 import type { SupabaseUser } from "@/lib/supabase/server";
 
@@ -35,6 +36,15 @@ export async function getUserAccessLevel(user?: SupabaseUser | null): Promise<Ac
 
   if (await isAdmin(currentUser)) {
     return "admin";
+  }
+
+  try {
+    const examSubscription = await getAnyActiveExamSubscription(currentUser.id);
+    if (examSubscription) {
+      return "premium";
+    }
+  } catch {
+    // Fall back to the older account-wide subscription table during migration.
   }
 
   const subscription = await getUserSubscription(currentUser.id);

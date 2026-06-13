@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
 import { RazorpayPricing } from "@/components/payments/RazorpayPricing";
+import { getCurrentUser } from "@/lib/backend/auth";
 import { legalDisclaimer } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -8,7 +9,11 @@ export const metadata: Metadata = {
   description: "Choose an exam and unlock Statstrive Pro securely with Razorpay.",
 };
 
-export default function PricingPage() {
+export const dynamic = "force-dynamic";
+
+export default async function PricingPage() {
+  const user = await getCurrentUser();
+
   return (
     <AuroraPageShell>
       <section className="aurora-soft-bg">
@@ -25,7 +30,7 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <RazorpayPricing />
+          <RazorpayPricing isAuthenticated={Boolean(user)} />
 
           <p
             className="aurora-surface mx-auto mt-10 max-w-3xl p-5 text-center text-sm leading-6"

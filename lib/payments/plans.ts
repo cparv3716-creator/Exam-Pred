@@ -43,7 +43,22 @@ export type VerifyPaymentRequest = {
 };
 
 export type VerifyPaymentResponse = {
-  success: boolean;
+  success: true;
+  examId: ExamId;
+  planId: PaidPlanId;
+  validUntil: string;
+} | {
+  success: false;
+};
+
+export type AccessCheckRequest = {
+  examId: ExamId;
+};
+
+export type AccessCheckResponse = {
+  hasAccess: boolean;
+  examId: ExamId;
+  validUntil?: string;
 };
 
 export const paymentExams: readonly ExamOption[] = [
@@ -102,3 +117,14 @@ export function getPlan(planId: PlanId) {
   return paymentPlans.find((plan) => plan.id === planId);
 }
 
+export function getExamAccessHref(examId: ExamId) {
+  const hrefs: Record<ExamId, string> = {
+    cat: "/exams/cat",
+    isi_msqe: "/exams/isi/msqe",
+    ugc_net: "/dashboard/exams/ugc-net",
+    jee: "/dashboard/exams/jee-main",
+    neet: "/dashboard/exams/neet",
+  };
+
+  return hrefs[examId];
+}

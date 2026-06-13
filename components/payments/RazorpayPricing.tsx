@@ -98,7 +98,7 @@ async function readJson<T extends object>(response: Response): Promise<T> {
   return body as T;
 }
 
-export function RazorpayPricing() {
+export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean }) {
   const [examId, setExamId] = useState<ExamId>("cat");
   const [planId, setPlanId] = useState<PlanId>("pro_monthly");
   const [loading, setLoading] = useState(false);
@@ -110,6 +110,11 @@ export function RazorpayPricing() {
   async function startPayment() {
     if (planId === "free") {
       setMessage(`${selectedExam?.name ?? "This exam"} includes free access by default.`);
+      return;
+    }
+
+    if (!isAuthenticated) {
+      window.location.assign("/login?next=%2Fpricing");
       return;
     }
 
@@ -133,6 +138,12 @@ export function RazorpayPricing() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ examId, planId }),
       });
+
+      if (orderResponse.status === 401) {
+        window.location.assign("/login?next=%2Fpricing");
+        return;
+      }
+
       const order = await readJson<CreateOrderResponse>(orderResponse);
 
       const checkout = new window.Razorpay({
@@ -161,7 +172,17 @@ export function RazorpayPricing() {
             });
             const verification = await readJson<VerifyPaymentResponse>(verifyResponse);
 
-            window.location.assign(verification.success ? "/payment/success" : "/payment/failure");
+            if (!verification.success) {
+              window.location.assign("/payment/failure");
+              return;
+            }
+
+            const params = new URLSearchParams({
+              examId: verification.examId,
+              planId: verification.planId,
+              validUntil: verification.validUntil,
+            });
+            window.location.assign(`/payment/success?${params.toString()}`);
           } catch {
             window.location.assign("/payment/failure");
           }
