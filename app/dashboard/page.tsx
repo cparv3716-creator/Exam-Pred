@@ -10,11 +10,15 @@ import { exams } from "@/data/exams";
 import { heatmap, practicePlan, topicProbability } from "@/data/analytics";
 import { CatRecommendationCard, CatStatsGrid } from "@/components/content/CatContentCards";
 import { getCatDashboardStats, getCatFinalRecommendation } from "@/lib/content/cat";
+import { getCurrentProfile, getUserExamPreferences, requireUser } from "@/lib/backend/auth";
+import { getUserAccessLevel } from "@/lib/backend/access";
 
 export const metadata: Metadata = {
   title: "Dashboard",
   description: "Statstrive AI exam intelligence cockpit.",
 };
+
+export const dynamic = "force-dynamic";
 
 /** Command Mode stat tile — existing placeholder values only, no invented stats. */
 function StatTile({
@@ -62,16 +66,64 @@ function MeterBar({ value, accent = "linear-gradient(90deg, var(--aurora-1), var
   );
 }
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const user = await requireUser("/dashboard");
+  const [profile, accessLevel, preferences] = await Promise.all([
+    getCurrentProfile(user),
+    getUserAccessLevel(user),
+    getUserExamPreferences(user.id),
+  ]);
   const catStats = getCatDashboardStats();
   const catRecommendation = getCatFinalRecommendation();
+  const preferredExam = preferences[0];
 
   return (
     <DashboardShell
       title="AI exam intelligence cockpit"
-      subtitle="Your followed exams, probability signals, weak areas and quick actions in one command center. Preview data until your attempts are connected."
+      subtitle="Your account, practice links, probability signals, weak areas and quick actions in one command center."
       activeHref="/dashboard"
     >
+      <div className="aurora-fade-slide-up mb-6 grid gap-4 lg:grid-cols-[1fr_1.2fr]">
+        <div className="aurora-surface p-6">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-primary)" }}>
+            Account
+          </p>
+          <h2 className="mt-2 text-xl font-extrabold" style={{ color: "var(--aurora-text-primary)" }}>
+            {profile?.full_name || user.email || "Statstrive learner"}
+          </h2>
+          <div className="mt-4 grid gap-3 text-sm" style={{ color: "var(--aurora-text-secondary)" }}>
+            <p>
+              Email: <span className="font-semibold" style={{ color: "var(--aurora-text-primary)" }}>{user.email ?? "Not available"}</span>
+            </p>
+            <p>
+              Access: <span className="font-semibold capitalize" style={{ color: "var(--aurora-text-primary)" }}>{accessLevel}</span>
+            </p>
+            <p>
+              Exam preference:{" "}
+              <span className="font-semibold" style={{ color: "var(--aurora-text-primary)" }}>
+                {preferredExam ? preferredExam.exam_slug.toUpperCase() : "No selected exam yet"}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div className="aurora-surface p-6">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--aurora-cyan)" }}>
+            Quick links
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {[
+              ["ISI MSQE PEA Practice", "/exams/isi/msqe/pyqs/pea"],
+              ["CAT DILR Practice", "/exams/cat/dilr"],
+              ["Exam Directory", "/exams"],
+            ].map(([label, href]) => (
+              <Link key={href} href={href} className="aurora-glass aurora-card-hover aurora-focus-ring p-4 text-sm font-bold">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* readiness-style stat row (existing placeholder values) */}
       <div className="aurora-fade-slide-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile icon={BookOpen} label="Followed exams" value="4" detail="CAT, JEE, NEET, GATE" />
@@ -113,10 +165,10 @@ export default function DashboardPage() {
       <div className="aurora-fade-slide-up mt-8 space-y-6" style={{ animationDelay: "280ms" }}>
         <div>
           <h2 className="text-lg font-bold" style={{ color: "var(--aurora-text-primary)" }}>
-            CAT intelligence — live pipeline
+            CAT intelligence - live pipeline
           </h2>
           <p className="mt-1 text-sm" style={{ color: "var(--aurora-text-secondary)" }}>
-            Candidate pool stats, final recommendation, expected overlap and coverage risk — loaded from the real local CAT pipeline.
+            Candidate pool stats, final recommendation, expected overlap and coverage risk - loaded from the real local CAT pipeline.
           </p>
         </div>
         <CatStatsGrid stats={catStats} />
