@@ -6,7 +6,7 @@ import { AdminActionCard, QualityChecklist } from "@/components/admin/AdminCards
 
 export const metadata: Metadata = {
   title: "Admin Console",
-  description: "ExamIQ admin cockpit placeholders.",
+  description: "Statstrive admin cockpit placeholders.",
 };
 
 export default function AdminPage() {
