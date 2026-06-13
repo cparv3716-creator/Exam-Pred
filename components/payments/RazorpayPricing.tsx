@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Check, Crown, LoaderCircle, ShieldCheck } from "lucide-react";
 import {
   getExam,
   getPlan,
+  isExamId,
+  isPaidPlanId,
   paymentExams,
   paymentPlans,
   type CreateOrderResponse,
@@ -12,7 +14,6 @@ import {
   type PaidPlanId,
   type PlanId,
   type VerifyPaymentRequest,
-  type VerifyPaymentResponse,
 } from "@/lib/payments/plans";
 
 type RazorpaySuccessResponse = Pick<
@@ -43,6 +44,23 @@ type RazorpayOptions = {
 type RazorpayInstance = {
   open: () => void;
   on: (event: "payment.failed", handler: () => void) => void;
+};
+
+type VerifyApiResponse = {
+  success?: boolean | string;
+  verified?: boolean;
+  status?: string;
+  examId?: unknown;
+  exam_id?: unknown;
+  planId?: unknown;
+  plan_id?: unknown;
+  validUntil?: unknown;
+  valid_until?: unknown;
+  subscription?: {
+    status?: unknown;
+    validUntil?: unknown;
+    valid_until?: unknown;
+  };
 };
 
 declare global {
@@ -98,11 +116,32 @@ async function readJson<T extends object>(response: Response): Promise<T> {
   return body as T;
 }
 
+function isVerifiedResponse(response: VerifyApiResponse) {
+  const status = typeof response.status === "string" ? response.status.toLowerCase() : "";
+  const subscriptionStatus =
+    typeof response.subscription?.status === "string"
+      ? response.subscription.status.toLowerCase()
+      : "";
+
+  return (
+    response.success === true ||
+    response.success === "true" ||
+    response.verified === true ||
+    ["success", "successful", "verified", "active", "paid"].includes(status) ||
+    subscriptionStatus === "active"
+  );
+}
+
+function stringValue(...values: unknown[]) {
+  return values.find((value): value is string => typeof value === "string" && value.length > 0);
+}
+
 export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean }) {
   const [examId, setExamId] = useState<ExamId>("cat");
   const [planId, setPlanId] = useState<PlanId>("pro_monthly");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const paymentOutcomeStarted = useRef(false);
 
   const selectedExam = getExam(examId);
   const selectedPlan = getPlan(planId);
@@ -126,6 +165,7 @@ export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean 
 
     setLoading(true);
     setMessage(null);
+    paymentOutcomeStarted.current = false;
 
     try {
       const scriptLoaded = await loadRazorpayCheckout();
@@ -156,9 +196,15 @@ export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean 
         notes: { examId: order.examId, planId: order.planId },
         theme: { color: "#4F46E5" },
         modal: {
-          ondismiss: () => setLoading(false),
+          ondismiss: () => {
+            if (!paymentOutcomeStarted.current) {
+              window.location.assign("/payment/failure?reason=cancelled");
+            }
+          },
         },
         handler: async (payment) => {
+          paymentOutcomeStarted.current = true;
+
           try {
             const verifyPayload: VerifyPaymentRequest = {
               ...payment,
@@ -170,18 +216,30 @@ export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean 
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(verifyPayload),
             });
-            const verification = await readJson<VerifyPaymentResponse>(verifyResponse);
+            const verification = await readJson<VerifyApiResponse>(verifyResponse);
 
-            if (!verification.success) {
+            if (!isVerifiedResponse(verification)) {
               window.location.assign("/payment/failure");
               return;
             }
 
+            const responseExamId = stringValue(verification.examId, verification.exam_id);
+            const responsePlanId = stringValue(verification.planId, verification.plan_id);
+            const responseValidUntil = stringValue(
+              verification.validUntil,
+              verification.valid_until,
+              verification.subscription?.validUntil,
+              verification.subscription?.valid_until,
+            );
             const params = new URLSearchParams({
-              examId: verification.examId,
-              planId: verification.planId,
-              validUntil: verification.validUntil,
+              examId: isExamId(responseExamId) ? responseExamId : order.examId,
+              planId: isPaidPlanId(responsePlanId) ? responsePlanId : order.planId,
             });
+
+            if (responseValidUntil) {
+              params.set("validUntil", responseValidUntil);
+            }
+
             window.location.assign(`/payment/success?${params.toString()}`);
           } catch {
             window.location.assign("/payment/failure");
@@ -190,6 +248,7 @@ export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean 
       });
 
       checkout.on("payment.failed", () => {
+        paymentOutcomeStarted.current = true;
         window.location.assign("/payment/failure");
       });
       checkout.open();

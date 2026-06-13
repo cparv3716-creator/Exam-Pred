@@ -40,22 +40,31 @@ export default async function PaymentSuccessPage({
         <div className="aurora-glass mx-auto max-w-xl p-8 text-center sm:p-12">
           <BadgeCheck size={52} className="mx-auto" style={{ color: "var(--aurora-success)" }} aria-hidden />
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: "var(--aurora-success)" }}>
-            Payment verified
+            Payment successful
           </p>
-          <h1 className="mt-3 text-3xl font-extrabold tracking-tight">Your payment was verified successfully.</h1>
+          <h1 className="mt-3 text-3xl font-extrabold tracking-tight">Premium unlocked</h1>
           <p className="mt-4 leading-7" style={{ color: "var(--aurora-text-secondary)" }}>
             {exam
               ? `${exam.name} access is active${formattedExpiry ? ` until ${formattedExpiry}` : ""}.`
               : "Your selected exam access is active."}
           </p>
-          {planId && (
-            <p className="mt-2 text-sm" style={{ color: "var(--aurora-text-muted)" }}>
-              Plan: {planId === "pro_monthly" ? "Pro Monthly" : "Pro Yearly"}
-            </p>
+          {(examId || planId) && (
+            <div className="mt-4 grid gap-1 text-sm" style={{ color: "var(--aurora-text-muted)" }}>
+              {examId && <p>Exam: {examId}</p>}
+              {planId && <p>Plan: {planId}</p>}
+            </div>
           )}
-          <Link href={examHref} className="aurora-button-primary mt-8 w-full text-sm">
-            Open {exam?.name ?? "dashboard"} <ArrowRight size={16} aria-hidden />
+          <Link href="/dashboard" className="aurora-button-primary mt-8 w-full text-sm">
+            Go to dashboard <ArrowRight size={16} aria-hidden />
           </Link>
+          {exam && examHref !== "/dashboard" && (
+            <Link
+              href={examHref}
+              className="aurora-button-secondary mt-3 w-full text-sm"
+            >
+              Open {exam.name}
+            </Link>
+          )}
         </div>
       </section>
     </AuroraPageShell>
