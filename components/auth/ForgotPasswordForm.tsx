@@ -104,6 +104,9 @@ export function ForgotPasswordForm() {
 
       {step === "otp" ? (
         <form onSubmit={verifyResetCode} className="grid gap-4">
+          <p className="text-sm leading-6" style={{ color: "var(--aurora-text-secondary)" }}>
+            Enter the code from your email.
+          </p>
           <AuthInput id="forgot-otp" label="Reset code" inputMode="numeric" autoComplete="one-time-code" value={token} onChange={(event) => setToken(event.target.value)} required />
           <button type="submit" disabled={isPending} className="aurora-button-primary aurora-focus-ring w-full text-sm disabled:opacity-60">
             <KeyRound size={15} aria-hidden /> {isPending ? "Verifying..." : "Verify code"}
@@ -119,7 +122,7 @@ export function ForgotPasswordForm() {
           <AuthInput id="forgot-new-password" label="New password" type="password" autoComplete="new-password" minLength={8} value={password} onChange={(event) => setPassword(event.target.value)} required />
           <AuthInput id="forgot-confirm-password" label="Confirm password" type="password" autoComplete="new-password" minLength={8} value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} required />
           <button type="submit" disabled={isPending} className="aurora-button-primary aurora-focus-ring w-full text-sm disabled:opacity-60">
-            <KeyRound size={15} aria-hidden /> {isPending ? "Updating..." : "Update password"}
+            <KeyRound size={15} aria-hidden /> {isPending ? "Setting password..." : "Set new password"}
           </button>
         </form>
       ) : null}

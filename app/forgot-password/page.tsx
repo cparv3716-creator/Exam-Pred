@@ -14,7 +14,7 @@ export default function ForgotPasswordPage() {
     <AuroraPageShell>
       <AuthCard
         title="Reset your password"
-        description="Enter your account email and we will send a secure reset link."
+        description="Enter your account email and we will send a secure reset code."
         footer={
           <Link href="/login" className="aurora-focus-ring rounded-md font-semibold text-[color:var(--aurora-primary)]">
             Back to login
