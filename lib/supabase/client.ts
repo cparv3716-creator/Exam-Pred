@@ -31,11 +31,11 @@ async function supabaseStyleRequest<T>(path: string, body: Record<string, unknow
 
 export const supabase = {
   auth: {
-    resetPasswordForEmail(email: string, options: { redirectTo: string }) {
-      return supabaseStyleRequest<{ message: string }>("/api/auth/forgot-password", {
-        email,
-        redirectTo: options.redirectTo,
-      });
+    resetPasswordForEmail(email: string) {
+      return supabaseStyleRequest<{ message: string }>("/api/auth/forgot-password", { email });
+    },
+    verifyOtp({ email, token, type }: { email: string; token: string; type: "recovery" }) {
+      return supabaseStyleRequest<{ message: string }>("/api/auth/verify-recovery-otp", { email, token, type });
     },
     updateUser({ password }: { password: string }) {
       return supabaseStyleRequest<{ message: string }>("/api/auth/reset-password", { password });
@@ -52,11 +52,7 @@ export function signUpWithPassword(email: string, password: string, fullName: st
 }
 
 export function resetPasswordForEmail(email: string) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
-  return authRequest<{ message: string }>("/api/auth/forgot-password", {
-    email,
-    redirectTo: `${siteUrl}/auth/callback?next=/reset-password`,
-  });
+  return authRequest<{ message: string }>("/api/auth/forgot-password", { email });
 }
 
 export function requestPasswordReset(email: string) {
