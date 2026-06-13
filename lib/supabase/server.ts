@@ -23,6 +23,8 @@ export type AuthSessionPayload = {
   user?: SupabaseUser | null;
 };
 
+export type SupabaseOtpType = "recovery" | "email";
+
 export function getSupabasePublicConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -141,6 +143,13 @@ export async function exchangeCodeForSession(code: string) {
   return supabaseAuthFetch<AuthSessionPayload>("/token?grant_type=pkce", {
     method: "POST",
     body: JSON.stringify({ auth_code: code, code_verifier: codeVerifier }),
+  });
+}
+
+export async function verifyOtpForSession(tokenHash: string, type: SupabaseOtpType) {
+  return supabaseAuthFetch<AuthSessionPayload>("/verify", {
+    method: "POST",
+    body: JSON.stringify({ token_hash: tokenHash, type }),
   });
 }
 
