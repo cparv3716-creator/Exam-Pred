@@ -1,6 +1,7 @@
 "use client";
 
 type AuthRequestResult<T> = { ok: true; data: T } | { ok: false; error: string; code?: string };
+type SupabaseStyleResult<T> = { data: T; error: null } | { data: null; error: Error };
 
 async function authRequest<T>(path: string, body: Record<string, unknown>) {
   const response = await fetch(path, {
@@ -18,6 +19,30 @@ async function authRequest<T>(path: string, body: Record<string, unknown>) {
   return { ok: true, data } satisfies AuthRequestResult<T>;
 }
 
+async function supabaseStyleRequest<T>(path: string, body: Record<string, unknown>): Promise<SupabaseStyleResult<T>> {
+  const result = await authRequest<T>(path, body);
+
+  if (!result.ok) {
+    return { data: null, error: new Error(result.error) };
+  }
+
+  return { data: result.data, error: null };
+}
+
+export const supabase = {
+  auth: {
+    resetPasswordForEmail(email: string, options: { redirectTo: string }) {
+      return supabaseStyleRequest<{ message: string }>("/api/auth/forgot-password", {
+        email,
+        redirectTo: options.redirectTo,
+      });
+    },
+    updateUser({ password }: { password: string }) {
+      return supabaseStyleRequest<{ message: string }>("/api/auth/reset-password", { password });
+    },
+  },
+};
+
 export function signInWithPassword(email: string, password: string) {
   return authRequest<{ next?: string }>("/api/auth/login", { email, password });
 }
@@ -27,7 +52,11 @@ export function signUpWithPassword(email: string, password: string, fullName: st
 }
 
 export function resetPasswordForEmail(email: string) {
-  return authRequest<{ message: string }>("/api/auth/forgot-password", { email });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+  return authRequest<{ message: string }>("/api/auth/forgot-password", {
+    email,
+    redirectTo: `${siteUrl}/auth/callback?next=/reset-password`,
+  });
 }
 
 export function requestPasswordReset(email: string) {
