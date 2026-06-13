@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail } from "lucide-react";
-import { resetPasswordForEmail } from "@/lib/supabase/client";
+import { supabase } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 export function ForgotPasswordForm() {
@@ -17,15 +17,18 @@ export function ForgotPasswordForm() {
     setMessage("");
     setIsPending(true);
 
-    const result = await resetPasswordForEmail(email);
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+    const { data, error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${siteUrl}/auth/callback?next=/reset-password`,
+    });
     setIsPending(false);
 
-    if (!result.ok) {
-      setError(result.error);
+    if (resetError) {
+      setError(resetError.message);
       return;
     }
 
-    setMessage(result.data.message || "Check your email for the password reset link.");
+    setMessage(data?.message || "Check your email for the password reset link.");
   }
 
   return (

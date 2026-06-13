@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { KeyRound } from "lucide-react";
-import { storeAuthSession, updateUserPassword } from "@/lib/supabase/client";
+import { storeAuthSession, supabase } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 export function ResetPasswordForm() {
@@ -49,15 +49,15 @@ export function ResetPasswordForm() {
 
     setIsPending(true);
 
-    const result = await updateUserPassword(password);
+    const { data, error: updateError } = await supabase.auth.updateUser({ password });
     setIsPending(false);
 
-    if (!result.ok) {
-      setError(result.error);
+    if (updateError) {
+      setError(updateError.message);
       return;
     }
 
-    setMessage(result.data.message);
+    setMessage(data?.message || "Password updated successfully");
     setPassword("");
     setConfirmPassword("");
   }
