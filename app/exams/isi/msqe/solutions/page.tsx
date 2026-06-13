@@ -7,7 +7,7 @@ import type { IsiMsqeSolutionResource } from "@/types/isi";
 
 export const metadata: Metadata = {
   title: "ISI MSQE PYQ Solutions Vault",
-  description: "Year-wise ISI MSQE PEA and PEB solution booklets in PDF and LaTeX format.",
+  description: "Year-wise Statstrive-created ISI MSQE solution booklets in PDF and LaTeX format.",
 };
 
 export default function IsiMsqeSolutionsPage() {
@@ -21,7 +21,7 @@ export default function IsiMsqeSolutionsPage() {
           <IsiPageHeader
             eyebrow="MSQE / Real resource layer"
             title="ISI MSQE PYQ Solutions Vault"
-            description="Year-wise Statstrive solution booklets preserved in polished PDF and original LaTeX source formats. The PEA practice bank and branded question PDFs are regenerated from these local TeX sources."
+            description="Year-wise Statstrive-created solution booklets preserved in polished PDF and LaTeX source formats. Statstrive does not host third-party archive bundles and is not affiliated with ISI or any official examination body."
             chips={["PDF booklets", "LaTeX source", "Manifest-driven", "No OCR"]}
           />
           <aside className="aurora-surface rounded-3xl p-5 shadow-[0_22px_75px_rgba(15,23,42,0.07)]">
@@ -29,11 +29,11 @@ export default function IsiMsqeSolutionsPage() {
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-white" style={{ background: "linear-gradient(135deg, var(--aurora-primary), var(--aurora-violet))" }}><Library size={19} /></span>
               <div><p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: "var(--aurora-cyan)" }}>Available booklets</p><p className="mt-2 text-4xl font-extrabold">{peaSolutions.length + pebSolutions.length}</p></div>
             </div>
-            <p className="mt-4 text-sm leading-7" style={{ color: "var(--aurora-text-secondary)" }}>Buttons appear only when the corresponding public file is present at build time.</p>
+            <p className="mt-4 text-sm leading-7" style={{ color: "var(--aurora-text-secondary)" }}>Buttons appear only for Statstrive-created public files present at build time.</p>
           </aside>
         </div>
 
-        <SolutionSection title="PEA solution booklets" description="Objective-paper solutions available as PDF and source LaTeX." resources={peaSolutions} />
+        <SolutionSection title="PEA solution booklets" description="Objective-paper Statstrive solution content available as PDF and source LaTeX." resources={peaSolutions} />
         <SolutionSection title="PEB solution booklets" description="Descriptive-paper solution resources will appear here as they are added to the manifest." resources={pebSolutions} emptyMessage="No PEB solution booklets are available in the local source folder yet." />
       </section>
     </IsiPageShell>
