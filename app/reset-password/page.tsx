@@ -30,7 +30,10 @@ export default async function ResetPasswordPage() {
           <ResetPasswordForm />
         ) : (
           <div className="rounded-xl border p-4 text-sm leading-6" style={{ borderColor: "var(--aurora-border-soft)", color: "var(--aurora-text-secondary)" }}>
-            Your reset session is missing or expired. Please request a fresh password reset link.
+            <p>Your reset link is invalid or expired. Please request a new password reset link.</p>
+            <Link href="/forgot-password" className="mt-4 inline-flex font-bold text-[color:var(--aurora-primary)]">
+              Request new reset link
+            </Link>
           </div>
         )}
       </AuthCard>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail } from "lucide-react";
-import { requestPasswordReset } from "@/lib/supabase/client";
+import { resetPasswordForEmail } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 export function ForgotPasswordForm() {
@@ -17,7 +17,7 @@ export function ForgotPasswordForm() {
     setMessage("");
     setIsPending(true);
 
-    const result = await requestPasswordReset(email);
+    const result = await resetPasswordForEmail(email);
     setIsPending(false);
 
     if (!result.ok) {
