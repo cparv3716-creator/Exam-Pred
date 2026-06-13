@@ -1,10 +1,12 @@
 import "server-only";
 
+import { createHash, randomBytes } from "crypto";
 import { cookies } from "next/headers";
 import type { NextResponse } from "next/server";
 
 export const ACCESS_TOKEN_COOKIE = "ss-access-token";
 export const REFRESH_TOKEN_COOKIE = "ss-refresh-token";
+export const CODE_VERIFIER_COOKIE = "ss-code-verifier";
 
 export type SupabaseUser = {
   id: string;
@@ -33,7 +35,19 @@ export function getSupabasePublicConfig() {
 }
 
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL || "https://www.statstrive.com").replace(/\/$/, "");
+  const fallback = process.env.NODE_ENV === "production" ? "https://www.statstrive.com" : "http://localhost:3000";
+  return (process.env.NEXT_PUBLIC_SITE_URL || fallback).replace(/\/$/, "");
+}
+
+function base64Url(input: Buffer) {
+  return input.toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+export function createPkcePair() {
+  const verifier = base64Url(randomBytes(48));
+  const challenge = base64Url(createHash("sha256").update(verifier).digest());
+
+  return { verifier, challenge };
 }
 
 export async function getAccessTokenFromCookies() {
@@ -47,7 +61,7 @@ export function authCookieOptions(maxAge?: number) {
     sameSite: "lax" as const,
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    ...(maxAge ? { maxAge } : {}),
+    ...(maxAge !== undefined ? { maxAge } : {}),
   };
 }
 
@@ -62,6 +76,15 @@ export function setAuthCookies(response: NextResponse, session: AuthSessionPaylo
 export function clearAuthCookies(response: NextResponse) {
   response.cookies.set(ACCESS_TOKEN_COOKIE, "", authCookieOptions(0));
   response.cookies.set(REFRESH_TOKEN_COOKIE, "", authCookieOptions(0));
+  response.cookies.set(CODE_VERIFIER_COOKIE, "", authCookieOptions(0));
+}
+
+export function setCodeVerifierCookie(response: NextResponse, verifier: string) {
+  response.cookies.set(CODE_VERIFIER_COOKIE, verifier, authCookieOptions(60 * 15));
+}
+
+export function clearCodeVerifierCookie(response: NextResponse) {
+  response.cookies.set(CODE_VERIFIER_COOKIE, "", authCookieOptions(0));
 }
 
 export async function supabaseAuthFetch<T>(path: string, init: RequestInit = {}, accessToken?: string | null) {
@@ -105,4 +128,35 @@ export async function getUserFromToken(accessToken: string | null) {
   } catch {
     return null;
   }
+}
+
+export async function exchangeCodeForSession(code: string) {
+  const cookieStore = await cookies();
+  const codeVerifier = cookieStore.get(CODE_VERIFIER_COOKIE)?.value;
+
+  if (!codeVerifier) {
+    throw new Error("Missing password reset verifier. Please request a fresh reset link.");
+  }
+
+  return supabaseAuthFetch<AuthSessionPayload>("/token?grant_type=pkce", {
+    method: "POST",
+    body: JSON.stringify({ auth_code: code, code_verifier: codeVerifier }),
+  });
+}
+
+export function getSafeRelativePath(value: string | null, fallback = "/dashboard") {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) {
+    return fallback;
+  }
+
+  try {
+    const parsed = new URL(value, "https://www.statstrive.com");
+    if (parsed.origin !== "https://www.statstrive.com") {
+      return fallback;
+    }
+  } catch {
+    return fallback;
+  }
+
+  return value;
 }

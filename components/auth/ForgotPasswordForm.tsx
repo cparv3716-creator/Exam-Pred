@@ -25,7 +25,7 @@ export function ForgotPasswordForm() {
       return;
     }
 
-    setMessage("Password reset email sent. Use the link in your inbox to choose a new password.");
+    setMessage(result.data.message || "Check your email for the password reset link.");
   }
 
   return (
