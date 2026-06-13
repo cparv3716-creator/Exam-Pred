@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({ password }),
     }, accessToken);
 
-    return NextResponse.json({ message: "Password updated. You can now log in." });
+    return NextResponse.json({ message: "Password updated successfully" });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Could not update password." },
