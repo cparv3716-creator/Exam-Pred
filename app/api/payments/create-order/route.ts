@@ -21,12 +21,16 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
     const { examId, planId } = body;
+    // Server-confirmed identity only — derived from the cookie session via getUser().
     const user = await getCurrentUser();
 
     devLog("request received", { examId, planId, authenticated: Boolean(user) });
 
     if (!user) {
-      return NextResponse.json({ error: "Please log in before upgrading." }, { status: 401 });
+      return NextResponse.json(
+        { error: "Please log in before upgrading.", redirect: "/login?next=/pricing" },
+        { status: 401 },
+      );
     }
 
     if (!isExamId(examId)) {

@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { Brain, LayoutDashboard, LogOut, Menu, Shield, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isAdmin, isSignedIn, useRoleStore } from "@/stores/use-role-store";
+import type { AuthChangeEvent, Session } from "@supabase/supabase-js";
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import { RoleSwitcher } from "@/components/ui/RoleSwitcher";
 
 const navLinks = [
@@ -15,7 +17,43 @@ const navLinks = [
 export function PremiumNavbar() {
   const [open, setOpen] = useState(false);
   const { role, signOut } = useRoleStore();
-  const signedIn = isSignedIn(role);
+  // Real auth state, synced from the cookie-based session via onAuthStateChange.
+  const [authedUser, setAuthedUser] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const supabase = getSupabaseBrowserClient();
+    let active = true;
+
+    void (async () => {
+      const { data } = await supabase.auth.getUser();
+      if (active) setAuthedUser(Boolean(data.user));
+    })();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
+      setAuthedUser(Boolean(session?.user));
+    });
+
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  // Prefer the real session; fall back to the demo role store before it loads.
+  const signedIn = authedUser ?? isSignedIn(role);
+
+  async function handleSignOut() {
+    try {
+      await getSupabaseBrowserClient().auth.signOut();
+    } catch {
+      // ignore — the server route below clears cookies authoritatively
+    }
+    signOut();
+    // Hit the server logout route so sb-* and legacy cookies are fully cleared.
+    window.location.href = "/logout";
+  }
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-ink-900/82 backdrop-blur-2xl">
@@ -71,7 +109,7 @@ export function PremiumNavbar() {
             {signedIn ? (
               <button
                 type="button"
-                onClick={signOut}
+                onClick={handleSignOut}
                 className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-400 hover:text-white"
               >
                 <LogOut size={16} /> Sign out

@@ -30,12 +30,18 @@ export async function POST(request: Request) {
       examId,
       planId,
     } = body;
+    // SECURITY: the subscription owner is taken ONLY from the server-verified
+    // cookie session (getUser), never from the request body or the Razorpay
+    // payload. A client cannot claim a subscription for another user_id.
     const user = await getCurrentUser();
 
     devLog("request received", { examId, planId, authenticated: Boolean(user) });
 
     if (!user) {
-      return NextResponse.json({ success: false, error: "Login required." }, { status: 401 });
+      return NextResponse.json(
+        { success: false, error: "Login required.", redirect: "/login?next=/pricing" },
+        { status: 401 },
+      );
     }
 
     if (!isExamId(examId) || !isPaidPlanId(planId)) {

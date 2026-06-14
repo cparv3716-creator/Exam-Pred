@@ -1,72 +1,32 @@
 "use client";
 
-type AuthRequestResult<T> = { ok: true; data: T } | { ok: false; error: string; code?: string };
-type SupabaseStyleResult<T> = { data: T; error: null } | { data: null; error: Error };
+import { createBrowserClient } from "@supabase/ssr";
 
-async function authRequest<T>(path: string, body: Record<string, unknown>) {
-  const response = await fetch(path, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+/**
+ * Canonical browser Supabase client (@supabase/ssr).
+ *
+ * createBrowserClient reads/writes the auth session through cookies (not
+ * localStorage), which is what lets the session survive full page navigations,
+ * refreshes, and the Razorpay redirect round-trip — the server, middleware and
+ * browser all share the same cookie-based session.
+ *
+ * Placeholder fallbacks keep `next build` from throwing when env vars are not
+ * present at build time; the real values are injected at runtime.
+ */
+const SUPABASE_URL =
+  process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "") || "https://placeholder.supabase.co";
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
 
-  const data = (await response.json().catch(() => null)) as T & { error?: string; code?: string };
+export function createClient() {
+  return createBrowserClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
 
-  if (!response.ok) {
-    return { ok: false, error: data?.error ?? "Request failed.", code: data?.code } satisfies AuthRequestResult<T>;
+let browserClient: ReturnType<typeof createBrowserClient> | undefined;
+
+/** Singleton browser client — safe to call from client components and effects. */
+export function getSupabaseBrowserClient() {
+  if (!browserClient) {
+    browserClient = createBrowserClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
-
-  return { ok: true, data } satisfies AuthRequestResult<T>;
-}
-
-async function supabaseStyleRequest<T>(path: string, body: Record<string, unknown>): Promise<SupabaseStyleResult<T>> {
-  const result = await authRequest<T>(path, body);
-
-  if (!result.ok) {
-    return { data: null, error: new Error(result.error) };
-  }
-
-  return { data: result.data, error: null };
-}
-
-export const supabase = {
-  auth: {
-    resetPasswordForEmail(email: string) {
-      return supabaseStyleRequest<{ message: string }>("/api/auth/forgot-password", { email });
-    },
-    verifyOtp({ email, token, type }: { email: string; token: string; type: "recovery" }) {
-      return supabaseStyleRequest<{ message: string }>("/api/auth/verify-recovery-otp", { email, token, type });
-    },
-    updateUser({ password }: { password: string }) {
-      return supabaseStyleRequest<{ message: string }>("/api/auth/reset-password", { password });
-    },
-  },
-};
-
-export function signInWithPassword(email: string, password: string) {
-  return authRequest<{ next?: string }>("/api/auth/login", { email, password });
-}
-
-export function signUpWithPassword(email: string, password: string, fullName: string) {
-  return authRequest<{ message: string; hasSession?: boolean }>("/api/auth/signup", { email, password, fullName });
-}
-
-export function resetPasswordForEmail(email: string) {
-  return authRequest<{ message: string }>("/api/auth/forgot-password", { email });
-}
-
-export function requestPasswordReset(email: string) {
-  return resetPasswordForEmail(email);
-}
-
-export function updateUserPassword(password: string) {
-  return authRequest<{ message: string }>("/api/auth/reset-password", { password });
-}
-
-export function updatePassword(password: string) {
-  return updateUserPassword(password);
-}
-
-export function storeAuthSession(accessToken: string, refreshToken?: string) {
-  return authRequest<{ message: string }>("/api/auth/session", { accessToken, refreshToken });
+  return browserClient;
 }

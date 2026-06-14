@@ -1,7 +1,12 @@
 import "server-only";
 
 import { redirect } from "next/navigation";
-import { getAccessTokenFromCookies, getUserFromToken, type SupabaseUser } from "@/lib/supabase/server";
+import {
+  createSupabaseServerClient,
+  getAccessTokenFromCookies,
+  getUserFromToken,
+  type SupabaseUser,
+} from "@/lib/supabase/server";
 import { supabaseAdminRestFetch } from "@/lib/supabase/admin";
 
 export type UserProfile = {
@@ -22,7 +27,26 @@ export type UserExamPreference = {
   current_level: string | null;
 };
 
-export async function getCurrentUser() {
+export async function getCurrentUser(): Promise<SupabaseUser | null> {
+  // Primary: the @supabase/ssr cookie session. getUser() validates the token
+  // against the Supabase auth server (more secure than trusting getSession()).
+  try {
+    const supabase = await createSupabaseServerClient();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
+
+    if (user && !error) {
+      return user as unknown as SupabaseUser;
+    }
+  } catch {
+    // fall through to the legacy recovery-session check below
+  }
+
+  // Fallback: the legacy ss-* recovery-session cookie used solely by the OTP
+  // password-reset flow (forgot-password / reset-password). This keeps that
+  // flow working unchanged while the main session moves to @supabase/ssr.
   const token = await getAccessTokenFromCookies();
   return getUserFromToken(token);
 }

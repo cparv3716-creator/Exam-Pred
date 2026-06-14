@@ -3,6 +3,7 @@ import "server-only";
 import { createHash, randomBytes } from "crypto";
 import { cookies } from "next/headers";
 import type { NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 
 export const ACCESS_TOKEN_COOKIE = "ss-access-token";
 export const REFRESH_TOKEN_COOKIE = "ss-refresh-token";
@@ -39,6 +40,43 @@ export function getSupabasePublicConfig() {
 export function getSiteUrl() {
   const fallback = process.env.NODE_ENV === "production" ? "https://www.statstrive.com" : "http://localhost:3000";
   return (process.env.NEXT_PUBLIC_SITE_URL || fallback).replace(/\/$/, "");
+}
+
+/**
+ * Canonical server-side Supabase client (@supabase/ssr).
+ *
+ * Reads/writes the auth session via the request cookie store from
+ * `next/headers`, so Server Components, Route Handlers and Server Actions all
+ * share the same cookie-based session that the browser client and middleware
+ * use. `setAll` is wrapped in try/catch because Server Components cannot mutate
+ * cookies — in that context the middleware (updateSession) refreshes them.
+ *
+ * Placeholder fallbacks keep `next build` from throwing when env vars are not
+ * present at build time; real values are injected at runtime.
+ */
+export async function createSupabaseServerClient() {
+  const cookieStore = await cookies();
+  const config = getSupabasePublicConfig();
+  const url = config?.url || "https://placeholder.supabase.co";
+  const anonKey = config?.anonKey || "placeholder-anon-key";
+
+  return createServerClient(url, anonKey, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            cookieStore.set(name, value, options);
+          });
+        } catch {
+          // Called from a Server Component where cookies are read-only.
+          // The middleware updateSession() handles cookie refresh instead.
+        }
+      },
+    },
+  });
 }
 
 function base64Url(input: Buffer) {

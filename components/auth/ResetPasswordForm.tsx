@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { KeyRound } from "lucide-react";
-import { storeAuthSession, supabase } from "@/lib/supabase/client";
+import { storeAuthSession, supabase } from "@/lib/supabase/auth-rest-client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 export function ResetPasswordForm() {
