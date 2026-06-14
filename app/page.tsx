@@ -21,6 +21,7 @@ const NAV_LINKS = [
   { label: "CAT", href: "/exams/cat" },
   { label: "Practice", href: "/exams/isi/msqe/pyqs/pea" },
   { label: "Feedback", href: "/feedback" },
+  { label: "Contact", href: "/contact" },
   { label: "Login", href: "/login" },
   { label: "Sign up", href: "/signup" },
 ];
