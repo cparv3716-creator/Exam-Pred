@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { AuroraBackground } from "@/components/aurora/AuroraBackground";
 import { AuroraHeroScene } from "@/components/aurora/AuroraHeroScene";
+import { AuroraHeaderNavigation } from "@/components/aurora/AuroraHeaderNavigation";
 
 /* ── nav / content data ─────────────────────────────────────────────── */
 
@@ -21,8 +22,6 @@ const NAV_LINKS = [
   { label: "CAT", href: "/exams/cat" },
   { label: "Practice", href: "/exams/isi/msqe/pyqs/pea" },
   { label: "Feedback", href: "/feedback" },
-  { label: "Login", href: "/login" },
-  { label: "Sign up", href: "/signup" },
 ];
 
 const HERO_CHIPS = ["ISI MSQE live", "CAT DILR practice", "PYQ-backed intelligence", "Multi-exam roadmap"];
@@ -305,23 +304,7 @@ export default function HomePage() {
               </span>
             </Link>
 
-            <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="aurora-focus-ring rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-white/60"
-                  style={{ color: "var(--aurora-text-secondary)" }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
-            <Link href="/signup" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
-              Get Started
-              <ArrowRight size={15} aria-hidden />
-            </Link>
+            <AuroraHeaderNavigation links={NAV_LINKS} />
           </div>
         </header>
 

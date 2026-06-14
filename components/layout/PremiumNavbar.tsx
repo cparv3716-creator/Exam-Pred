@@ -172,12 +172,27 @@ export function PremiumNavbar() {
           )}
           <div className="mt-3 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3">
             <RoleSwitcher compact />
-            <Link
-              href="/signup"
-              className="rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-4 py-2 text-xs font-semibold text-white"
-            >
-              Start Free
-            </Link>
+            {signedIn ? (
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white"
+              >
+                <LogOut size={14} /> Sign out
+              </button>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Link href="/login" className="rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 hover:text-white">
+                  Log in
+                </Link>
+                <Link
+                  href="/signup"
+                  className="rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 px-4 py-2 text-xs font-semibold text-white"
+                >
+                  Start Free
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       )}

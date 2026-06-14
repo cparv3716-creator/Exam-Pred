@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
-import { getCurrentUser } from "@/lib/backend/auth";
+import { AuroraHeaderNavigation } from "@/components/aurora/AuroraHeaderNavigation";
 
 const NAV_LINKS = [
   { label: "Exams", href: "/exams" },
@@ -11,18 +10,7 @@ const NAV_LINKS = [
   { label: "Pricing", href: "/pricing" },
 ];
 
-export async function AuroraPageShell({ children }: { children: ReactNode }) {
-  const user = await getCurrentUser();
-  const authLinks = user
-    ? [
-        { label: "Dashboard", href: "/dashboard" },
-        { label: "Logout", href: "/logout" },
-      ]
-    : [
-        { label: "Login", href: "/login" },
-        { label: "Sign up", href: "/signup" },
-      ];
-  const shellLinks = [...NAV_LINKS, ...authLinks];
+export function AuroraPageShell({ children }: { children: ReactNode }) {
 
   return (
     <div
@@ -59,23 +47,7 @@ export async function AuroraPageShell({ children }: { children: ReactNode }) {
               </span>
             </Link>
 
-            <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-              {shellLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="aurora-focus-ring rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors hover:bg-white/60"
-                  style={{ color: "var(--aurora-text-secondary)" }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-
-            <Link href={user ? "/dashboard" : "/signup"} className="aurora-button-primary aurora-focus-ring px-5 text-sm">
-              {user ? "Dashboard" : "Get Started"}
-              <ArrowRight size={15} aria-hidden />
-            </Link>
+            <AuroraHeaderNavigation links={NAV_LINKS} />
           </div>
         </div>
       </header>
@@ -88,7 +60,7 @@ export async function AuroraPageShell({ children }: { children: ReactNode }) {
             Statstrive <span style={{ color: "var(--aurora-text-muted)" }}>- AI exam intelligence</span>
           </p>
           <nav aria-label="Footer" className="flex flex-wrap items-center gap-5 text-sm">
-            {shellLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
