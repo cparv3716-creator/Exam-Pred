@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import {
@@ -28,9 +28,9 @@ const nav = [
 ];
 
 /**
- * DashboardShell — Aurora Glass Intelligence Command Mode.
+ * DashboardShell â€” Aurora Glass Intelligence Command Mode.
  * Light icy canvas, glass cockpit rail (drawer < lg), sticky glass top bar,
- * one faint corner aurora glow (static — no orb, no drift). Content area is
+ * one faint corner aurora glow (static â€” no orb, no drift). Content area is
  * wrapped in `.aurora-command`, which re-skins legacy dark widgets for
  * readability without modifying them.
  */
@@ -39,11 +39,13 @@ export function DashboardShell({
   title,
   subtitle,
   activeHref,
+  showAdminNav = false,
 }: {
   children: React.ReactNode;
   title?: string;
   subtitle?: string;
   activeHref?: string;
+  showAdminNav?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const role = useRoleStore((state) => state.role);
@@ -137,7 +139,7 @@ export function DashboardShell({
           })}
         </div>
 
-        {isAdmin(role) && (
+        {(showAdminNav || isAdmin(role)) && (
           <div className="px-3">
             <p className="px-3 pb-2 pt-3 text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: "var(--aurora-text-muted)" }}>
               Admin
@@ -252,3 +254,5 @@ export function DashboardShell({
     </div>
   );
 }
+
+

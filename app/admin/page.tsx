@@ -1,19 +1,35 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
-import { ClipboardCheck, Database, FileBarChart, FileQuestion, FlaskConical, Layers, Radio, Sparkles, UploadCloud } from "lucide-react";
+import {
+  ClipboardCheck,
+  CreditCard,
+  Database,
+  FileBarChart,
+  FileQuestion,
+  FlaskConical,
+  Layers,
+  Radio,
+  ShieldCheck,
+  Sparkles,
+  UploadCloud,
+  Users,
+} from "lucide-react";
 import { AdminShell } from "@/components/layout/AdminShell";
 import { AdminActionCard, QualityChecklist } from "@/components/admin/AdminCards";
 
 export const metadata: Metadata = {
   title: "Admin Console",
-  description: "Statstrive admin cockpit placeholders.",
+  description: "Statstrive admin cockpit for content, users, subscriptions and access.",
 };
 
 export default function AdminPage() {
   return (
-    <AdminShell title="Admin console" subtitle="Premium placeholders for content operations, uploads, review and publish controls." activeHref="/admin">
+    <AdminShell title="Admin console" subtitle="Server-gated controls for content operations, users, subscriptions, payments and manual access." activeHref="/admin">
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {[
+          { icon: Users, title: "Users & access", href: "/admin/users", description: "View user profiles, subscriptions, admin status and manual premium grants." },
+          { icon: ShieldCheck, title: "Subscriptions", href: "/admin/subscriptions", description: "Inspect exam-scoped premium subscription rows." },
+          { icon: CreditCard, title: "Payment orders", href: "/admin/payments", description: "Read-only view of recent Razorpay order records." },
           { icon: Layers, title: "Manage exams", href: "/admin/exams", description: "Catalog settings, sections and access tier visibility." },
           { icon: UploadCloud, title: "Upload PYQs", href: "/admin/upload-pyqs", description: "CSV/PDF upload workflow placeholder with validation states." },
           { icon: FileQuestion, title: "Question bank", href: "/admin/questions", description: "Review topic metadata, difficulty and solution status." },
@@ -29,11 +45,11 @@ export default function AdminPage() {
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <QualityChecklist
           items={[
-            "No copyrighted real PYQs in demo data",
-            "No leaked, official, exact, guaranteed or sure-shot claims",
-            "Synthetic solution metadata present",
-            "Production storage pipeline pending",
-            "Admin approval and audit trail pending",
+            "Admin routes require an active admin_users row",
+            "Manual premium grants are exam-scoped",
+            "Admin grant/revoke actions are logged",
+            "Service role remains server-only",
+            "Content upload pipeline remains local-first until storage is added",
           ]}
         />
         <div className="rounded-xl border border-white/8 bg-white/[0.025] p-5">

@@ -1,9 +1,10 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import {
   Brain,
   ClipboardCheck,
+  CreditCard,
   Database,
   FileBarChart,
   FileQuestion,
@@ -12,8 +13,10 @@ import {
   Menu,
   MonitorCheck,
   Settings2,
+  ShieldCheck,
   Sparkles,
   UploadCloud,
+  Users,
   X,
 } from "lucide-react";
 import { useState } from "react";
@@ -23,6 +26,9 @@ import { cn } from "@/lib/utils";
 const adminNav = [
   { label: "Console", href: "/admin", icon: Database },
   { label: "Exams", href: "/admin/exams", icon: Layers },
+  { label: "Users & Access", href: "/admin/users", icon: Users },
+  { label: "Subscriptions", href: "/admin/subscriptions", icon: ShieldCheck },
+  { label: "Payment Orders", href: "/admin/payments", icon: CreditCard },
   { label: "Upload PYQs", href: "/admin/upload-pyqs", icon: UploadCloud },
   { label: "Questions", href: "/admin/questions", icon: FileQuestion },
   { label: "Topics", href: "/admin/topics", icon: Settings2 },
@@ -42,7 +48,7 @@ export function AdminShell({
   children: React.ReactNode;
   title: string;
   subtitle?: string;
-  activeHref: string;
+  activeHref?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -85,9 +91,9 @@ export function AdminShell({
           })}
         </div>
         <div className="absolute inset-x-3 bottom-3 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-4">
-          <p className="text-xs font-semibold text-white">Demo admin mode</p>
+          <p className="text-xs font-semibold text-white">Server-gated admin</p>
           <p className="mt-1 text-xs leading-relaxed text-slate-500">
-            Uploads and publish controls are placeholders until the content pipeline is connected.
+            Admin pages require an active admin_users row. Content upload controls remain local workflow placeholders.
           </p>
         </div>
       </aside>

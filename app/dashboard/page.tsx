@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, BrainCircuit, CalendarCheck, Download, Flame, Target } from "lucide-react";
 import { DashboardShell } from "@/components/layout/DashboardShell";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-/** Command Mode stat tile — existing placeholder values only, no invented stats. */
+/** Command Mode stat tile â€” existing placeholder values only, no invented stats. */
 function StatTile({
   icon: Icon,
   label,
@@ -85,6 +85,7 @@ export default async function DashboardPage() {
       title="AI exam intelligence cockpit"
       subtitle="Your account, practice links, probability signals, weak areas and quick actions in one command center."
       activeHref="/dashboard"
+      showAdminNav={accessLevel === "admin"}
     >
       <div className="aurora-fade-slide-up mb-6 grid gap-4 lg:grid-cols-[1fr_1.2fr]">
         <div className="aurora-surface p-6">
@@ -290,3 +291,5 @@ export default async function DashboardPage() {
     </DashboardShell>
   );
 }
+
+

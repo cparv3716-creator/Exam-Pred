@@ -1,4 +1,4 @@
-import "server-only";
+﻿import "server-only";
 
 import { redirect } from "next/navigation";
 import {
@@ -25,6 +25,15 @@ export type UserExamPreference = {
   target_year: number | null;
   target_month: string | null;
   current_level: string | null;
+};
+
+export type AdminUserRow = {
+  user_id: string;
+  role: string | null;
+  permissions: Record<string, unknown> | null;
+  is_active: boolean;
+  created_at: string;
+  updated_at?: string | null;
 };
 
 export async function getCurrentUser(): Promise<SupabaseUser | null> {
@@ -88,19 +97,37 @@ export async function getUserExamPreferences(userId: string) {
   }
 }
 
-export async function isAdmin(user?: SupabaseUser | null) {
+export async function getActiveAdminUser(user?: SupabaseUser | null) {
   const currentUser = user ?? (await getCurrentUser());
 
   if (!currentUser) {
-    return false;
+    return null;
   }
 
   try {
-    const rows = await supabaseAdminRestFetch<Array<{ user_id: string }>>(
-      `admin_users?user_id=eq.${encodeURIComponent(currentUser.id)}&select=user_id&limit=1`,
+    const rows = await supabaseAdminRestFetch<AdminUserRow[]>(
+      `admin_users?user_id=eq.${encodeURIComponent(currentUser.id)}&is_active=eq.true&select=*&limit=1`,
     );
-    return rows.length > 0;
+    return rows[0] ?? null;
   } catch {
-    return false;
+    return null;
   }
+}
+
+export async function isAdmin(user?: SupabaseUser | null) {
+  return Boolean(await getActiveAdminUser(user));
+}
+
+export async function requireAdmin(nextPath = "/admin") {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect(`/login?next=${encodeURIComponent(nextPath)}`);
+  }
+
+  if (!(await isAdmin(user))) {
+    redirect("/dashboard");
+  }
+
+  return user;
 }

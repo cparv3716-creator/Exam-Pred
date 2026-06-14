@@ -1,10 +1,7 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/backend/auth";
-import { getActiveExamSubscription } from "@/lib/backend/payments";
-import {
-  isExamId,
-  type AccessCheckResponse,
-} from "@/lib/payments/plans";
+import { getEffectiveAccess } from "@/lib/backend/access";
+import { isExamId, type AccessCheckResponse } from "@/lib/payments/plans";
 
 export const runtime = "nodejs";
 
@@ -29,12 +26,12 @@ export async function POST(request: Request) {
   }
 
   try {
-    const subscription = await getActiveExamSubscription(user.id, body.examId);
-    const response: AccessCheckResponse = subscription
+    const access = await getEffectiveAccess({ user, examId: body.examId });
+    const response: AccessCheckResponse = access.isPremium || access.isAdmin
       ? {
           hasAccess: true,
           examId: body.examId,
-          validUntil: subscription.valid_until,
+          validUntil: access.validUntil,
         }
       : {
           hasAccess: false,
@@ -43,7 +40,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(response);
   } catch (error) {
-    devLog("Supabase subscription lookup failed", {
+    devLog("Supabase access lookup failed", {
       error: error instanceof Error ? error.message : "Unknown error",
     });
     return NextResponse.json({ error: "Could not check exam access." }, { status: 500 });
