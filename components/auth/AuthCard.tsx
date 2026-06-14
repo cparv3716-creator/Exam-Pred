@@ -13,10 +13,10 @@ export function AuthCard({
   footer?: ReactNode;
 }) {
   return (
-    <section className="aurora-soft-bg">
-      <div className="mx-auto flex min-h-[calc(100vh-12rem)] max-w-md items-center px-4 py-16">
+    <section className="aurora-soft-bg overflow-x-clip">
+      <div className="mx-auto flex min-h-[calc(100svh-8rem)] w-full max-w-md items-center px-4 pb-[calc(2rem+env(safe-area-inset-bottom))] pt-8 sm:min-h-[calc(100vh-12rem)] sm:py-16">
         <div
-          className="aurora-glass aurora-fade-slide-up relative w-full overflow-hidden p-8"
+          className="aurora-glass aurora-fade-slide-up relative w-full overflow-hidden p-5 sm:p-8"
           style={{ borderRadius: "var(--aurora-radius-xl)", boxShadow: "var(--aurora-shadow-3), var(--aurora-shadow-glass)" }}
         >
           <span

@@ -6,6 +6,14 @@ import { UserPlus } from "lucide-react";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
+function getCanonicalAuthOrigin() {
+  if (window.location.hostname === "statstrive.com" || window.location.hostname === "www.statstrive.com") {
+    return "https://statstrive.com";
+  }
+
+  return window.location.origin;
+}
+
 export function SignupForm() {
   const router = useRouter();
   const [fullName, setFullName] = useState("");
@@ -27,7 +35,7 @@ export function SignupForm() {
       password,
       options: {
         data: { full_name: fullName },
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: `${getCanonicalAuthOrigin()}/auth/callback`,
       },
     });
 

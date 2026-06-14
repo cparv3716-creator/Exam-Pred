@@ -1,4 +1,4 @@
-const CACHE_NAME = "statstrive-static-v1";
+const CACHE_NAME = "statstrive-static-v2";
 const APP_SHELL = [
   "/",
   "/manifest.webmanifest",
@@ -7,16 +7,16 @@ const APP_SHELL = [
 ];
 
 const NETWORK_ONLY_PREFIXES = [
-  "/api/",
-  "/auth/",
+  "/api",
+  "/auth",
+  "/login",
+  "/signup",
+  "/logout",
   "/dashboard",
   "/admin",
   "/payment",
   "/billing",
   "/pricing",
-  "/login",
-  "/logout",
-  "/signup",
   "/forgot-password",
   "/reset-password",
   "/verify-email"
@@ -43,8 +43,8 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  if (NETWORK_ONLY_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(prefix))) {
-    event.respondWith(fetch(request));
+  if (NETWORK_ONLY_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(`${prefix}/`))) {
+    event.respondWith(fetch(request, { cache: "no-store" }));
     return;
   }
 
@@ -71,8 +71,6 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request).catch(() => caches.match("/").then((fallback) => fallback || Response.error()))
-    );
+    event.respondWith(fetch(request, { cache: "no-store" }).catch(() => caches.match("/").then((fallback) => fallback || Response.error())));
   }
 });

@@ -73,12 +73,17 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 20% 10%, rgba(34, 211, 238, 0.11), transparent 28rem),
     radial-gradient(circle at 82% 18%, rgba(168, 85, 247, 0.1), transparent 26rem),
@@ -589,3 +594,10 @@ a {
 .aurora-command .aurora-darkland [class*="bg-white/"] { background-color: rgba(255, 255, 255, 0.07) !important; }
 .aurora-command .aurora-darkland [class*="border-white/"] { border-color: rgba(255, 255, 255, 0.12) !important; }
 .aurora-command .aurora-darkland [class*="bg-ink-9"] { background-color: #070b16 !important; }
+
+@supports (padding: max(0px)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

@@ -276,12 +276,12 @@ export default function HomePage() {
         </div>
 
         {/* glass navbar */}
-        <header className="sticky top-4 z-50 mx-auto max-w-7xl">
+        <header className="sticky top-[calc(0.75rem+env(safe-area-inset-top))] z-50 mx-auto max-w-7xl">
           <div
-            className="aurora-glass flex items-center justify-between gap-3 px-4 py-3 sm:px-6"
+            className="aurora-glass flex min-w-0 items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-6"
             style={{ borderRadius: "var(--aurora-radius-xl)" }}
           >
-            <Link href="/" className="aurora-focus-ring flex items-center gap-3 rounded-xl">
+            <Link href="/" className="aurora-focus-ring flex min-w-0 items-center gap-2 rounded-xl sm:gap-3">
               <span
                 aria-hidden
                 className="relative grid h-10 w-10 place-items-center rounded-full"
@@ -329,7 +329,7 @@ export default function HomePage() {
               Statstrive · AI Exam Intelligence
             </p>
 
-            <h1 className="mt-7 text-5xl font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-6xl xl:text-7xl">
+            <h1 className="mt-7 text-4xl font-extrabold leading-[1.03] tracking-[-0.03em] sm:text-6xl xl:text-7xl">
               AI-powered{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -350,7 +350,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/exams/isi/msqe/pyqs/pea"
-                className="aurora-button-primary aurora-focus-ring group px-8 py-4 text-base"
+                className="aurora-button-primary aurora-focus-ring group px-5 py-4 text-base sm:px-8"
                 style={{ boxShadow: "var(--aurora-shadow-2), var(--aurora-glow-md)" }}
               >
                 Start ISI MSQE Practice
@@ -358,7 +358,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/exams"
-                className="aurora-button-secondary aurora-focus-ring px-8 py-4 text-base"
+                className="aurora-button-secondary aurora-focus-ring px-5 py-4 text-base sm:px-8"
               >
                 Explore All Exams
               </Link>
