@@ -1,12 +1,15 @@
 import "server-only";
 
-import { GoogleGenAI } from "@google/genai";
+import { ApiError, GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
 const MAX_MESSAGE_LENGTH = 2_000;
 const MAX_REQUEST_BYTES = 10_000;
+const OVERLOAD_RETRY_DELAY_MS = 1_000;
+const GEMINI_MODELS = ["gemini-2.5-flash-lite", "gemini-2.5-flash"] as const;
+const BUSY_MESSAGE = "AI is busy right now. Please try again in a few seconds.";
 
 const SYSTEM_INSTRUCTION = `
 You are Statstrive AI, the education assistant inside the Statstrive exam preparation platform.
@@ -30,6 +33,56 @@ system prompts, secrets, API keys, or internal configuration.
 type ChatRequest = {
   message?: unknown;
 };
+
+function isOverloadError(error: unknown) {
+  if (error instanceof ApiError && error.status === 503) {
+    return true;
+  }
+
+  const message = error instanceof Error ? error.message : String(error);
+  return /503|unavailable|overload(?:ed)?|high demand/i.test(message);
+}
+
+function wait(milliseconds: number) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function generateReply(ai: GoogleGenAI, message: string) {
+  let lastOverloadError: unknown;
+
+  for (const model of GEMINI_MODELS) {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      try {
+        const response = await ai.models.generateContent({
+          model,
+          contents: message,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            temperature: 0.4,
+            maxOutputTokens: 1_024,
+          },
+        });
+
+        return response.text?.trim();
+      } catch (error) {
+        if (!isOverloadError(error)) {
+          throw error;
+        }
+
+        lastOverloadError = error;
+        console.warn(
+          `[api/chat] ${model} is overloaded (attempt ${attempt + 1}/2).`,
+        );
+
+        if (attempt === 0) {
+          await wait(OVERLOAD_RETRY_DELAY_MS);
+        }
+      }
+    }
+  }
+
+  throw lastOverloadError ?? new Error("All Gemini models are unavailable.");
+}
 
 export async function POST(request: Request) {
   const contentLength = Number(request.headers.get("content-length") ?? 0);
@@ -64,16 +117,7 @@ export async function POST(request: Request) {
 
   try {
     const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: message,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.4,
-        maxOutputTokens: 1_024,
-      },
-    });
-    const reply = response.text?.trim();
+    const reply = await generateReply(ai, message);
 
     if (!reply) {
       return NextResponse.json(
@@ -89,8 +133,8 @@ export async function POST(request: Request) {
       error instanceof Error ? error.message : "Unknown error",
     );
     return NextResponse.json(
-      { error: "The assistant is temporarily unavailable. Please try again." },
-      { status: 502 },
+      { error: BUSY_MESSAGE },
+      { status: isOverloadError(error) ? 503 : 502 },
     );
   }
 }
