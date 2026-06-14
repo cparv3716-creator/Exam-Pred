@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { PremiumGuard } from "@/components/ui/PremiumGuard";
+import { PlanLockCard } from "@/components/ui/PlanLockCard";
 import { ReportDownloadCard } from "@/components/dashboard/ReportDownloadCard";
 import { exams, getExamBySlug } from "@/data/exams";
 import { reports } from "@/data/analytics";
 import { CatDownloadsExperience } from "@/components/content/CatDownloadsExperience";
 import { MarkdownCard } from "@/components/content/MarkdownRenderer";
 import { getCatDownloads, getCatFinalRecommendation, getCatPipelineSummary } from "@/lib/content/cat";
+import { isAdmin, requireUser } from "@/lib/backend/auth";
+import { hasActiveExamSubscription } from "@/lib/backend/payments";
+import { getPaymentExamIdForSlug } from "@/lib/payments/plans";
 
 type Params = Promise<{ examSlug: string }>;
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return exams.map((exam) => ({ examSlug: exam.slug }));
@@ -25,6 +30,12 @@ export default async function ReportsPage({ params }: { params: Params }) {
   const { examSlug } = await params;
   const exam = getExamBySlug(examSlug);
   if (!exam) notFound();
+  const user = await requireUser(`/dashboard/exams/${exam.slug}/reports`);
+  const paymentExamId = getPaymentExamIdForSlug(exam.slug);
+  const premiumAccess = paymentExamId
+    ? (await isAdmin(user)) ||
+      (await hasActiveExamSubscription(user.id, paymentExamId).catch(() => false))
+    : false;
   const isCat = exam.slug === "cat";
   const catDownloads = isCat ? getCatDownloads() : [];
   const catRecommendation = isCat ? getCatFinalRecommendation() : null;
@@ -34,7 +45,10 @@ export default async function ReportsPage({ params }: { params: Params }) {
     <DashboardShell title={`${exam.name} reports`} subtitle={isCat ? "Real local CAT pipeline reports with role-gated PDFs and markdown lineage." : "Free basic reports and premium analytics exports."} activeHref="/dashboard/exams">
       {isCat && catRecommendation && catPipeline && (
         <div className="mb-8 space-y-6">
-          <CatDownloadsExperience downloads={catDownloads} />
+          <CatDownloadsExperience
+            downloads={catDownloads}
+            premiumAccess={premiumAccess}
+          />
           <div className="grid gap-6 lg:grid-cols-2">
             <MarkdownCard title="CAT final recommendation" markdown={catRecommendation.report.body} />
             <MarkdownCard title="CAT full pipeline summary" markdown={catPipeline.body} />
@@ -43,15 +57,24 @@ export default async function ReportsPage({ params }: { params: Params }) {
       )}
       <div className="grid gap-5 md:grid-cols-3">
         {reports.map((report) => (
-          <ReportDownloadCard key={report.id} report={report} locked={report.tier === "premium"} />
+          <ReportDownloadCard
+            key={report.id}
+            report={report}
+            locked={report.tier === "premium" && !premiumAccess}
+          />
         ))}
       </div>
       <div className="mt-8">
-        <PremiumGuard title="Premium report generator locked" description="Unlock downloadable decks, CSV exports and probability briefs.">
+        {premiumAccess ? (
           <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/[0.05] p-6 text-sm text-slate-300">
             Premium report generator placeholder ready for Phase 2 storage and rendering.
           </div>
-        </PremiumGuard>
+        ) : (
+          <PlanLockCard
+            title="Premium report generator locked"
+            description="Unlock downloadable decks, CSV exports and probability briefs."
+          />
+        )}
       </div>
     </DashboardShell>
   );
