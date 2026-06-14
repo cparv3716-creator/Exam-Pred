@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -29,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <FloatingChatbot />
+      </body>
     </html>
   );
 }
