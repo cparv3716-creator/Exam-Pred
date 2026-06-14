@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { PremiumGuard } from "@/components/ui/PremiumGuard";
 import { ProbabilityBar } from "@/components/ui/ProbabilityMeter";
 import { practicePlan } from "@/data/analytics";
+import { requireAnyActiveExamSubscription } from "@/lib/backend/access";
 
 export const metadata: Metadata = {
   title: "Practice Planner",
   description: "Premium weak-area practice planner demo.",
 };
 
-export default function PracticePlannerPage() {
+export const dynamic = "force-dynamic";
+
+export default async function PracticePlannerPage() {
+  await requireAnyActiveExamSubscription("/dashboard/practice-planner");
+
   return (
     <DashboardShell title="Practice planner" subtitle="Premium weak-area planning and recommended drills." activeHref="/dashboard/practice-planner">
-      <PremiumGuard title="Practice planner is Premium" description="Upgrade to unlock adaptive drill scheduling and weak-area recommendations.">
-        <div className="grid gap-5">
+      <div className="grid gap-5">
           {practicePlan.map((item) => (
             <div key={item.topic} className="rounded-xl border border-white/8 bg-white/[0.025] p-5">
               <div className="flex items-center justify-between gap-4">
@@ -28,8 +31,7 @@ export default function PracticePlannerPage() {
               </div>
             </div>
           ))}
-        </div>
-      </PremiumGuard>
+      </div>
     </DashboardShell>
   );
 }

@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { PremiumGuard } from "@/components/ui/PremiumGuard";
 import { RiskBadge } from "@/components/ui/Badge";
 import { ProbabilityBar, ProbabilityRing } from "@/components/ui/ProbabilityMeter";
 import { exams, getExamBySlug } from "@/data/exams";
 import { topicProbability } from "@/data/analytics";
 import { getCatPredictionSpecs, getCatPortfolioWeights } from "@/lib/content/cat";
+import { requireActiveExamSubscription } from "@/lib/backend/access";
+import { getPaymentExamIdForSlug } from "@/lib/payments/plans";
 
 type Params = Promise<{ examSlug: string }>;
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return exams.map((exam) => ({ examSlug: exam.slug }));
@@ -24,14 +27,20 @@ export default async function TopicProbabilityPage({ params }: { params: Params 
   const { examSlug } = await params;
   const exam = getExamBySlug(examSlug);
   if (!exam) notFound();
+  const paymentExamId = getPaymentExamIdForSlug(exam.slug);
+  if (paymentExamId) {
+    await requireActiveExamSubscription(
+      paymentExamId,
+      `/dashboard/exams/${exam.slug}/topic-probability`,
+    );
+  }
   const isCat = exam.slug === "cat";
   const catSpecs = isCat ? getCatPredictionSpecs() : null;
   const portfolioWeights = isCat ? getCatPortfolioWeights() : {};
 
   return (
     <DashboardShell title={`${exam.name} topic probability`} subtitle="Premium topic likelihood, frequency and risk indicators." activeHref="/dashboard/exams">
-      <PremiumGuard title="Topic probability is Premium" description="Upgrade to reveal probability meters, risk flags and topic cluster recommendations.">
-        {catSpecs && (
+      {catSpecs && (
           <div className="mb-8 grid gap-5 lg:grid-cols-[1fr_0.85fr]">
             <div className="rounded-xl border border-white/8 bg-white/[0.025] p-5">
               <h3 className="text-base font-semibold text-white">CAT prediction specs</h3>
@@ -60,8 +69,8 @@ export default async function TopicProbabilityPage({ params }: { params: Params 
               </div>
             </div>
           </div>
-        )}
-        <div className="grid gap-5 md:grid-cols-2">
+      )}
+      <div className="grid gap-5 md:grid-cols-2">
           {topicProbability.map((topic) => (
             <div key={topic.topic} className="rounded-xl border border-white/8 bg-white/[0.025] p-5">
               <div className="flex items-start justify-between gap-4">
@@ -79,8 +88,7 @@ export default async function TopicProbabilityPage({ params }: { params: Params 
               </div>
             </div>
           ))}
-        </div>
-      </PremiumGuard>
+      </div>
     </DashboardShell>
   );
 }

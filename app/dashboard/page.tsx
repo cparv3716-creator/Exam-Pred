@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, BrainCircuit, CalendarCheck, Download, Flame, Target } from "lucide-react";
 import { DashboardShell } from "@/components/layout/DashboardShell";
 import { DilrProgressPanel } from "@/components/dashboard/DilrProgressPanel";
+import { PremiumSubscriptionsPanel } from "@/components/dashboard/PremiumSubscriptionsPanel";
 import { PlanLockCard } from "@/components/ui/PlanLockCard";
 import { TopicHeatmap } from "@/components/dashboard/TopicHeatmap";
 import { AnalyticsChartCard } from "@/components/dashboard/AnalyticsChartCard";
@@ -12,6 +13,7 @@ import { CatRecommendationCard, CatStatsGrid } from "@/components/content/CatCon
 import { getCatDashboardStats, getCatFinalRecommendation } from "@/lib/content/cat";
 import { getCurrentProfile, getUserExamPreferences, requireUser } from "@/lib/backend/auth";
 import { getUserAccessLevel } from "@/lib/backend/access";
+import { getUserExamSubscriptions } from "@/lib/backend/payments";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -68,10 +70,11 @@ function MeterBar({ value, accent = "linear-gradient(90deg, var(--aurora-1), var
 
 export default async function DashboardPage() {
   const user = await requireUser("/dashboard");
-  const [profile, accessLevel, preferences] = await Promise.all([
+  const [profile, accessLevel, preferences, subscriptions] = await Promise.all([
     getCurrentProfile(user),
     getUserAccessLevel(user),
     getUserExamPreferences(user.id),
+    getUserExamSubscriptions(user.id).catch(() => []),
   ]);
   const catStats = getCatDashboardStats();
   const catRecommendation = getCatFinalRecommendation();
@@ -124,8 +127,10 @@ export default async function DashboardPage() {
         </div>
       </div>
 
+      <PremiumSubscriptionsPanel subscriptions={subscriptions} />
+
       {/* readiness-style stat row (existing placeholder values) */}
-      <div className="aurora-fade-slide-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="aurora-fade-slide-up mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile icon={BookOpen} label="Followed exams" value="4" detail="CAT, JEE, NEET, GATE" />
         <StatTile icon={BrainCircuit} label="Tracked topics" value="426" detail="Across demo catalog" accent="var(--aurora-cyan)" />
         <StatTile icon={Target} label="Top signal" value="86%" detail="Arithmetic cluster" accent="var(--aurora-violet)" />
@@ -253,7 +258,25 @@ export default async function DashboardPage() {
 
       {/* plan lock + quick actions */}
       <div className="aurora-fade-slide-up mt-8 grid gap-4 md:grid-cols-2" style={{ animationDelay: "460ms" }}>
-        <PlanLockCard compact title="Premium practice planner" description="Free users see the preview. Premium unlocks adaptive weak-area planning." />
+        {accessLevel === "premium" || accessLevel === "admin" ? (
+          <Link
+            href="/dashboard/practice-planner"
+            className="aurora-glass aurora-card-hover aurora-focus-ring p-5"
+          >
+            <Target size={18} aria-hidden style={{ color: "var(--aurora-violet)" }} />
+            <h3 className="mt-4 text-base font-bold" style={{ color: "var(--aurora-text-primary)" }}>
+              Premium practice planner
+            </h3>
+            <p className="mt-2 text-sm" style={{ color: "var(--aurora-text-secondary)" }}>
+              Build adaptive drills around weak areas and current exam priorities.
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style={{ color: "var(--aurora-primary)" }}>
+              Open planner <ArrowRight size={14} aria-hidden />
+            </span>
+          </Link>
+        ) : (
+          <PlanLockCard compact title="Premium practice planner" description="Free users see the preview. Premium unlocks adaptive weak-area planning." />
+        )}
         <Link href="/dashboard/downloads" className="aurora-glass aurora-card-hover aurora-focus-ring p-5">
           <CalendarCheck size={18} aria-hidden style={{ color: "var(--aurora-success)" }} />
           <h3 className="mt-4 text-base font-bold" style={{ color: "var(--aurora-text-primary)" }}>
