@@ -145,3 +145,19 @@ export function getExamAccessHref(examId: ExamId) {
 
   return hrefs[examId];
 }
+
+export function getPaymentExamIdForSlug(examSlug: string): ExamId | null {
+  const aliases: Record<string, ExamId> = {
+    cat: "cat",
+    isi: "isi_msqe",
+    isi_msqe: "isi_msqe",
+    "ugc-net": "ugc_net",
+    ugc_net: "ugc_net",
+    jee: "jee",
+    "jee-main": "jee",
+    "jee-advanced": "jee",
+    neet: "neet",
+  };
+
+  return aliases[examSlug] ?? null;
+}

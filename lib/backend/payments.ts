@@ -175,6 +175,16 @@ export async function getActiveExamSubscription(userId: string, examId: ExamId) 
   return rows[0] ?? null;
 }
 
+export async function hasActiveExamSubscription(userId: string, examId: ExamId) {
+  return Boolean(await getActiveExamSubscription(userId, examId));
+}
+
+export function getUserExamSubscriptions(userId: string) {
+  return supabaseAdminRestFetch<UserExamSubscriptionRow[]>(
+    `user_exam_subscriptions?user_id=eq.${encodeURIComponent(userId)}&select=*&order=valid_until.desc`,
+  );
+}
+
 export async function getAnyActiveExamSubscription(userId: string) {
   const now = new Date().toISOString();
   const rows = await supabaseAdminRestFetch<UserExamSubscriptionRow[]>(

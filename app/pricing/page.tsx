@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AuroraPageShell } from "@/components/aurora/AuroraPageShell";
 import { RazorpayPricing } from "@/components/payments/RazorpayPricing";
 import { getCurrentUser } from "@/lib/backend/auth";
+import { isExamId } from "@/lib/payments/plans";
 import { legalDisclaimer } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -11,8 +12,14 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function PricingPage() {
+export default async function PricingPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ examId?: string }>;
+}) {
   const user = await getCurrentUser();
+  const params = searchParams ? await searchParams : {};
+  const initialExamId = isExamId(params.examId) ? params.examId : "cat";
 
   return (
     <AuroraPageShell>
@@ -30,7 +37,10 @@ export default async function PricingPage() {
             </p>
           </div>
 
-          <RazorpayPricing isAuthenticated={Boolean(user)} />
+          <RazorpayPricing
+            isAuthenticated={Boolean(user)}
+            initialExamId={initialExamId}
+          />
 
           <p
             className="aurora-surface mx-auto mt-10 max-w-3xl p-5 text-center text-sm leading-6"

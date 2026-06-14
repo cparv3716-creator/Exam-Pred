@@ -97,8 +97,14 @@ async function readJson<T extends object>(response: Response): Promise<T> {
   return body as T;
 }
 
-export function RazorpayPricing({ isAuthenticated }: { isAuthenticated: boolean }) {
-  const [examId, setExamId] = useState<ExamId>("cat");
+export function RazorpayPricing({
+  isAuthenticated,
+  initialExamId = "cat",
+}: {
+  isAuthenticated: boolean;
+  initialExamId?: ExamId;
+}) {
+  const [examId, setExamId] = useState<ExamId>(initialExamId);
   const [planId, setPlanId] = useState<PlanId>("pro_monthly");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
