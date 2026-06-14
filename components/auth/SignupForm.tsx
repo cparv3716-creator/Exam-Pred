@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { UserPlus } from "lucide-react";
-import { signUpWithPassword } from "@/lib/supabase/client";
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 export function SignupForm() {
@@ -21,20 +21,40 @@ export function SignupForm() {
     setMessage("");
     setIsPending(true);
 
-    const result = await signUpWithPassword(email, password, fullName);
-    setIsPending(false);
+    const supabase = getSupabaseBrowserClient();
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { full_name: fullName },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
 
-    if (!result.ok) {
-      setError(result.error);
+    if (signUpError) {
+      setIsPending(false);
+      setError(signUpError.message || "Signup failed. Please try again.");
       return;
     }
 
-    setMessage(result.data.message || "Check your email to verify your account");
+    // When email confirmation is disabled, signUp returns an active session and
+    // the browser client has already written the session cookie. Confirm it
+    // before redirecting so we never land on a protected page without a session.
+    if (data.session) {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setIsPending(false);
 
-    if (result.data.hasSession) {
-      router.push("/dashboard");
-      router.refresh();
+      if (session) {
+        router.refresh();
+        router.push("/dashboard");
+        return;
+      }
     }
+
+    setIsPending(false);
+    setMessage("Check your email to verify your account");
   }
 
   return (

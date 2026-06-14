@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { KeyRound, Mail, RotateCcw } from "lucide-react";
-import { supabase } from "@/lib/supabase/client";
+import { supabase } from "@/lib/supabase/auth-rest-client";
 import { AuthInput, AuthMessage } from "./AuthFields";
 
 type ResetStep = "email" | "otp" | "password" | "success";

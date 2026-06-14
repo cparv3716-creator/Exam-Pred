@@ -4,8 +4,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { LogIn } from "lucide-react";
-import { signInWithPassword } from "@/lib/supabase/client";
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import { AuthInput, AuthMessage } from "./AuthFields";
+
+function toFriendlyAuthError(message: string) {
+  const normalized = message.toLowerCase();
+  if (/confirm|verified|verify/.test(normalized)) {
+    return "Please verify your email before logging in.";
+  }
+  if (/invalid login credentials|invalid email or password/.test(normalized)) {
+    return "Invalid email or password.";
+  }
+  return message || "Invalid email or password.";
+}
 
 export function LoginForm({ nextPath = "/dashboard", initialError }: { nextPath?: string; initialError?: string }) {
   const router = useRouter();
@@ -19,16 +30,31 @@ export function LoginForm({ nextPath = "/dashboard", initialError }: { nextPath?
     setError("");
     setIsPending(true);
 
-    const result = await signInWithPassword(email, password);
-    setIsPending(false);
+    const supabase = getSupabaseBrowserClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
 
-    if (!result.ok) {
-      setError(result.error);
+    if (signInError) {
+      setIsPending(false);
+      setError(toFriendlyAuthError(signInError.message));
       return;
     }
 
-    router.push(nextPath || "/dashboard");
+    // Confirm the session cookie is actually persisted before navigating, so we
+    // never redirect to the dashboard with no usable session (the original bug).
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    setIsPending(false);
+
+    if (!session) {
+      setError("We could not establish your session. Please try again.");
+      return;
+    }
+
+    // Refresh server components so they pick up the new cookie session, then go.
     router.refresh();
+    router.push(nextPath || "/dashboard");
   }
 
   return (

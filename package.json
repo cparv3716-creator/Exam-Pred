@@ -29,6 +29,8 @@
     "recover:cat-varc-answers": "tsx scripts/recover-cat-varc-answers.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "katex": "^0.17.0",
