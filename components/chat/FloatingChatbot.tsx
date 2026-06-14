@@ -8,6 +8,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import {
   FormEvent,
   KeyboardEvent,
@@ -27,6 +28,20 @@ type ChatResponse = {
   error?: string;
 };
 
+const CHAT_QUIET_ROUTES = [
+  "/auth",
+  "/login",
+  "/signup",
+  "/logout",
+  "/payment",
+  "/forgot-password",
+  "/reset-password",
+  "/verify-email",
+];
+
+function shouldHideChat(pathname: string) {
+  return CHAT_QUIET_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
+}
 const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: 1,
@@ -37,6 +52,7 @@ const INITIAL_MESSAGES: ChatMessage[] = [
 ];
 
 export function FloatingChatbot() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
@@ -105,8 +121,12 @@ export function FloatingChatbot() {
     }
   }
 
+  if (shouldHideChat(pathname)) {
+    return null;
+  }
+
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end sm:bottom-6 sm:right-6">
+    <div className="fixed right-4 z-50 flex flex-col items-end sm:right-6" style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}>
       {isOpen && (
         <section
           aria-label="Statstrive AI chat"

@@ -5,6 +5,9 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#0755b5",
 };
 

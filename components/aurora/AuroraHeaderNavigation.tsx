@@ -99,19 +99,19 @@ export function AuroraHeaderNavigation({ links }: { links: NavLink[] }) {
       {authState === "loading" ? (
         <span
           aria-label="Checking login status"
-          className="h-10 w-28 animate-pulse rounded-xl bg-white/50"
+          className="h-10 w-20 shrink-0 animate-pulse rounded-xl bg-white/50 sm:w-28"
         />
       ) : signedIn ? (
         <button
           type="button"
           onClick={handleLogout}
-          className="aurora-button-secondary aurora-focus-ring px-5 text-sm"
+          className="aurora-button-secondary aurora-focus-ring shrink-0 px-3 text-sm sm:px-5"
         >
           Logout
           <LogOut size={15} aria-hidden />
         </button>
       ) : (
-        <Link href="/signup" className="aurora-button-primary aurora-focus-ring px-5 text-sm">
+        <Link href="/signup" className="aurora-button-primary aurora-focus-ring shrink-0 px-3 text-sm sm:px-5">
           Sign up
           <ArrowRight size={15} aria-hidden />
         </Link>

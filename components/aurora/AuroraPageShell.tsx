@@ -17,13 +17,13 @@ export function AuroraPageShell({ children }: { children: ReactNode }) {
       className="min-h-screen overflow-x-clip antialiased"
       style={{ background: "var(--aurora-background)", color: "var(--aurora-text-primary)" }}
     >
-      <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 px-3 pt-[calc(0.75rem+env(safe-area-inset-top))] sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div
-            className="aurora-glass flex items-center justify-between gap-3 px-4 py-3 sm:px-6"
+            className="aurora-glass flex min-w-0 items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-6"
             style={{ borderRadius: "var(--aurora-radius-xl)" }}
           >
-            <Link href="/" className="aurora-focus-ring flex items-center gap-3 rounded-xl">
+            <Link href="/" className="aurora-focus-ring flex min-w-0 items-center gap-2 rounded-xl sm:gap-3">
               <span
                 aria-hidden
                 className="relative grid h-9 w-9 place-items-center rounded-full"

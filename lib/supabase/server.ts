@@ -24,7 +24,7 @@ export type AuthSessionPayload = {
   user?: SupabaseUser | null;
 };
 
-export type SupabaseOtpType = "recovery" | "email";
+export type SupabaseOtpType = "recovery" | "email" | "signup" | "magiclink" | "invite" | "email_change";
 
 export function getSupabasePublicConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -38,8 +38,8 @@ export function getSupabasePublicConfig() {
 }
 
 export function getSiteUrl() {
-  const fallback = process.env.NODE_ENV === "production" ? "https://www.statstrive.com" : "http://localhost:3000";
-  return (process.env.NEXT_PUBLIC_SITE_URL || fallback).replace(/\/$/, "");
+  const fallback = process.env.NODE_ENV === "production" ? "https://statstrive.com" : "http://localhost:3000";
+  return (process.env.NEXT_PUBLIC_SITE_URL || fallback).replace(/\/$/, "").replace("https://www.statstrive.com", "https://statstrive.com");
 }
 
 /**
@@ -197,8 +197,8 @@ export function getSafeRelativePath(value: string | null, fallback = "/dashboard
   }
 
   try {
-    const parsed = new URL(value, "https://www.statstrive.com");
-    if (parsed.origin !== "https://www.statstrive.com") {
+    const parsed = new URL(value, "https://statstrive.com");
+    if (parsed.origin !== "https://statstrive.com") {
       return fallback;
     }
   } catch {
