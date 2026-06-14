@@ -27,6 +27,19 @@ export type UserExamSubscriptionRow = {
   source_payment_id: string | null;
 };
 
+export type PaymentRow = {
+  id: string;
+  user_id: string;
+  exam_id: ExamId;
+  plan_id: PaidPlanId;
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  status: string;
+  error_reason: string | null;
+  error_description: string | null;
+  created_at: string;
+};
+
 type ActivateVerifiedPaymentRow = {
   valid_until: string;
   already_processed: boolean;
@@ -73,6 +86,17 @@ export async function getPaymentOrderByRazorpayId(razorpayOrderId: string) {
   );
 
   return rows[0] ?? null;
+}
+
+export function getPaymentsForOrder(input: {
+  userId: string;
+  examId: ExamId;
+  planId: PaidPlanId;
+  razorpayOrderId: string;
+}) {
+  return supabaseAdminRestFetch<PaymentRow[]>(
+    `payments?user_id=eq.${encodeURIComponent(input.userId)}&exam_id=eq.${encodeURIComponent(input.examId)}&plan_id=eq.${encodeURIComponent(input.planId)}&razorpay_order_id=eq.${encodeURIComponent(input.razorpayOrderId)}&select=id,user_id,exam_id,plan_id,razorpay_order_id,razorpay_payment_id,status,error_reason,error_description,created_at&order=created_at.desc`,
+  );
 }
 
 export async function activateVerifiedPayment(input: {

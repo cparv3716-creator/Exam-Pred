@@ -61,6 +61,23 @@ export type AccessCheckResponse = {
   validUntil?: string;
 };
 
+export type PaymentStatusResponse =
+  | {
+      status: "active";
+      examId: ExamId;
+      planId: PaidPlanId;
+      validUntil: string;
+    }
+  | {
+      status: "verified_but_activating" | "pending";
+      examId: ExamId;
+      planId: PaidPlanId;
+    }
+  | {
+      status: "failed";
+      reason: string;
+    };
+
 export const paymentExams: readonly ExamOption[] = [
   { id: "cat", name: "CAT", description: "Common Admission Test" },
   { id: "isi_msqe", name: "ISI MSQE", description: "M.S. in Quantitative Economics" },
