@@ -22,6 +22,7 @@ const NAV_LINKS = [
   { label: "CAT", href: "/exams/cat" },
   { label: "Practice", href: "/exams/isi/msqe/pyqs/pea" },
   { label: "Feedback", href: "/feedback" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const HERO_CHIPS = ["ISI MSQE live", "CAT DILR practice", "PYQ-backed intelligence", "Multi-exam roadmap"];
