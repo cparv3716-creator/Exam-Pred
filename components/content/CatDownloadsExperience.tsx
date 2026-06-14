@@ -5,14 +5,20 @@ import { Crown, Download, FileText, Lock } from "lucide-react";
 import type { CatDownload } from "@/types/content";
 import { isPremium, useRoleStore } from "@/stores/use-role-store";
 
-export function CatDownloadsExperience({ downloads }: { downloads: CatDownload[] }) {
+export function CatDownloadsExperience({
+  downloads,
+  premiumAccess = false,
+}: {
+  downloads: CatDownload[];
+  premiumAccess?: boolean;
+}) {
   const role = useRoleStore((state) => state.role);
-  const premium = isPremium(role);
+  const premium = premiumAccess || isPremium(role);
 
   return (
     <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {downloads.map((download) => {
-        const guestLocked = role === "guest";
+        const guestLocked = !premiumAccess && role === "guest";
         const premiumLocked = download.tier === "premium" && !premium;
         const locked = guestLocked || premiumLocked;
 
